@@ -1,0 +1,11 @@
+site_name: Sistemas Operativos en Red
+nav:
+    - Home: index.md
+    - About: otro/prueba.md
+theme:
+  name: material
+  palette:
+    # scheme: slate
+    primary: indigo
+  features:
+    - navigation.tabs
