@@ -1,7 +1,15 @@
-site_name: Sistemas Operativos en Red
+site_name: Informática y sistemas operativos
 nav:
-    - Home: index.md
-    - About: otro/prueba.md
+  - Introducción: index.md
+  - Conceptos generales:
+    - 'Introducción a la informática': '1-intro/1-intro-ordenadores.md'
+    - 'Introducción a los sistemas operativos': '1-intro/2-intro-sos.md'
+  - Virtualización: virtual-machines.md
+  - Instalación de sistemas: install-config.md
+  - Configuración de GNU/Linux: linux-config.md
+  - Bash: scripting-linux.md
+  - Configuración de WS2019: windows-server-config.md
+  - Powershell: powershell.md
 theme:
   name: material
   palette:
@@ -9,3 +17,6 @@ theme:
     primary: indigo
   features:
     - navigation.tabs
+    - navigation.sections
+extra:
+  generator: false

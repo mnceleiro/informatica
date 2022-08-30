@@ -1,19 +1,9 @@
-# Sistemas Operativos en red
+# Informática y sistemas operativos
+En esta página se disponen los apuntes que se usarán durante los cursos de:
 
+- **Sistemas Operativos en Red (SOR)** de 2º de ciclo medio de informática.
+- **TIC** de bachillerato.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Los apuntes se orientan más bien al módulo de ciclo medio, aunque las partes introductorias son muy útiles para ambos módulos.
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        prueba.md # hola
-        ...       # Other markdown pages, images and other files.
+Estos apuntes se irán desarrollando a lo largo del curso y para incompletas tendrán la etiqueta de ***TODO*** (para hacer). Estas partes se irán completando a lo largo del curso y complementarán con enlaces en el aula virtual o páginas web que se dispondrán en esta página.
