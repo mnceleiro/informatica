@@ -4,3 +4,5 @@ Esta documentación se encuentra [aquí](/ficheros/componentes-pc.pdf). Puedes c
 
 ## Arquitectura
 TODO: Von Neumann y Harvard. Arquitecturas actuales: x86, x64, ARM.
+
+## Práctica

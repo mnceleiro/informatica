@@ -1,14 +1,13 @@
 site_name: Informática y sistemas operativos
 nav:
-  - Introducción: index.md
-  - Conceptos generales:
+  - Introducción:
+    - 'Iniciación': 'index.md'
     - 'Introducción a la informática': '1-intro/1-intro-ordenadores.md'
     - 'Introducción a los sistemas operativos': '1-intro/2-intro-sos.md'
-  - Virtualización: virtual-machines.md
-  - Instalación de sistemas: install-config.md
-  - Configuración de GNU/Linux: linux-config.md
-  - Bash: scripting-linux.md
-  - Configuración de WS2019: windows-server-config.md
+    - 'Virtualización': '1-intro/3-virtual-machines.md'
+  - GNU/Linux: linux-setup.md
+  - Programación en BASH: scripting-linux.md
+  - Windows: windows-setup.md
   - Powershell: powershell.md
 theme:
   name: material
