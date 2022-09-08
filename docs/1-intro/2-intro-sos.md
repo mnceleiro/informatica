@@ -73,9 +73,25 @@ Como veis, **es posible tener el mismo sistema operativo con diferente entorno d
 Algunos sistemas operativos o entornos de escritorio en GNU/Linux consumen muy pocos y están preparados para dar una segunda vida a ordenadores antiguos. Si quieres dar una segunda vida a un ordenador antiguo sigue [este enlace](https://itsfoss.com/lightweight-linux-beginners/).
 <br>
 
-## Sistemas operativos de servidor
+## Sistemas operativos en servidor
+Algunos usuarios habituales de Linux son los siguientes:
+- Gobierno de los Estados Unidos y algunas de sus agencias (nacional, estatal, federal e internacional).
+- NASA: no solo lo utilizan para la mayor parte de su computación, sino que además contribuyen al código.
+- Hospitales
+- Red de trenes de alta velocidad de Japón (bullet trains).
+- Control de tráfico.
+- Institutos financieros.
+- Liders de comercio online (Amazon, Paypal, Ebay o Walmart.
+- Muchas otras compañías (Google, IBM, Facebook, Mcdonals...).
+
 TODO: Windows Server y versiones<br>
-TODO: GNU/Linux en servidores
+TODO: GNU/Linux en servidor
+- Redhat
+- CentOS: administrado también por Redhat y totalmente gratuito. No recibe soporte técnico de Redhat.
+- Fedora Server: gratuito.
+- Suse Linux Enterprise Server: pertenece a la compañía Novell. VMWare utiliza Suse como entorno.
+- Debian.
+- Ubuntu Server.
 
 ## Diferencias principales entre los sistemas operativos
 ### Organización de los ficheros en el disco duro
