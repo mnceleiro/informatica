@@ -3,7 +3,7 @@ nav:
   - Introducción:
     - 'Iniciación': 'index.md'
     - 'Arquitecturas físicas': '1-intro/11-arquitecturas-fisicas.md'
-    - 'Navegadores web': '1-intro/2-intro-ordenadores.md'
+    - 'Introducción a la informática': '1-intro/2-intro-ordenadores.md'
     - 'Introducción a los sistemas operativos': '1-intro/3-intro-sos.md'
     - 'Virtualización': '1-intro/3-virtual-machines.md'
   - GNU/Linux: linux-setup.md

@@ -3,7 +3,7 @@
 ## Descarga
 
 Para descargar cualquier sistema operativo de Microsoft en versión de prueba se puede acceder al [centro de evaluación de microsoft](https://www.microsoft.com/en-us/evalcenter/) y posteriormente seleccionar el sistema operativo deseado.
-![](/images/windows-server/ws-download1.png)  
+![](/images/windows/ws-download1.png)  
 
 ## Versiones
 En WS 2019 tenemos lo siguiente, de más barato a más caro:
