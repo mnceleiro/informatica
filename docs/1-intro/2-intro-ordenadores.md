@@ -16,6 +16,7 @@ Hay muchas cosas que pueden abarcarse en una introducción a la informática. En
 | Bloquear pantalla | WINDOWS + L |
 
 ## Ficheros y carpetas
+### Crear una nueva carpeta en Windows 11
 Para crear una nueva carpeta en Windows 11 se puede pulsar en el botón derecho en un sitio vacío y seleccionar "Nueva carpeta":
 
 ![](/images/intro/create-directory.png)  
@@ -43,7 +44,7 @@ En los sistemas operativos **Windows**, por defecto, las extensiones de fichero 
 
 ![](/images/intro/mostrar-ocultar-extensiones-archivos.png)
 
-## Ficheros comprimidos
+### Comprimir y descomprimir ficheros
 Los ficheros comprimidos suelen tener la extensión .zip o .rar (aunque existen otras: tar.gz, tgz, 7zip...).
 
 Para comprimir un fichero, solamente hay que pulsar botón derecho sobre los archivos que se desean comprimir y pulsar la opción deseada. Por ejemplo, si disponemos de la aplicación 7zip:
