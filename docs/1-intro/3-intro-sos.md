@@ -36,32 +36,32 @@ Para ordenadores antiguos o con muy pocos recursos:
 
 A continuación se muestran imágenes de distintos sistemas operativos y entornos de escritorio:
 
-| ![ubuntu-gnome.png](/images/intro/distros-linux/ubuntu-gnome.png) |
+| ![ubuntu-gnome.png](../images/intro/distros-linux/ubuntu-gnome.png) |
 |:--:|
 | **Ubuntu** con **GNOME** (Ubuntu) |
 
 
-| ![kubuntu.png](/images/intro/distros-linux/kubuntu.png) |
+| ![kubuntu.png](../images/intro/distros-linux/kubuntu.png) |
 |:-:|
 | **Ubuntu** con **KDE** (Kubuntu) |
 
 
-| ![lubuntu.png](/images/intro/distros-linux/lubuntu.png) |
+| ![lubuntu.png](../images/intro/distros-linux/lubuntu.png) |
 |:-:|
 | **Ubuntu** con **LXDE** (Lubuntu) |
 
 
-| ![linux-mint-cinnamon.png](/images/intro/distros-linux/linux-mint-cinnamon.png) |
+| ![linux-mint-cinnamon.png](../images/intro/distros-linux/linux-mint-cinnamon.png) |
 |:-:|
 | **Linux Mint** (distribución basada en Ubuntu) con entorno de escritorio **Cinnamon** |
 
 
-| ![linux-mint-mate.png](/images/intro/distros-linux/linux-mint-mate.png) |
+| ![linux-mint-mate.png](../images/intro/distros-linux/linux-mint-mate.png) |
 |:-:|
 | **Linux Mint** con entorno de escritorio denominado **MATE** |
 
 
-| ![](/images/intro/distros-linux/zorinos.png) |
+| ![](../images/intro/distros-linux/zorinos.png) |
 |:-:|
 | **Zorin OS** (distribución basada en Ubuntu y *Windows friendly*). Tiene un entorno de escritorio GNOME adaptado por ellos mismos para hacerlo más familiar a Windows. |
 
@@ -79,7 +79,9 @@ Para servidores, Microsoft dispone de versiones denominadas Windows Server (p. e
 
 #### Descarga
 Para descargar cualquier sistema operativo de Microsoft en versión de prueba se puede acceder al [centro de evaluación de microsoft](https://www.microsoft.com/en-us/evalcenter/) y posteriormente seleccionar el sistema operativo deseado.
-![](/images/windows-server/ws-download1.png)
+
+![](../images/windows-server/ws-download1.png)
+
 #### Versiones
 En WS 2019 tenemos lo siguiente, de más barato a más caro:
 
@@ -119,9 +121,9 @@ El [disco duro](https://www.amazon.es/Discos-Duros/s?k=Discos+Duros&rh=n%3A93791
 En los sistemas Windows, tanto los discos duros como los pendrives, tarjetas SD u otros dispositivos de almacenamiento **se representan con una letra** (C, D, E, F, G, H...). Cada letra representa un disco físico donde se almacena la información (a veces ese disco duro físico se puede dividir en muchas letras y aparecer verse como si fuesen varios).<br>
 Para acceder a la información de los discos en Windows puedes seguir los siguientes pasos:
 1. Pulsa en el icono de Windows -> Este equipo.
-![](/images/intro/letras-discos-1.png)  
+![](../images/intro/letras-discos-1.png)  
 2. En la sección "Dispositivos y unidades" puedes ver tus discos duros y su espacio ocupado y disponible. Como ves, están organizados por letras.
-3. ![](/images/intro/letras-discos-2.png) 
+3. ![](../images/intro/letras-discos-2.png) 
 
 En Windows el disco principal (donde se guarda toda la información importante del sistema) es el disco C:/.
 
@@ -150,19 +152,19 @@ TODO: diferencia ruta absoluta y rutas relativas, navegación entre carpetas
 En la parte de componentes físicos se ha hablado del almacenamiento de información en discos duros rígidos y discos en estado sólido (SSD). Estos últimos son más modernos, más rápidos y, por lo tanto, también más caros.
 
 A continuación se muestran los distintos tipos de dispositivos de almacenamiento ordenadores de más rápido a más lento y, a su vez, de más caro a más barato:
-| ![ssd-nvme-870evo.png](/images/physical/ssd-nvme-870evo.png) |
+| ![ssd-nvme-870evo.png](../images/physical/ssd-nvme-870evo.png) |
 | :--: |
 | *SSD NVMe M.2 de 1TB por 157€ a 28/08/2022 (obtenido de [pccomponentes](https://www.pccomponentes.com/samsung-970-evo-plus-1tb-ssd-nvme-m2))* |
 
 <br>
 
-| ![ssd-sata-samsung-870.png](/images/physical/ssd-sata-samsung-870.png) |
+| ![ssd-sata-samsung-870.png](../images/physical/ssd-sata-samsung-870.png) |
 | :--: |
 | *SSD SATA3 de 2.5" y 1TB por 157€ a 28/08/2022 (obtenido de [pccomponentes](https://www.pccomponentes.com/samsung-870-qvo-ssd-1tb-sata3))* |
 
 <br>
 
-| ![hdd-seagate-4tb.png](/images/physical/hdd-seagate-barracuda-4tb.png) |
+| ![hdd-seagate-4tb.png](../images/physical/hdd-seagate-barracuda-4tb.png) |
 | :--: |
 | *Disco duro mecánico SATA3 de 3.5" y 4TB por 91€ a 28/08/2022 (obtenido de [pccomponentes](https://www.pccomponentes.com/seagate-barracuda-35-4tb-sata3))* |
 
