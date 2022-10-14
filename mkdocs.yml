@@ -1,4 +1,5 @@
 site_name: Informática y sistemas operativos
+repo_url: https://github.com/mnceleiro/informatica
 nav:
   - Introducción:
     - 'Iniciación': 'index.md'
