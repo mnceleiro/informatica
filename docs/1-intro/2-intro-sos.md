@@ -74,7 +74,25 @@ Algunos sistemas operativos o entornos de escritorio en GNU/Linux consumen muy p
 <br>
 
 ## Sistemas operativos en servidor
+### Windows en servidores
+Para servidores, Microsoft dispone de versiones denominadas Windows Server (p. ej: Windows Server 2012 o Windows Server 2022, la más reciente).
+
+#### Descarga
+Para descargar cualquier sistema operativo de Microsoft en versión de prueba se puede acceder al [centro de evaluación de microsoft](https://www.microsoft.com/en-us/evalcenter/) y posteriormente seleccionar el sistema operativo deseado.
+![](/images/windows-server/ws-download1.png)
+#### Versiones
+En WS 2019 tenemos lo siguiente, de más barato a más caro:
+
+- **Windows Server 2019 Essential**. Destinado a pequeños negocios y con un máximo de 25 usuarios pueden conectarse a el y 50 dispositivos. Actualmente Microsoft recomienda **no usar** esta versión y utilizar, en su lugar, su solución de servidores en la nube Microsoft 365.
+- **Windows Server 2019 Standard**: bueno para entornos físicos (que no usan máquinas o casi no usan máquinas virtuales). Viene solamente con dos licencias virtuales (es decir, podemos instalar WS2019 Standard con dos VMs en HyperV pero no incrementar a una tercera a no ser que la compremos). Además, si usamos el servidor físico para cualquier otra cosa que no sea esas dos máquinas virtuales entonces consumirá una de esas licencias.
+- **Windows Server 2019 Datacenter**: viene con licencias ilimitadas para ejecutar máquinas virtuales (esto es, puedes crear tantas VMs como quieras).
+- **Hyper-V server 2019**: servidor dedicado de máquinas virtuales con Hyper-V. Se puede descargar de la web de Microsoft con infinitas máquinas virtuales. Viene sin GUI y no podemos hacer otra cosa que albergar en el máquinas virtuales.
+
+Las diferencias más grandes que hay entre las versiones Standard y Datacenter es el número de licencias para virtualización.
+
+### GNU/Linux en servidores
 Algunos usuarios habituales de Linux son los siguientes:
+
 - Gobierno de los Estados Unidos y algunas de sus agencias (nacional, estatal, federal e internacional).
 - NASA: no solo lo utilizan para la mayor parte de su computación, sino que además contribuyen al código.
 - Hospitales
@@ -84,9 +102,9 @@ Algunos usuarios habituales de Linux son los siguientes:
 - Liders de comercio online (Amazon, Paypal, Ebay o Walmart.
 - Muchas otras compañías (Google, IBM, Facebook, Mcdonals...).
 
-TODO: Windows Server y versiones<br>
-TODO: GNU/Linux en servidor
-- Redhat
+Dentro de las versiones de GNU/Linux en entornos empresariales destacan las siguientes:
+
+- Redhat.
 - CentOS: administrado también por Redhat y totalmente gratuito. No recibe soporte técnico de Redhat.
 - Fedora Server: gratuito.
 - Suse Linux Enterprise Server: pertenece a la compañía Novell. VMWare utiliza Suse como entorno.
@@ -152,6 +170,19 @@ Esto nos da una idea de donde vamos a trabajar ahora (sobre estos discos/disposi
 
 TODO: particiones, sistemas de ficheros
 
+## Arranque del sistema
+Respecto al arranque del sistema, existen cuatro conceptos importantes a entender:
+- BIOS *(Sistema básico de entrada-salida)*
+- UEFI *(Unified Extensible Firmware Interface)*
+- MBR
+- GPT
+
+**BIOS** y **UEFI** se refieren a dos gestores de arranque. Se encargan de iniciar los componentes de hardware e iniciar el sistema operativo. UEFI es la versión más moderna (BIOS se ha quedado obsoleta). Aún así, coloquialmente se sigue utilizando **BIOS** para denominar, en general, al gestor de arranque.
+
+MBR y GPT, por otro lado, son las tablas de particionado (GPT es la versión más moderna). Puedes consultar [este enlace](https://es.easeus.com/partition-manager-tips/mbr-y-gpt.html) para más información.
+
 ## Referencias
 - Germán Cocca. Windows vs MacOS vs Linux - Operating System Handbook. Freecodecamp. Obtenido de: https://www.freecodecamp.org/news/an-introduction-to-operating-systems/#thethreemainoss
 - Dong Ngo. File System and Partition Explained: How to Take Control of Your Storage. Dongknows. Obtenido de: https://dongknows.com/disk-partition-and-file-system-explained/#what-is-a-partition
+- Imran Afzal. Complete Linux Training Course to Get Your Dream IT Job 2022. Curso en Udemy. Obtenido de: https://www.udemy.com/course/complete-linux-training-course-to-get-your-dream-it-job/
+- Pedro. MBR o GPT - ¿Cuál es la diferencia y cuál es mejor?. EaseUS. Obtenido de: https://es.easeus.com/partition-manager-tips/mbr-y-gpt.html

@@ -32,9 +32,9 @@ Muchos dispositivos hoy en día dependen de baterías, pero la tecnología de me
 
 ## Práctica
 Para redactar la práctica entrega capturas con todos los ejercicios.
+
 1. Busca el modelo de procesador y la RAM de la que dispone tu ordenador, así como su arquitectura.
 2. Si dispones de [este ordenador](https://es.aliexpress.com/item/1005003280539571.html) y quieres instalar en el el programa [VirtualBox](https://www.virtualbox.org/). Indica por qué no puedes instalar la última versión y cuál sería la última válida (lo difícil aquí es pensar por qué la última versión no vale, después busca la última compatible con ese ordenador).
-3. 
 
 ## Referencias
 - Diferencias entre i386, x86, x64, AMD64 e IA64. Thinkinvirtual. Obtenido de: https://www.thinkinvirtual.com/2017/03/diferencias-entre-i386-x86-x64-amd64-e.html
