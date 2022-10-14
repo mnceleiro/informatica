@@ -2,10 +2,13 @@ site_name: Informática y sistemas operativos
 nav:
   - Introducción:
     - 'Iniciación': 'index.md'
-    - 'Introducción a la informática': '1-intro/1-intro-ordenadores.md'
-    - 'Introducción a los sistemas operativos': '1-intro/2-intro-sos.md'
-    - 'Virtualización': '1-intro/3-virtual-machines.md'
-  - GNU/Linux: linux-setup.md
+    - 'Arquitecturas físicas': '1-intro/1-arquitecturas-fisicas.md'
+    - 'Introducción a la informática': '1-intro/2-intro-ordenadores.md'
+    - 'Introducción a los sistemas operativos': '1-intro/3-intro-sos.md'
+    - 'Virtualización': '1-intro/4-virtual-machines.md'
+  - GNU/Linux: 
+    - 'Comandos básicos': 'gnu-linux/linux-setup.md'
+    - 'Gestión de usuarios y grupos': 'gnu-linux/users-groups-local.md'
   - Programación en BASH: scripting-linux.md
   - Windows: windows-setup.md
   - Powershell: powershell.md
