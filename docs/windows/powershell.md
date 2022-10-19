@@ -8,9 +8,3 @@ PowerShelltiene los siguientes elementos:
   - Set-Location -> cd
   - Get-Location -> pwd
 - Funciones: se utilizan para 
-
-
-
-Referencias:
-- 
-
