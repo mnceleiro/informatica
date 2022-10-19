@@ -1,0 +1,1217 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
+    
+    
+      
+        <title>Introducción a los sistemas operativos - Informática y sistemas operativos</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sistemas-operativos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Informática y sistemas operativos" class="md-header__button md-logo" aria-label="Informática y sistemas operativos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción a los sistemas operativos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mnceleiro/informatica" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
+        Introducción
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gnu-linux/linux-setup/" class="md-tabs__link">
+        GNU/Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../scripting-linux.md" class="md-tabs__link">
+      Programación en BASH
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../windows-setup/" class="md-tabs__link">
+      Windows
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../powershell.md" class="md-tabs__link">
+      Powershell
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Informática y sistemas operativos" class="md-nav__button md-logo" aria-label="Informática y sistemas operativos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Informática y sistemas operativos
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mnceleiro/informatica" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Introducción
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Introducción" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introducción
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Iniciación
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-arquitecturas-fisicas/" class="md-nav__link">
+        Arquitecturas físicas
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2-intro-ordenadores/" class="md-nav__link">
+        Introducción a la informática
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introducción a los sistemas operativos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Introducción a los sistemas operativos
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sistemas-operativos-de-proposito-general" class="md-nav__link">
+    Sistemas operativos de propósito general
+  </a>
+  
+    <nav class="md-nav" aria-label="Sistemas operativos de propósito general">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-windows" class="md-nav__link">
+    Sistemas Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    MacOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnulinux" class="md-nav__link">
+    GNU/Linux
+  </a>
+  
+    <nav class="md-nav" aria-label="GNU/Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distribuciones-gnulinux-y-entornos-de-escritorio" class="md-nav__link">
+    Distribuciones GNU/Linux y entornos de escritorio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistemas-operativos-en-servidor" class="md-nav__link">
+    Sistemas operativos en servidor
+  </a>
+  
+    <nav class="md-nav" aria-label="Sistemas operativos en servidor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-en-servidores" class="md-nav__link">
+    Windows en servidores
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows en servidores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descarga" class="md-nav__link">
+    Descarga
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versiones" class="md-nav__link">
+    Versiones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnulinux-en-servidores" class="md-nav__link">
+    GNU/Linux en servidores
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferencias-principales-entre-los-sistemas-operativos" class="md-nav__link">
+    Diferencias principales entre los sistemas operativos
+  </a>
+  
+    <nav class="md-nav" aria-label="Diferencias principales entre los sistemas operativos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organizacion-de-los-ficheros-en-el-disco-duro" class="md-nav__link">
+    Organización de los ficheros en el disco duro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizacion-de-los-datos-en-sistemas-windows" class="md-nav__link">
+    Organización de los datos en sistemas Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizacion-de-los-datos-en-sistemas-gnulinux" class="md-nav__link">
+    Organización de los datos en sistemas GNU/Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminales-de-comandos" class="md-nav__link">
+    Terminales de comandos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensiones-de-ficheros" class="md-nav__link">
+    Extensiones de ficheros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archivos-y-carpetas" class="md-nav__link">
+    Archivos y carpetas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-de-ficheros-y-particiones" class="md-nav__link">
+    Sistemas de ficheros y particiones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arranque-del-sistema" class="md-nav__link">
+    Arranque del sistema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4-virtual-machines/" class="md-nav__link">
+        Virtualización
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          GNU/Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="GNU/Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          GNU/Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gnu-linux/linux-setup/" class="md-nav__link">
+        Comandos básicos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gnu-linux/users-groups-local/" class="md-nav__link">
+        Gestión de usuarios y grupos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripting-linux.md" class="md-nav__link">
+        Programación en BASH
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows-setup/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../powershell.md" class="md-nav__link">
+        Powershell
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sistemas-operativos-de-proposito-general" class="md-nav__link">
+    Sistemas operativos de propósito general
+  </a>
+  
+    <nav class="md-nav" aria-label="Sistemas operativos de propósito general">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-windows" class="md-nav__link">
+    Sistemas Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    MacOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnulinux" class="md-nav__link">
+    GNU/Linux
+  </a>
+  
+    <nav class="md-nav" aria-label="GNU/Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#distribuciones-gnulinux-y-entornos-de-escritorio" class="md-nav__link">
+    Distribuciones GNU/Linux y entornos de escritorio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistemas-operativos-en-servidor" class="md-nav__link">
+    Sistemas operativos en servidor
+  </a>
+  
+    <nav class="md-nav" aria-label="Sistemas operativos en servidor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-en-servidores" class="md-nav__link">
+    Windows en servidores
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows en servidores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descarga" class="md-nav__link">
+    Descarga
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versiones" class="md-nav__link">
+    Versiones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnulinux-en-servidores" class="md-nav__link">
+    GNU/Linux en servidores
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diferencias-principales-entre-los-sistemas-operativos" class="md-nav__link">
+    Diferencias principales entre los sistemas operativos
+  </a>
+  
+    <nav class="md-nav" aria-label="Diferencias principales entre los sistemas operativos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organizacion-de-los-ficheros-en-el-disco-duro" class="md-nav__link">
+    Organización de los ficheros en el disco duro
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizacion-de-los-datos-en-sistemas-windows" class="md-nav__link">
+    Organización de los datos en sistemas Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizacion-de-los-datos-en-sistemas-gnulinux" class="md-nav__link">
+    Organización de los datos en sistemas GNU/Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminales-de-comandos" class="md-nav__link">
+    Terminales de comandos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensiones-de-ficheros" class="md-nav__link">
+    Extensiones de ficheros
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archivos-y-carpetas" class="md-nav__link">
+    Archivos y carpetas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sistemas-de-ficheros-y-particiones" class="md-nav__link">
+    Sistemas de ficheros y particiones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arranque-del-sistema" class="md-nav__link">
+    Arranque del sistema
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/mnceleiro/informatica/edit/master/docs/1-intro/3-intro-sos.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="sistemas-operativos">Sistemas operativos</h1>
+<ul>
+<li><strong>Sistemas operativos de propósito general</strong>: o de uso general, el que utilizan las personas en su casa.</li>
+<li><strong>Sistemas operativos en modo servidor</strong>: orientados a dar servicios a otras personas. P. ej: alojar webs a las que se accede desde navegadores web.</li>
+</ul>
+<h2 id="sistemas-operativos-de-proposito-general">Sistemas operativos de propósito general</h2>
+<p>Podemos ordenar los sistemas operativos mas habituales actualmente en tres grupos:</p>
+<ul>
+<li>Windows</li>
+<li>MacOS</li>
+<li>GNU/Linux</li>
+</ul>
+<h3 id="sistemas-windows">Sistemas Windows</h3>
+<p>Tienen alrededor del 80% de la cuota de mercado en 2022. Los sistemas operativos de Microsoft nacen en 1981 con MS-DOS (el cuál solo funciona por un terminal de texto, no tiene ventanas todavía). Para hacerlo más accesible para el público general las ventanas (la primera interfaz gráfica de usuario o GUI) nace con Windows 1.0 en 1985.<br>
+<a href="https://www.youtube.com/watch?v=hAJm6RYTIro"><img alt="Historia de Windows" src="https://i.ytimg.com/vi/hAJm6RYTIro/maxresdefault.jpg" /></a>
+<em>Vídeo (Historia de Windows en 3 minutos)</em></p>
+<h3 id="macos">MacOS</h3>
+<p>MacOS (antes llamado OS X) es la línea de sistemas operativos creada por Apple para sus ordenadores (igual que lo es la marca Windows para Microsoft). La primera versión tiene fecha de 1984 y fue el primer ordenador personal que incluía una GUI (interfaz gráfica de usuario).
+Apple tiene un modelo de negocio basado en la exclusividad y la diferenciación con la competencia. Al contrario que Microsoft, Apple hace tanto el hardware como el software de sus productos.</p>
+<h3 id="gnulinux">GNU/Linux</h3>
+<p>GNU/Linux es la base de muchos sistemas operativos de código abierto. GNU/Linux no es un sistema operativo completo, sino una serie de programas y herramientas con un núcleo (<em>kernel</em>) que comparten muchos sistemas operativos (OpenSuse, Ubuntu, Linux Mint, Debian, etc.).
+Los nombres más importantes detrás de GNU/Linux son <strong>Richard Stallman</strong> y <strong>Linus Torvalds</strong>.</p>
+<h4 id="distribuciones-gnulinux-y-entornos-de-escritorio">Distribuciones GNU/Linux y entornos de escritorio</h4>
+<p>Existen múltiples distribuciones basadas en Linux con diferentes características (Debian, OpenSuse, Ubuntu, Linux Mint, Zorin OS, Fedora, Archilinux, etc.). Además, cada una de estas distribuciones se puede usar con diferentes entornos de escritorio (puedes imaginarte unos más parecidos al estilo de Windows, otros más parecidos a MacOS y otros diferentes a ambos). </p>
+<p>Las distribuciones GNU/Linux más habituales y más “beginner friendly” son las basadas en Ubuntu. Las versiones más habituales de Ubuntu son las siguientes:</p>
+<ul>
+<li>Ubuntu con entorno de escritorio “Gnome” (denominado como <a href="https://ubuntu.com/download">Ubuntu</a>) .</li>
+<li>Ubuntu con entorno de escritorio “KDE” (denominado como <a href="https://kubuntu.org/">Kubuntu</a>).</li>
+</ul>
+<p>Para ordenadores antiguos o con muy pocos recursos:</p>
+<ul>
+<li>Ubuntu con entorno de escritorio “XFCE” (<a href="https://xubuntu.org/">Xubuntu</a>).</li>
+<li>Ubuntu con entorno de escritorio “LXDE” (<a href="https://lubuntu.me/">Lubuntu</a>).</li>
+</ul>
+<p>A continuación se muestran imágenes de distintos sistemas operativos y entornos de escritorio:</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="ubuntu-gnome.png" src="../../images/intro/distros-linux/ubuntu-gnome.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Ubuntu</strong> con <strong>GNOME</strong> (Ubuntu)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="kubuntu.png" src="../../images/intro/distros-linux/kubuntu.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Ubuntu</strong> con <strong>KDE</strong> (Kubuntu)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="lubuntu.png" src="../../images/intro/distros-linux/lubuntu.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Ubuntu</strong> con <strong>LXDE</strong> (Lubuntu)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="linux-mint-cinnamon.png" src="../../images/intro/distros-linux/linux-mint-cinnamon.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Linux Mint</strong> (distribución basada en Ubuntu) con entorno de escritorio <strong>Cinnamon</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="linux-mint-mate.png" src="../../images/intro/distros-linux/linux-mint-mate.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Linux Mint</strong> con entorno de escritorio denominado <strong>MATE</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="" src="../../images/intro/distros-linux/zorinos.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>Zorin OS</strong> (distribución basada en Ubuntu y <em>Windows friendly</em>). Tiene un entorno de escritorio GNOME adaptado por ellos mismos para hacerlo más familiar a Windows.</td>
+</tr>
+</tbody>
+</table>
+<p>Como veis, <strong>es posible tener el mismo sistema operativo con diferente entorno de escritorio</strong>. GNOME, KDE, XFCE, Cinnamon, MATE o LXDE son entornos de escritorio diferentes.</p>
+<p><strong>Iniciarse en GNU/Linux</strong>: <em>si quieres iniciarte en GNU/Linux en uso personal usar Ubuntu o una distribución basada en Ubuntu es la mejor opción. Mis recomendaciones para empezar: Ubuntu (el normal con Gnome), Linux Mint (Cinnamon) o Zorin OS.</em></p>
+<p>Algunos sistemas operativos o entornos de escritorio en GNU/Linux consumen muy pocos y están preparados para dar una segunda vida a ordenadores antiguos. Si quieres dar una segunda vida a un ordenador antiguo sigue <a href="https://itsfoss.com/lightweight-linux-beginners/">este enlace</a>.
+<br></p>
+<h2 id="sistemas-operativos-en-servidor">Sistemas operativos en servidor</h2>
+<h3 id="windows-en-servidores">Windows en servidores</h3>
+<p>Para servidores, Microsoft dispone de versiones denominadas Windows Server (p. ej: Windows Server 2012 o Windows Server 2022, la más reciente).</p>
+<h4 id="descarga">Descarga</h4>
+<p>Para descargar cualquier sistema operativo de Microsoft en versión de prueba se puede acceder al <a href="https://www.microsoft.com/en-us/evalcenter/">centro de evaluación de microsoft</a> y posteriormente seleccionar el sistema operativo deseado.</p>
+<p><img alt="" src="../images/windows-server/ws-download1.png" /></p>
+<h4 id="versiones">Versiones</h4>
+<p>En WS 2019 tenemos lo siguiente, de más barato a más caro:</p>
+<ul>
+<li><strong>Windows Server 2019 Essential</strong>. Destinado a pequeños negocios y con un máximo de 25 usuarios pueden conectarse a el y 50 dispositivos. Actualmente Microsoft recomienda <strong>no usar</strong> esta versión y utilizar, en su lugar, su solución de servidores en la nube Microsoft 365.</li>
+<li><strong>Windows Server 2019 Standard</strong>: bueno para entornos físicos (que no usan máquinas o casi no usan máquinas virtuales). Viene solamente con dos licencias virtuales (es decir, podemos instalar WS2019 Standard con dos VMs en HyperV pero no incrementar a una tercera a no ser que la compremos). Además, si usamos el servidor físico para cualquier otra cosa que no sea esas dos máquinas virtuales entonces consumirá una de esas licencias.</li>
+<li><strong>Windows Server 2019 Datacenter</strong>: viene con licencias ilimitadas para ejecutar máquinas virtuales (esto es, puedes crear tantas VMs como quieras).</li>
+<li><strong>Hyper-V server 2019</strong>: servidor dedicado de máquinas virtuales con Hyper-V. Se puede descargar de la web de Microsoft con infinitas máquinas virtuales. Viene sin GUI y no podemos hacer otra cosa que albergar en el máquinas virtuales.</li>
+</ul>
+<p>Las diferencias más grandes que hay entre las versiones Standard y Datacenter es el número de licencias para virtualización.</p>
+<h3 id="gnulinux-en-servidores">GNU/Linux en servidores</h3>
+<p>Algunos usuarios habituales de Linux son los siguientes:</p>
+<ul>
+<li>Gobierno de los Estados Unidos y algunas de sus agencias (nacional, estatal, federal e internacional).</li>
+<li>NASA: no solo lo utilizan para la mayor parte de su computación, sino que además contribuyen al código.</li>
+<li>Hospitales</li>
+<li>Red de trenes de alta velocidad de Japón (bullet trains).</li>
+<li>Control de tráfico.</li>
+<li>Institutos financieros.</li>
+<li>Liders de comercio online (Amazon, Paypal, Ebay o Walmart.</li>
+<li>Muchas otras compañías (Google, IBM, Facebook, Mcdonals...).</li>
+</ul>
+<p>Dentro de las versiones de GNU/Linux en entornos empresariales destacan las siguientes:</p>
+<ul>
+<li>Redhat.</li>
+<li>CentOS: administrado también por Redhat y totalmente gratuito. No recibe soporte técnico de Redhat.</li>
+<li>Fedora Server: gratuito.</li>
+<li>Suse Linux Enterprise Server: pertenece a la compañía Novell. VMWare utiliza Suse como entorno.</li>
+<li>Debian.</li>
+<li>Ubuntu Server.</li>
+</ul>
+<h2 id="diferencias-principales-entre-los-sistemas-operativos">Diferencias principales entre los sistemas operativos</h2>
+<h3 id="organizacion-de-los-ficheros-en-el-disco-duro">Organización de los ficheros en el disco duro</h3>
+<p>El <a href="https://www.amazon.es/Discos-Duros/s?k=Discos+Duros&amp;rh=n%3A937917031&amp;dc&amp;ds=v1%3AZtzvkzKZifE%2BWaoygZk2IVosQELSpxL4yiTN2n4%2BgXE&amp;qid=1660639171&amp;rnid=1703620031&amp;ref=sr_nr_n_4">disco duro</a> es el componente donde se almacena la información del ordenador. Internamente, los archivos se organizan en una jerarquía de carpetas (también llamadas directorios) y ficheros. <br></p>
+<h3 id="organizacion-de-los-datos-en-sistemas-windows">Organización de los datos en sistemas Windows</h3>
+<p>En los sistemas Windows, tanto los discos duros como los pendrives, tarjetas SD u otros dispositivos de almacenamiento <strong>se representan con una letra</strong> (C, D, E, F, G, H...). Cada letra representa un disco físico donde se almacena la información (a veces ese disco duro físico se puede dividir en muchas letras y aparecer verse como si fuesen varios).<br>
+Para acceder a la información de los discos en Windows puedes seguir los siguientes pasos:
+1. Pulsa en el icono de Windows -&gt; Este equipo.
+<img alt="" src="../../images/intro/letras-discos-1.png" /><br />
+2. En la sección "Dispositivos y unidades" puedes ver tus discos duros y su espacio ocupado y disponible. Como ves, están organizados por letras.
+3. <img alt="" src="../../images/intro/letras-discos-2.png" /> </p>
+<p>En Windows el disco principal (donde se guarda toda la información importante del sistema) es el disco C:/.</p>
+<h3 id="organizacion-de-los-datos-en-sistemas-gnulinux">Organización de los datos en sistemas GNU/Linux</h3>
+<p>Al contrario que en Windows, en sistemas GNU/Linux los discos físicos donde se almacena información no aparecen como letras. En estos sistemas existe una carpeta principal (llamada raíz) donde se almacena todo. Esta carpeta es "/".</p>
+<ul>
+<li>En Windows, <strong>la carpeta del usuario "Marcos"</strong> se encontraría (por defecto) en <strong>C:\Usuarios\marcos</strong>.</li>
+<li>En GNU/Linux, <strong>la carpeta del usuario "Marcos"</strong> se encuentra (por defecto) en <strong>/home/marcos</strong>.</li>
+<li>En Windows los discos donde se almacena la información se denotan con letras (C, D, E...).</li>
+<li>En GNU/Linux todo se organiza en una carpeta raíz (/) independientemente del disco en que se encuentre físicamente.</li>
+</ul>
+<h3 id="terminales-de-comandos">Terminales de comandos</h3>
+<p>En GNU/Linux se usa BASH como terminal, mientras que en Windows es habitual hoy en día utilizar PowerShell.
+<img alt="terminal-cmd.png" src="/images/intro/terminal-cmd.png" /><br />
+<img alt="terminal-powershell.png" src="/images/intro/terminal-powershell.png" /></p>
+<h3 id="extensiones-de-ficheros">Extensiones de ficheros</h3>
+<p>TODO: ver -&gt; extensiones de ficheros</p>
+<p>TODO: tiendas de aplicaciones, archivos ocultos, terminales de comandos</p>
+<h3 id="archivos-y-carpetas">Archivos y carpetas</h3>
+<p>TODO: diferencia ruta absoluta y rutas relativas, navegación entre carpetas</p>
+<h3 id="sistemas-de-ficheros-y-particiones">Sistemas de ficheros y particiones</h3>
+<p>En la parte de componentes físicos se ha hablado del almacenamiento de información en discos duros rígidos y discos en estado sólido (SSD). Estos últimos son más modernos, más rápidos y, por lo tanto, también más caros.</p>
+<p>A continuación se muestran los distintos tipos de dispositivos de almacenamiento ordenadores de más rápido a más lento y, a su vez, de más caro a más barato:
+| <img alt="ssd-nvme-870evo.png" src="../../images/physical/ssd-nvme-870evo.png" /> |
+| :--: |
+| <em>SSD NVMe M.2 de 1TB por 157€ a 28/08/2022 (obtenido de <a href="https://www.pccomponentes.com/samsung-970-evo-plus-1tb-ssd-nvme-m2">pccomponentes</a>)</em> |</p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="ssd-sata-samsung-870.png" src="../../images/physical/ssd-sata-samsung-870.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><em>SSD SATA3 de 2.5" y 1TB por 157€ a 28/08/2022 (obtenido de <a href="https://www.pccomponentes.com/samsung-870-qvo-ssd-1tb-sata3">pccomponentes</a>)</em></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="hdd-seagate-4tb.png" src="../../images/physical/hdd-seagate-barracuda-4tb.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><em>Disco duro mecánico SATA3 de 3.5" y 4TB por 91€ a 28/08/2022 (obtenido de <a href="https://www.pccomponentes.com/seagate-barracuda-35-4tb-sata3">pccomponentes</a>)</em></td>
+</tr>
+</tbody>
+</table>
+<p>Esto nos da una idea de donde vamos a trabajar ahora (sobre estos discos/dispositivos físicos). Los discos tienen una determinada capacidad (los dos primeros de la imaten son de 1 Terabyte o lo que es lo mismo, 1000 Gigabytes).</p>
+<p>TODO: particiones, sistemas de ficheros</p>
+<h2 id="arranque-del-sistema">Arranque del sistema</h2>
+<p>Respecto al arranque del sistema, existen cuatro conceptos importantes a entender:
+- BIOS <em>(Sistema básico de entrada-salida)</em>
+- UEFI <em>(Unified Extensible Firmware Interface)</em>
+- MBR
+- GPT</p>
+<p><strong>BIOS</strong> y <strong>UEFI</strong> se refieren a dos gestores de arranque. Se encargan de iniciar los componentes de hardware e iniciar el sistema operativo. UEFI es la versión más moderna (BIOS se ha quedado obsoleta). Aún así, coloquialmente se sigue utilizando <strong>BIOS</strong> para denominar, en general, al gestor de arranque.</p>
+<p>MBR y GPT, por otro lado, son las tablas de particionado (GPT es la versión más moderna). Puedes consultar <a href="https://es.easeus.com/partition-manager-tips/mbr-y-gpt.html">este enlace</a> para más información.</p>
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li>Germán Cocca. Windows vs MacOS vs Linux - Operating System Handbook. Freecodecamp. Obtenido de: https://www.freecodecamp.org/news/an-introduction-to-operating-systems/#thethreemainoss</li>
+<li>Dong Ngo. File System and Partition Explained: How to Take Control of Your Storage. Dongknows. Obtenido de: https://dongknows.com/disk-partition-and-file-system-explained/#what-is-a-partition</li>
+<li>Imran Afzal. Complete Linux Training Course to Get Your Dream IT Job 2022. Curso en Udemy. Obtenido de: https://www.udemy.com/course/complete-linux-training-course-to-get-your-dream-it-job/</li>
+<li>Pedro. MBR o GPT - ¿Cuál es la diferencia y cuál es mejor?. EaseUS. Obtenido de: https://es.easeus.com/partition-manager-tips/mbr-y-gpt.html</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../2-intro-ordenadores/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introducción a la informática" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introducción a la informática
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../4-virtual-machines/" class="md-footer__link md-footer__link--next" aria-label="Next: Virtualización" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Virtualización
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+      
+    
+  </body>
+</html>
