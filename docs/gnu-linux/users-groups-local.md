@@ -17,8 +17,8 @@ La información de los usuarios y grupos locales que hay en el sistema, en GNU/L
 | id<br/>id [-un] | Muestra el id y nombre del usuario actual y todos los grupos en los que está (tanto el principal como lo secundarios). Se podría obtener la misma información con un: **cat /etc/group \| grep "usuario"** |
 | whoami | Muestra solamente el usuario actual que está ejecutando el comando. Es equivalente a hacer un **id -un**. |
 | adduser | Crea un usuario de forma interactiva (este no nos es útil para automatizar tareas mediante scripts). |
-useradd | Crea un usuario. La sintaxis es la siguiente:<br /><br />useradd -m [-d ruta_carpeta_home] [-s shell_a_utilizar] <nombre_usuario>. <br/><br/>Un ejemplo real, para el usuario "marcos", podría ser el siguiente:<br />**useradd** **-m** **-d** /home/marcos **-s** /bin/bash **marcos**.
-
+useradd | Crea un usuario. La sintaxis es la siguiente:<br /><br />useradd -m [-d ruta_carpeta_home] [-s shell_a_utilizar] <nombre_usuario>. <br/><br/>Un ejemplo real, para el usuario "marcos", podría ser el siguiente:<br />**useradd** **-m** **-d** /home/marcos **-s** /bin/bash **marcos**. |
+| 
 
 A continuación se muestra en un tutorial en vídeo como gestionar usuarios y grupos locales en Debian y derivados:
 [![Vídeo sobre gestión de usuarios y grupos](../images/linux/video-manage-users-groups-linux.png)](https://www.youtube.com/watch?v=ApjqEymyTRE)
