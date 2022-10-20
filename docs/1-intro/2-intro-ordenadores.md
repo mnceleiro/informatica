@@ -19,7 +19,7 @@ Hay muchas cosas que pueden abarcarse en una introducción a la informática. En
 ### Crear una nueva carpeta en Windows 11
 Para crear una nueva carpeta en Windows 11 se puede pulsar en el botón derecho en un sitio vacío y seleccionar "Nueva carpeta":
 
-![](/images/intro/create-directory.png)  
+![](../images/intro/create-directory.png)  
 
 ### Extensiones de ficheros
 Si nos fijamos en la imagen anterior, el fichero "texto1" es un fichero de texto. Los ficheros de texto suelen tener la extensión ".txt".
@@ -42,7 +42,7 @@ Algunas de las extensiones de ficheros más comunes son las siguientes:
 
 En los sistemas operativos **Windows**, por defecto, las extensiones de fichero vienen deshabilitadas (por tanto, aunque están ahí, **no se ven**). Para poder verlas debes, desde cualquier carpeta, hacer lo siguiente:
 
-![](/images/intro/mostrar-ocultar-extensiones-archivos.png)
+![](../images/intro/mostrar-ocultar-extensiones-archivos.png)
 
 ### Comprimir y descomprimir ficheros
 Los ficheros comprimidos suelen tener la extensión .zip o .rar (aunque existen otras: tar.gz, tgz, 7zip...).

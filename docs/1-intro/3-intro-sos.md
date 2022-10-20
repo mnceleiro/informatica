@@ -137,8 +137,8 @@ Al contrario que en Windows, en sistemas GNU/Linux los discos físicos donde se 
 
 ### Terminales de comandos
 En GNU/Linux se usa BASH como terminal, mientras que en Windows es habitual hoy en día utilizar PowerShell.
-![terminal-cmd.png](/images/intro/terminal-cmd.png)  
-![terminal-powershell.png](/images/intro/terminal-powershell.png)
+![terminal-cmd.png](../images/intro/terminal-cmd.png)  
+![terminal-powershell.png](../images/intro/terminal-powershell.png)
 
 ### Extensiones de ficheros
 TODO: ver -> extensiones de ficheros
