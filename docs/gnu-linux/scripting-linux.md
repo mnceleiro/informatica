@@ -103,7 +103,7 @@ echo "Ahora tu nombre es: $NOMBRE"
 Resultado:
 
 ![](../images/gnu-linux/variables3.png)  
-
+ 
 
 *Para saber más: además de "VARIABLE" existe también la definición de "CONSTANTE". Una constante es lo mismo que una variable, solo que esta no puede volver a cambiarse a lo largo del programa.*
 
