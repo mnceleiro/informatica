@@ -36,9 +36,7 @@ Para ejecutar el script podemos usar cualquiera de los siguientes comandos:
 
 El resultado debería ser el siguiente:
 ![Script hola mundo](../images/gnu-linux/hello-world.png)  
-
-
-# Variables
+## Variables
 Una variable es un sitio en memoria para guardar información. Un ejemplo de creación de una variable y asignación de un número a ella sería el siguiente:
 
 `EDAD=35`
@@ -106,7 +104,6 @@ Resultado:
 
 ![](../images/gnu-linux/variables3.png)  
 
-<br />
 
 *Para saber más: además de "VARIABLE" existe también la definición de "CONSTANTE". Una constante es lo mismo que una variable, solo que esta no puede volver a cambiarse a lo largo del programa.*
 
