@@ -10,5 +10,6 @@ PowerShell tiene los siguientes elementos:
 | Get-ChildItem | ls |
 | Set-Location | cd  |
 | Get-Location | pwd |
+| Write-Output | echo |
 
 - Funciones: se utilizan para 
