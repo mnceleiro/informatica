@@ -171,6 +171,7 @@ El resultado sería exactamente el mismo.
 - La **ventaja del segundo script**, por su parte, es que **queda sencillo y con pocas líneas**.
 
 Además de $número, existen muchas otras maneras de acceder a información sobre los parámetros:
+
 | Variable      | Descripción                       |
 | --------      | --------------------------------- |
 | $número       | Representa el parámetro pasado en ese número ($1, $2, $3...). |
@@ -237,11 +238,12 @@ Ejercicio propuesto:
 ## Sentencias condicionales
 En programación existen las llamadas sentencias condicionales, basicamente puedes decir lo siguiente:
 
+```
 Si condición<br/>
 haz algo<br/>
 Sino...<br/>
 haz otra cosa<br/>
-
+```
 
 Traducido al inglés el si condicional se denomina **if**, y el sino **else**. Una sentencia if real quedaría tal que así:
 
@@ -331,6 +333,7 @@ Es menor de edad.
 ```
 
 Vamos a ver ahora algunas de las condiciones que se pueden utilizar en un condicional:
+
 - -lt → less than (menor que)
 - -gt → greater than (mayor que)
 - -le → less equals than (menor o igual que)
@@ -358,7 +361,7 @@ El resultado será el mismo.
 
 ***NOTA**: un else no puede ir sin un if y un else nunca lleva condición. El else se ejecuta si no se cumple la condición del if.*
 
-### if / else if / else
+### Condiciones con varias condiciones diferentes
 Si te fijas bien, verás que en el else (en el sino...) no podemos poner ninguna condición. En ocasiones no nos es suficiente con poner una única condición en el if, sino que necesitamos comprobar más. Para esto podemos usar **else if (elif)**.
 
 #### Ejercicio de ejemplo: menores de edad, mayores de edad y jubilados
