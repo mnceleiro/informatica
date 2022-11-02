@@ -48,11 +48,8 @@ Una variable es un sitio en memoria para guardar información. Un ejemplo de cre
 
 Veamoslo con un script de ejemplo:
 
-```bash
+```bash title="variables.sh"
 # Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________."
-
-# Fichero: variables.sh
-# ----------------------------
 
 #!/bin/bash
 
@@ -67,17 +64,16 @@ Resultado de la ejecución (no nos sale como queremos):
 
 Bien, para hacer que **la palabra "NOMBRE" se interprete como una variable**, solo tenemos que **ponerle delante el caracter de DOLAR ($)**:
 
-```bash
+```bash title="variables2.sh"
 # Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________."
-
-# Fichero: variables2.sh
-# ----------------------------
 
 #!/bin/bash
 
 NOMBRE="Marcos"
-echo "Tu nombre es: $NOMBRE"
+echo "Tu nombre es: $NOMBRE" # (1)!
 ```
+
+1. :man_raising_hand: El $ hace que en lugar de mostrar la palabra NOMBRE esta se interprete como una variable (y se muestre, por tanto, su contenido).
 
 Resultado de la ejecución:
 ![](../images/gnu-linux/variables-2.png)
@@ -86,11 +82,8 @@ Ahora sí funciona correctamente. El valor que le hemos asignado a la variable e
 
 Probemos con otro ejercicio:
 
-```bash
+```bash title="variables3.sh"
 # Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________." Después, haz que el programa espere dos segundos y muestre: "Te has cambiado el nombre y ahora es "Mark".
-
-# Fichero: variables3.sh
-# ----------------------------
 
 #!/bin/bash
 
@@ -115,16 +108,13 @@ Ya vimos que para acceder al contenido de una variable usamos **el caracter $** 
 
 Al ejecutar un script podemos pasarle a estos una serie de parámetros. Veamos ejemplos con comandos:
 
-- ls -l: **ls** es el comando y **-l*** es el primer parámetro.
+- ls -l: **ls** es el comando y **-l** es el primer parámetro.
 - cat fichero.txt: en este caso, cat es el comando de nuevo y **fichero.txt** sería el primer parámetro (por el cuál el comando CAT sabe que fichero debe mostrar).
 - tar -cvf personas.tar paula.txt diego.txt adrian.txt: en este caso, -cvf es el primer parámetro, personas.tar es el segundo parámetro, paula.txt el tercero, etc.
 
 Bien, nosotros podemos crear también scripts que reciban parámetros. Para mostrarlo vamos a utilizar el último script mostrado y hacer que ambos nombres (el primero y el segundo) sean elegidos por el usuario que lo ejecuta (y así no tengan por que ser siempre los mismos):
 
-```bash
-# Fichero: parametros1
-# ----------------------------
-
+```bash title="parametros1"
 #!/bin/bash
 
 # Asignamos el parámetro 1 a la variable NOMBRE.
@@ -153,10 +143,7 @@ Como vemos, existen ya variables predefinidas en la ejecución de un script y a 
 
 Podríamos también haber dejado el script directamente así:
 
-```bash
-# Fichero: parametros2
-# ----------------------------
-
+```bash title="parametros2"
 #!/bin/bash
 
 echo "Tu nombre es: $1."
@@ -179,10 +166,7 @@ Además de $número, existen muchas otras maneras de acceder a información sobr
 | $0            | El nombre del script |
 | $?            | Muestra el resultado del último comando ejecutado (p. ej: si no ha dado error devolverá un 0, que es éxito). |
 
-```bash
-# Fichero: parametros3
-# ----------------------------
-
+```bash title="parametros3"
 #!/bin/bash
 
 echo "O número de parámetros pasado ao script é: $#."
@@ -199,7 +183,7 @@ echo "O resultado do comando anterior é: $?."
 
 Resultado de la ejecución (lo pruebo con 3 parámetros):
 ```
-./teoria.sh hola boas tardes
+./parametros3 hola boas tardes
 O número de parámetros pasado ao script é: 3.
 Nome do script: ./parametros3.
 O parámetro 1 é: hola.
@@ -214,10 +198,7 @@ O resultado do comando anterior é: 0.
 
 Ejercicio propuesto:
 
-```bash
-# Fichero: parametros4-tunombre-tuapellido
-# ------------------------------------------------
-
+```bash title="parametros4-tunombre-tuapellido"
 #!/bin/bash
 
 # 1. Escribir un saludo por pantalla: "Hola mundo."
@@ -237,7 +218,7 @@ Ejercicio propuesto:
 ## Sentencias condicionales (if/else)
 En programación existen las llamadas sentencias condicionales, basicamente puedes decir lo siguiente:
 
-```
+```title="Pseudocódigo de un condicional if/else"
 Si condición
 haz algo
 Sino...
@@ -248,7 +229,7 @@ Traducido al inglés el si condicional se denomina **if**, y el sino **else**. U
 
 
 Sintaxis de if:
-```bash
+```bash title="Sintaxis real de un condicional if"
 if [ condicion ]
 then
     # Hacemos cosas
@@ -258,7 +239,7 @@ fi
 
 Veamos ahora con un if/else (si se cumple la condición hacemos algo, en caso contrario hacemos otra cosa):
 
-```bash
+```bash title="Sintaxis real de un condicional if / else"
 if [ condicion ]
 then
     # Hacemos algo
@@ -270,10 +251,7 @@ fi
 ### Ejercicio de ejemplo: menores y mayores de edad
 Script que, pasando como parámetro una edad, nos diga si es menor de edad o mayor de edad (mayor o igual que 18). Utiliza solo ifs (sin else).
 
-```bash
-# Fichero: condicionales1
-# ----------------------------
-
+```bash title="condicionales1 - Intenta hacerlo!"
 #!/bin/bash
 
 # Programa al que se le pasa como parámetro una edad:
@@ -292,10 +270,7 @@ Script que, pasando como parámetro una edad, nos diga si es menor de edad o may
 ```
 
 Intenta resolverlo antes de mirar la solución (que se muestra aquí abajo!):
-```bash
-# Fichero: condicionales1
-#----------------------------
-
+```bash title="condicionales1 - Solución" linenums="1"
 #!/bin/bash
 
 # Programa al que se le pasa como parámetro una edad:
@@ -323,11 +298,11 @@ fi
 ```
 
 Resultado de la ejecución:
-```
-./condicionales.sh 18
+```title="Ejemplo de ejecución de condicionales1"
+./condicionales1 18
 Es mayor de edad.
 
-./condicionales.sh 17
+./condicionales1 17
 Es menor de edad.
 ```
 
@@ -342,10 +317,7 @@ En el ejercicio anterior podríamos haber utilizado *mayor o igual que 18 ($1 -g
 
 Aunque este método funciona, es más correcto hacerlo con un si / sino (if/else). Es decir, en lugar de usar dos ifs utilizamos un if y debajo un else:
 
-```bash
-# Fichero: condicionales2
-#----------------------------
-
+```bash title="condicionales2" linenums="1"
 #!/bin/bash
 
 if [ $1 -ge 18 ]
@@ -356,9 +328,11 @@ else
 fi
 ```
 
-El resultado será el mismo. 
+El resultado es el mismo que en el anterior script. 
 
-***NOTA**: un else no puede ir sin un if y un else nunca lleva condición. El else se ejecuta si no se cumple la condición del if.*
+!!! Nota
+
+    Un else no puede ir sin un if y un else nunca lleva condición. El else se ejecuta si no se cumple la condición del if.
 
 ### Sentencias condicionales (if/else) con más de una condición
 Si te fijas bien, verás que en el else (en el sino...) no podemos poner ninguna condición. En ocasiones no nos es suficiente con poner una única condición en el if, sino que necesitamos comprobar más. Para esto podemos usar **else if (elif)**.
@@ -371,10 +345,7 @@ Existen varias maneras de hacer este ejercicio:
 ##### Resolución con if/elses dentro de otros if/elses
 Con esta solución vamos a hacer que si se comprueba que la edad es igual o superior a 18 años se haga otro if para comprobar si está jubilado o no (pueden darse ambos casos):
 
-```bash
-# Fichero: condicionales3
-# ----------------------------
-
+```bash title="condicionales3" linenums="1"
 #!/bin/bash
 
 # Programa al que se le pasa como parámetro una edad:
@@ -384,12 +355,11 @@ Con esta solución vamos a hacer que si se comprueba que la edad es igual o supe
 
 if [ $1 -ge 18 ]
 then
-        # Si es mayor que 18 hay que saber si supera tambien los 67
-        if [ $1 -gt 67 ]
+        if [ $1 -gt 67 ] # (1)!
         then
-        echo "Está jubilado."
+            echo "Está jubilado."
         else
-                echo "Es mayor de 18."
+            echo "Es mayor de 18."
         fi
 # En caso de que no sea mayor de 18 es que es menor de edad.
 else
@@ -397,15 +367,14 @@ else
 fi
 ```
 
+1. Si el código pasa por aquí signfiica que el parámetro 1 es igual o mayor que 18 años. Ahora, ya sabiendo que superamos los 18, tenemos que comprobar si llegamos o no a la jubilación. Para eso hace falta otro if/else que compruebe si también superamos los 66 años. <br /><br/>:older_man: ¿Somos mayores de 66? → IF<br/><br/>o<br/><br/>:woman: ¿No lo somos? → ELSE
+
 ##### Resolución haciendo varias comprobaciones en el mismo if (&&)
 En el mismo condicional se pueden comprobar tantas cosas como se deseen uniéndolas con AND (&&) o con OR (||):
 - AND (&&): verdadero si ambas condiciones son verdaderas.
 - OR (||): es verdadero si una de las dos condiciones es verdadera.
 
-```bash
-# Fichero: condicionales4
-# ----------------------------
-
+```bash title="condicionales4" linenums="1"
 #!/bin/bash
 
 # Programa al que se le pasa como parámetro una edad:
@@ -413,11 +382,11 @@ En el mismo condicional se pueden comprobar tantas cosas como se deseen uniéndo
 ## - Si la edad es inferior a 18 años, escribe: "Es menor de edad."
 ## - Si la edad es superior a 17 años pero inferior a 67, escribe: "Es mayor de edad."
 
-if [ $1 -ge 18 ] && [ $1 -lt 67 ]
+if [ $1 -ge 18 ] && [ $1 -lt 67 ] # (1)!
 then
     echo "Es mayor de edad."
 
-elif [ $1 -ge 67 ]
+elif [ $1 -ge 67 ] # (2)!
 then
     echo "Está jubilado."
 
@@ -425,6 +394,9 @@ else
     echo "Es menor de edad."
 fi
 ```
+
+1. Aquí se comprueban dos condiciones:<br />- ¿Es mayor o igual que 18?<br/>- ¿Es menor que 67?<br /><br />Ambas se deben cumplir para continuar por el then.
+2. Si el código va por aquí es que una de las dos condiciones anteriores no se cumplió (por tanto sabemos que o bien es menor de 18 :child: o bien es mayor de 67 :older_woman:).<br /><br />Con el elif y el else sabremos cuál es :love_you_gesture:
 
 Aquí hemos añadido una nueva posibilidad. En el **if** hemos unido dos condiciones:
 
@@ -440,10 +412,7 @@ Hasta ahora hemos puesto condiciones una sola vez (en el if). Podemos poner tant
 
 Ejercicio: ejecuta el siguiente código y si no funciona **arréglalo**:
 
-```bash
-# Fichero: condicionales4
-# ----------------------------
-
+```bash title="condicionales5 - Encuentra el error!" linenums="1"
 #!/bin/bash
 
 # Programa al que se le pasa como parámetro una edad:

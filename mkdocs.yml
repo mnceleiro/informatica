@@ -22,11 +22,18 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
+    - content.code.annotate
 extra:
   generator: false
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
+  - admonition
+  - pymdownx.details
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
