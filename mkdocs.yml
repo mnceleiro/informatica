@@ -11,8 +11,9 @@ nav:
     - 'Comandos básicos': 'gnu-linux/linux-setup.md'
     - 'Gestión de usuarios y grupos': 'gnu-linux/users-groups-local.md'
     - 'Programación de scripts': 'gnu-linux/scripting-linux.md'
-  - Windows: windows/windows-setup.md
-  - Powershell: windows/powershell.md
+  - Windows: 
+    - 'Introducción': 'windows/windows-setup.md'
+    - 'Powershell': windows/powershell.md
 theme:
   name: material
   palette:

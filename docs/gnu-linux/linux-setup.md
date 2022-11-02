@@ -121,7 +121,6 @@ Te recomiendo hacerlo **filtrando por "último año"** o por la versión de Linu
 
 **Puedes consultar más información sobre como matar procesos y códigos de proceso [aquí](https://www.cyberciti.biz/faq/unix-kill-command-examples/).**
 
-
-
 Referencias:
+
 - Imran Afzal. Complete Linux Bash Shell Scripting with Real Life Examples. Udemy. Disponible en: https://www.udemy.com/course/linux-bash-shell-scripting-through-real-life-examples/

@@ -1,11 +1,11 @@
 # Shell scripting
 Existen múltiples shells (podemos ver cuál estamos usando mostrando con echo la variable de entorno $SHELL).
 
+## Mi primer script
+### Permisos de ejecución
+Para crear un script en BASH creamos un fichero con el nombre que queramos y le damos permisos de ejecución (u+x):
 
-## Creación de scripts
-Para crear un script en BASH creamos un fichero con el nombre que queramos y la extensión **.sh** y le damos permisos de ejecución (u+x):
-
-```echo "" > helloworld.sh```
+`echo "" > helloworld.sh`
 
 Esto crea un fichero helloworld.sh al que deberíamos darle también permisos de ejecución. Para dar permisos usamos el comando chmod y podemos hacerlo de dos maneras distintas:
 
@@ -18,7 +18,7 @@ o
 Ejemplo de realización de la tarea de creación de script y permisos de ejecución para el usuario:
 ![Comando chmod](../images/gnu-linux/chmod.png)
 
-### Primer script
+### Contenido del script
 Para empezar, nuestro primer script mostrará en pantalla solamente la línea:
 
 `Hola mundo`
@@ -31,7 +31,7 @@ Para ello, editamos el script con nuestro editor preferido (p. ej: vim o nano) y
 echo "Hola mundo."
 ```
 
-#### Ejecución
+### Ejecución
 Para ejecutar el script podemos usar cualquiera de los siguientes comandos:
 
 `./helloworld.sh`
@@ -48,17 +48,16 @@ Una variable es un sitio en memoria para guardar información. Un ejemplo de cre
 
 Veamoslo con un script de ejemplo:
 
-```
-Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________."
+```bash
+# Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________."
 
 # Fichero: variables.sh
-----------------------------
+# ----------------------------
 
 #!/bin/bash
 
 NOMBRE="Marcos"
 echo "Tu nombre es: NOMBRE"
-
 ```
 
 Resultado de la ejecución (no nos sale como queremos):
@@ -66,19 +65,18 @@ Resultado de la ejecución (no nos sale como queremos):
 
 ¿Es esto lo que esperábamos? Efectivamente, el echo está funcionando como debe y el terminal nos muestra lo que le indicamos. Pero, ¿como podemos hacer que el echo nos interprete la variable **NOMBRE** e indique, por tanto, lo que hemos almacenado en la variable?
 
-Bien, para hacer **que la palabra "NOMBRE" se interprete como una variable, solo tenemos que ponerle delante el caracter de DOLAR ($):
+Bien, para hacer que **la palabra "NOMBRE" se interprete como una variable**, solo tenemos que **ponerle delante el caracter de DOLAR ($)**:
 
-```
-Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________."
+```bash
+# Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________."
 
 # Fichero: variables2.sh
-----------------------------
+# ----------------------------
 
 #!/bin/bash
 
 NOMBRE="Marcos"
 echo "Tu nombre es: $NOMBRE"
-
 ```
 
 Resultado de la ejecución:
@@ -88,11 +86,11 @@ Ahora sí funciona correctamente. El valor que le hemos asignado a la variable e
 
 Probemos con otro ejercicio:
 
-```
-Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________." Después, haz que el programa espere dos segundos y muestre: "Te has cambiado el nombre y ahora es "Mark".
+```bash
+# Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________." Después, haz que el programa espere dos segundos y muestre: "Te has cambiado el nombre y ahora es "Mark".
 
 # Fichero: variables3.sh
-----------------------------
+# ----------------------------
 
 #!/bin/bash
 
@@ -123,9 +121,9 @@ Al ejecutar un script podemos pasarle a estos una serie de parámetros. Veamos e
 
 Bien, nosotros podemos crear también scripts que reciban parámetros. Para mostrarlo vamos a utilizar el último script mostrado y hacer que ambos nombres (el primero y el segundo) sean elegidos por el usuario que lo ejecuta (y así no tengan por que ser siempre los mismos):
 
-```
+```bash
 # Fichero: parametros1
-----------------------------
+# ----------------------------
 
 #!/bin/bash
 
@@ -155,9 +153,9 @@ Como vemos, existen ya variables predefinidas en la ejecución de un script y a 
 
 Podríamos también haber dejado el script directamente así:
 
-```
+```bash
 # Fichero: parametros2
-----------------------------
+# ----------------------------
 
 #!/bin/bash
 
@@ -166,7 +164,8 @@ sleep 2
 echo "Han pasado dos segundos y ahora tu nombre es: $2."
 ```
 
-El resultado sería exactamente el mismo. 
+El resultado sería exactamente el mismo:
+
 - La **ventaja del primer script** es que **queda más claro que es lo que se está mostrando** (nombre es una variable muy indicativa de que es lo que se va a mostrar).
 - La **ventaja del segundo script**, por su parte, es que **queda sencillo y con pocas líneas**.
 
@@ -180,9 +179,9 @@ Además de $número, existen muchas otras maneras de acceder a información sobr
 | $0            | El nombre del script |
 | $?            | Muestra el resultado del último comando ejecutado (p. ej: si no ha dado error devolverá un 0, que es éxito). |
 
-```
+```bash
 # Fichero: parametros3
-----------------------------
+# ----------------------------
 
 #!/bin/bash
 
@@ -215,9 +214,9 @@ O resultado do comando anterior é: 0.
 
 Ejercicio propuesto:
 
-```
+```bash
 # Fichero: parametros4-tunombre-tuapellido
-----------------------------
+# ------------------------------------------------
 
 #!/bin/bash
 
@@ -235,21 +234,21 @@ Ejercicio propuesto:
 # 6. Prueba un mensaje con el parámetro $_.
 ```
 
-## Sentencias condicionales
+## Sentencias condicionales (if/else)
 En programación existen las llamadas sentencias condicionales, basicamente puedes decir lo siguiente:
 
 ```
-Si condición<br/>
-haz algo<br/>
-Sino...<br/>
-haz otra cosa<br/>
+Si condición
+haz algo
+Sino...
+haz otra cosa
 ```
 
 Traducido al inglés el si condicional se denomina **if**, y el sino **else**. Una sentencia if real quedaría tal que así:
 
 
 Sintaxis de if:
-```
+```bash
 if [ condicion ]
 then
     # Hacemos cosas
@@ -259,7 +258,7 @@ fi
 
 Veamos ahora con un if/else (si se cumple la condición hacemos algo, en caso contrario hacemos otra cosa):
 
-```
+```bash
 if [ condicion ]
 then
     # Hacemos algo
@@ -271,9 +270,9 @@ fi
 ### Ejercicio de ejemplo: menores y mayores de edad
 Script que, pasando como parámetro una edad, nos diga si es menor de edad o mayor de edad (mayor o igual que 18). Utiliza solo ifs (sin else).
 
-```
+```bash
 # Fichero: condicionales1
-----------------------------
+# ----------------------------
 
 #!/bin/bash
 
@@ -293,9 +292,9 @@ Script que, pasando como parámetro una edad, nos diga si es menor de edad o may
 ```
 
 Intenta resolverlo antes de mirar la solución (que se muestra aquí abajo!):
-```
+```bash
 # Fichero: condicionales1
-----------------------------
+#----------------------------
 
 #!/bin/bash
 
@@ -343,9 +342,9 @@ En el ejercicio anterior podríamos haber utilizado *mayor o igual que 18 ($1 -g
 
 Aunque este método funciona, es más correcto hacerlo con un si / sino (if/else). Es decir, en lugar de usar dos ifs utilizamos un if y debajo un else:
 
-```
+```bash
 # Fichero: condicionales2
-----------------------------
+#----------------------------
 
 #!/bin/bash
 
@@ -361,7 +360,7 @@ El resultado será el mismo.
 
 ***NOTA**: un else no puede ir sin un if y un else nunca lleva condición. El else se ejecuta si no se cumple la condición del if.*
 
-### Condiciones con varias condiciones diferentes
+### Sentencias condicionales (if/else) con más de una condición
 Si te fijas bien, verás que en el else (en el sino...) no podemos poner ninguna condición. En ocasiones no nos es suficiente con poner una única condición en el if, sino que necesitamos comprobar más. Para esto podemos usar **else if (elif)**.
 
 #### Ejercicio de ejemplo: menores de edad, mayores de edad y jubilados
@@ -371,9 +370,10 @@ Existen varias maneras de hacer este ejercicio:
 
 ##### Resolución con if/elses dentro de otros if/elses
 Con esta solución vamos a hacer que si se comprueba que la edad es igual o superior a 18 años se haga otro if para comprobar si está jubilado o no (pueden darse ambos casos):
-```
+
+```bash
 # Fichero: condicionales3
-----------------------------
+# ----------------------------
 
 #!/bin/bash
 
@@ -402,9 +402,9 @@ En el mismo condicional se pueden comprobar tantas cosas como se deseen uniéndo
 - AND (&&): verdadero si ambas condiciones son verdaderas.
 - OR (||): es verdadero si una de las dos condiciones es verdadera.
 
-```
+```bash
 # Fichero: condicionales4
-----------------------------
+# ----------------------------
 
 #!/bin/bash
 
@@ -440,9 +440,9 @@ Hasta ahora hemos puesto condiciones una sola vez (en el if). Podemos poner tant
 
 Ejercicio: ejecuta el siguiente código y si no funciona **arréglalo**:
 
-```
+```bash
 # Fichero: condicionales4
-----------------------------
+# ----------------------------
 
 #!/bin/bash
 
