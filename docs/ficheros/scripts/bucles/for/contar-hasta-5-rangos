@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for cont in {1..5} 
+do
+	echo "El contador vale: $cont."
+done

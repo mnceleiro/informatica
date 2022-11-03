@@ -13,7 +13,7 @@
     
     
       
-        <title>Programación en BASH - Informática y sistemas operativos</title>
+        <title>Programación de scripts - Informática y sistemas operativos</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creacion-de-scripts" class="md-skip">
+        <a href="#shell-scripting" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Programación en BASH
+              Programación de scripts
             
           </span>
         </div>
@@ -187,13 +187,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../linux-setup/" class="md-tabs__link">
+      <a href="../linux-setup/" class="md-tabs__link md-tabs__link--active">
         GNU/Linux
       </a>
     </li>
@@ -203,39 +205,17 @@
         
   
   
-    
-  
 
 
-  <li class="md-tabs__item">
-    <a href="./" class="md-tabs__link md-tabs__link--active">
-      Programación en BASH
-    </a>
-  </li>
-
-      
-        
   
   
-
-
-  <li class="md-tabs__item">
-    <a href="../../windows/windows-setup/" class="md-tabs__link">
-      Windows
-    </a>
-  </li>
-
-      
-        
   
+    <li class="md-tabs__item">
+      <a href="../../windows/windows-setup/" class="md-tabs__link">
+        Windows
+      </a>
+    </li>
   
-
-
-  <li class="md-tabs__item">
-    <a href="../../windows/powershell/" class="md-tabs__link">
-      Powershell
-    </a>
-  </li>
 
       
     </ul>
@@ -392,12 +372,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -442,16 +424,8 @@
 
             
           
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
+            
+              
   
   
     
@@ -462,14 +436,16 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Programación en BASH
+          Programación de scripts
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Programación en BASH
+        Programación de scripts
       </a>
       
         
@@ -477,6 +453,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -486,30 +464,31 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creacion-de-scripts" class="md-nav__link">
-    Creación de scripts
+  <a href="#mi-primer-script" class="md-nav__link">
+    Mi primer script
   </a>
   
-    <nav class="md-nav" aria-label="Creación de scripts">
+    <nav class="md-nav" aria-label="Mi primer script">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#primer-script" class="md-nav__link">
-    Primer script
+  <a href="#permisos-de-ejecucion" class="md-nav__link">
+    Permisos de ejecución
   </a>
   
-    <nav class="md-nav" aria-label="Primer script">
-      <ul class="md-nav__list">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contenido-del-script" class="md-nav__link">
+    Contenido del script
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#ejecucion" class="md-nav__link">
     Ejecución
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -525,6 +504,114 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#parametros" class="md-nav__link">
+    Parámetros
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentencias-condicionales-ifelse" class="md-nav__link">
+    Sentencias condicionales (if/else)
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentencias condicionales (if/else)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-de-ejemplo-menores-y-mayores-de-edad" class="md-nav__link">
+    Ejercicio de ejemplo: menores y mayores de edad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentencias-condicionales-ifelse-con-mas-de-una-condicion" class="md-nav__link">
+    Sentencias condicionales (if/else) con más de una condición
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentencias condicionales (if/else) con más de una condición">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-de-ejemplo-menores-de-edad-mayores-de-edad-y-jubilados" class="md-nav__link">
+    Ejercicio de ejemplo: menores de edad, mayores de edad y jubilados
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio de ejemplo: menores de edad, mayores de edad y jubilados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolucion-con-ifelses-dentro-de-otros-ifelses" class="md-nav__link">
+    Resolución con if/elses dentro de otros if/elses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolucion-haciendo-varias-comprobaciones-en-el-mismo-if" class="md-nav__link">
+    Resolución haciendo varias comprobaciones en el mismo if (&amp;&amp;)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolucion-mas-sencilla-ifelifelse" class="md-nav__link">
+    Resolución más sencilla: if/elif/else
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bucles" class="md-nav__link">
+    Bucles
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bucle-while-mientras" class="md-nav__link">
+    Bucle while (mientras)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicios-con-bucle-while" class="md-nav__link">
+    Ejercicios con bucle while
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -532,18 +619,10 @@
     </li>
   
 
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../windows/windows-setup/" class="md-nav__link">
-        Windows
-      </a>
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -555,10 +634,57 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Windows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Windows" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Windows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../windows/windows-setup/" class="md-nav__link">
+        Introducción
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../windows/powershell/" class="md-nav__link">
         Powershell
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -580,6 +706,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -588,20 +716,26 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creacion-de-scripts" class="md-nav__link">
-    Creación de scripts
+  <a href="#mi-primer-script" class="md-nav__link">
+    Mi primer script
   </a>
   
-    <nav class="md-nav" aria-label="Creación de scripts">
+    <nav class="md-nav" aria-label="Mi primer script">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#primer-script" class="md-nav__link">
-    Primer script
+  <a href="#permisos-de-ejecucion" class="md-nav__link">
+    Permisos de ejecución
   </a>
   
-    <nav class="md-nav" aria-label="Primer script">
-      <ul class="md-nav__list">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contenido-del-script" class="md-nav__link">
+    Contenido del script
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#ejecucion" class="md-nav__link">
@@ -614,6 +748,82 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parametros" class="md-nav__link">
+    Parámetros
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sentencias-condicionales-ifelse" class="md-nav__link">
+    Sentencias condicionales (if/else)
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentencias condicionales (if/else)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-de-ejemplo-menores-y-mayores-de-edad" class="md-nav__link">
+    Ejercicio de ejemplo: menores y mayores de edad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sentencias-condicionales-ifelse-con-mas-de-una-condicion" class="md-nav__link">
+    Sentencias condicionales (if/else) con más de una condición
+  </a>
+  
+    <nav class="md-nav" aria-label="Sentencias condicionales (if/else) con más de una condición">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-de-ejemplo-menores-de-edad-mayores-de-edad-y-jubilados" class="md-nav__link">
+    Ejercicio de ejemplo: menores de edad, mayores de edad y jubilados
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejercicio de ejemplo: menores de edad, mayores de edad y jubilados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolucion-con-ifelses-dentro-de-otros-ifelses" class="md-nav__link">
+    Resolución con if/elses dentro de otros if/elses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolucion-haciendo-varias-comprobaciones-en-el-mismo-if" class="md-nav__link">
+    Resolución haciendo varias comprobaciones en el mismo if (&amp;&amp;)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolucion-mas-sencilla-ifelifelse" class="md-nav__link">
+    Resolución más sencilla: if/elif/else
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
       </ul>
     </nav>
@@ -621,8 +831,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#variables" class="md-nav__link">
-    Variables
+  <a href="#bucles" class="md-nav__link">
+    Bucles
+  </a>
+  
+    <nav class="md-nav" aria-label="Bucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bucle-while-mientras" class="md-nav__link">
+    Bucle while (mientras)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicios-con-bucle-while" class="md-nav__link">
+    Ejercicios con bucle while
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
   </a>
   
 </li>
@@ -647,10 +884,11 @@
   </a>
 
 
-  <h1>Programación en BASH</h1>
-
-<h2 id="creacion-de-scripts">Creación de scripts</h2>
-<p>Para crear un script en BASH creamos un fichero con el nombre que queramos y la extensión <strong>.sh</strong> y le damos permisos de ejecución (u+x):</p>
+<h1 id="shell-scripting">Shell scripting</h1>
+<p>Existen múltiples shells (podemos ver cuál estamos usando mostrando con echo la variable de entorno $SHELL).</p>
+<h2 id="mi-primer-script">Mi primer script</h2>
+<h3 id="permisos-de-ejecucion">Permisos de ejecución</h3>
+<p>Para crear un script en BASH creamos un fichero con el nombre que queramos y le damos permisos de ejecución (u+x):</p>
 <p><code>echo "" &gt; helloworld.sh</code></p>
 <p>Esto crea un fichero helloworld.sh al que deberíamos darle también permisos de ejecución. Para dar permisos usamos el comando chmod y podemos hacerlo de dos maneras distintas:</p>
 <p><code>chmod u+x helloworld.sh</code></p>
@@ -658,15 +896,15 @@
 <p><code>chmod 764 helloworld.sh</code></p>
 <p>Ejemplo de realización de la tarea de creación de script y permisos de ejecución para el usuario:
 <img alt="Comando chmod" src="../../images/gnu-linux/chmod.png" /></p>
-<h3 id="primer-script">Primer script</h3>
+<h3 id="contenido-del-script">Contenido del script</h3>
 <p>Para empezar, nuestro primer script mostrará en pantalla solamente la línea:</p>
 <p><code>Hola mundo</code></p>
 <p>Para ello, editamos el script con nuestro editor preferido (p. ej: vim o nano) y añadimos lo siguiente:</p>
-<pre><code>#!/bin/bash
-
-echo &quot;Hola mundo.&quot;
-</code></pre>
-<h4 id="ejecucion">Ejecución</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>#!/bin/bash
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>echo &quot;Hola mundo.&quot;
+</code></pre></div>
+<h3 id="ejecucion">Ejecución</h3>
 <p>Para ejecutar el script podemos usar cualquiera de los siguientes comandos:</p>
 <p><code>./helloworld.sh</code></p>
 <p><code>bash helloworld.sh</code></p>
@@ -676,54 +914,505 @@ echo &quot;Hola mundo.&quot;
 <p>Una variable es un sitio en memoria para guardar información. Un ejemplo de creación de una variable y asignación de un número a ella sería el siguiente:</p>
 <p><code>EDAD=35</code></p>
 <p>Veamoslo con un script de ejemplo:</p>
-<pre><code>Ejercicio: crear una variable &quot;NOMBRE&quot; que almacene el nombre de una persona. Después, mostrar por pantalla &quot;Tu nombre es ________.&quot;
-
-# Fichero: variables.sh
-----------------------------
-
-#!/bin/bash
-
-NOMBRE=&quot;Marcos&quot;
-echo &quot;Tu nombre es: NOMBRE&quot;
-
-</code></pre>
+<div class="highlight"><span class="filename">variables.sh</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Ejercicio: crear una variable &quot;NOMBRE&quot; que almacene el nombre de una persona. Después, mostrar por pantalla &quot;Tu nombre es ________.&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1">#!/bin/bash</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">NOMBRE</span><span class="o">=</span><span class="s2">&quot;Marcos&quot;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">echo</span> <span class="s2">&quot;Tu nombre es: NOMBRE&quot;</span>
+</code></pre></div>
 <p>Resultado de la ejecución (no nos sale como queremos):
 <img alt="" src="../../images/gnu-linux/variables-1.png" />  </p>
 <p>¿Es esto lo que esperábamos? Efectivamente, el echo está funcionando como debe y el terminal nos muestra lo que le indicamos. Pero, ¿como podemos hacer que el echo nos interprete la variable <strong>NOMBRE</strong> e indique, por tanto, lo que hemos almacenado en la variable?</p>
-<p>Bien, para hacer **que la palabra "NOMBRE" se interprete como una variable, solo tenemos que ponerle delante el caracter de DOLAR ($):</p>
-<pre><code>Ejercicio: crear una variable &quot;NOMBRE&quot; que almacene el nombre de una persona. Después, mostrar por pantalla &quot;Tu nombre es ________.&quot;
-
-# Fichero: variables2.sh
-----------------------------
-
-#!/bin/bash
-
-NOMBRE=&quot;Marcos&quot;
-echo &quot;Tu nombre es: $NOMBRE&quot;
-
-</code></pre>
+<p>Bien, para hacer que <strong>la palabra "NOMBRE" se interprete como una variable</strong>, solo tenemos que <strong>ponerle delante el caracter de DOLAR ($)</strong>:</p>
+<div class="highlight"><span class="filename">variables2.sh</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Ejercicio: crear una variable &quot;NOMBRE&quot; que almacene el nombre de una persona. Después, mostrar por pantalla &quot;Tu nombre es ________.&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">#!/bin/bash</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nv">NOMBRE</span><span class="o">=</span><span class="s2">&quot;Marcos&quot;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nb">echo</span> <span class="s2">&quot;Tu nombre es: </span><span class="nv">$NOMBRE</span><span class="s2">&quot;</span> <span class="c1"># (1)!</span>
+</code></pre></div>
+<ol>
+<li><img alt="🙋‍♂️" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f64b-200d-2642-fe0f.svg" title=":man_raising_hand:" /> El $ hace que en lugar de mostrar la palabra NOMBRE esta se interprete como una variable (y se muestre, por tanto, su contenido).</li>
+</ol>
 <p>Resultado de la ejecución:
 <img alt="" src="../../images/gnu-linux/variables-2.png" /></p>
 <p>Ahora sí funciona correctamente. El valor que le hemos asignado a la variable es "Marcos", pero si lo cambiamos con otro la frase también cambiará.</p>
 <p>Probemos con otro ejercicio:</p>
-<pre><code>Ejercicio: crear una variable &quot;NOMBRE&quot; que almacene el nombre de una persona. Después, mostrar por pantalla &quot;Tu nombre es ________.&quot; Después, haz que el programa espere dos segundos y muestre: &quot;Te has cambiado el nombre y ahora es &quot;Mark&quot;.
-
-# Fichero: variables3.sh
-----------------------------
-
-#!/bin/bash
-
-NOMBRE=&quot;Marcos&quot;
-echo &quot;Tu nombre es: $NOMBRE&quot;
-
-sleep 2
-
-NOMBRE=&quot;Mark&quot;
-echo &quot;Ahora tu nombre es: $NOMBRE&quot;
-</code></pre>
+<div class="highlight"><span class="filename">variables3.sh</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Ejercicio: crear una variable &quot;NOMBRE&quot; que almacene el nombre de una persona. Después, mostrar por pantalla &quot;Tu nombre es ________.&quot; Después, haz que el programa espere dos segundos y muestre: &quot;Te has cambiado el nombre y ahora es &quot;Mark&quot;.</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">#!/bin/bash</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nv">NOMBRE</span><span class="o">=</span><span class="s2">&quot;Marcos&quot;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nb">echo</span> <span class="s2">&quot;Tu nombre es: </span><span class="nv">$NOMBRE</span><span class="s2">&quot;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>sleep <span class="m">2</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="nv">NOMBRE</span><span class="o">=</span><span class="s2">&quot;Mark&quot;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="nb">echo</span> <span class="s2">&quot;Ahora tu nombre es: </span><span class="nv">$NOMBRE</span><span class="s2">&quot;</span>
+</code></pre></div>
 <p>Resultado:</p>
 <p><img alt="" src="../../images/gnu-linux/variables3.png" />  </p>
 <p><em>Para saber más: además de "VARIABLE" existe también la definición de "CONSTANTE". Una constante es lo mismo que una variable, solo que esta no puede volver a cambiarse a lo largo del programa.</em></p>
+<h2 id="parametros">Parámetros</h2>
+<p>Ya vimos que para acceder al contenido de una variable usamos <strong>el caracter $</strong> (p. ej: $nombre).</p>
+<p>Al ejecutar un script podemos pasarle a estos una serie de parámetros. Veamos ejemplos con comandos:</p>
+<ul>
+<li>ls -l: <strong>ls</strong> es el comando y <strong>-l</strong> es el primer parámetro.</li>
+<li>cat fichero.txt: en este caso, cat es el comando de nuevo y <strong>fichero.txt</strong> sería el primer parámetro (por el cuál el comando CAT sabe que fichero debe mostrar).</li>
+<li>tar -cvf personas.tar paula.txt diego.txt adrian.txt: en este caso, -cvf es el primer parámetro, personas.tar es el segundo parámetro, paula.txt el tercero, etc.</li>
+</ul>
+<p>Bien, nosotros podemos crear también scripts que reciban parámetros. Para mostrarlo vamos a utilizar el último script mostrado y hacer que ambos nombres (el primero y el segundo) sean elegidos por el usuario que lo ejecuta (y así no tengan por que ser siempre los mismos):</p>
+<div class="highlight"><span class="filename">parametros1</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Asignamos el parámetro 1 a la variable NOMBRE.</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nv">NOMBRE</span><span class="o">=</span><span class="nv">$1</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">echo</span> <span class="s2">&quot;Tu nombre es: </span><span class="nv">$NOMBRE</span><span class="s2">.&quot;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>sleep <span class="m">2</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># Ahora, asignamos el parámetro 2 a la variable NOMBRE.</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nv">NOMBRE</span><span class="o">=</span><span class="nv">$2</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nb">echo</span> <span class="s2">&quot;Han pasado dos segundos y ahora tu nombre es: </span><span class="nv">$NOMBRE</span><span class="s2">.&quot;</span>
+</code></pre></div>
+<p>Resultado de dos ejecuciones de ejemplo:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./parametros1 Ellen Elliot
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Tu nombre es: Ellen.
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Han pasado tiempo y ahora mi nombre es: Elliot.
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>./parametros1 &quot;Ellen Page&quot; &quot;Elliot Page&quot;
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Tu nombre es: Ellen Page.
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Han pasado tiempo y ahora mi nombre es: Elliot Page.
+</code></pre></div></p>
+<p>Como vemos, existen ya variables predefinidas en la ejecución de un script y a las que podemos acceder con el <strong>$</strong>. En este caso, $1, $2, $3 (en resumen $número) son variables que representan a cada parámetro del script.</p>
+<p>Podríamos también haber dejado el script directamente así:</p>
+<div class="highlight"><span class="filename">parametros2</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">echo</span> <span class="s2">&quot;Tu nombre es: </span><span class="nv">$1</span><span class="s2">.&quot;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>sleep <span class="m">2</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">echo</span> <span class="s2">&quot;Han pasado dos segundos y ahora tu nombre es: </span><span class="nv">$2</span><span class="s2">.&quot;</span>
+</code></pre></div>
+<p>El resultado sería exactamente el mismo:</p>
+<ul>
+<li>La <strong>ventaja del primer script</strong> es que <strong>queda más claro que es lo que se está mostrando</strong> (nombre es una variable muy indicativa de que es lo que se va a mostrar).</li>
+<li>La <strong>ventaja del segundo script</strong>, por su parte, es que <strong>queda sencillo y con pocas líneas</strong>.</li>
+</ul>
+<p>Además de $número, existen muchas otras maneras de acceder a información sobre los parámetros:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$número</td>
+<td>Representa el parámetro pasado en ese número ($1, $2, $3...).</td>
+</tr>
+<tr>
+<td>$* y $@</td>
+<td>Todos los parámetros que se hayan pasado al script.</td>
+</tr>
+<tr>
+<td>$#</td>
+<td>Número de parámetros (en el ejemplo anterior $# devolvería un 2, porque se han pasado dos nombres).</td>
+</tr>
+<tr>
+<td>$0</td>
+<td>El nombre del script</td>
+</tr>
+<tr>
+<td>$?</td>
+<td>Muestra el resultado del último comando ejecutado (p. ej: si no ha dado error devolverá un 0, que es éxito).</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><span class="filename">parametros3</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">echo</span> <span class="s2">&quot;O número de parámetros pasado ao script é: </span><span class="nv">$#</span><span class="s2">.&quot;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nb">echo</span> <span class="s2">&quot;Nome do script: </span><span class="nv">$0</span><span class="s2">.&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">echo</span> <span class="s2">&quot;O parámetro 1 é: </span><span class="nv">$1</span><span class="s2">.&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nb">echo</span> <span class="s2">&quot;O parámetro 2 é: </span><span class="nv">$2</span><span class="s2">.&quot;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nb">echo</span> <span class="s2">&quot;O parámetro 3 é: </span><span class="nv">$3</span><span class="s2">.&quot;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nb">echo</span> <span class="s2">&quot;O parámetro 4 é: </span><span class="nv">$4</span><span class="s2">.&quot;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nb">echo</span> <span class="s2">&quot;O parámetro 5 é: </span><span class="nv">$5</span><span class="s2">.&quot;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nb">echo</span> <span class="s2">&quot;Os parámetros son os seguintes: </span><span class="nv">$*</span><span class="s2">.&quot;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="nb">echo</span> <span class="s2">&quot;Os parámetros son os seguintes: </span><span class="nv">$@</span><span class="s2">.&quot;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="nb">echo</span> <span class="s2">&quot;O resultado do comando anterior é: </span><span class="nv">$?</span><span class="s2">.&quot;</span>
+</code></pre></div>
+<p>Resultado de la ejecución (lo pruebo con 3 parámetros):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>./parametros3 hola boas tardes
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>O número de parámetros pasado ao script é: 3.
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Nome do script: ./parametros3.
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>O parámetro 1 é: hola.
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>O parámetro 2 é: boas.
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>O parámetro 3 é: tardes.
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>O parámetro 4 é:.
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>O parámetro 5 é:.
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>Os parámetros son os seguintes: hola boas tardes.
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>Os parámetros son os seguintes: hola boas tardes.
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>O resultado do comando anterior é: 0.
+</code></pre></div></p>
+<p>Ejercicio propuesto:</p>
+<div class="highlight"><span class="filename">parametros4-tunombre-tuapellido</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># 1. Escribir un saludo por pantalla: &quot;Hola mundo.&quot;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># 2. Escribir un mensaje donde indiques el nombre del programa (siempre debe ser correcto, aunque el nombre del script cambie).</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># 3. Escribir un mensaje que indique el número de parámetros pasados al script.</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># 4. Mostrar todos los parámetros pasados al script.</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="c1"># 5. Escribir un mensaje que ponga:</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c1">#       El parámetro 1 es: _____, el 2 es: ______ y el 3 es _______.</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="c1"># 6. Prueba un mensaje con el parámetro $_.</span>
+</code></pre></div>
+<h2 id="sentencias-condicionales-ifelse">Sentencias condicionales (if/else)</h2>
+<p>En programación existen las llamadas sentencias condicionales, basicamente puedes decir lo siguiente:</p>
+<div class="highlight"><span class="filename">Pseudocódigo de un condicional if/else</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Si condición
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>haz algo
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Sino...
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>haz otra cosa
+</code></pre></div>
+<p>Traducido al inglés el si condicional se denomina <strong>if</strong>, y el sino <strong>else</strong>. Una sentencia if real quedaría tal que así:</p>
+<p>Sintaxis de if:
+<div class="highlight"><span class="filename">Sintaxis real de un condicional if</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">if</span> <span class="o">[</span> condicion <span class="o">]</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">then</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="c1"># Hacemos cosas</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">fi</span>
+</code></pre></div>
+<em>fi es if al revés, es la manera en que terminamos la condición</em>.<br /></p>
+<p>Veamos ahora con un if/else (si se cumple la condición hacemos algo, en caso contrario hacemos otra cosa):</p>
+<div class="highlight"><span class="filename">Sintaxis real de un condicional if / else</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">if</span> <span class="o">[</span> condicion <span class="o">]</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">then</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="c1"># Hacemos algo</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="k">else</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="c1"># Hacemos otra cosa</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">fi</span>
+</code></pre></div>
+<h3 id="ejercicio-de-ejemplo-menores-y-mayores-de-edad">Ejercicio de ejemplo: menores y mayores de edad</h3>
+<p>Script que, pasando como parámetro una edad, nos diga si es menor de edad o mayor de edad (mayor o igual que 18). Utiliza solo ifs (sin else).</p>
+<div class="highlight"><span class="filename">condicionales1 - Intenta hacerlo!</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># Programa al que se le pasa como parámetro una edad:</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1">## - Si es mayor o igual a 18 años, escribe: &quot;Es mayor de edad.&quot;</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1">## - Si la edad es inferior a 18 años, escribe: &quot;Es menor de edad.&quot;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># SINTAXIS PARA RESOLVER EL EJERCICIO:</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1"># Si    parametro1      es mayor que     17</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># if    $1              greater than     17</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># if    [ $1                -gt          17 ]              </span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1"># then/entonces</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="c1">#   echo ...</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="c1"># fi</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="c1"># NOTA: necesitarás dos ifs (uno para mayor y otro para menor).</span>
+</code></pre></div>
+<p>Intenta resolverlo antes de mirar la solución (que se muestra aquí abajo!):
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">condicionales1 - Solución</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span>
+<span class="normal"><a href="#__codelineno-14-13">13</a></span>
+<span class="normal"><a href="#__codelineno-14-14">14</a></span>
+<span class="normal"><a href="#__codelineno-14-15">15</a></span>
+<span class="normal"><a href="#__codelineno-14-16">16</a></span>
+<span class="normal"><a href="#__codelineno-14-17">17</a></span>
+<span class="normal"><a href="#__codelineno-14-18">18</a></span>
+<span class="normal"><a href="#__codelineno-14-19">19</a></span>
+<span class="normal"><a href="#__codelineno-14-20">20</a></span>
+<span class="normal"><a href="#__codelineno-14-21">21</a></span>
+<span class="normal"><a href="#__codelineno-14-22">22</a></span>
+<span class="normal"><a href="#__codelineno-14-23">23</a></span>
+<span class="normal"><a href="#__codelineno-14-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="c1"># Programa al que se le pasa como parámetro una edad:</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="c1">## - Si es mayor o igual a 18 años, escribe: &quot;Es mayor de edad.&quot;</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="c1">## - Si la edad es inferior a 18 años, escribe: &quot;Es menor de edad.&quot;</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="c1"># SINTAXIS PARA RESOLVER EL EJERCICIO:</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="c1"># Si    parametro1      es mayor que     17</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="c1"># if    $1              greater than     17</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="c1"># if    [ $1                -gt          17 ]              </span>
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="c1"># then/entonces</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="c1">#   echo ...</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="c1"># fi</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14"></a>
+<a id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="c1"># NOTA: necesitarás dos ifs (uno para mayor y otro para menor).</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="k">if</span> <span class="o">[</span> <span class="nv">$1</span> -gt <span class="m">17</span> <span class="o">]</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="k">then</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18"></a>    <span class="nb">echo</span> <span class="s2">&quot;E maior de idade.&quot;</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19"></a><span class="k">fi</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20"></a>
+<a id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="k">if</span> <span class="o">[</span> <span class="nv">$1</span> -lt <span class="m">18</span> <span class="o">]</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22"></a><span class="k">then</span>
+<a id="__codelineno-14-23" name="__codelineno-14-23"></a>    <span class="nb">echo</span> <span class="s2">&quot;E menor de idade.&quot;</span>
+<a id="__codelineno-14-24" name="__codelineno-14-24"></a><span class="k">fi</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Resultado de la ejecución:
+<div class="highlight"><span class="filename">Ejemplo de ejecución de condicionales1</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>./condicionales1 18
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Es mayor de edad.
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>./condicionales1 17
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>Es menor de edad.
+</code></pre></div></p>
+<p>Vamos a ver ahora algunas de las condiciones que se pueden utilizar en un condicional:</p>
+<ul>
+<li>-lt → less than (menor que)</li>
+<li>-gt → greater than (mayor que)</li>
+<li>-le → less equals than (menor o igual que)</li>
+<li>-ge → greater equals than (mayor ou igual que)</li>
+<li>-ne → not equal (distinto de)</li>
+</ul>
+<p>En el ejercicio anterior podríamos haber utilizado <em>mayor o igual que 18 ($1 -ge 18)</em> en lugar de mayor que 17 ($1 -gt 17). Existen muchas soluciones diferentes para cada ejercicio.</p>
+<p>Aunque este método funciona, es más correcto hacerlo con un si / sino (if/else). Es decir, en lugar de usar dos ifs utilizamos un if y debajo un else:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">condicionales2</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span>
+<span class="normal"><a href="#__codelineno-16-7">7</a></span>
+<span class="normal"><a href="#__codelineno-16-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="k">if</span> <span class="o">[</span> <span class="nv">$1</span> -ge <span class="m">18</span> <span class="o">]</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="k">then</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>    <span class="nb">echo</span> <span class="s2">&quot;Es mayor de edad.&quot;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="k">else</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>    <span class="nb">echo</span> <span class="s2">&quot;Es menor de edad.&quot;</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="k">fi</span>
+</code></pre></div></td></tr></table></div>
+<p>El resultado es el mismo que en el anterior script. </p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Un else no puede ir sin un if y un else nunca lleva condición. El else se ejecuta si no se cumple la condición del if.</p>
+</div>
+<h3 id="sentencias-condicionales-ifelse-con-mas-de-una-condicion">Sentencias condicionales (if/else) con más de una condición</h3>
+<p>Si te fijas bien, verás que en el else (en el sino...) no podemos poner ninguna condición. En ocasiones no nos es suficiente con poner una única condición en el if, sino que necesitamos comprobar más. Para esto podemos usar <strong>else if (elif)</strong>.</p>
+<h4 id="ejercicio-de-ejemplo-menores-de-edad-mayores-de-edad-y-jubilados">Ejercicio de ejemplo: menores de edad, mayores de edad y jubilados</h4>
+<p>Ahora, al ejercicio anterior, le vamos a añadir una condición más (vamos a comprobar si la edad pasada como parámetro corresponde a una persona jubilada).</p>
+<p>Existen varias maneras de hacer este ejercicio:</p>
+<h5 id="resolucion-con-ifelses-dentro-de-otros-ifelses">Resolución con if/elses dentro de otros if/elses</h5>
+<p>Con esta solución vamos a hacer que si se comprueba que la edad es igual o superior a 18 años se haga otro if para comprobar si está jubilado o no (pueden darse ambos casos):</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">condicionales3</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="c1"># Programa al que se le pasa como parámetro una edad:</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="c1">## - Si es mayor de 67 años, escribe: &quot;Está jubilado.&quot;</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="c1">## - Si la edad es inferior a 18 años, escribe: &quot;Es menor de edad.&quot;</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="c1">## - Si la edad es superior a 17 años pero inferior a 67, escribe: &quot;Es mayor de edad.&quot;</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="k">if</span> <span class="o">[</span> <span class="nv">$1</span> -ge <span class="m">18</span> <span class="o">]</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="k">then</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a>        <span class="k">if</span> <span class="o">[</span> <span class="nv">$1</span> -gt <span class="m">67</span> <span class="o">]</span> <span class="c1"># (1)!</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a>        <span class="k">then</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a>            <span class="nb">echo</span> <span class="s2">&quot;Está jubilado.&quot;</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a>        <span class="k">else</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14"></a>            <span class="nb">echo</span> <span class="s2">&quot;Es mayor de 18.&quot;</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15"></a>        <span class="k">fi</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16"></a><span class="c1"># En caso de que no sea mayor de 18 es que es menor de edad.</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17"></a><span class="k">else</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18"></a>    <span class="nb">echo</span> <span class="s2">&quot;Es menor de edad.&quot;</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19"></a><span class="k">fi</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Si el código pasa por aquí signfiica que el parámetro 1 es igual o mayor que 18 años. Ahora, ya sabiendo que superamos los 18, tenemos que comprobar si llegamos o no a la jubilación. Para eso hace falta otro if/else que compruebe si también superamos los 66 años. <br /><br/><img alt="👴" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f474.svg" title=":older_man:" /> ¿Somos mayores de 66? → IF<br/><br/>o<br/><br/><img alt="👩" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f469.svg" title=":woman:" /> ¿No lo somos? → ELSE</li>
+</ol>
+<h5 id="resolucion-haciendo-varias-comprobaciones-en-el-mismo-if">Resolución haciendo varias comprobaciones en el mismo if (&amp;&amp;)</h5>
+<p>En el mismo condicional se pueden comprobar tantas cosas como se deseen uniéndolas con AND (&amp;&amp;) o con OR (||):
+- AND (&amp;&amp;): verdadero si ambas condiciones son verdaderas.
+- OR (||): es verdadero si una de las dos condiciones es verdadera.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">condicionales4</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-18-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-18-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-18-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-18-10">10</a></span>
+<span class="normal"><a href="#__codelineno-18-11">11</a></span>
+<span class="normal"><a href="#__codelineno-18-12">12</a></span>
+<span class="normal"><a href="#__codelineno-18-13">13</a></span>
+<span class="normal"><a href="#__codelineno-18-14">14</a></span>
+<span class="normal"><a href="#__codelineno-18-15">15</a></span>
+<span class="normal"><a href="#__codelineno-18-16">16</a></span>
+<span class="normal"><a href="#__codelineno-18-17">17</a></span>
+<span class="normal"><a href="#__codelineno-18-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># Programa al que se le pasa como parámetro una edad:</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="c1">## - Si es mayor de 67 años, escribe: &quot;Está jubilado.&quot;</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="c1">## - Si la edad es inferior a 18 años, escribe: &quot;Es menor de edad.&quot;</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="c1">## - Si la edad es superior a 17 años pero inferior a 67, escribe: &quot;Es mayor de edad.&quot;</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="k">if</span> <span class="o">[</span> <span class="nv">$1</span> -ge <span class="m">18</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$1</span> -lt <span class="m">67</span> <span class="o">]</span> <span class="c1"># (1)!</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="k">then</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a>    <span class="nb">echo</span> <span class="s2">&quot;Es mayor de edad.&quot;</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a>
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="k">elif</span> <span class="o">[</span> <span class="nv">$1</span> -ge <span class="m">67</span> <span class="o">]</span> <span class="c1"># (2)!</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="k">then</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14"></a>    <span class="nb">echo</span> <span class="s2">&quot;Está jubilado.&quot;</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15"></a>
+<a id="__codelineno-18-16" name="__codelineno-18-16"></a><span class="k">else</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17"></a>    <span class="nb">echo</span> <span class="s2">&quot;Es menor de edad.&quot;</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="k">fi</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>Aquí se comprueban dos condiciones:<br />- ¿Es mayor o igual que 18?<br/>- ¿Es menor que 67?<br /><br />Ambas se deben cumplir para continuar por el then.</li>
+<li>Si el código va por aquí es que una de las dos condiciones anteriores no se cumplió (por tanto sabemos que o bien es menor de 18 <img alt="🧒" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f9d2.svg" title=":child:" /> o bien es mayor de 67 <img alt="👵" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f475.svg" title=":older_woman:" />).<br /><br />Con el elif y el else sabremos cuál es <img alt="🤟" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f91f.svg" title=":love_you_gesture:" /></li>
+</ol>
+<p>Aquí hemos añadido una nueva posibilidad. En el <strong>if</strong> hemos unido dos condiciones:</p>
+<ol>
+<li>El parámetro 1 ($1) es mayor o igual que 18.</li>
+<li>El parámetro 1 ($1) es menor que 67 años.</li>
+</ol>
+<p>Hemos unido las dos condiciones con &amp;&amp; (AND, y). Esto quiere decir que <strong>solamente si se cumplen ambas condiciones entraría ahí</strong>. Por tanto, si se cumplen ambas condiciones mostrará el mensaje de que es mayor de edad.</p>
+<p>En caso de que solo necesitamos que se cumplan una de las dos usaríamos || en lugar de &amp;&amp;.</p>
+<h5 id="resolucion-mas-sencilla-ifelifelse">Resolución más sencilla: if/elif/else</h5>
+<p>Hasta ahora hemos puesto condiciones una sola vez (en el if). Podemos poner tantas condiciones como queramos con <strong>else if (elif)</strong> (significa: sino si... o en caso contrario...).</p>
+<p>Ejercicio: ejecuta el siguiente código y si no funciona <strong>arréglalo</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">condicionales5 - Encuentra el error!</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-19-10">10</a></span>
+<span class="normal"><a href="#__codelineno-19-11">11</a></span>
+<span class="normal"><a href="#__codelineno-19-12">12</a></span>
+<span class="normal"><a href="#__codelineno-19-13">13</a></span>
+<span class="normal"><a href="#__codelineno-19-14">14</a></span>
+<span class="normal"><a href="#__codelineno-19-15">15</a></span>
+<span class="normal"><a href="#__codelineno-19-16">16</a></span>
+<span class="normal"><a href="#__codelineno-19-17">17</a></span>
+<span class="normal"><a href="#__codelineno-19-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="c1"># Programa al que se le pasa como parámetro una edad:</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="c1">## - Si es mayor de 67 años, escribe: &quot;Está jubilado.&quot;</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="c1">## - Si la edad es inferior a 18 años, escribe: &quot;Es menor de edad.&quot;</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="c1">## - Si la edad es superior a 17 años pero inferior a 67, escribe: &quot;Es mayor de edad.&quot;</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="k">if</span> <span class="o">[</span> <span class="nv">$1</span> -ge <span class="m">18</span> <span class="o">]</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="k">then</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a>    <span class="nb">echo</span> <span class="s2">&quot;Es mayor de edad.&quot;</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a>
+<a id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="k">elif</span> <span class="o">[</span> <span class="nv">$1</span> -ge <span class="m">67</span> <span class="o">]</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="k">then</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14"></a>    <span class="nb">echo</span> <span class="s2">&quot;Está jubilado.&quot;</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15"></a>
+<a id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="k">else</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17"></a>    <span class="nb">echo</span> <span class="s2">&quot;Es menor de edad.&quot;</span>
+<a id="__codelineno-19-18" name="__codelineno-19-18"></a><span class="k">fi</span>
+</code></pre></div></td></tr></table></div>
+<p>Intenta encontrar el error! es algo muy simple una vez te des cuenta :-).</p>
+<h2 id="bucles">Bucles</h2>
+<h3 id="bucle-while-mientras">Bucle while (mientras)</h3>
+<p>La palabra <em>while</em> significa en español <strong>mientras</strong>. El bucle while o "mientras" hace que la condición que se le pase se ejecute repetidamente hasta que la condición deje de cumplirse. La sintaxis es similar a la del if:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">while</span> <span class="o">[</span> condición <span class="o">]</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">do</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="c1"># Aquí escribimos todo lo que queramos hacer en caso de que la condición se cumpla</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="k">done</span>
+</code></pre></div>
+<p>Este bucle <em>while</em> funcionará igual que el if, salvo por el hecho de que repetirá sin parar la ejecución (se repetirá una y otra vez). Vamos a ver la diferencia entre usar un IF y un WHILE con un ejemplo:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Código (con if)</label><label for="__tabbed_1_2">Ejecución if</label><label for="__tabbed_1_3">Código (con while)</label><label for="__tabbed_1_4">Ejecución while</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">if-vs-while</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1"># Ejercicio: indica si el número es positivo, no pongas nada en caso de ser negativo</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nb">echo</span> -n <span class="s2">&quot;Escribe un número: &quot;</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="nb">read</span> numero
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="k">if</span> <span class="o">[</span> <span class="nv">$numero</span> -gt <span class="m">0</span> <span class="o">]</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="k">then</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>        <span class="nb">echo</span> <span class="s2">&quot;El número </span><span class="nv">$numero</span><span class="s2"> es positivo.&quot;</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="k">fi</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>./if-vs-while
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>Escribe un número: 2
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>El número 2 es positivo.
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="c1"># Ejercicio que muestra los numeros positivos.</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="nb">echo</span> -n <span class="s2">&quot;Escribe un número: &quot;</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="nb">read</span> numero
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="k">while</span> <span class="o">[</span> <span class="nv">$numero</span> -gt <span class="m">0</span> <span class="o">]</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="k">do</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>        <span class="nb">echo</span> <span class="s2">&quot;El número </span><span class="nv">$numero</span><span class="s2"> es positivo.&quot;</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="k">done</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>    /if-vs-while2  
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    Escribe un número: 2
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    El número 2 es positivo.
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    El número 2 es positivo.
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    El número 2 es positivo.
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    El número 2 es positivo.
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>    El número 2 es positivo.
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>    El número 2 es positivo.
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>    ...
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>    ...
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Ahora veamos el código con <em>while</em>:</p>
+<ul>
+<li>Si la condición no se cumple (si le damos, por ejemplo, un -5) funcionaría igual que en el if (no pasaría nada).</li>
+<li>Si la condición se cumple (y mientras se siga cumpliendo) lo que hay dentro seguirá ejecutándose hasta el infinito. En el caso de este script hay que parar el programa con la combinación <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span>.</li>
+</ul>
+<h3 id="ejercicios-con-bucle-while">Ejercicios con bucle <em>while</em></h3>
+<div class="highlight"><span class="filename">contar-hasta-5</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>
+</code></pre></div>
+<div class="highlight"><span class="filename">.browserslistrc</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>
+</code></pre></div>
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li>How-to: Shell parameters. Obtenido de: https://ss64.com/bash/syntax-parameters.html</li>
+</ul>
 
 
 
@@ -760,13 +1449,13 @@ echo &quot;Ahora tu nombre es: $NOMBRE&quot;
       
       
         
-        <a href="../../windows/windows-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Windows" rel="next">
+        <a href="../../windows/windows-setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Introducción" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Windows
+              Introducción
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -792,7 +1481,7 @@ echo &quot;Ahora tu nombre es: $NOMBRE&quot;
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>

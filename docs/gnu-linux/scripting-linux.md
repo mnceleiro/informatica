@@ -511,20 +511,111 @@ Ahora veamos el código con *while*:
 - Si la condición se cumple (y mientras se siga cumpliendo) lo que hay dentro seguirá ejecutándose hasta el infinito. En el caso de este script hay que parar el programa con la combinación ++ctrl+c++.
 
 ### Ejercicios con bucle *while*
-``` title="contar-hasta-5"
---8<-- "contar-hasta-5.sh"
+
+#### Contar de 1 a 5
+
+Crea un script que cuente los números del 1 al 5 (usa para ello un bucle *while*). Si quieres sumar números puedes usar el comando **expr**: `expr 4 + 5`
+
+A continuación se muestra un posible resultado.
+
+```bash title="contar-hasta-5" linenums="1"
+--8<-- "docs/ficheros/scripts/bucles/while/contar-hasta-5"
 ```
 
-``` title=".browserslistrc"
---8<-- ".browserslistrc"
+Si lo ejecutas, verás que no cuenta exactamente del 1 al 5. Arréglalo para que funcione como debe.
+
+#### Mostrar los números entre dos números dados
+Crea un script que, pasados dos parámetros, muestre os números desde el primero al último (ambos incluídos). Por ejemplo: si ejecutas el script como `./entre-numeros 20 23` la salida debería ser `20 21 22 23`.
+
+## Bucle for (para)
+La sintaxis del bucle for es similar a las anteriores:
+
+```bash title="Sintaxis del bucle for (para)"
+for VARIABLE in 1 2 3 4 5
+do
+    # Hago cosas
+done
+```
+En este bucle, la VARIABLE tomaría primero el valor 1, luego el 2, luego el 3, luego el 4 y finalmente el 5. Se ejecutaría 5 veces y en $VARIABLE cada vez uno de esos valores.
+
+Veamos un ejemplo como el anterior del *while* (que muestre números del 1 al 5).
+
+```bash title="Mostrar números del 1 al 5"
+--8<-- "docs/ficheros/scripts/bucles/for/contar-hasta-5"
 ```
 
-```
---8<--
-./contar-hasta-5.sh
-/.browserslistrc
---8<--
+### Ejercicio
+Crea un script que haga un head de todos los ficheros pasados como parámetro (*recuerda que sabes como acceder a todos los parámetros, necesitarás usarlos en el for*).
+
+### For con rangos
+El bucle for se puede usar con rangos. La sintaxis es la siguiente:
+
+```bash title="Sintaxis de rangos en el bucle for"
+for i in {n1..n2}
+do
+    echo $i # (1)!
+done
 ```
 
+1. En este caso le estamos llamando "i" al contador. "i" recorrerá desde n1 hasta n2 todos los números.
+
+Veamos con un ejemplo real que recorra los números del 1 al 5:
+
+=== "Contar 5 con rangos"
+
+    ```bash title="Recorrer números del 1 al 5 usando rangos"
+    --8<-- "docs/ficheros/scripts/bucles/for/contar-hasta-5-rangos"
+    ```
+
+=== "Ejecución"
+
+    ```
+    ./contar-hasta-5-rangos 
+    El contador vale: 1.
+    El contador vale: 2.
+    El contador vale: 3.
+    El contador vale: 4.
+    El contador vale: 5.
+    ```
+
+Si deseamos trabajar con rangos como ahora, pero queremos hacer que el contador vaya de 2 en 2, de 5 en 5... podemos hacerlo con la sintaxis siguiente:
+```bash title="Sintaxis de rangos en el bucle for"
+for i in {NUMERO_INICIAL..NUMERO_FINAL..NUMERO_DE_SALTOS}
+do
+    echo $i # (1)!
+done
+```
+
+Por ejemplo, el siguiente código irá hacia atrás desde 20 hasta -5 (e irá de 5 en 5):
+=== "Rangos con salto"
+
+    ```bash title="Recorrer números del 1 al 5 usando rangos"
+    --8<-- "docs/ficheros/scripts/bucles/for/contar-hasta-5-rangos-salto"
+    ```
+
+=== "Ejecución"
+
+    ```
+    ./contar-hasta-5-rangos-salto 
+    El contador vale: 20.
+    El contador vale: 15.
+    El contador vale: 10.
+    El contador vale: 5.
+    El contador vale: 0.
+    El contador vale: -5.
+    ```
+
+## Ejercicios
+Realiza los siguientes ejercicios:
+
+1. Usando un bucle *for* **con rangos**, cuenta desde el número 5 hasta el 1.
+2. Crea un script que cuente los números impares empezando en el 133 hasta 0 (bucle for). Los números deben estar en la misma línea separados por espacios.
+3. Crea un script con un menú que pregunte al usuario las siguientes opciones:
+    - (1) Ver estado de los discos.
+    - (2) Ver uso de RAM.
+    - (3) Mostrar las carpetas del directorio /home.
+    - En caso de que el usuario ponga un número distinto de 1, 2 o 3, debe mostrarse un error y volvérsele a preguntar.
 ## Referencias
-- How-to: Shell parameters. Obtenido de: https://ss64.com/bash/syntax-parameters.html
+- How-to: Shell parameters. ss64. Obtenido de: https://ss64.com/bash/syntax-parameters.html
+- Vivek Gite. Bash For Loop Examples. cyberciti. Obtenido de: https://www.cyberciti.biz/faq/bash-for-loop/#C_style_for_loop
+
