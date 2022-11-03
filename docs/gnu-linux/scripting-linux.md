@@ -544,9 +544,6 @@ Veamos un ejemplo como el anterior del *while* (que muestre números del 1 al 5)
 --8<-- "docs/ficheros/scripts/bucles/for/contar-hasta-5"
 ```
 
-### Ejercicio
-Crea un script que haga un head de todos los ficheros pasados como parámetro (*recuerda que sabes como acceder a todos los parámetros, necesitarás usarlos en el for*).
-
 ### For con rangos
 El bucle for se puede usar con rangos. La sintaxis es la siguiente:
 
@@ -610,12 +607,15 @@ Realiza los siguientes ejercicios:
 
 1. Usando un bucle *for* **con rangos**, cuenta desde el número 5 hasta el 1.
 2. Crea un script que cuente los números impares empezando en el 133 hasta 0 (bucle for). Los números deben estar en la misma línea separados por espacios.
+3. Crea un script que haga un head de todos los ficheros pasados como parámetro, no importa cuántos sean (*recuerda que hay una variable que te devuelve todos los parámetros, así podrás usarlos en un bucle for sencillo*). Debe indicarse claramente (al hacer el head de cada fichero) cuál se está mostrando.
 3. Crea un script con un menú que pregunte al usuario las siguientes opciones:
     - (1) Ver estado de los discos.
     - (2) Ver uso de RAM.
     - (3) Mostrar las carpetas del directorio /home.
     - En caso de que el usuario ponga un número distinto de 1, 2 o 3, debe mostrarse un error y volvérsele a preguntar.
+    
 ## Referencias
 - How-to: Shell parameters. ss64. Obtenido de: https://ss64.com/bash/syntax-parameters.html
 - Vivek Gite. Bash For Loop Examples. cyberciti. Obtenido de: https://www.cyberciti.biz/faq/bash-for-loop/#C_style_for_loop
+- Shell scripting tutorial. shellscript.sh. Obtenido de: https://www.shellscript.sh
 
