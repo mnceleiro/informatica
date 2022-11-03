@@ -18,7 +18,7 @@ La información de los usuarios y grupos locales que hay en el sistema, en GNU/L
 | whoami | Muestra solamente el usuario actual que está ejecutando el comando. Es equivalente a hacer un **id -un**. |
 | adduser | Crea un usuario de forma interactiva (este no nos es útil para automatizar tareas mediante scripts). |
 useradd | Crea un usuario. La sintaxis es la siguiente:<br /><br />useradd -m [-d ruta_carpeta_home] [-s shell_a_utilizar] <nombre_usuario>. <br/><br/>Un ejemplo real, para el usuario "marcos", podría ser el siguiente:<br />**useradd** **-m** **-d** /home/marcos **-s** /bin/bash **marcos**. |
-| 
+| chmod | chmod u+r \<fichero> → Añade permisos de lectura (**R**ead) al usuario.<br/>chmod u+w \<fichero> → Añade permisos de escritura (**W**rite) al usuario.<br />chmod u+x \<fichero> → Añade permisos de ejecución (e**X**ecution) al usuario.<br/><br/>Además, si en lugar de la **u (usuario, user)** usamos la **g (grupo, group**) o la **o (otros, others)** podemos dar permisos a los usuarios pertenecientes al mismo grupo u a otros. La letra **a (todos, all)** sería para dar permiso a todos los usuarios (p. ej: permiso de ejecución a usuario, grupo y otros: a+x).<br/><br/>Si en lugar de dar un permiso queremos quitarlo, solo tenemos que cambiar el + por un -.<br/><br/>Puedes consultar [más información sobre permisos en este artículo](https://phoenixnap.com/kb/linux-file-permissions).
 
 A continuación se muestra en un tutorial en vídeo como gestionar usuarios y grupos locales en Debian y derivados:
 [![Vídeo sobre gestión de usuarios y grupos](../images/linux/video-manage-users-groups-linux.png)](https://www.youtube.com/watch?v=ApjqEymyTRE)

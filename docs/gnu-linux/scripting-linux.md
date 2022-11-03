@@ -312,6 +312,7 @@ Vamos a ver ahora algunas de las condiciones que se pueden utilizar en un condic
 - -gt → greater than (mayor que)
 - -le → less equals than (menor o igual que)
 - -ge → greater equals than (mayor ou igual que)
+- -ne → not equal (distinto de)
 
 En el ejercicio anterior podríamos haber utilizado *mayor o igual que 18 ($1 -ge 18)* en lugar de mayor que 17 ($1 -gt 17). Existen muchas soluciones diferentes para cada ejercicio.
 
@@ -433,7 +434,97 @@ else
 fi
 ```
 
-Intenta encontrar el error! es algo muy simple una vez te des cuenta :-)
+Intenta encontrar el error! es algo muy simple una vez te des cuenta :-).
+
+## Bucles
+
+### Bucle while (mientras)
+La palabra *while* significa en español **mientras**. El bucle while o "mientras" hace que la condición que se le pase se ejecute repetidamente hasta que la condición deje de cumplirse. La sintaxis es similar a la del if:
+
+```bash
+while [ condición ]
+do
+    # Aquí escribimos todo lo que queramos hacer en caso de que la condición se cumpla
+done
+```
+
+Este bucle *while* funcionará igual que el if, salvo por el hecho de que repetirá sin parar la ejecución (se repetirá una y otra vez). Vamos a ver la diferencia entre usar un IF y un WHILE con un ejemplo:
+
+=== "Código (con if)"
+
+    ```bash title="if-vs-while"
+    #!/bin/bash
+
+    # Ejercicio: indica si el número es positivo, no pongas nada en caso de ser negativo
+
+    echo -n "Escribe un número: "
+    read numero
+
+    if [ $numero -gt 0 ]
+    then
+            echo "El número $numero es positivo."
+    fi
+    ```
+
+=== "Ejecución if"
+
+    ```
+    ./if-vs-while
+    Escribe un número: 2
+    El número 2 es positivo.
+    ```
+
+=== "Código (con while)"
+
+    ```bash
+    #!/bin/bash
+
+    # Ejercicio que muestra los numeros positivos.
+
+    echo -n "Escribe un número: "
+    read numero
+
+    while [ $numero -gt 0 ]
+    do
+            echo "El número $numero es positivo."
+    done
+    ```
+
+=== "Ejecución while"
+
+    ```
+        /if-vs-while2  
+        Escribe un número: 2
+        El número 2 es positivo.
+        El número 2 es positivo.
+        El número 2 es positivo.
+        El número 2 es positivo.
+        El número 2 es positivo.
+        El número 2 es positivo.
+        ...
+        ...
+    ```
+
+Ahora veamos el código con *while*:
+
+- Si la condición no se cumple (si le damos, por ejemplo, un -5) funcionaría igual que en el if (no pasaría nada).
+- Si la condición se cumple (y mientras se siga cumpliendo) lo que hay dentro seguirá ejecutándose hasta el infinito. En el caso de este script hay que parar el programa con la combinación ++ctrl+c++.
+
+### Ejercicios con bucle *while*
+``` title="contar-hasta-5"
+--8<-- "contar-hasta-5.sh"
+```
+
+``` title=".browserslistrc"
+--8<-- ".browserslistrc"
+```
+
+```
+--8<--
+./contar-hasta-5.sh
+/.browserslistrc
+--8<--
+```
 
 ## Referencias
 - How-to: Shell parameters. Obtenido de: https://ss64.com/bash/syntax-parameters.html
