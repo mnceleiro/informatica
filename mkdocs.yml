@@ -16,8 +16,9 @@ nav:
     - 'Powershell': windows/powershell.md
 theme:
   name: material
+  language: es
   palette:
-    # scheme: slate
+    #scheme: slate
     primary: indigo
   features:
     - navigation.tabs
@@ -40,3 +41,8 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.keys
+plugins:
+  - search
+  - enumerate-headings:
+      increment_across_pages: false
+      toc_depth: 4

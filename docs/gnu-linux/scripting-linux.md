@@ -2,6 +2,19 @@
 Existen múltiples shells (podemos ver cuál estamos usando mostrando con echo la variable de entorno $SHELL).
 
 ## Mi primer script
+### Contenido del script
+Para empezar, nuestro primer script mostrará en pantalla solamente la línea:
+
+`Hola mundo`
+
+Para ello, editamos el script con nuestro editor preferido (p. ej: vim o nano) y añadimos lo siguiente:
+
+```bash
+#!/bin/bash
+
+echo "Hola mundo."
+```
+
 ### Permisos de ejecución
 Para crear un script en BASH creamos un fichero con el nombre que queramos y le damos permisos de ejecución (u+x):
 
@@ -17,19 +30,6 @@ o
 
 Ejemplo de realización de la tarea de creación de script y permisos de ejecución para el usuario:
 ![Comando chmod](../images/gnu-linux/chmod.png)
-
-### Contenido del script
-Para empezar, nuestro primer script mostrará en pantalla solamente la línea:
-
-`Hola mundo`
-
-Para ello, editamos el script con nuestro editor preferido (p. ej: vim o nano) y añadimos lo siguiente:
-
-```
-#!/bin/bash
-
-echo "Hola mundo."
-```
 
 ### Ejecución
 Para ejecutar el script podemos usar cualquiera de los siguientes comandos:
@@ -579,9 +579,11 @@ Si deseamos trabajar con rangos como ahora, pero queremos hacer que el contador 
 ```bash title="Sintaxis de rangos en el bucle for"
 for i in {NUMERO_INICIAL..NUMERO_FINAL..NUMERO_DE_SALTOS}
 do
-    echo $i # (1)!
+    echo "$i" # (1)!
 done
 ```
+
+1. Se mostrará el valor de la variable i. Este valor empezará en NUMERO_INICIAL e irá saltando NUMERO_DE_SALTOS hata llegar a NUMERO_FINAL.
 
 Por ejemplo, el siguiente código irá hacia atrás desde 20 hasta -5 (e irá de 5 en 5):
 === "Rangos con salto"
@@ -605,15 +607,64 @@ Por ejemplo, el siguiente código irá hacia atrás desde 20 hasta -5 (e irá de
 ## Ejercicios
 Realiza los siguientes ejercicios:
 
-1. Usando un bucle *for* **con rangos**, cuenta desde el número 5 hasta el 1.
-2. Crea un script que cuente los números impares empezando en el 133 hasta 0 (bucle for). Los números deben estar en la misma línea separados por espacios.
-3. Crea un script que haga un head de todos los ficheros pasados como parámetro, no importa cuántos sean (*recuerda que hay una variable que te devuelve todos los parámetros, así podrás usarlos en un bucle for sencillo*). Debe indicarse claramente (al hacer el head de cada fichero) cuál se está mostrando.
-3. Crea un script con un menú que pregunte al usuario las siguientes opciones:
+1. Usando un bucle *for* **con rangos**, cuenta desde el número 8 hasta el 1.
+2. Usando un bucle *for* **sin rangos**, cuenta desde el número 8 hasta el 1.
+3. Usando un bucle *while* cuenta desde el número 8 hasta el 0 (retrocediendo de 2 en 2).
+4. Crea un script que cuente los números impares empezando en el 133 hasta 0 (bucle for). Los números deben estar en la misma línea separados por espacios.
+5. Crea un script que haga un head de todos los ficheros pasados como parámetro, no importa cuántos sean (*recuerda que hay una variable que te devuelve todos los parámetros, así podrás usarlos en un bucle for sencillo*). Debe indicarse claramente (al hacer el head de cada fichero) cuál se está mostrando (más abajo tienes un ejemplo de ejecución del ejercicio).
+6. Crea un script que recorra los parámetros que se le pasen e indique si el número es par o impar. Para comprobar si el número es par o impar solo hay que ver el resto de la división, para ello se usa el operador "%". Por ejemplo: para 10 % 2 el resultado será 0, para 11 % 2 el resultado (el resto) será 1.
+7. Crea un script con un menú que pregunte al usuario las siguientes opciones:
     - (1) Ver estado de los discos.
     - (2) Ver uso de RAM.
     - (3) Mostrar las carpetas del directorio /home.
-    - En caso de que el usuario ponga un número distinto de 1, 2 o 3, debe mostrarse un error y volvérsele a preguntar.
+    - En caso de que el usuario ponga un número distinto de 1, 2 o 3, debe mostrarse un error.
+8. Haz una copia del script anterior y añade una opción 4 que sea "Salir". El programa se repetirá continuamente mostrando el menú y pidiendo opciones hasta que el usuario pulse esa opción. También, si se elige una opción que no existe (por ejemplo: 7) debe mostrarse un mensaje de error.
+
+
+### Ejemplos de ejecución de los ejercicios
+A continuación se muestran ejemplos de salidas de los ejercicios anteriores al ejecutarlos:
+
+=== "Resultado ejercicio 4"
+
+    ```
+    nceleiro@mnceleiro-gram:~$ ./contar-impares-for 
+    133 131 129 127 125 123 121 119 117 115 113 111 109 107 105 103 101 99 97 95 93 91 89 87 85 83 81 79 77 75 73 71 69 67 65 63 61 59 57 55 53 51 49 47 45 43 41 39 37 35 33 31 29 27 25 23 21 19 17 15 13 11 9 7 5 3 1 
+    mnceleiro@mnceleiro-gram:~$
+    ```
+
+=== "Resultado ejercicio 5"
+
+    ```
+    ./head-ficheros
     
+    -------------- FICHERO: rosalia.txt ---------------------
+
+    Adios rios, adios fontes
+    Adios regatos pequenos
+    Adios vista dos meus ollos
+    Non sei cando nos veremos
+
+    ------------- FICHERO: estrofa.txt ------------------------
+
+    Adios, adios, que me vou
+    Herbiñas do camposanto
+    Donde meu pai s' enterrou
+    Herbiñas que biquey tanto
+    Terriña que nos criou
+
+    ---------------------------------------------------------
+    ```
+
+=== "Resultado ejercicio 7"
+
+    ```
+    ./par-impar 4 18 22 23
+    El número 4 es PAR.
+    El número 18 es PAR.
+    El número 22 es PAR.
+    El número 23 es IMPAR.
+    ```
+
 ## Referencias
 - How-to: Shell parameters. ss64. Obtenido de: https://ss64.com/bash/syntax-parameters.html
 - Vivek Gite. Bash For Loop Examples. cyberciti. Obtenido de: https://www.cyberciti.biz/faq/bash-for-loop/#C_style_for_loop
