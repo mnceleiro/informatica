@@ -1,7 +1,84 @@
 # Instalación y configuración de entornos Linux
 
-## Conceptos básicos 
+## GNU/Linux
+GNU/Linux es la base de muchos sistemas operativos de código abierto. GNU/Linux no es un sistema operativo completo, sino una serie de programas y herramientas con un núcleo (*kernel*) que comparten muchos sistemas operativos (OpenSuse, Ubuntu, Linux Mint, Debian, etc.).
+Los nombres más importantes detrás de GNU/Linux son **Richard Stallman** y **Linus Torvalds**.
 
+### Distribuciones GNU/Linux y entornos de escritorio
+
+Existen múltiples distribuciones basadas en Linux con diferentes características (Debian, OpenSuse, Ubuntu, Linux Mint, Zorin OS, Fedora, Archilinux, etc.). Además, cada una de estas distribuciones se puede usar con diferentes entornos de escritorio (puedes imaginarte unos más parecidos al estilo de Windows, otros más parecidos a MacOS y otros diferentes a ambos). 
+
+Las distribuciones GNU/Linux más habituales y más “beginner friendly” son las basadas en Ubuntu. Las versiones más habituales de Ubuntu son las siguientes:
+
+* Ubuntu con entorno de escritorio “Gnome” (denominado como [Ubuntu](https://ubuntu.com/download)) .
+* Ubuntu con entorno de escritorio “KDE” (denominado como [Kubuntu](https://kubuntu.org/)).
+
+Para ordenadores antiguos o con muy pocos recursos:
+
+* Ubuntu con entorno de escritorio “XFCE” ([Xubuntu](https://xubuntu.org/)).
+* Ubuntu con entorno de escritorio “LXDE” ([Lubuntu](https://lubuntu.me/)).
+
+A continuación se muestran imágenes de distintos sistemas operativos y entornos de escritorio:
+
+| ![ubuntu-gnome.png](../images/intro/distros-linux/ubuntu-gnome.png) |
+|:--:|
+| **Ubuntu** con **GNOME** (Ubuntu) |
+
+
+| ![kubuntu.png](../images/intro/distros-linux/kubuntu.png) |
+|:-:|
+| **Ubuntu** con **KDE** (Kubuntu) |
+
+
+| ![lubuntu.png](../images/intro/distros-linux/lubuntu.png) |
+|:-:|
+| **Ubuntu** con **LXDE** (Lubuntu) |
+
+
+| ![linux-mint-cinnamon.png](../images/intro/distros-linux/linux-mint-cinnamon.png) |
+|:-:|
+| **Linux Mint** (distribución basada en Ubuntu) con entorno de escritorio **Cinnamon** |
+
+
+| ![linux-mint-mate.png](../images/intro/distros-linux/linux-mint-mate.png) |
+|:-:|
+| **Linux Mint** con entorno de escritorio denominado **MATE** |
+
+
+| ![](../images/intro/distros-linux/zorinos.png) |
+|:-:|
+| **Zorin OS** (distribución basada en Ubuntu y *Windows friendly*). Tiene un entorno de escritorio GNOME adaptado por ellos mismos para hacerlo más familiar a Windows. |
+
+
+Como veis, **es posible tener el mismo sistema operativo con diferente entorno de escritorio**. GNOME, KDE, XFCE, Cinnamon, MATE o LXDE son entornos de escritorio diferentes.
+
+**Iniciarse en GNU/Linux**: *si quieres iniciarte en GNU/Linux en uso personal usar Ubuntu o una distribución basada en Ubuntu es la mejor opción. Mis recomendaciones para empezar: Ubuntu (el normal con Gnome), Linux Mint (Cinnamon) o Zorin OS.*
+
+Algunos sistemas operativos o entornos de escritorio en GNU/Linux consumen muy pocos y están preparados para dar una segunda vida a ordenadores antiguos. Si quieres dar una segunda vida a un ordenador antiguo sigue [este enlace](https://itsfoss.com/lightweight-linux-beginners/).
+<br>
+
+## GNU/Linux en servidores
+Algunos usuarios habituales de Linux son los siguientes:
+
+- Gobierno de los Estados Unidos y algunas de sus agencias (nacional, estatal, federal e internacional).
+- NASA: no solo lo utilizan para la mayor parte de su computación, sino que además contribuyen al código.
+- Hospitales
+- Red de trenes de alta velocidad de Japón (bullet trains).
+- Control de tráfico.
+- Institutos financieros.
+- Liders de comercio online (Amazon, Paypal, Ebay o Walmart.
+- Muchas otras compañías (Google, IBM, Facebook, Mcdonals...).
+
+Dentro de las versiones de GNU/Linux en entornos empresariales destacan las siguientes:
+
+- Redhat.
+- CentOS: administrado también por Redhat y totalmente gratuito. No recibe soporte técnico de Redhat.
+- Fedora Server: gratuito.
+- Suse Linux Enterprise Server: pertenece a la compañía Novell. VMWare utiliza Suse como entorno.
+- Debian.
+- Ubuntu Server.
+
+## Conceptos básicos 
 ### Interfaces de usuario
 Existen varios términos para describir interfaces gráficas:
 

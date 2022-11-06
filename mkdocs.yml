@@ -3,9 +3,10 @@ repo_url: https://github.com/mnceleiro/informatica
 nav:
   - Introducción:
     - 'Iniciación': 'index.md'
-    - 'Arquitecturas físicas': '1-intro/1-arquitecturas-fisicas.md'
-    - 'Introducción a la informática': '1-intro/2-intro-ordenadores.md'
-    - 'Introducción a los sistemas operativos': '1-intro/3-intro-sos.md'
+    - 'Introducción a los sistemas operativos': '1-intro/1-intro-sos.md'
+    - 'Introducción a la informática': '1-intro/2-intro-informatica.md'
+    - 'Multimedia': '1-intro/multimedia.md'
+    - 'Arquitecturas físicas': '1-intro/arquitecturas-fisicas.md'
     - 'Virtualización': '1-intro/4-virtual-machines.md'
   - GNU/Linux: 
     - 'Comandos básicos': 'gnu-linux/linux-setup.md'

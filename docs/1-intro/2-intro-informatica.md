@@ -83,8 +83,8 @@ Actualmente, las aplicaciones piden contraseñas normalmente complejas, ¿por qu
 
 Bien, la razón es porque es más difícil robarlas. Existen dos tipos de ataques:
 
-- Ataque por fuerza bruta: un programa que prueba contraseñas por fuerza bruta basicamente intentaría todas las contraseñas posibles. Por ejemplo, desde la a hasta la z (mayúsculas y minúsculas) desde 4 dígitos hasta 8. O solo numéricas. Una contraseña con muchos caracteres y que incluye algunos raros (* @ # & %...) es computacionalmente muy difícil (practicamente imposible) de descifrar.
-- Ataque por diccionarios: se prueban los usuarios y contraseñas más comunes. Por ejemplo:
+- **Ataque por fuerza bruta**: un programa que prueba contraseñas por fuerza bruta basicamente intentaría todas las contraseñas posibles. Por ejemplo, desde la a hasta la z (mayúsculas y minúsculas) desde 4 dígitos hasta 8. O solo numéricas. Una contraseña con muchos caracteres y que incluye algunos raros (* @ # & %...) es computacionalmente muy difícil (practicamente imposible) de descifrar.
+- **Ataque por diccionarios**: se prueban los usuarios y contraseñas más comunes. Por ejemplo:
 
 | Usuario   | Contraseña    |
 | -------   | ------------- |
@@ -93,11 +93,11 @@ Bien, la razón es porque es más difícil robarlas. Existen dos tipos de ataque
 | admin     | 123456        |
 | ........  | ........      |
 
-*NOTA*: esto es solo un ejemplo de posibles combinaciones muy comunes. Si usas una de estas es más probable que alguien pueda descubrirla (incluso sin ningún tipo de aplicación). Por ello, se obliga a escribir contraseñas seguras.
+*NOTA: esto es solo un ejemplo de posibles combinaciones muy comunes. Si usas una de estas es más probable que alguien pueda descubrirla (incluso sin ningún tipo de aplicación). Por ello, se obliga a escribir contraseñas seguras.*
 
-En resumen, para evitar peligros con las contraseñas se recomienda cumplir ciertas normas de: complejidad de la misma (mayúsculas, minúsculas, números y caracteres poco habituales), longitud (más de 8 caracteres) y cambiarla cada cierto tiempo.
+Para evitar peligros con las contraseñas se recomienda cumplir ciertas normas de: complejidad de la misma (mayúsculas, minúsculas, números y caracteres poco habituales), longitud (más de 8 caracteres) y cambiarla cada cierto tiempo.
 
-En empresas o páginas web se piden (en ocasiones) demasiados requisitos para las contraseñas, lo cuál puede resultar problemático.<br/>Por ejemplo, imagina que (aparte de los anteriores requisitos) te pidan que la cambies cada 6 meses y que cada vez sea diferente (no puedes repetir las antiguas). Además de esto, debes tener contraseñas diferentes para varios servicios.<br/><br/>Estos requisitos resultan contraproducentes en muchas ocasiones, ya que implican que las contraseñas se pierdan o se apunten en papeles sobre la mesa, terminen en papeleras... lo cuál las hace realmente más vulnerables a ser descubiertas.
+En empresas o páginas web se piden (en ocasiones) demasiados requisitos para las contraseñas, lo cuál puede resultar problemático. Por ejemplo, imagina que (aparte de los anteriores requisitos) te pidan que la cambies cada 6 meses y que cada vez sea diferente (no puedes repetir las antiguas). Además de esto, debes tener contraseñas diferentes para varios servicios. Estos requisitos resultan contraproducentes en muchas ocasiones, ya que implican que las contraseñas se pierdan o se apunten en papeles sobre la mesa, terminen en papeleras... lo cuál las hace realmente más vulnerables a ser descubiertas.
 
 ## Navegadores web
 Hay algunos conceptos a tener en cuenta respectoa los navegadores web:
@@ -147,7 +147,7 @@ Algunos enlaces interesantes para informarse más sobre este tema:
 - [Ataque a Telefónica en 2017](https://www.audea.com/telefonica-sufre-ciberataque-ransomware-red-interna/).
 - [Experiencia de una persona en empresa con un ataque de Ramsonware (Xataka)](https://www.xataka.com/seguridad/yo-he-negociado-crackers-ataque-ransomware-nos-pedian-1-bitcoin-perdiamos-toda-nuestra-informacion)
 
-| ![](../images/1-intro/wannacry.png) |
+| ![](../images/intro/wannacry.png) |
 | :-: |
 | *Imagen de ordenador infectado con el ramsonware WannaCry*|
 
@@ -163,11 +163,11 @@ A nivel usuario, puedes protegerte de diversas formas:
 - No entrar a cambiar la contraseña desde ningún email que te hayan enviado (puede ser falso). Tampoco confíes en los mensajes de móvil.
 - No tengas la misma contraseña siempre.
 - En caso de aplicaciones móviles, no instalar aplicaciones de fuentes desconocidas (solamente desde la Play Store). Por defecto, en Android, las aplicaciones de terceros no se pueden instalar a no ser que se active explicitamente la opción "Permitir orígenes desconocidos".
-- Introduce tu correo en https://haveibeenpwned.com/ y comprueba que las contraseñas del mismo no han sido vulneradas. En esa página web se almacena información sobre filtraciones de seguridad en distintas plataformas y te indican si puedes tener problemas con la tuya.
+- Introduce tu correo en [https://haveibeenpwned.com/](https://haveibeenpwned.com/) y comprueba que las contraseñas del mismo no han sido vulneradas. En esa página web se almacena información sobre filtraciones de seguridad en distintas plataformas y te indican si puedes tener problemas con la tuya.
 - Puedes almacenar las contraseñas en algún gestor (LastPass, Bitwarden...). Aunque estarían almacenadas en un servidor externo (esto ya de por sí es un peligroso) serías menos vulnerable a otros malwares como Keyloggers y podrás tener varias diferentes sin perderlas. Suele ser un poco más seguro que almacenarlas en el navegador. 
 - Si usas cuenta de Google revisa bien en ella si hay problemas de seguridad. Si almacenas ahí contraseñas te avisará si hay algunas expuestas a filtraciones.
 - Si usas un ordenador externo, utiliza navegación privada.
-- Ten cuidado con la navegación sobre redes Wifi abiertas (la información no va encriptada y puede capturarse con algún *sniffer* de tráfico, p. ej: [Wireshark](https://www.wireshark.org/).
+- Ten cuidado con la navegación sobre redes Wifi abiertas (la información no va encriptada y puede capturarse con algún *sniffer* de tráfico, p. ej: [Wireshark](https://www.wireshark.org/)).
 - Vigila que la navegación sea HTTPS (y no HTTP). La información que se pasa por HTTPS va **encriptada**.
 - Si te preocupa mucho la seguridad puedes probar otras opciones de navegador web, como por ejemplo: [Brave](https://brave.com/es/).
 - Cuidado con almacenar contraseñas en papel y dejarlas en cualquier sitio. Guardalas de forma segura y rómpleas si las tiras.

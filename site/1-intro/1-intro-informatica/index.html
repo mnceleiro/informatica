@@ -1,0 +1,830 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.1, mkdocs-material-8.3.9" name="generator"/>
+<title>Introducción a la informática - Informática y sistemas operativos</title>
+<link href="../../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<meta content="#4051b5" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="indigo" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#introduccion-a-la-informatica">1. 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Introducción a la informática
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../..">
+        Introducción
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gnu-linux/linux-setup/">
+        GNU/Linux
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../windows/windows-setup/">
+        Windows
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
+          Introducción
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Introducción" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Introducción
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Iniciación
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Introducción a la informática
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Introducción a la informática
+      </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cheatsheet-de-combinaciones-de-teclas">1.1 
+    Cheatsheet de combinaciones de teclas
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ficheros-y-carpetas">1.2 
+    Ficheros y carpetas
+  </a>
+<nav aria-label="Ficheros y carpetas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-una-nueva-carpeta-en-windows-11">1.2.1 
+    Crear una nueva carpeta en Windows 11
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extensiones-de-ficheros">1.2.2 
+    Extensiones de ficheros
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprimir-y-descomprimir-ficheros">1.2.3 
+    Comprimir y descomprimir ficheros
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#editores-de-texto-y-procesadores-de-texto">1.3 
+    Editores de texto y procesadores de texto
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#navegadores-web">1.4 
+    Navegadores web
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#seguridad-en-internet">1.5 
+    Seguridad en internet
+  </a>
+<nav aria-label="Seguridad en internet" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contrasenas">1.5.1 
+    Contraseñas
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#navegadores-web_1">1.6 
+    Navegadores web
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#malware">1.7 
+    Malware
+  </a>
+<nav aria-label="Malware" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#spam">1.7.1 
+    Spam
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pishing">1.7.2 
+    Pishing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#troyano">1.7.3 
+    Troyano
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#keylogger">1.7.4 
+    Keylogger
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#spyware">1.7.5 
+    Spyware
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ramsonware">1.7.6 
+    Ramsonware
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mineria">1.7.7 
+    Minería
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proteccion-ante-amenazas-y-privacidad">1.8 
+    Protección ante amenazas y privacidad
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referencias">1.9 
+    Referencias
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2-arquitecturas-fisicas/">
+        Arquitecturas físicas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../3-intro-sos/">
+        Introducción a los sistemas operativos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../4-virtual-machines/">
+        Virtualización
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../multimedia">
+        Multimedia
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          GNU/Linux
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="GNU/Linux" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          GNU/Linux
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/linux-setup/">
+        Comandos básicos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/users-groups-local/">
+        Gestión de usuarios y grupos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux/">
+        Programación de scripts
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Windows
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Windows" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Windows
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../windows/windows-setup/">
+        Introducción
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../windows/powershell/">
+        Powershell
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cheatsheet-de-combinaciones-de-teclas">1.1 
+    Cheatsheet de combinaciones de teclas
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ficheros-y-carpetas">1.2 
+    Ficheros y carpetas
+  </a>
+<nav aria-label="Ficheros y carpetas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-una-nueva-carpeta-en-windows-11">1.2.1 
+    Crear una nueva carpeta en Windows 11
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extensiones-de-ficheros">1.2.2 
+    Extensiones de ficheros
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprimir-y-descomprimir-ficheros">1.2.3 
+    Comprimir y descomprimir ficheros
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#editores-de-texto-y-procesadores-de-texto">1.3 
+    Editores de texto y procesadores de texto
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#navegadores-web">1.4 
+    Navegadores web
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#seguridad-en-internet">1.5 
+    Seguridad en internet
+  </a>
+<nav aria-label="Seguridad en internet" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contrasenas">1.5.1 
+    Contraseñas
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#navegadores-web_1">1.6 
+    Navegadores web
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#malware">1.7 
+    Malware
+  </a>
+<nav aria-label="Malware" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#spam">1.7.1 
+    Spam
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pishing">1.7.2 
+    Pishing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#troyano">1.7.3 
+    Troyano
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#keylogger">1.7.4 
+    Keylogger
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#spyware">1.7.5 
+    Spyware
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ramsonware">1.7.6 
+    Ramsonware
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mineria">1.7.7 
+    Minería
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proteccion-ante-amenazas-y-privacidad">1.8 
+    Protección ante amenazas y privacidad
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referencias">1.9 
+    Referencias
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/mnceleiro/informatica/edit/master/docs/1-intro/1-intro-informatica.md" title="Editar esta página">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="introduccion-a-la-informatica"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Introducción a la informática</h1>
+<p>Hay muchas cosas que pueden abarcarse en una introducción a la informática. En este caso, nos vamos a centrar en la privacidad de los navegadores, comprender tipos de ficheros que existen y sus extensiones.</p>
+<h2 id="cheatsheet-de-combinaciones-de-teclas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Cheatsheet de combinaciones de teclas</h2>
+<table>
+<thead>
+<tr>
+<th>Acción</th>
+<th>Combinación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abrir pestaña del navegador</td>
+<td>CONTROL + T</td>
+</tr>
+<tr>
+<td>Cerrar pestaña del navegador</td>
+<td>CONTROL + W</td>
+</tr>
+<tr>
+<td>Cerrar ventana</td>
+<td>ALT + F4</td>
+</tr>
+<tr>
+<td>Hacer captura de parte de la pantalla</td>
+<td>WINDOWS + SHIFT + S</td>
+</tr>
+<tr>
+<td>Cambiar entre ventanas</td>
+<td>ALT + TAB</td>
+</tr>
+<tr>
+<td>Ver escritorio</td>
+<td>WINDOWS + D</td>
+</tr>
+<tr>
+<td>Recargar página web</td>
+<td>CONTROL + R o F5</td>
+</tr>
+<tr>
+<td>Renombrar fichero o carpeta</td>
+<td>F2</td>
+</tr>
+<tr>
+<td>Eliminar fichero</td>
+<td>SUPR</td>
+</tr>
+<tr>
+<td>Bloquear pantalla</td>
+<td>WINDOWS + L</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ficheros-y-carpetas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Ficheros y carpetas</h2>
+<h3 id="crear-una-nueva-carpeta-en-windows-11"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Crear una nueva carpeta en Windows 11</h3>
+<p>Para crear una nueva carpeta en Windows 11 se puede pulsar en el botón derecho en un sitio vacío y seleccionar "Nueva carpeta":</p>
+<p><img alt="" src="../../images/intro/create-directory.png"/> </p>
+<h3 id="extensiones-de-ficheros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Extensiones de ficheros</h3>
+<p>Si nos fijamos en la imagen anterior, el fichero "texto1" es un fichero de texto. Los ficheros de texto suelen tener la extensión ".txt".</p>
+<p>El nombre de ese fichero, por lo tanto, debería ser "texto1.txt". Por seguridad (para que no cambiemos la extensión por error a los ficheros) Windows oculta la extensión. </p>
+<p>Algunas de las extensiones de ficheros más comunes son las siguientes:</p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>.</th>
+<th>Extensión</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fichero de texto</strong></td>
+<td>.</td>
+<td><em>txt</em></td>
+</tr>
+<tr>
+<td><strong>imagen</strong></td>
+<td>.</td>
+<td><em>jpg</em></td>
+</tr>
+<tr>
+<td><strong>video</strong></td>
+<td>.</td>
+<td><em>mp4</em></td>
+</tr>
+<tr>
+<td><strong>Documento</strong></td>
+<td>.</td>
+<td>odt</td>
+</tr>
+<tr>
+<td><strong>Documento</strong></td>
+<td>.</td>
+<td>docx</td>
+</tr>
+<tr>
+<td><strong>Ejecutable</strong></td>
+<td>.</td>
+<td>exe</td>
+</tr>
+<tr>
+<td><strong>Ejecutable instalable</strong></td>
+<td>.</td>
+<td>msi</td>
+</tr>
+<tr>
+<td><strong>Comprimido</strong></td>
+<td>.</td>
+<td>zip</td>
+</tr>
+<tr>
+<td><strong>Comprimido</strong></td>
+<td>.</td>
+<td>rar</td>
+</tr>
+</tbody>
+</table>
+<p>En los sistemas operativos <strong>Windows</strong>, por defecto, las extensiones de fichero vienen deshabilitadas (por tanto, aunque están ahí, <strong>no se ven</strong>). Para poder verlas debes, desde cualquier carpeta, hacer lo siguiente:</p>
+<p><img alt="" src="../../images/intro/mostrar-ocultar-extensiones-archivos.png"/></p>
+<h3 id="comprimir-y-descomprimir-ficheros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3</span> Comprimir y descomprimir ficheros</h3>
+<p>Los ficheros comprimidos suelen tener la extensión .zip o .rar (aunque existen otras: tar.gz, tgz, 7zip...).</p>
+<p>Para comprimir un fichero, solamente hay que pulsar botón derecho sobre los archivos que se desean comprimir y pulsar la opción deseada. Por ejemplo, si disponemos de la aplicación 7zip:</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="Comprimir en 7zip (1)" src="../../images/intro/comprimir-7zip-1.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Botón derecho --&gt; 7-Zip --&gt; Añadir al archivo. Nos aparecerá una nueva ventana.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="Comprimir en 7zip (2)" src="../../images/intro/comprimir-7zip-2.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Le ponemos un nombre al fichero y elegimos <strong>extensión zip</strong> (es la más común).</td>
+</tr>
+</tbody>
+</table>
+<p>Si en lugar de comprimir, queremos descomprimir, hacemos el mismo proceso seleccionando la opción de "descomprimir" o "extraer":</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="Descomprimir un fichero" src="../../images/intro/descomprimir-7zip-1.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Botón derecho -&gt; 7-Zip -&gt; Extraer aquí (o "extraer ficheros" u otras opciones que digan "extraer").</td>
+</tr>
+</tbody>
+</table>
+<h2 id="editores-de-texto-y-procesadores-de-texto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Editores de texto y procesadores de texto</h2>
+<p>Es importante diferenciar entre editores de texto y procesadores de texto. Mientras que un fichero editado con un editor de texto (p. ej: Bloc de Notas) solo contiene texto, uno editado con un procesador de texto contiene muchos metadatos: negritas, cursivas, márgenes, colores...). La extensión más típica usada para almacenar ficheros en editores de texto es <strong>.txt</strong> mientras que en procesadores de texto son <strong>.odt</strong> y <strong>.docx</strong>.</p>
+<h2 id="navegadores-web"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Navegadores web</h2>
+<p>Los navegadores web más populares hoy en día son:</p>
+<ul>
+<li>Mozilla Firefox.</li>
+<li>Google Chrome.</li>
+<li>Microsoft Edge.</li>
+<li>Opera.</li>
+</ul>
+<p>Todos estos navegadores funcionan muy bien hoy en día. Nosotros utilizaremos Firefox de forma habitual ya que además de funcionar muy bien es el único de estos que es libre.</p>
+<h2 id="seguridad-en-internet"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Seguridad en internet</h2>
+<h3 id="contrasenas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> Contraseñas</h3>
+<p>Actualmente, las aplicaciones piden contraseñas normalmente complejas, ¿por qué?<br/><br/></p>
+<p>Bien, la razón es porque es más difícil robarlas. Existen dos tipos de ataques:</p>
+<ul>
+<li>Ataque por fuerza bruta: un programa que prueba contraseñas por fuerza bruta basicamente intentaría todas las contraseñas posibles. Por ejemplo, desde la a hasta la z (mayúsculas y minúsculas) desde 4 dígitos hasta 8. O solo numéricas. Una contraseña con muchos caracteres y que incluye algunos raros (* @ # &amp; %...) es computacionalmente muy difícil (practicamente imposible) de descifrar.</li>
+<li>Ataque por diccionarios: se prueban los usuarios y contraseñas más comunes. Por ejemplo:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Usuario</th>
+<th>Contraseña</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>admin</td>
+<td>admin</td>
+</tr>
+<tr>
+<td>1234</td>
+<td>1234</td>
+</tr>
+<tr>
+<td>admin</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>........</td>
+<td>........</td>
+</tr>
+</tbody>
+</table>
+<p><em>NOTA</em>: esto es solo un ejemplo de posibles combinaciones muy comunes. Si usas una de estas es más probable que alguien pueda descubrirla (incluso sin ningún tipo de aplicación). Por ello, se obliga a escribir contraseñas seguras.</p>
+<p>En resumen, para evitar peligros con las contraseñas se recomienda cumplir ciertas normas de: complejidad de la misma (mayúsculas, minúsculas, números y caracteres poco habituales), longitud (más de 8 caracteres) y cambiarla cada cierto tiempo.</p>
+<p>En empresas o páginas web se piden (en ocasiones) demasiados requisitos para las contraseñas, lo cuál puede resultar problemático.<br/>Por ejemplo, imagina que (aparte de los anteriores requisitos) te pidan que la cambies cada 6 meses y que cada vez sea diferente (no puedes repetir las antiguas). Además de esto, debes tener contraseñas diferentes para varios servicios.<br/><br/>Estos requisitos resultan contraproducentes en muchas ocasiones, ya que implican que las contraseñas se pierdan o se apunten en papeles sobre la mesa, terminen en papeleras... lo cuál las hace realmente más vulnerables a ser descubiertas.</p>
+<h2 id="navegadores-web_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Navegadores web</h2>
+<p>Hay algunos conceptos a tener en cuenta respectoa los navegadores web:</p>
+<ul>
+<li><strong>Historial</strong>: cuando navegas por internet queda almacenada tanto la fecha como la hora en que has accedido a cada página. La lista de páginas a las que accedes se llama "historial" y, si alguien accede a tu ordenador, puede descubrir información sobre ti. Todos los navegadores tienen opción de borrar el historial de navegación.</li>
+<li><strong>Modo incógnito o privado</strong>: los navegadores tienen un modo privado (o incógnito). En este modo el historial de navegación no se guarda en el historial de navegación (por tanto, todo lo que haces en el modo incógnito es más privado ya que no queda almacenado).</li>
+<li><strong>Cookies</strong>: las cookies son pequeñas líneas de información que una página (cuando entras) guarda sobre ti. De esta manera, si vuelves a entrar en ella sabe que eres la misma persona que lo ha hecho anteriormente. Una <em>cookie</em> puede consistir en tu login con usuario y contraseña que, una vez hecho, queda almacenado durante un tiempo (por eso no tienes que volver a identificarte/logearte cada vez que entras a la web). Las cookies también pueden ser eliminadas y hacerlo ayuda a mitigar riesgos de privacidad y seguridad.</li>
+<li><strong>Contraseñas</strong>: los navegadores web más comunes permiten almacenar contraseñas (p. ej: en Mozilla Firefox tienen un sistema llamado Firefox Sync, en Google Chrome irían asociadas a tu cuenta de Google/Gmail). Almacenar contraseñas hace que estas estén en la nube y no las pierdas (con los riesgos de se almacenan en un sitio externo). Existen <em>malwares</em> denominados <em>keyloggers</em>, estos guardan todo lo que escribes en el ordenador (lo cuál es una manera efectiva de robar usuarios y contraseñas). Estos gestores de contraseñas te protegen ante eso, ya que no tienes que escribirlas.</li>
+</ul>
+<h2 id="malware"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Malware</h2>
+<p>El malware o software maliciosoque se instala sin que el usuario lo sepa. Existen múltiples tipos, algunos son los siguientes:</p>
+<h3 id="spam"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.1</span> Spam</h3>
+<p>El spam se refiere a correos masivos con publicidad que te instan a entrar en distintas páginas web. En el correo electrónico, por ejemplo, suele haber una pestaña dedicada a correos de spam.</p>
+<h3 id="pishing"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.2</span> Pishing</h3>
+<p>El Phishing se refiere a páginas web falsas que suplantan a las verdaderas para que el usuario desprevenido introduzca información sensible (es común el phishing bancario). Puede ser un mensaje que indique que te ha tocado la lotería y entres al enlace e introduzcas tus datos para cobrar el dinero.</p>
+<p>Otro ejemplo es un correo que te avise de que debes cambiar tus credenciales en Instagram por una brecha de seguridad (y en lugar de llevarte a la página de instagram te dejan un enlace a una página clon www.instagrram.com, por ejemplo). Si metes ahí tus credenciales reales se las estarías dando a otra persona desconocida.</p>
+<h3 id="troyano"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.3</span> Troyano</h3>
+<p>Malware escondido dentro de un software aparentemente bueno. Una vez lo ejecutas hacen su tarea maliciosa o se instalan sin más para actuar pasado cierto tiempo.</p>
+<h3 id="keylogger"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.4</span> Keylogger</h3>
+<p>Es un tipo de malware que guarda todas tus pulsaciones de teclado (y con esto pueden obtener cualquier cosa que escribas, desde contraseñas hasta otra información personal). Los navegadores web tienen autocompletado de formularios (p. ej: al registrarte en una página) para que un <em>keylogger</em> que se pueda tener no los detecte. También, almacenar contraseñas con un sistema como <a href="https://www.lastpass.com/es">LastPass</a>, de pago, o <a href="https://bitwarden.com/">BitWarden</a>, gratuito ayuda a protegerse contra este malware. Los navegadores web también almacenan contraseñas, aunque se consideran más inseguros que los servicios anteriores.</p>
+<h3 id="spyware"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.5</span> Spyware</h3>
+<p>El spyware intenta solo recopilar información del usuario (actividad variada, historial de navegación web, etc.) para venderla posteriormente.</p>
+<h3 id="ramsonware"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.6</span> Ramsonware</h3>
+<p>Este es el que más sale en el cine, realmente se ve muy bien que hace con algunas escenas de series o películas:</p>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="450" src="https://www.youtube.com/embed/lrXXzWtYkOw" title="YouTube video player" width="800"></iframe>
+<p>Aunque la escena presentada en el vídeo anterior es ficción, el ramsonware en sí es real y ahí se puede ver bastante bien lo que hace.
+<br/><br/>
+Este es probablemente el malware más peligroso que existe. La palabra Ramson significa “rescate”. Suelen infectar equipos a través de puertas traseras o troyanos y, una vez dentro, encriptan todos los ficheros que pueden contener información útil que estén a su alcance (dentro del propio equipo o a través de la red) lo que los hace muy peligrosos.
+Algunos famosos son CryptoLocker o WannaCry.<br/></p>
+<p>La única opción de recuperarse de un ataque de Ramsonware es restaurar los datos de una copia de seguridad (previa desinfección). Nunca se debe pagar el rescate por dos motivos:<br/></p>
+<ul>
+<li>Fomenta que el delincuente continúe usando este método para extorsionar a otras personas.</li>
+<li>Nadie puede asegurar que, tras el pago, se vaya a obtener el software y la contraseña de descifrado.</li>
+</ul>
+<p>Algunos enlaces interesantes para informarse más sobre este tema:</p>
+<ul>
+<li><a href="https://www.audea.com/telefonica-sufre-ciberataque-ransomware-red-interna/">Ataque a Telefónica en 2017</a>.</li>
+<li><a href="https://www.xataka.com/seguridad/yo-he-negociado-crackers-ataque-ransomware-nos-pedian-1-bitcoin-perdiamos-toda-nuestra-informacion">Experiencia de una persona en empresa con un ataque de Ramsonware (Xataka)</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="" src="../../images/intro/wannacry.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><em>Imagen de ordenador infectado con el ramsonware WannaCry</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mineria"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.7</span> Minería</h3>
+<p>El malware de minería de monedas utiliza sistemas para crear criptomonedas (lo que se conoce como “minar”) sin consentimiento ni conocimiento de las víctimas.</p>
+<p>Este tipo de malware ha empezado a funcionar hace pocos años con el auge de las criptomonedas y se ha disparado (según McAfee Labs) desde 2018. Solo en ese año se crearon 5 millones de nuevos malwares de minería.</p>
+<h2 id="proteccion-ante-amenazas-y-privacidad"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> Protección ante amenazas y privacidad</h2>
+<p>A nivel usuario, puedes protegerte de diversas formas:</p>
+<ul>
+<li>Mantener el sistema operativo y el antivirus actualizado.</li>
+<li>No entrar a cambiar la contraseña desde ningún email que te hayan enviado (puede ser falso). Tampoco confíes en los mensajes de móvil.</li>
+<li>No tengas la misma contraseña siempre.</li>
+<li>En caso de aplicaciones móviles, no instalar aplicaciones de fuentes desconocidas (solamente desde la Play Store). Por defecto, en Android, las aplicaciones de terceros no se pueden instalar a no ser que se active explicitamente la opción "Permitir orígenes desconocidos".</li>
+<li>Introduce tu correo en https://haveibeenpwned.com/ y comprueba que las contraseñas del mismo no han sido vulneradas. En esa página web se almacena información sobre filtraciones de seguridad en distintas plataformas y te indican si puedes tener problemas con la tuya.</li>
+<li>Puedes almacenar las contraseñas en algún gestor (LastPass, Bitwarden...). Aunque estarían almacenadas en un servidor externo (esto ya de por sí es un peligroso) serías menos vulnerable a otros malwares como Keyloggers y podrás tener varias diferentes sin perderlas. Suele ser un poco más seguro que almacenarlas en el navegador. </li>
+<li>Si usas cuenta de Google revisa bien en ella si hay problemas de seguridad. Si almacenas ahí contraseñas te avisará si hay algunas expuestas a filtraciones.</li>
+<li>Si usas un ordenador externo, utiliza navegación privada.</li>
+<li>Ten cuidado con la navegación sobre redes Wifi abiertas (la información no va encriptada y puede capturarse con algún <em>sniffer</em> de tráfico, p. ej: <a href="https://www.wireshark.org/">Wireshark</a>.</li>
+<li>Vigila que la navegación sea HTTPS (y no HTTP). La información que se pasa por HTTPS va <strong>encriptada</strong>.</li>
+<li>Si te preocupa mucho la seguridad puedes probar otras opciones de navegador web, como por ejemplo: <a href="https://brave.com/es/">Brave</a>.</li>
+<li>Cuidado con almacenar contraseñas en papel y dejarlas en cualquier sitio. Guardalas de forma segura y rómpleas si las tiras.</li>
+<li>Borra el historial y <em>cookies</em> de forma periódica.</li>
+</ul>
+<h2 id="referencias"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9</span> Referencias</h2>
+<ul>
+<li>Kat Aoki. How to Increase Web Browser Security. Lifewire. Obtenido de: https://www.lifewire.com/increase-web-browser-security-4767673</li>
+</ul>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Pie" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Iniciación" class="md-footer__link md-footer__link--prev" href="../.." rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
+              </span>
+              Iniciación
+            </div>
+</div>
+</a>
+<a aria-label="Siguiente: Arquitecturas físicas" class="md-footer__link md-footer__link--next" href="../2-arquitecturas-fisicas/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Siguiente
+              </span>
+              Arquitecturas físicas
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+<script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+</body>
+</html>

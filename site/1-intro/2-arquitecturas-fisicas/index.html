@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.3.1, mkdocs-material-8.3.9" name="generator"/>
-<title>Gestión de usuarios y grupos - Informática y sistemas operativos</title>
+<title>Arquitecturas físicas - Informática y sistemas operativos</title>
 <link href="../../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
 <meta content="#4051b5" name="theme-color"/>
@@ -21,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#informacion-sobre-usuarios-y-grupos">1.1 
+<a class="md-skip" href="#introduccion-a-la-informatica-y-los-sistemas-operativos">1. 
           Saltar a contenido
         </a>
 </div>
@@ -45,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Gestión de usuarios y grupos
+              Arquitecturas físicas
             
           </span>
 </div>
@@ -98,12 +98,12 @@
 <div class="md-tabs__inner md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link md-tabs__link--active" href="../..">
         Introducción
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../linux-setup/">
+<a class="md-tabs__link" href="../../gnu-linux/linux-setup/">
         GNU/Linux
       </a>
 </li>
@@ -138,8 +138,8 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_1">
           Introducción
           <span class="md-nav__icon md-icon"></span>
@@ -156,35 +156,101 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1-intro/1-intro-informatica/">
+<a class="md-nav__link" href="../1-intro-informatica/">
         Introducción a la informática
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../1-intro/2-arquitecturas-fisicas/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Arquitecturas físicas
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Arquitecturas físicas
       </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#componentes-fisicos-de-los-ordenadores">1.1 
+    Componentes físicos de los ordenadores
+  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1-intro/3-intro-sos/">
+<a class="md-nav__link" href="#arquitectura">1.2 
+    Arquitectura
+  </a>
+<nav aria-label="Arquitectura" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arquitecturas-iniciales">1.2.1 
+    Arquitecturas iniciales
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arquitecturas-actuales">1.2.2 
+    Arquitecturas actuales
+  </a>
+<nav aria-label="Arquitecturas actuales" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arquitectura-x86-32-bits">1.2.2.1 
+    Arquitectura x86 (32 bits)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arquitectura-amd64-64-bits">1.2.2.2 
+    Arquitectura AMD64 (64 bits)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arm">1.2.2.3 
+    ARM
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#practica">1.3 
+    Práctica
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referencias">1.4 
+    Referencias
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../3-intro-sos/">
         Introducción a los sistemas operativos
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1-intro/4-virtual-machines/">
+<a class="md-nav__link" href="../4-virtual-machines/">
         Virtualización
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1-intro/multimedia">
+<a class="md-nav__link" href="../multimedia">
         Multimedia
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
           GNU/Linux
           <span class="md-nav__icon md-icon"></span>
@@ -196,40 +262,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../linux-setup/">
+<a class="md-nav__link" href="../../gnu-linux/linux-setup/">
         Comandos básicos
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Gestión de usuarios y grupos
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/users-groups-local/">
         Gestión de usuarios y grupos
       </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#informacion-sobre-usuarios-y-grupos">1.1 
-    Información sobre usuarios y grupos
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#comandos-de-gestion-de-usuarios">1.2 
-    Comandos de gestión de usuarios
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../scripting-linux/">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux/">
         Programación de scripts
       </a>
 </li>
@@ -276,13 +319,56 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#informacion-sobre-usuarios-y-grupos">1.1 
-    Información sobre usuarios y grupos
+<a class="md-nav__link" href="#componentes-fisicos-de-los-ordenadores">1.1 
+    Componentes físicos de los ordenadores
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#comandos-de-gestion-de-usuarios">1.2 
-    Comandos de gestión de usuarios
+<a class="md-nav__link" href="#arquitectura">1.2 
+    Arquitectura
+  </a>
+<nav aria-label="Arquitectura" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arquitecturas-iniciales">1.2.1 
+    Arquitecturas iniciales
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arquitecturas-actuales">1.2.2 
+    Arquitecturas actuales
+  </a>
+<nav aria-label="Arquitecturas actuales" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arquitectura-x86-32-bits">1.2.2.1 
+    Arquitectura x86 (32 bits)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arquitectura-amd64-64-bits">1.2.2.2 
+    Arquitectura AMD64 (64 bits)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arm">1.2.2.3 
+    ARM
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#practica">1.3 
+    Práctica
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referencias">1.4 
+    Referencias
   </a>
 </li>
 </ul>
@@ -292,82 +378,46 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/mnceleiro/informatica/edit/master/docs/gnu-linux/users-groups-local.md" title="Editar esta página">
+<a class="md-content__button md-icon" href="https://github.com/mnceleiro/informatica/edit/master/docs/1-intro/2-arquitecturas-fisicas.md" title="Editar esta página">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Gestión de usuarios y grupos</h1>
-<h2 id="informacion-sobre-usuarios-y-grupos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Información sobre usuarios y grupos</h2>
-<p>La información de los usuarios y grupos locales que hay en el sistema, en GNU/Linux, <strong>la información sobre gestión de usuarios y grupos se almacena en los siguientes ficheros</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Fichero</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/etc/passwd</td>
-<td>Fichero de usuarios.</td>
-</tr>
-<tr>
-<td>/etc/group</td>
-<td>Fichero con los grupos</td>
-</tr>
-<tr>
-<td>/etc/shadow</td>
-<td>Fichero con las contraseñas (encriptadas)</td>
-</tr>
-<tr>
-<td>/etc/skel</td>
-<td>Es el esqueleto de creación de un nuevo usuario. Esto es, cuando se crea un nuevo usuario mediante el comando <strong>useradd</strong>, los ficheros que haya en /etc/skel se copiarán en su home.</td>
-</tr>
-<tr>
-<td>/etc/default/useradd</td>
-<td>Aquí se define donde está el esqueleto (/etc/skel por defecto) para crear nuevos usuarios y el SHELL que se usará por ellos.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="comandos-de-gestion-de-usuarios"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Comandos de gestión de usuarios</h2>
-<table>
-<thead>
-<tr>
-<th>Comando</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id<br/>id [-un]</td>
-<td>Muestra el id y nombre del usuario actual y todos los grupos en los que está (tanto el principal como lo secundarios). Se podría obtener la misma información con un: <strong>cat /etc/group | grep "usuario"</strong></td>
-</tr>
-<tr>
-<td>whoami</td>
-<td>Muestra solamente el usuario actual que está ejecutando el comando. Es equivalente a hacer un <strong>id -un</strong>.</td>
-</tr>
-<tr>
-<td>adduser</td>
-<td>Crea un usuario de forma interactiva (este no nos es útil para automatizar tareas mediante scripts).</td>
-</tr>
-<tr>
-<td>useradd</td>
-<td>Crea un usuario. La sintaxis es la siguiente:<br/><br/>useradd -m [-d ruta_carpeta_home] [-s shell_a_utilizar] <nombre_usuario>. <br/><br/>Un ejemplo real, para el usuario "marcos", podría ser el siguiente:<br/><strong>useradd</strong> <strong>-m</strong> <strong>-d</strong> /home/marcos <strong>-s</strong> /bin/bash <strong>marcos</strong>.</nombre_usuario></td>
-</tr>
-<tr>
-<td>chmod</td>
-<td>chmod u+r \<fichero> → Añade permisos de lectura (<strong>R</strong>ead) al usuario.<br/>chmod u+w \<fichero> → Añade permisos de escritura (<strong>W</strong>rite) al usuario.<br/>chmod u+x \<fichero> → Añade permisos de ejecución (e<strong>X</strong>ecution) al usuario.<br/><br/>Además, si en lugar de la <strong>u (usuario, user)</strong> usamos la <strong>g (grupo, group</strong>) o la <strong>o (otros, others)</strong> podemos dar permisos a los usuarios pertenecientes al mismo grupo u a otros. La letra <strong>a (todos, all)</strong> sería para dar permiso a todos los usuarios (p. ej: permiso de ejecución a usuario, grupo y otros: a+x).<br/><br/>Si en lugar de dar un permiso queremos quitarlo, solo tenemos que cambiar el + por un -.<br/><br/>Puedes consultar <a href="https://phoenixnap.com/kb/linux-file-permissions">más información sobre permisos en este artículo</a>.</fichero></fichero></fichero></td>
-</tr>
-</tbody>
-</table>
-<p>A continuación se muestra en un tutorial en vídeo como gestionar usuarios y grupos locales en Debian y derivados:
-<a href="https://www.youtube.com/watch?v=ApjqEymyTRE"><img alt="Vídeo sobre gestión de usuarios y grupos" src="../../images/linux/video-manage-users-groups-linux.png"/></a></p>
+<h1 id="introduccion-a-la-informatica-y-los-sistemas-operativos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Introducción a la informática y los sistemas operativos</h1>
+<h2 id="componentes-fisicos-de-los-ordenadores"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Componentes físicos de los ordenadores</h2>
+<p>Esta documentación se encuentra <a href="/ficheros/componentes-pc.pdf">aquí</a>. Puedes consultar información adicional sobre los componentes físicos en <a href="https://www.profesionalreview.com/2019/02/06/componentes-de-un-ordenador/">este artículo</a>.</p>
+<h2 id="arquitectura"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Arquitectura</h2>
+<h3 id="arquitecturas-iniciales"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Arquitecturas iniciales</h3>
+<p>Von Neumann y Harvard. Harvard modificado.</p>
+<h3 id="arquitecturas-actuales"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Arquitecturas actuales</h3>
+<p>Arquitecturas actuales: x86, x64, ARM.</p>
+<h4 id="arquitectura-x86-32-bits"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2.1</span> Arquitectura x86 (32 bits)</h4>
+<p>La arquitectura x86 es probablemente la más utilizada de la historia en ordenadores. Se ha creado en los años 70.</p>
+<p>El primer microprocesador se ha lanzado en 1971 por Intel. Años más tarde, en 1978 Intel lanza el procesador <strong>Intel 8086</strong>, primer procesador con juego de instrucciones x86 y que usaba una arquitectura de 16 bits. Su nombre se utilizó para nombrar los próximos procesadores de Intel: 80186, 80286, 80386, 80486, etc.</p>
+<p>Aunque x86 era inicialmente de 16bits, las versiones más actuales y que conocemos en ordenadores las últimas décadas son de 32 bits. Los ordenadores con arquitectura x86 cesaron su producción en 2007.</p>
+<h4 id="arquitectura-amd64-64-bits"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2.2</span> Arquitectura AMD64 (64 bits)</h4>
+<p>La arquitectura x86 era de Intel y utilizaba instrucciones de 32 bits desde 1985. La arquitectura más usada actualmente en ordenadores personales es AMD64 (de 64 bits). </p>
+<p>En el año 2003 el mercado de procesadores se dividía entre dos marcas que competían entre sí: <strong>AMD</strong> e <strong>Intel</strong> (algo que sigue ocurriendo a día de hoy). AMD se les adelanta en el mercado en esta época sacando procesadores con una nueva arquitectura con un juego de instrucciones x86_64 que no solo era de 64 bits, sino que incluía también en ella el juego de instrucciones completo de x86 tanto para 16 bits como para 32, permitiendo así instalar programas de todo tipo. Consulta <a href="https://www.thinkinvirtual.com/2017/03/diferencias-entre-i386-x86-x64-amd64-e.html">este enlace</a> para más información sobre el tema.</p>
+<h4 id="arm"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2.3</span> ARM</h4>
+<p>La arquitectura ARM (Advanced RISC Machines) es la más utilizada en dispositivos móviles, teniendo un bajo consumo de energía. Aunque a día de hoy practicamente todos los ordenadores que compramos son x64, están empezando a fabricarse ordenadores con arquitectura ARM.</p>
+<p>Como ejemplo, Apple ha empezado hace muy poco tiempo a usar procesadores con arquitectura ARM para sus portátiles. No es posible instalar software para arquitecturas de 64 bits en ordenadores que usan ARM (por lo cuál la decisión de Apple no es tomada a la ligera).</p>
+<p>Muchos dispositivos hoy en día dependen de baterías, pero la tecnología de mejora de baterías apenas ha mejorado en toda una década y esto hace que se busque mejorar el tiempo de uso en batería de otras maneras, y esta arquitectura es buena para ello.</p>
+<h2 id="practica"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Práctica</h2>
+<p>Para redactar la práctica entrega capturas con todos los ejercicios.</p>
+<ol>
+<li>Busca el modelo de procesador y la RAM de la que dispone tu ordenador, así como su arquitectura.</li>
+<li>Si dispones de <a href="https://es.aliexpress.com/item/1005003280539571.html">este ordenador</a> y quieres instalar en el el programa <a href="https://www.virtualbox.org/">VirtualBox</a>. Indica por qué no puedes instalar la última versión y cuál sería la última válida (lo difícil aquí es pensar por qué la última versión no vale, después busca la última compatible con ese ordenador).</li>
+</ol>
+<h2 id="referencias"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Referencias</h2>
+<ul>
+<li>Diferencias entre i386, x86, x64, AMD64 e IA64. Thinkinvirtual. Obtenido de: https://www.thinkinvirtual.com/2017/03/diferencias-entre-i386-x86-x64-amd64-e.html</li>
+<li>José María López. La guerra de los procesadores: CISC versus RISC (o x86 contra ARM). Hipertextual. Obtenido de: https://hipertextual.com/2021/09/procesadores-risc-cisc-arm</li>
+</ul>
 </article>
 </div>
 </div>
 </main>
 <footer class="md-footer">
 <nav aria-label="Pie" class="md-footer__inner md-grid">
-<a aria-label="Anterior: Comandos básicos" class="md-footer__link md-footer__link--prev" href="../linux-setup/" rel="prev">
+<a aria-label="Anterior: Introducción a la informática" class="md-footer__link md-footer__link--prev" href="../1-intro-informatica/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -376,17 +426,17 @@
 <span class="md-footer__direction">
                 Anterior
               </span>
-              Comandos básicos
+              Introducción a la informática
             </div>
 </div>
 </a>
-<a aria-label="Siguiente: Programación de scripts" class="md-footer__link md-footer__link--next" href="../scripting-linux/" rel="next">
+<a aria-label="Siguiente: Introducción a los sistemas operativos" class="md-footer__link md-footer__link--next" href="../3-intro-sos/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Siguiente
               </span>
-              Programación de scripts
+              Introducción a los sistemas operativos
             </div>
 </div>
 <div class="md-footer__button md-icon">
