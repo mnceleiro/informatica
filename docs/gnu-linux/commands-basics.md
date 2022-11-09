@@ -1,61 +1,4 @@
-# Instalación y configuración de entornos Linux
-
-## Conceptos básicos 
-
-### Interfaces de usuario
-Existen varios términos para describir interfaces gráficas:
-
-- **UI**: **U**ser **I**nterface (en español IU: **I**nterfaz de **U**suario).
-Lo que ves en tu ordenador ahora mismo se llama GUI (Interfaz gráfica de usuario o *Graphical User Interface*). Los terminales de comandos.
-- **GUI**: **G**raphical **U**ser **I**nterface o interfaz **gráfica** de usuario.
-
-La diferencia es que la G (*graphical*) indica que es una interfaz en modo gráfico y no en modo texto. En sistemas basados en Linux existen diferentes interfaces gráficas: GNOME, KDE, XFCE, LXDE, Cinnamon, MATE...
-
-### Arquitectura del sistema
-
-| ![Arquitectura GNU/Linux](../images/gnu-linux/linux-architecture.png) |
-|:--:|
-| *Imagen obtenida de: [Wikipedia](https://en.wikipedia.org/wiki/Kernel_(operating_system))* |
-
-
-#### Kernel (núcleo)
-Podemos imaginarnos el kernel como un programa en la parte más profunda del sistema operativo y que se ocupa de la interactuación con el hardware (procesador, disco duro, ram...).
-
-Cuando desde un terminal ejecutamos un comando, el kernel lo recibe y se ocupa de interactuar con el hardware.
-
-Aunque muchas veces trata a las distribuciones (Ubuntu, Fedora, Linux Mint, ArchLinux...) como "Linux" a secas, realmente Linux es el kernel o núcleo y todos esos nombres son distribuciones diferentes que usan ese kernel.
-
-Cuando decimos que vamos a "instalar un Linux", nos solemos referir a que vamos a instalar una distribución que usa el núcleo creado por Linus Torvalds en 1991 (y al que denominó como Linux). El sistema operativo de muchos smartphones (Android) usa una versión modificada de Linux.
-
-#### Shell
-El Shell estaría, en la imagen, entre las aplicaciones y el Kernel. Un Shell hace de interfaz entre los usuarios y el sistema operativo.
-
-La interfaz gráfica de Windows y las distintas disponibles en GNU/Linux son también Shells, al igual que muchas por comandos como: bash, sh, zsh...
-
-##### Tipos de shells en Linux
-- Gnome, KDE (y otras GUIs): los comandos realmente se ejecutan, pero se hace mediante clicks en diferentes sitios, arrastrando y soltando, etc. Aún así, estos son también shells.
-- Shells de línea de comandos:
-    - SH (Bourne Shell): es una de las shells más antiguas de Linux.
-    - BASH (Born Again Shell): tiene muchas mejoras sobre la anterior y es la que viene por defecto en GNU/Linux.
-    - CSH y TCSH: no suelen utilizarse salvo que tengas mucho control sobre lenguajes de programación C y C++.
-    - KSH (Korn Shell): muy utilizada en Solaris.
-    - ZSH y Fish: de las más interesantes hoy en día. Si piensas usar Linux de forma habitual en escritorio mi recomendación es que intentes instalar una de estas dos para mejorar la experiencia en terminal.
-
-Si consultas el fichero /etc/shells puedes ver la lista de shells que tienes instaladas en el sistema.
-
-![](../images/gnu-linux/etcshells.png)  
-
-#### Aplicaciones
-Una aplicación puede ejecutarse por interfaz gráfica, pero también por terminal de comandos.
-
-Muchas aplicaciones gráficas lo que hacen realmente (al pulsar, por ejemplo, un botón) es ejecutar comandos en un shell concreto. Este shell, a su vez, interactúa con el Kernel que a su vez lo hace con el hardware. Así es como se produce toda la comunicación entre las capas.
-
-Si ejecutamos, por ejemplo, una aplicación (imaginemos Steam), esa aplicación se ejecuta en un Shell, el cuál a su vez se comunica con el Kernel y este finalmente con el hardware. Hay una comunicación completa desde el usuario hasta el hardware.
-
-#### Sistema operativo
-La combinación del Kernel, el Shell y los programas a más bajo nivel es lo que forma el sistema operativo.
-
-## Terminal de comandos
+# Terminal de comandos
 Un terminal de comandos es una interfaz en modo texto usada para controlar un ordenador (ya sea Linux o Windows).
 
 A continuación se muestra el ejemplo de un terminal de comandos en un sistema operativo basado en Linux (Raspbian):
@@ -119,7 +62,7 @@ Te recomiendo hacerlo **filtrando por "último año"** o por la versión de Linu
 | Matar procesos (por código)   | kill [-código] <num_proceso> | Supongamos que queremos matar firefox (hay que mirar cuál es su ID de PROCESO, puedes hacerlo usando htop o ps):<br /> `ps -e \| grep firefox`<br/><br/>Matar un proceso de forma normal (por defecto usa código 15):<br/>`kill 12345`<br/><br/>Matar un proceso de manera forzada (p. ej: si se queda trabado). Para matar de forma forzada el código es el 9:<br/>`kill -9 12345` |
 | Matar procesos (por nombre) | killall [-código] <nombre_proceso> | `killall firefox`<br /><br />Matar el proceso (forzandolo):<br />`killall -9 firefox`<br/><br/> |
 
-**Puedes consultar más información sobre como matar procesos y códigos de proceso [aquí](https://www.cyberciti.biz/faq/unix-kill-command-examples/).**
+**Puedes consultar más información sobre como matar procesos y envío de señales a procesos [aquí](https://www.cyberciti.biz/faq/unix-kill-command-examples/).**
 
 Referencias:
 

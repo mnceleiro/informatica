@@ -1,824 +1,445 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
-    
-    
-      
-        <title>Comandos básicos - Informática y sistemas operativos</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#4051b5">
-        
-      
-      
+<!DOCTYPE html>
 
-    
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="">
-  
-    
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#instalacion-y-configuracion-de-entornos-linux" class="md-skip">
-          Skip to content
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.3.1, mkdocs-material-8.3.9" name="generator"/>
+<title>Comandos básicos - Informática y sistemas operativos</title>
+<link href="../../assets/stylesheets/main.1d29e8d0.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.cbb835fc.min.css" rel="stylesheet"/>
+<meta content="#4051b5" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="indigo" data-md-color-scheme="" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#instalacion-y-configuracion-de-entornos-linux">1. 
+          Saltar a contenido
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Informática y sistemas operativos" class="md-header__button md-logo" aria-label="Informática y sistemas operativos" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             Informática y sistemas operativos
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               Comandos básicos
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/mnceleiro/informatica" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     GitHub
   </div>
 </a>
-      </div>
-    
-  </nav>
-  
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
         Introducción
       </a>
-    </li>
-  
-
-      
-        
-  
-  
-    
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="./">
         GNU/Linux
       </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../windows/windows-setup/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../windows/windows-setup/">
         Windows
       </a>
-    </li>
-  
-
-      
-    </ul>
-  </div>
+</li>
+</ul>
+</div>
 </nav>
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-  
-
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Informática y sistemas operativos" class="md-nav__button md-logo" aria-label="Informática y sistemas operativos" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
     Informática y sistemas operativos
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/mnceleiro/informatica" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     GitHub
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_1">
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1">
           Introducción
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Introducción" data-md-level="1">
-        <label class="md-nav__title" for="__nav_1">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Introducción" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
           Introducción
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
         Iniciación
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../1-intro/1-arquitecturas-fisicas/" class="md-nav__link">
-        Arquitecturas físicas
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../1-intro/2-intro-ordenadores/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/1-intro-informatica/">
         Introducción a la informática
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../1-intro/3-intro-sos/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/2-arquitecturas-fisicas/">
+        Arquitecturas físicas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/3-intro-sos/">
         Introducción a los sistemas operativos
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../1-intro/4-virtual-machines/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/4-virtual-machines/">
         Virtualización
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/multimedia">
+        Multimedia
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
           GNU/Linux
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="GNU/Linux" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="GNU/Linux" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
           GNU/Linux
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
           Comandos básicos
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Comandos básicos
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#conceptos-basicos" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conceptos-basicos">1.1 
     Conceptos básicos
   </a>
-  
-    <nav class="md-nav" aria-label="Conceptos básicos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interfaces-de-usuario" class="md-nav__link">
+<nav aria-label="Conceptos básicos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interfaces-de-usuario">1.1.1 
     Interfaces de usuario
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#arquitectura-del-sistema" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arquitectura-del-sistema">1.1.2 
     Arquitectura del sistema
   </a>
-  
-    <nav class="md-nav" aria-label="Arquitectura del sistema">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kernel-nucleo" class="md-nav__link">
+<nav aria-label="Arquitectura del sistema" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kernel-nucleo">1.1.2.1 
     Kernel (núcleo)
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#shell" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#shell">1.1.2.2 
     Shell
   </a>
-  
-    <nav class="md-nav" aria-label="Shell">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tipos-de-shells-en-linux" class="md-nav__link">
+<nav aria-label="Shell" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tipos-de-shells-en-linux">
     Tipos de shells en Linux
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#aplicaciones" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aplicaciones">1.1.2.3 
     Aplicaciones
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#sistema-operativo" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sistema-operativo">1.1.2.4 
     Sistema operativo
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#terminal-de-comandos" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#terminal-de-comandos">1.2 
     Terminal de comandos
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#comandos-basicos-de-gnulinux" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comandos-basicos-de-gnulinux">1.3 
     Comandos básicos de GNU/Linux
   </a>
-  
-    <nav class="md-nav" aria-label="Comandos básicos de GNU/Linux">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#comandos-de-carpetas-y-ficheros" class="md-nav__link">
+<nav aria-label="Comandos básicos de GNU/Linux" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comandos-de-carpetas-y-ficheros">1.3.1 
     Comandos de carpetas y ficheros
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#instalacion-de-software" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion-de-software">1.4 
     Instalación de software
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gestion-de-procesos" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gestion-de-procesos">1.5 
     Gestión de procesos
   </a>
-  
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../users-groups-local/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../users-groups-local/">
         Gestión de usuarios y grupos
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../scripting-linux/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../scripting-linux/">
         Programación de scripts
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
           Windows
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Windows" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Windows" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
           Windows
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../windows/windows-setup/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../windows/windows-setup/">
         Introducción
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../windows/powershell/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../windows/powershell/">
         Powershell
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#conceptos-basicos" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conceptos-basicos">1.1 
     Conceptos básicos
   </a>
-  
-    <nav class="md-nav" aria-label="Conceptos básicos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interfaces-de-usuario" class="md-nav__link">
+<nav aria-label="Conceptos básicos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interfaces-de-usuario">1.1.1 
     Interfaces de usuario
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#arquitectura-del-sistema" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arquitectura-del-sistema">1.1.2 
     Arquitectura del sistema
   </a>
-  
-    <nav class="md-nav" aria-label="Arquitectura del sistema">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#kernel-nucleo" class="md-nav__link">
+<nav aria-label="Arquitectura del sistema" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kernel-nucleo">1.1.2.1 
     Kernel (núcleo)
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#shell" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#shell">1.1.2.2 
     Shell
   </a>
-  
-    <nav class="md-nav" aria-label="Shell">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#tipos-de-shells-en-linux" class="md-nav__link">
+<nav aria-label="Shell" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tipos-de-shells-en-linux">
     Tipos de shells en Linux
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#aplicaciones" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aplicaciones">1.1.2.3 
     Aplicaciones
   </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#sistema-operativo" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sistema-operativo">1.1.2.4 
     Sistema operativo
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#terminal-de-comandos" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#terminal-de-comandos">1.2 
     Terminal de comandos
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#comandos-basicos-de-gnulinux" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comandos-basicos-de-gnulinux">1.3 
     Comandos básicos de GNU/Linux
   </a>
-  
-    <nav class="md-nav" aria-label="Comandos básicos de GNU/Linux">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#comandos-de-carpetas-y-ficheros" class="md-nav__link">
+<nav aria-label="Comandos básicos de GNU/Linux" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comandos-de-carpetas-y-ficheros">1.3.1 
     Comandos de carpetas y ficheros
   </a>
-  
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#instalacion-de-software" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion-de-software">1.4 
     Instalación de software
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#gestion-de-procesos" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gestion-de-procesos">1.5 
     Gestión de procesos
   </a>
-  
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  <a href="https://github.com/mnceleiro/informatica/edit/master/docs/gnu-linux/linux-setup.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
-
-
-<h1 id="instalacion-y-configuracion-de-entornos-linux">Instalación y configuración de entornos Linux</h1>
-<h2 id="conceptos-basicos">Conceptos básicos</h2>
-<h3 id="interfaces-de-usuario">Interfaces de usuario</h3>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/mnceleiro/informatica/edit/master/docs/gnu-linux/linux-setup.md" title="Editar esta página">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="instalacion-y-configuracion-de-entornos-linux"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Instalación y configuración de entornos Linux</h1>
+<h2 id="conceptos-basicos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Conceptos básicos</h2>
+<h3 id="interfaces-de-usuario"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.1</span> Interfaces de usuario</h3>
 <p>Existen varios términos para describir interfaces gráficas:</p>
 <ul>
 <li><strong>UI</strong>: <strong>U</strong>ser <strong>I</strong>nterface (en español IU: <strong>I</strong>nterfaz de <strong>U</strong>suario).
@@ -826,11 +447,11 @@ Lo que ves en tu ordenador ahora mismo se llama GUI (Interfaz gráfica de usuari
 <li><strong>GUI</strong>: <strong>G</strong>raphical <strong>U</strong>ser <strong>I</strong>nterface o interfaz <strong>gráfica</strong> de usuario.</li>
 </ul>
 <p>La diferencia es que la G (<em>graphical</em>) indica que es una interfaz en modo gráfico y no en modo texto. En sistemas basados en Linux existen diferentes interfaces gráficas: GNOME, KDE, XFCE, LXDE, Cinnamon, MATE...</p>
-<h3 id="arquitectura-del-sistema">Arquitectura del sistema</h3>
+<h3 id="arquitectura-del-sistema"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2</span> Arquitectura del sistema</h3>
 <table>
 <thead>
 <tr>
-<th align="center"><img alt="Arquitectura GNU/Linux" src="../../images/gnu-linux/linux-architecture.png" /></th>
+<th align="center"><img alt="Arquitectura GNU/Linux" src="../../images/gnu-linux/linux-architecture.png"/></th>
 </tr>
 </thead>
 <tbody>
@@ -839,15 +460,15 @@ Lo que ves en tu ordenador ahora mismo se llama GUI (Interfaz gráfica de usuari
 </tr>
 </tbody>
 </table>
-<h4 id="kernel-nucleo">Kernel (núcleo)</h4>
+<h4 id="kernel-nucleo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2.1</span> Kernel (núcleo)</h4>
 <p>Podemos imaginarnos el kernel como un programa en la parte más profunda del sistema operativo y que se ocupa de la interactuación con el hardware (procesador, disco duro, ram...).</p>
 <p>Cuando desde un terminal ejecutamos un comando, el kernel lo recibe y se ocupa de interactuar con el hardware.</p>
 <p>Aunque muchas veces trata a las distribuciones (Ubuntu, Fedora, Linux Mint, ArchLinux...) como "Linux" a secas, realmente Linux es el kernel o núcleo y todos esos nombres son distribuciones diferentes que usan ese kernel.</p>
 <p>Cuando decimos que vamos a "instalar un Linux", nos solemos referir a que vamos a instalar una distribución que usa el núcleo creado por Linus Torvalds en 1991 (y al que denominó como Linux). El sistema operativo de muchos smartphones (Android) usa una versión modificada de Linux.</p>
-<h4 id="shell">Shell</h4>
+<h4 id="shell"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2.2</span> Shell</h4>
 <p>El Shell estaría, en la imagen, entre las aplicaciones y el Kernel. Un Shell hace de interfaz entre los usuarios y el sistema operativo.</p>
 <p>La interfaz gráfica de Windows y las distintas disponibles en GNU/Linux son también Shells, al igual que muchas por comandos como: bash, sh, zsh...</p>
-<h5 id="tipos-de-shells-en-linux">Tipos de shells en Linux</h5>
+<h5 id="tipos-de-shells-en-linux"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2.2.1</span> Tipos de shells en Linux</h5>
 <ul>
 <li>Gnome, KDE (y otras GUIs): los comandos realmente se ejecutan, pero se hace mediante clicks en diferentes sitios, arrastrando y soltando, etc. Aún así, estos son también shells.</li>
 <li>Shells de línea de comandos:<ul>
@@ -860,19 +481,19 @@ Lo que ves en tu ordenador ahora mismo se llama GUI (Interfaz gráfica de usuari
 </li>
 </ul>
 <p>Si consultas el fichero /etc/shells puedes ver la lista de shells que tienes instaladas en el sistema.</p>
-<p><img alt="" src="../../images/gnu-linux/etcshells.png" />  </p>
-<h4 id="aplicaciones">Aplicaciones</h4>
+<p><img alt="" src="../../images/gnu-linux/etcshells.png"/> </p>
+<h4 id="aplicaciones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2.3</span> Aplicaciones</h4>
 <p>Una aplicación puede ejecutarse por interfaz gráfica, pero también por terminal de comandos.</p>
 <p>Muchas aplicaciones gráficas lo que hacen realmente (al pulsar, por ejemplo, un botón) es ejecutar comandos en un shell concreto. Este shell, a su vez, interactúa con el Kernel que a su vez lo hace con el hardware. Así es como se produce toda la comunicación entre las capas.</p>
 <p>Si ejecutamos, por ejemplo, una aplicación (imaginemos Steam), esa aplicación se ejecuta en un Shell, el cuál a su vez se comunica con el Kernel y este finalmente con el hardware. Hay una comunicación completa desde el usuario hasta el hardware.</p>
-<h4 id="sistema-operativo">Sistema operativo</h4>
+<h4 id="sistema-operativo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2.4</span> Sistema operativo</h4>
 <p>La combinación del Kernel, el Shell y los programas a más bajo nivel es lo que forma el sistema operativo.</p>
-<h2 id="terminal-de-comandos">Terminal de comandos</h2>
+<h2 id="terminal-de-comandos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Terminal de comandos</h2>
 <p>Un terminal de comandos es una interfaz en modo texto usada para controlar un ordenador (ya sea Linux o Windows).</p>
 <p>A continuación se muestra el ejemplo de un terminal de comandos en un sistema operativo basado en Linux (Raspbian):
-<img alt="" src="../../images/linux/linux-terminal.png" /></p>
+<img alt="" src="../../images/linux/linux-terminal.png"/></p>
 <p>No te preocupes si lo que ves te resulta extraño ahora, ya que en pocos días entenderás perfectamente todo lo que aparece en esa imagen.</p>
-<h2 id="comandos-basicos-de-gnulinux">Comandos básicos de GNU/Linux</h2>
+<h2 id="comandos-basicos-de-gnulinux"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Comandos básicos de GNU/Linux</h2>
 <table>
 <thead>
 <tr>
@@ -891,11 +512,11 @@ Lo que ves en tu ordenador ahora mismo se llama GUI (Interfaz gráfica de usuari
 </tr>
 <tr>
 <td align="center">Ver procesos</td>
-<td>top<br>htop<br>ps<br>ps -ef</td>
+<td>top<br/>htop<br/>ps<br/>ps -ef</td>
 </tr>
 <tr>
 <td align="center">Probar conexión y latencia</td>
-<td>ping www.google.com<br>ping 151.101.133.50</td>
+<td>ping www.google.com<br/>ping 151.101.133.50</td>
 </tr>
 <tr>
 <td align="center">Ver información de red</td>
@@ -903,15 +524,15 @@ Lo que ves en tu ordenador ahora mismo se llama GUI (Interfaz gráfica de usuari
 </tr>
 <tr>
 <td align="center">Mostrar mensaje por pantalla</td>
-<td>echo "mensaje". Por ejemplo:<br />echo "Hola mundo"<br /> echo "Estoy ejecutándome en el SHELL: $0."</td>
+<td>echo "mensaje". Por ejemplo:<br>echo "Hola mundo"<br> echo "Estoy ejecutándome en el SHELL: $0."</br></br></td>
 </tr>
 </tbody>
 </table>
-<h3 id="comandos-de-carpetas-y-ficheros">Comandos de carpetas y ficheros</h3>
+<h3 id="comandos-de-carpetas-y-ficheros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Comandos de carpetas y ficheros</h3>
 <p>La raíz de todas las carpetas (también llamadas directorios) se denomina en <strong>Windows</strong> como <strong>C:</strong>. En <strong>GNU/Linux</strong>, en cambio, <strong>la raíz de todo es “/”</strong>. Un usuario se sitúa en Windows y GNU/Linux en las siguientes carpetas:</p>
 <ul>
-<li><em>Windows 10</em>:     &emsp;<em>C:/Usuarios/</em><em>nombreUsuario</em><em>/</em></li>
-<li><em>GNU/Linux</em>:      &emsp; <em>/home/</em><em>nombreUsuario</em><em>/</em></li>
+<li><em>Windows 10</em>:      <em>C:/Usuarios/</em><em>nombreUsuario</em><em>/</em></li>
+<li><em>GNU/Linux</em>:        <em>/home/</em><em>nombreUsuario</em><em>/</em></li>
 </ul>
 <table>
 <thead>
@@ -929,13 +550,13 @@ Lo que ves en tu ordenador ahora mismo se llama GUI (Interfaz gráfica de usuari
 </tr>
 <tr>
 <td>Listar ficheros</td>
-<td>ls -l<br>ls -la<br>ls -lh</td>
-<td><strong>ls</strong> (muestra ficheros, pero no los ocultos)<br><strong>ls -l</strong> (muestra ficheros e información)<br><strong>ls -a</strong> (muestra ficheros, incluídos los ocultos)<br><strong>ls -lh</strong> (muestra información y "h" de <em>human readable</em>)</td>
+<td>ls -l<br/>ls -la<br/>ls -lh</td>
+<td><strong>ls</strong> (muestra ficheros, pero no los ocultos)<br/><strong>ls -l</strong> (muestra ficheros e información)<br/><strong>ls -a</strong> (muestra ficheros, incluídos los ocultos)<br/><strong>ls -lh</strong> (muestra información y "h" de <em>human readable</em>)</td>
 </tr>
 <tr>
 <td>Moverse entre carpetas</td>
 <td>cd ruta_carpeta</td>
-<td>Si estoy en /home/mnceleiro puedo moverme a "Documentos" de dos formas:<br><br><strong>Ruta absoluta (pongo la ruta completa)</strong><br>cd /home/mnceleiro/Documentos<br><br><strong>Ruta relativa (pongo solo desde donde estoy)</strong><br>cd Documentos<br><br><strong>Para volver atrás (.. representa la carpeta superior)</strong><br>cd ..</td>
+<td>Si estoy en /home/mnceleiro puedo moverme a "Documentos" de dos formas:<br/><br/><strong>Ruta absoluta (pongo la ruta completa)</strong><br/>cd /home/mnceleiro/Documentos<br/><br/><strong>Ruta relativa (pongo solo desde donde estoy)</strong><br/>cd Documentos<br/><br/><strong>Para volver atrás (.. representa la carpeta superior)</strong><br/>cd ..</td>
 </tr>
 <tr>
 <td>Crear carpeta</td>
@@ -949,27 +570,27 @@ Lo que ves en tu ordenador ahora mismo se llama GUI (Interfaz gráfica de usuari
 </tr>
 <tr>
 <td>Eliminar algo</td>
-<td>rm nombre_carpeta<br>rm nombre_fichero</td>
-<td>rm partidos<br>rm -r MisFotos<br><br><em>Si hay cosas dentro de una carpeta y queremos que borre la carpeta con todo el contenido de dentro hay que usar la opción </em><em>-r</em><em> </em>.</td>
+<td>rm nombre_carpeta<br/>rm nombre_fichero</td>
+<td>rm partidos<br/>rm -r MisFotos<br/><br/><em>Si hay cosas dentro de una carpeta y queremos que borre la carpeta con todo el contenido de dentro hay que usar la opción </em><em>-r</em><em> </em>.</td>
 </tr>
 <tr>
 <td>Mover carpeta</td>
-<td>Mover un fichero:<br>mv origen destino<br><br>Mover carpeta con cosas:<br>mv <strong>-R</strong> origen destino</td>
-<td><strong>Mover usando rutas absolutas (ruta completa)</strong><br>mv /home/mnceleiro/downloads/datos.txt /home/mnceleiro/documents/datos.txt<br><br><strong>Mover usando rutas relativas (relativo al directorio donde te encuentras)</strong><br>mv datos.txt ../documents.datos.txt<br><br><em>Si usas la opción -R puedes mover una carpeta y todo lo que tiene dentro.</em></td>
+<td>Mover un fichero:<br/>mv origen destino<br/><br/>Mover carpeta con cosas:<br/>mv <strong>-R</strong> origen destino</td>
+<td><strong>Mover usando rutas absolutas (ruta completa)</strong><br/>mv /home/mnceleiro/downloads/datos.txt /home/mnceleiro/documents/datos.txt<br/><br/><strong>Mover usando rutas relativas (relativo al directorio donde te encuentras)</strong><br/>mv datos.txt ../documents.datos.txt<br/><br/><em>Si usas la opción -R puedes mover una carpeta y todo lo que tiene dentro.</em></td>
 </tr>
 <tr>
 <td>Cambiar nombre a algo</td>
 <td>mv nombre_antiguo nombre_nuevo</td>
-<td>mv datos.txt ../documents/datoscopia.txt<br><br>También puede usarse para mover y con -R</td>
+<td>mv datos.txt ../documents/datoscopia.txt<br/><br/>También puede usarse para mover y con -R</td>
 </tr>
 <tr>
 <td>Ver contenido de un fichero</td>
-<td>cat <ruta_fichero><br/>cat -l <ruta_fichero></td>
-<td>cat /etc/shells (el archivo shells tiene una lista con los shells instalados en el sistema)<br /><br />cat /etc/passwd (en este fichero se almacenan los datos de los usuarios del sistema)</td>
+<td>cat <ruta_fichero><br>cat -l <ruta_fichero></ruta_fichero></br></ruta_fichero></td>
+<td>cat /etc/shells (el archivo shells tiene una lista con los shells instalados en el sistema)<br><br>cat /etc/passwd (en este fichero se almacenan los datos de los usuarios del sistema)</br></br></td>
 </tr>
 </tbody>
 </table>
-<h2 id="instalacion-de-software">Instalación de software</h2>
+<h2 id="instalacion-de-software"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Instalación de software</h2>
 <p>Existen distintas tiendas de aplicaciones según la distribución GNU/Linux usada así como gestores de paquetes. 
 El gestor de paquetes más conocido se llama <strong>APT</strong> y es usado en distribuciones basadas en Debian, por ejemplo: Ubuntu, Linux Mint, Zorin OS, Steam OS.</p>
 <p>Los comandos más interesantes a usar con la herramienta APT son los siguientes:</p>
@@ -985,7 +606,7 @@ El gestor de paquetes más conocido se llama <strong>APT</strong> y es usado en 
 <tr>
 <td>Instalar</td>
 <td>apt install programa</td>
-<td>sudo apt install kdenlive<br><br>Para instalar sin que pida confirmación:<br>sudo apt install -y libreoffice</td>
+<td>sudo apt install kdenlive<br/><br/>Para instalar sin que pida confirmación:<br/>sudo apt install -y libreoffice</td>
 </tr>
 <tr>
 <td>Eliminar</td>
@@ -994,8 +615,8 @@ El gestor de paquetes más conocido se llama <strong>APT</strong> y es usado en 
 </tr>
 <tr>
 <td>Actualizar</td>
-<td>apt update<br>apt upgrade</td>
-<td>sudo apt update<br>sudo apt upgrade<br></td>
+<td>apt update<br/>apt upgrade</td>
+<td>sudo apt update<br/>sudo apt upgrade<br/></td>
 </tr>
 </tbody>
 </table>
@@ -1006,7 +627,7 @@ Si no encuentras la aplicación en apt podrías buscar la aplicación en interne
 <li><a href="https://www.google.com/search?q=Instalar+spotify+en+Ubuntu&amp;client=firefox-b-d&amp;sxsrf=ALiCzsbNq7lw0-VEnp-j00t0oxK4FidwvA:1651835021653&amp;source=lnt&amp;tbs=qdr:y&amp;sa=X&amp;ved=2ahUKEwi6tMX93Mr3AhUHP-wKHUIhC_EQpwV6BAgBEB4&amp;biw=1920&amp;bih=927&amp;dpr=1">Instalar Steam en Ubuntu (filtrando último año)</a>.</li>
 </ul>
 <p>Te recomiendo hacerlo <strong>filtrando por "último año"</strong> o por la versión de Linux que tengas. Por ejemplo: <a href="https://www.google.com/search?client=firefox-b-d&amp;q=Instalar+spotify+en+Ubuntu+20.04">"Instalar Spotify en Ubuntu 20.04"</a>.</p>
-<h2 id="gestion-de-procesos">Gestión de procesos</h2>
+<h2 id="gestion-de-procesos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Gestión de procesos</h2>
 <table>
 <thead>
 <tr>
@@ -1018,8 +639,8 @@ Si no encuentras la aplicación en apt podrías buscar la aplicación en interne
 <tbody>
 <tr>
 <td>Ver procesos</td>
-<td>top<br/>htop<br/>ps -ef</td>
-<td>top y htop son interactivos (htop requiere instalación).<br/><br/>Ejemplo de ps:<br/>ps -ef | grep firefox <em>(filtra procesos con nombre firefox mediante grep)</em></td>
+<td>top<br>htop<br>ps -ef</br></br></td>
+<td>top y htop son interactivos (htop requiere instalación).<br><br>Ejemplo de ps:<br>ps -ef | grep firefox <em>(filtra procesos con nombre firefox mediante grep)</em></br></br></br></td>
 </tr>
 <tr>
 <td>Ver procesos (en forma de árbol)</td>
@@ -1028,13 +649,13 @@ Si no encuentras la aplicación en apt podrías buscar la aplicación en interne
 </tr>
 <tr>
 <td>Matar procesos (por código)</td>
-<td>kill [-código] <num_proceso></td>
-<td>Supongamos que queremos matar firefox (hay que mirar cuál es su ID de PROCESO, puedes hacerlo usando htop o ps):<br /> <code>ps -e \| grep firefox</code><br/><br/>Matar un proceso de forma normal (por defecto usa código 15):<br/><code>kill 12345</code><br/><br/>Matar un proceso de manera forzada (p. ej: si se queda trabado). Para matar de forma forzada el código es el 9:<br/><code>kill -9 12345</code></td>
+<td>kill [-código] <num_proceso></num_proceso></td>
+<td>Supongamos que queremos matar firefox (hay que mirar cuál es su ID de PROCESO, puedes hacerlo usando htop o ps):<br> <code>ps -e \| grep firefox</code><br><br>Matar un proceso de forma normal (por defecto usa código 15):<br><code>kill 12345</code><br><br>Matar un proceso de manera forzada (p. ej: si se queda trabado). Para matar de forma forzada el código es el 9:<br><code>kill -9 12345</code></br></br></br></br></br></br></br></td>
 </tr>
 <tr>
 <td>Matar procesos (por nombre)</td>
-<td>killall [-código] <nombre_proceso></td>
-<td><code>killall firefox</code><br /><br />Matar el proceso (forzandolo):<br /><code>killall -9 firefox</code><br/><br/></td>
+<td>killall [-código] <nombre_proceso></nombre_proceso></td>
+<td><code>killall firefox</code><br><br>Matar el proceso (forzandolo):<br><code>killall -9 firefox</code><br><br/></br></br></br></br></td>
 </tr>
 </tbody>
 </table>
@@ -1043,79 +664,51 @@ Si no encuentras la aplicación en apt podrías buscar la aplicación en interne
 <ul>
 <li>Imran Afzal. Complete Linux Bash Shell Scripting with Real Life Examples. Udemy. Disponible en: https://www.udemy.com/course/linux-bash-shell-scripting-through-real-life-examples/</li>
 </ul>
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../../1-intro/4-virtual-machines/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Virtualización" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Pie" class="md-footer__inner md-grid">
+<a aria-label="Anterior: Virtualización" class="md-footer__link md-footer__link--prev" href="../../1-intro/4-virtual-machines/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Anterior
               </span>
               Virtualización
             </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../users-groups-local/" class="md-footer__link md-footer__link--next" aria-label="Next: Gestión de usuarios y grupos" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
+</div>
+</a>
+<a aria-label="Siguiente: Gestión de usuarios y grupos" class="md-footer__link md-footer__link--next" href="../users-groups-local/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Siguiente
               </span>
               Gestión de usuarios y grupos
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
 </div>
-      
-    </div>
-  </div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.config.lang": "es", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "B\u00fasqueda", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version.title": "Seleccionar versi\u00f3n"}}</script>
+<script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+</body>
 </html>
