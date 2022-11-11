@@ -7,13 +7,25 @@ Para empezar, nuestro primer script mostrará en pantalla solamente la línea:
 
 `Hola mundo`
 
-Para ello, editamos el script con nuestro editor preferido (p. ej: vim o nano) y añadimos lo siguiente:
+Flujo de ejecución de un programa que escriba por pantalla "Hola mundo":
+
+```mermaid
+ 
+    flowchart LR
+    A[INICIO] --> B["Escribir 'Hola mundo'"] --> C[FIN]
+
+```
+
+
+Para crear traducir este diagrama de flujo a un programa real editamos el script con nuestro editor preferido (p. ej: vim o nano) y añadimos lo siguiente:
 
 ```bash
 #!/bin/bash
 
 echo "Hola mundo."
 ```
+
+La orden de escribir a pantalla se traduce en **shell scripting con la orden echo**.
 
 ### Permisos de ejecución
 Para crear un script en BASH creamos un fichero con el nombre que queramos y le damos permisos de ejecución (u+x):
@@ -46,7 +58,15 @@ Una variable es un sitio en memoria para guardar información. Un ejemplo de cre
 
 `EDAD=35`
 
-Veamoslo con un script de ejemplo:
+Veamoslo con un script de ejemplo. Crearemos una **variable** llamada **NOMBRE** donde guardaremos el nombre de una persona. Luego el ordenador escribirá por pantalla "Tu nombre es (y aparecerá el nombre guardado en la variable)."
+
+```mermaid
+ 
+    flowchart LR
+    A[INICIO] --> B["NOMBRE = 'Marcos'"] --> C["Escribir 'Tu nombre es NOMBRE'"] --> D[FIN]
+```
+
+Veamos ahora la traducción a código:
 
 ```bash title="variables.sh"
 # Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________."
@@ -80,7 +100,13 @@ Resultado de la ejecución:
 
 Ahora sí funciona correctamente. El valor que le hemos asignado a la variable es "Marcos", pero si lo cambiamos con otro la frase también cambiará.
 
-Probemos con otro ejercicio:
+Probemos con otro ejercicio, en este vamos a hacer lo mismo que en el anterior pero añadiremos un cambio en el nombre después de 2 segundos.
+
+```mermaid
+
+    flowchart TB
+    A[INICIO] --> B["NOMBRE = 'Marcos'"] --> C["Escribir 'Tu nombre es NOMBRE'"] --> D["Esperar 2 segundos"] -->E["NOMBRE = 'Mark'"] --> F["Escribir 'Ahora tu nombre es: NOMBRE'"] --> G[FIN]
+```
 
 ```bash title="variables3.sh"
 # Ejercicio: crear una variable "NOMBRE" que almacene el nombre de una persona. Después, mostrar por pantalla "Tu nombre es ________." Después, haz que el programa espere dos segundos y muestre: "Te has cambiado el nombre y ahora es "Mark".
@@ -251,6 +277,15 @@ fi
 ### Ejercicio de ejemplo: menores y mayores de edad
 Script que, pasando como parámetro una edad, nos diga si es menor de edad o mayor de edad (mayor o igual que 18). Utiliza solo ifs (sin else).
 
+```mermaid
+
+    flowchart TB
+
+    A([INICIO]) --> B{"Si param1 > 17"} -- si --> C[/"Escribir 'Es mayor de edad'"/] --> D{"Si param1 < 18"}
+    B -- sino --> D -- si --> E[/"Escribir 'Es menor de edad'"/] --> F(["Fin"])
+    D -- sino --> F
+```
+
 ```bash title="condicionales1 - Intenta hacerlo!"
 #!/bin/bash
 
@@ -312,6 +347,7 @@ Vamos a ver ahora algunas de las condiciones que se pueden utilizar en un condic
 - -gt → greater than (mayor que)
 - -le → less equals than (menor o igual que)
 - -ge → greater equals than (mayor ou igual que)
+- -eq → *equal*, igual a.
 - -ne → not equal (distinto de)
 
 En el ejercicio anterior podríamos haber utilizado *mayor o igual que 18 ($1 -ge 18)* en lugar de mayor que 17 ($1 -gt 17). Existen muchas soluciones diferentes para cada ejercicio.
@@ -371,6 +407,10 @@ fi
 1. Si el código pasa por aquí signfiica que el parámetro 1 es igual o mayor que 18 años. Ahora, ya sabiendo que superamos los 18, tenemos que comprobar si llegamos o no a la jubilación. Para eso hace falta otro if/else que compruebe si también superamos los 66 años. <br /><br/>:older_man: ¿Somos mayores de 66? → IF<br/><br/>o<br/><br/>:woman: ¿No lo somos? → ELSE
 
 ##### Resolución haciendo varias comprobaciones en el mismo if (&&)
+Hasta ahora hemos puesto condiciones una sola vez (en el if). Podemos poner tantas condiciones como queramos con **else if (elif)** (significa: sino si... o en caso contrario...).
+
+Un elif (al igual que *if*) siempre lleva condición. El *else* es el único que no lleva (lo que hay en el *else* se ejecuta solo en caso de que todo lo anterior no se cumpla).
+
 En el mismo condicional se pueden comprobar tantas cosas como se deseen uniéndolas con AND (&&) o con OR (||):
 - AND (&&): verdadero si ambas condiciones son verdaderas.
 - OR (||): es verdadero si una de las dos condiciones es verdadera.
@@ -409,7 +449,7 @@ Hemos unido las dos condiciones con && (AND, y). Esto quiere decir que **solamen
 En caso de que solo necesitamos que se cumplan una de las dos usaríamos || en lugar de &&.
 
 ##### Resolución más sencilla: if/elif/else
-Hasta ahora hemos puesto condiciones una sola vez (en el if). Podemos poner tantas condiciones como queramos con **else if (elif)** (significa: sino si... o en caso contrario...).
+Aunque las resoluciones anteriores son válidas, las más sencilla suele ser siempre la mejor. A continuación se os muestra otra posible solución del ejercicio (aunque con un pequeño error para que lo solucioneis).
 
 Ejercicio: ejecuta el siguiente código y si no funciona **arréglalo**:
 
@@ -439,7 +479,7 @@ Intenta encontrar el error! es algo muy simple una vez te des cuenta :-).
 ## Bucles
 
 ### Bucle while (mientras)
-La palabra *while* significa en español **mientras**. El bucle while o "mientras" hace que la condición que se le pase se ejecute repetidamente hasta que la condición deje de cumplirse. La sintaxis es similar a la del if:
+La palabra *while* significa en español **mientras**. El bucle while o "mientras" hace que, en caso de cumplirse la condición, todo lo que hay dentro (entre el "do" y el "done") se ejecute repetidamente hasta que esa condiciónd el *while* deje de cumplirse. La sintaxis es similar a la del if:
 
 ```bash
 while [ condición ]
@@ -612,14 +652,14 @@ Realiza los siguientes ejercicios:
 3. Usando un bucle *while* cuenta desde el número 8 hasta el 0 (retrocediendo de 2 en 2).
 4. Crea un script que cuente los números impares empezando en el 133 hasta 0 (bucle for). Los números deben estar en la misma línea separados por espacios.
 5. Crea un script que haga un head de todos los ficheros pasados como parámetro, no importa cuántos sean (*recuerda que hay una variable que te devuelve todos los parámetros, así podrás usarlos en un bucle for sencillo*). Debe indicarse claramente (al hacer el head de cada fichero) cuál se está mostrando (más abajo tienes un ejemplo de ejecución del ejercicio).
-6. Crea un script que recorra los parámetros que se le pasen e indique si el número es par o impar. Para comprobar si el número es par o impar solo hay que ver el resto de la división, para ello se usa el operador "%". Por ejemplo: para 10 % 2 el resultado será 0, para 11 % 2 el resultado (el resto) será 1.
+6. Crea un script que, pasado un solo parámetro, indique si el parámetro que se le pasa es un número par o impar. Para comprobar si el número es par o impar solo hay que ver el resto de la división, para ello se usa el operador "%". Por ejemplo: para 10 % 2 el resultado será 0, para 11 % 2 el resultado (el resto) será 1.
+7. Haz que el script anterior (de comprobar si un número es par o impar) funcione para cualquier número de parámetros.
 7. Crea un script con un menú que pregunte al usuario las siguientes opciones:
     - (1) Ver estado de los discos.
     - (2) Ver uso de RAM.
     - (3) Mostrar las carpetas del directorio /home.
     - En caso de que el usuario ponga un número distinto de 1, 2 o 3, debe mostrarse un error.
 8. Haz una copia del script anterior y añade una opción 4 que sea "Salir". El programa se repetirá continuamente mostrando el menú y pidiendo opciones hasta que el usuario pulse esa opción. También, si se elige una opción que no existe (por ejemplo: 7) debe mostrarse un mensaje de error.
-
 
 ### Ejemplos de ejecución de los ejercicios
 A continuación se muestran ejemplos de salidas de los ejercicios anteriores al ejecutarlos:
@@ -669,6 +709,15 @@ A continuación se muestran ejemplos de salidas de los ejercicios anteriores al 
     El número 22 es PAR.
     El número 23 es IMPAR.
     ```
+
+## Tabla de diferencias entre lenguajes de programación
+| Lenguaje genérico | Shell scripting | Javascript | Java |
+| - | - | - | - |
+| variable = "algo" | variable = "algo" | let variable = "algo" | String variable = "algo"<br/>int variable = numero |
+| Escribir "texto" | echo "texto" | console.log("texto") | System.out.println("texto") |
+| Leer variable<br/><br/>Leer num | read num | let num = prompt("Indica un número") | Scanner sc = new Scanner(System.in);<br/><br/>int num = sc.nextInt(); | 
+| Esperar segundos | sleep segundos | setTimeout(..., milisegundos) | Thread.sleep(milisegundos) |
+| Si x > 10... | if [ x -lt 10 ]; then<br/>&emsp;...<br/>else<br/>&emsp;...<br/>fi | if (x > 10) \{<br/>&emsp;...<br/>\} else if (x === 10) \{<br/>&emsp;...<br/>} else \{<br/>&emsp;...<br/>} | if (x > 10) \{<br/>&emsp;...<br/>\} else if (x == 10) \{<br/>&emsp;...<br/>} else \{<br/>&emsp;...<br/>} |
 
 ## Referencias
 - How-to: Shell parameters. ss64. Obtenido de: https://ss64.com/bash/syntax-parameters.html
