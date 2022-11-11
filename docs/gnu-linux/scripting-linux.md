@@ -407,6 +407,10 @@ fi
 1. Si el código pasa por aquí signfiica que el parámetro 1 es igual o mayor que 18 años. Ahora, ya sabiendo que superamos los 18, tenemos que comprobar si llegamos o no a la jubilación. Para eso hace falta otro if/else que compruebe si también superamos los 66 años. <br /><br/>:older_man: ¿Somos mayores de 66? → IF<br/><br/>o<br/><br/>:woman: ¿No lo somos? → ELSE
 
 ##### Resolución haciendo varias comprobaciones en el mismo if (&&)
+Hasta ahora hemos puesto condiciones una sola vez (en el if). Podemos poner tantas condiciones como queramos con **else if (elif)** (significa: sino si... o en caso contrario...).
+
+Un elif (al igual que *if*) siempre lleva condición. El *else* es el único que no lleva (lo que hay en el *else* se ejecuta solo en caso de que todo lo anterior no se cumpla).
+
 En el mismo condicional se pueden comprobar tantas cosas como se deseen uniéndolas con AND (&&) o con OR (||):
 - AND (&&): verdadero si ambas condiciones son verdaderas.
 - OR (||): es verdadero si una de las dos condiciones es verdadera.
@@ -445,7 +449,7 @@ Hemos unido las dos condiciones con && (AND, y). Esto quiere decir que **solamen
 En caso de que solo necesitamos que se cumplan una de las dos usaríamos || en lugar de &&.
 
 ##### Resolución más sencilla: if/elif/else
-Hasta ahora hemos puesto condiciones una sola vez (en el if). Podemos poner tantas condiciones como queramos con **else if (elif)** (significa: sino si... o en caso contrario...).
+Aunque las resoluciones anteriores son válidas, las más sencilla suele ser siempre la mejor. A continuación se os muestra otra posible solución del ejercicio (aunque con un pequeño error para que lo solucioneis).
 
 Ejercicio: ejecuta el siguiente código y si no funciona **arréglalo**:
 
@@ -475,7 +479,7 @@ Intenta encontrar el error! es algo muy simple una vez te des cuenta :-).
 ## Bucles
 
 ### Bucle while (mientras)
-La palabra *while* significa en español **mientras**. El bucle while o "mientras" hace que la condición que se le pase se ejecute repetidamente hasta que la condición deje de cumplirse. La sintaxis es similar a la del if:
+La palabra *while* significa en español **mientras**. El bucle while o "mientras" hace que, en caso de cumplirse la condición, todo lo que hay dentro (entre el "do" y el "done") se ejecute repetidamente hasta que esa condiciónd el *while* deje de cumplirse. La sintaxis es similar a la del if:
 
 ```bash
 while [ condición ]
@@ -648,7 +652,8 @@ Realiza los siguientes ejercicios:
 3. Usando un bucle *while* cuenta desde el número 8 hasta el 0 (retrocediendo de 2 en 2).
 4. Crea un script que cuente los números impares empezando en el 133 hasta 0 (bucle for). Los números deben estar en la misma línea separados por espacios.
 5. Crea un script que haga un head de todos los ficheros pasados como parámetro, no importa cuántos sean (*recuerda que hay una variable que te devuelve todos los parámetros, así podrás usarlos en un bucle for sencillo*). Debe indicarse claramente (al hacer el head de cada fichero) cuál se está mostrando (más abajo tienes un ejemplo de ejecución del ejercicio).
-6. Crea un script que recorra los parámetros que se le pasen e indique si el número es par o impar. Para comprobar si el número es par o impar solo hay que ver el resto de la división, para ello se usa el operador "%". Por ejemplo: para 10 % 2 el resultado será 0, para 11 % 2 el resultado (el resto) será 1.
+6. Crea un script que, pasado un solo parámetro, indique si el parámetro que se le pasa es un número par o impar. Para comprobar si el número es par o impar solo hay que ver el resto de la división, para ello se usa el operador "%". Por ejemplo: para 10 % 2 el resultado será 0, para 11 % 2 el resultado (el resto) será 1.
+7. Haz que el script anterior (de comprobar si un número es par o impar) funcione para cualquier número de parámetros.
 7. Crea un script con un menú que pregunte al usuario las siguientes opciones:
     - (1) Ver estado de los discos.
     - (2) Ver uso de RAM.
