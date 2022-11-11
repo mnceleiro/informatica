@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Programa al que se le pasa como parámetro una edad:
+## - Si es mayor o igual a 18 años, escribe: "Está jubilado."
+## - Si la edad es inferior a 18 años, escribe: "Es menor de edad."
+## - Si la edad es superior a 18 años pero inferior a 67, escribe: "Es mayor de edad."
+
+if [ $1 -ge 18 ]
+then
+	# Si es mayor que 18 hay que saber si supera tambien los 67
+	if [ $1 -gt 67 ]
+	then
+    	echo "Está jubilado."
+	else
+		echo "Es mayor de 18."
+	fi
+# En caso de que no sea mayor de 18 es que es menor de edad.
+else
+    echo "Es menor de edad."
+fi

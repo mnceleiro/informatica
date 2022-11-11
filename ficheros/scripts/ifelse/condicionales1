@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Programa al que se le pasa como parámetro una edad:
+## - Si es mayor o igual a 18 años, escribe: "Es mayor de edad."
+## - Si la edad es inferior a 18 años, escribe: "Es menor de edad."
+
+# SINTAXIS PARA RESOLVER EL EJERCICIO:
+# Si    parametro1      es mayor que     17
+# if    $1              greater than     17
+# if    [ $1                -gt          17 ]              
+# then/entonces
+#   echo ...
+# fi
+
+# NOTA: necesitarás dos ifs (uno para mayor y otro para menor).
+if [ $1 -gt 17 ]
+then
+    echo "Es mayor de edad."
+fi
+
+if [ $1 -lt 18 ]
+then
+    echo "Es menor de edad."
+fi
