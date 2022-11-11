@@ -655,6 +655,11 @@ A continuación se muestran ejemplos de salidas de los ejercicios anteriores al 
     ---------------------------------------------------------
     ```
 
+=== "Resultado ejercicio 6"
+    ```
+    ./par-impar 4
+    El número 4 es PAR.
+
 === "Resultado ejercicio 7"
 
     ```
