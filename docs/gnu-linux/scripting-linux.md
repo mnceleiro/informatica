@@ -654,7 +654,7 @@ Realiza los siguientes ejercicios:
 5. Crea un script que haga un head de todos los ficheros pasados como parámetro, no importa cuántos sean (*recuerda que hay una variable que te devuelve todos los parámetros, así podrás usarlos en un bucle for sencillo*). Debe indicarse claramente (al hacer el head de cada fichero) cuál se está mostrando (más abajo tienes un ejemplo de ejecución del ejercicio).
 6. Crea un script que, pasado un solo parámetro, indique si el parámetro que se le pasa es un número par o impar. Para comprobar si el número es par o impar solo hay que ver el resto de la división, para ello se usa el operador "%". Por ejemplo: para 10 % 2 el resultado será 0, para 11 % 2 el resultado (el resto) será 1.
 7. Haz que el script anterior (de comprobar si un número es par o impar) funcione para cualquier número de parámetros.
-7. Crea un script con un menú que pregunte al usuario las siguientes opciones:
+8. Crea un script con un menú que pregunte al usuario las siguientes opciones:
     - (1) Ver estado de los discos.
     - (2) Ver uso de RAM.
     - (3) Mostrar las carpetas del directorio /home.
