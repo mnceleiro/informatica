@@ -354,16 +354,33 @@ En el ejercicio anterior podríamos haber utilizado *mayor o igual que 18 ($1 -g
 
 Aunque este método funciona, es más correcto hacerlo con un si / sino (if/else). Es decir, en lugar de usar dos ifs utilizamos un if y debajo un else:
 
+```mermaid
+
+    flowchart TB
+
+    A([INICIO]) --> B{"Si param1 >= 18"}
+        B -- si     --> C[/"Escribir 'Es mayor de edad'"/]
+        B -- sino   --> D[/"Escribir 'Es menor de edad'"/]
+    E(["Fin"])
+
+    C --> E
+    D --> E
+```
+
 ```bash title="condicionales2" linenums="1"
 #!/bin/bash
 
-if [ $1 -ge 18 ]
-then
+if [ $1 -ge 18 ] # (1)!
+then # (2)!
     echo "Es mayor de edad."
-else
-    echo "Es menor de edad."
+else # (3)!
+    echo "Es menor de edad." 
 fi
 ```
+
+1. Si param1 >= 18 (pregunto si el parámetro 1 es mayor o igual que 18)
+2. **Si** (if) se cumple (then, entonces) --> Escribo (en pantalla) que es mayor de edad.
+3. En caso contrario (sino, else) --> Escribo que es menor de edad.
 
 El resultado es el mismo que en el anterior script. 
 
@@ -555,6 +572,20 @@ Ahora veamos el código con *while*:
 #### Contar de 1 a 5
 
 Crea un script que cuente los números del 1 al 5 (usa para ello un bucle *while*). Si quieres sumar números puedes usar el comando **expr**: `expr 4 + 5`
+
+La lógica del programa sería la siguiente:
+
+
+
+```mermaid
+
+    flowchart TB
+
+    A([INICIO]) --> B["contador = 0"] --> C{"Mientras contador < 5"}
+        C -- se cumple --> D[/"Escribir contador'"/] --> E["contador = contador + 1"]
+    E --> C
+    E --> F(["Fin"])
+```
 
 A continuación se muestra un posible resultado.
 
