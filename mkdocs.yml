@@ -8,14 +8,16 @@ nav:
     - 'Multimedia': '1-intro/multimedia.md'
     - 'Arquitecturas físicas': '1-intro/arquitecturas-fisicas.md'
     - 'Virtualización': '1-intro/4-virtual-machines.md'
-  - GNU/Linux: 
+  - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
     - 'Comandos básicos': 'gnu-linux/commands-basics.md'
     - 'Gestión de usuarios y grupos': 'gnu-linux/users-groups-local.md'
     - 'Programación de scripts': 'gnu-linux/scripting-linux.md'
-  - Windows: 
+  - Windows:
     - 'Introducción': 'windows/windows-setup.md'
     - 'Powershell': windows/powershell.md
+  - Web:
+    - 'Javascript': 'web/js-basics.md'
 theme:
   name: material
   language: es

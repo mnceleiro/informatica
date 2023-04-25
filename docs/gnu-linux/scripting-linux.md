@@ -10,7 +10,7 @@ Para empezar, nuestro primer script mostrará en pantalla solamente la línea:
 Flujo de ejecución de un programa que escriba por pantalla "Hola mundo":
 
 ```mermaid
- 
+
     flowchart LR
     A[INICIO] --> B["Escribir 'Hola mundo'"] --> C[FIN]
 
@@ -51,7 +51,7 @@ Para ejecutar el script podemos usar cualquiera de los siguientes comandos:
 `bash helloworld.sh`
 
 El resultado debería ser el siguiente:
-![Script hola mundo](../images/gnu-linux/hello-world.png)  
+![Script hola mundo](../images/gnu-linux/hello-world.png)
 
 ## Variables
 Una variable es un sitio en memoria para guardar información. Un ejemplo de creación de una variable y asignación de un número a ella sería el siguiente:
@@ -61,7 +61,7 @@ Una variable es un sitio en memoria para guardar información. Un ejemplo de cre
 Veamoslo con un script de ejemplo. Crearemos una **variable** llamada **NOMBRE** donde guardaremos el nombre de una persona. Luego el ordenador escribirá por pantalla "Tu nombre es (y aparecerá el nombre guardado en la variable)."
 
 ```mermaid
- 
+
     flowchart LR
     A[INICIO] --> B["NOMBRE = 'Marcos'"] --> C["Escribir 'Tu nombre es NOMBRE'"] --> D[FIN]
 ```
@@ -78,7 +78,7 @@ echo "Tu nombre es: NOMBRE"
 ```
 
 Resultado de la ejecución (no nos sale como queremos):
-![](../images/gnu-linux/variables-1.png)  
+![](../images/gnu-linux/variables-1.png)
 
 ¿Es esto lo que esperábamos? Efectivamente, el echo está funcionando como debe y el terminal nos muestra lo que le indicamos. Pero, ¿como podemos hacer que el echo nos interprete la variable **NOMBRE** e indique, por tanto, lo que hemos almacenado en la variable?
 
@@ -124,8 +124,8 @@ echo "Ahora tu nombre es: $NOMBRE"
 
 Resultado:
 
-![](../images/gnu-linux/variables3.png)  
- 
+![](../images/gnu-linux/variables3.png)
+
 
 *Para saber más: además de "VARIABLE" existe también la definición de "CONSTANTE". Una constante es lo mismo que una variable, solo que esta no puede volver a cambiarse a lo largo del programa.*
 
@@ -296,7 +296,7 @@ Script que, pasando como parámetro una edad, nos diga si es menor de edad o may
 # SINTAXIS PARA RESOLVER EL EJERCICIO:
 # Si    parametro1      es mayor que     17
 # if    $1              greater than     17
-# if    [ $1                -gt          17 ]              
+# if    [ $1                -gt          17 ]
 # then/entonces
 #   echo ...
 # fi
@@ -315,7 +315,7 @@ Intenta resolverlo antes de mirar la solución (que se muestra aquí abajo!):
 # SINTAXIS PARA RESOLVER EL EJERCICIO:
 # Si    parametro1      es mayor que     17
 # if    $1              greater than     17
-# if    [ $1                -gt          17 ]              
+# if    [ $1                -gt          17 ]
 # then/entonces
 #   echo ...
 # fi
@@ -374,7 +374,7 @@ if [ $1 -ge 18 ] # (1)!
 then # (2)!
     echo "Es mayor de edad."
 else # (3)!
-    echo "Es menor de edad." 
+    echo "Es menor de edad."
 fi
 ```
 
@@ -382,7 +382,7 @@ fi
 2. **Si** (if) se cumple (then, entonces) --> Escribo (en pantalla) que es mayor de edad.
 3. En caso contrario (sino, else) --> Escribo que es menor de edad.
 
-El resultado es el mismo que en el anterior script. 
+El resultado es el mismo que en el anterior script.
 
 !!! Nota
 
@@ -550,7 +550,7 @@ Este bucle *while* funcionará igual que el if, salvo por el hecho de que repeti
 === "Ejecución while"
 
     ```
-        /if-vs-while2  
+        /if-vs-while2
         Escribe un número: 2
         El número 2 es positivo.
         El número 2 es positivo.
@@ -638,7 +638,7 @@ Veamos con un ejemplo real que recorra los números del 1 al 5:
 === "Ejecución"
 
     ```
-    ./contar-hasta-5-rangos 
+    ./contar-hasta-5-rangos
     El contador vale: 1.
     El contador vale: 2.
     El contador vale: 3.
@@ -666,7 +666,7 @@ Por ejemplo, el siguiente código irá hacia atrás desde 20 hasta -5 (e irá de
 === "Ejecución"
 
     ```
-    ./contar-hasta-5-rangos-salto 
+    ./contar-hasta-5-rangos-salto
     El contador vale: 20.
     El contador vale: 15.
     El contador vale: 10.
@@ -694,14 +694,22 @@ Realiza los siguientes ejercicios:
 9. Crea un programa de nombre copiaSegHome que haga una copia de seguridad del home del usuario. Para ello, primero debe preguntarse al usuario de cuántas carpetas quiere hacer copia de seguridad. Posteriormente, se pedirá al usuario que introduzca nombres de carpetas hasta llegar a esa cifra. Finalmente, se hará la copia de seguridad en /opt/backups (el script debe ejecutrase como sudo para que funcione).
 10. Modifica el script anterior para que pare al principio en caso de que no se ejecute como sudo (busca la manera de comprobarlo). Además, haz que las copias de seguridad se tengan el siguiente formato: usuario-añomesdia.tar.gz.
 
+11. Haz un script que pregunte al usuario **que comando quiere ejecutar**. Guarda el comando y ejecútalo. Después, indica con un mensaje si el comando se ha ejecutado correctamente o no.
+
+Haz un programa que pida números positivos continuamente. Cuando el usuario meta un número negativo (p. ej: -2) el programa debe parar y mostrar la suma de todos los números introducidos (excepto el negativo).
+
+Haz un script que cree un usuario nuevo (el usuario debe ser tu segundo apellido). Luego debe hacerse un backup (una copia del home) en /opt y comprimirla con la herramienta zip. Debe hacerse de forma continuada y cada 5 segundos.
+
+Crea un script que compruebe EL USO TOTAL de disco de la carpeta /etc o /var (la que se pase como parámetro de las dos). Si no es ninguna de las dos debe mostrar un error. Ejecuta el script como root. No pueden verse errores al ejecutar el comando.
+
 ### Ejemplos de ejecución de los ejercicios
 A continuación se muestran ejemplos de salidas de los ejercicios anteriores al ejecutarlos:
 
 === "Resultado ejercicio 4"
 
     ```
-    nceleiro@mnceleiro-gram:~$ ./contar-impares-for 
-    133 131 129 127 125 123 121 119 117 115 113 111 109 107 105 103 101 99 97 95 93 91 89 87 85 83 81 79 77 75 73 71 69 67 65 63 61 59 57 55 53 51 49 47 45 43 41 39 37 35 33 31 29 27 25 23 21 19 17 15 13 11 9 7 5 3 1 
+    nceleiro@mnceleiro-gram:~$ ./contar-impares-for
+    133 131 129 127 125 123 121 119 117 115 113 111 109 107 105 103 101 99 97 95 93 91 89 87 85 83 81 79 77 75 73 71 69 67 65 63 61 59 57 55 53 51 49 47 45 43 41 39 37 35 33 31 29 27 25 23 21 19 17 15 13 11 9 7 5 3 1
     mnceleiro@mnceleiro-gram:~$
     ```
 
@@ -709,7 +717,7 @@ A continuación se muestran ejemplos de salidas de los ejercicios anteriores al 
 
     ```
     ./head-ficheros
-    
+
     -------------- FICHERO: rosalia.txt ---------------------
 
     Adios rios, adios fontes
@@ -732,6 +740,7 @@ A continuación se muestran ejemplos de salidas de los ejercicios anteriores al 
     ```
     ./par-impar 4
     El número 4 es PAR.
+    ```
 
 === "Resultado ejercicio 7"
 
@@ -743,12 +752,29 @@ A continuación se muestran ejemplos de salidas de los ejercicios anteriores al 
     El número 23 es IMPAR.
     ```
 
+=== "Resultado ejercicio 1"
+
+    ```
+    ------- EJECUCIÓN CON UN COMANDO CORRECTO -------
+    ./2-funciona-ultimo-comando
+    Introduzca el comando que desea ejecutar: ls
+    2-funciona-ultimo-comando  contar-impares-for  par-impar
+
+    El comando ls se ha ejecutado correctamente.
+
+    ------- EJECUCIÓN CON UN COMANDO QUE NO EXISTE -------
+    ./2-funciona-ultimo-comando
+    Introduzca el comando que desea ejecutar: lsq
+
+    El comando lsq ha dado un error.
+    ```
+
 ## Tabla de diferencias entre lenguajes de programación
 | Lenguaje genérico | Shell scripting | Javascript | Java |
 | - | - | - | - |
 | variable = "algo" | variable = "algo" | let variable = "algo" | String variable = "algo"<br/>int variable = numero |
-| Escribir "texto" | echo "texto" | console.log("texto") | System.out.println("texto") |
-| Leer variable<br/><br/>Leer num | read num | let num = prompt("Indica un número") | Scanner sc = new Scanner(System.in);<br/><br/>int num = sc.nextInt(); | 
+| Escribir "texto" | echo "texto" | - console.log("texto")<br/>- alert("texto")<br/>- document.write("Texto") | System.out.println("texto") |
+| Leer variable<br/><br/>Leer num | read num | let num = prompt("Indica un número") | Scanner sc = new Scanner(System.in);<br/><br/>int num = sc.nextInt(); |
 | Esperar segundos | sleep segundos | setTimeout(..., milisegundos) | Thread.sleep(milisegundos) |
 | Si x > 10... | if [ x -lt 10 ]; then<br/>&emsp;...<br/>else<br/>&emsp;...<br/>fi | if (x > 10) \{<br/>&emsp;...<br/>\} else if (x === 10) \{<br/>&emsp;...<br/>} else \{<br/>&emsp;...<br/>} | if (x > 10) \{<br/>&emsp;...<br/>\} else if (x == 10) \{<br/>&emsp;...<br/>} else \{<br/>&emsp;...<br/>} |
 
@@ -756,4 +782,3 @@ A continuación se muestran ejemplos de salidas de los ejercicios anteriores al 
 - How-to: Shell parameters. ss64. Obtenido de: https://ss64.com/bash/syntax-parameters.html
 - Vivek Gite. Bash For Loop Examples. cyberciti. Obtenido de: https://www.cyberciti.biz/faq/bash-for-loop/#C_style_for_loop
 - Shell scripting tutorial. shellscript.sh. Obtenido de: https://www.shellscript.sh
-
