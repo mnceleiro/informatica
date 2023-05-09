@@ -18,6 +18,8 @@ let nombreVariable
 // Declaración de una constante
 const nombreConstante
 ```
+!!! Comentarios
+    El texto que aparece con // al inicio se llama **comentario**. No ejecuta ni crea nada nuevo, solo aporta información sobre el código. Puedes escribir comentarios de código en cualquier sitio empezando con "//"
 
 ### Asignación de valores a una variable
 Si luego quiero guardar algo en ella solo tengo que usar el **operador =**: `nombreVariable = "valor"`
@@ -65,22 +67,25 @@ asignatura = "Matemáticas"
 asignatura = "Historia"
 
 /*
- * Lo único que NO PUEDO HACER es lo siguiente:
- *
- * No puedo poner "let" otra vez porque
- * la variable ya se declaró al principio
- * del programa y NO PUEDE VOLVER A DECLARARSE
- *
+
+ Lo único que NO PUEDO HACER es lo siguiente:
+ - No puedo poner "let" otra vez porque
+ - la variable ya se declaró al principio
+ - del programa y NO PUEDE VOLVER A DECLARARSE
+
  */
 let asignatura = "Ciencias Naturales" // MAL
 ```
+
+!!! Comentarios
+    El texto que aparece en las últimas líneas entre /* y */ es un **comentario multilínea**. No ejecuta ni crea nada nuevo, solo aporta información sobre el código.
 
 ### Declaración y asignación al mismo tiempo
 Si lo pensamos un poco, cuando creamos una variable es porque queremos que almacene algo en su interior. Por ello, la declaración de variables (`let variable`) y la asignación (`variable = "algo"`) se pueden hacer juntas en la misma línea:
 
 === "Creación y asignación separadas"
     ```js title="Creación de variable y asignación en la misma línea"
-    // Declaración de una constante llamada asignatura
+    // Declaración de una variable llamada asignatura
     let asignatura
 
     // Asignación de un valor a la variable
@@ -128,37 +133,7 @@ En Javascript existen ya funciones que hacen cosas por nosotros:
 - **alert("Texto"):** muestra una alerta, esto es, un popup el texto que le indiques. Recuerda, si es un texto es entre comillas.
 - **prompt("Pregunta"):** Puedes introducir un texto y pedir que el usuario haga algo.
 
-### Ejercicios
- - Declara una variable *nombre* y asígnale tu nombre. Usa la función console.log(...) para mostrarlo en consola.
- - Declara una variable *apellidos* y asígnale tus apellidos. Usa la función console.log(...) para mostrarlo en consola.
- - Declara una variable *edad* y asígnale tu edad. Usa la función console.log(...) para mostrarlo en consola.
- - Modifica la variable *edad* declarada antes para que ahora almacene un 99 y muestralo con console.log.
-
-### Declaración de variable y asignación en la misma línea
-Es posible, cuando se declara una variable la primera vez, asignarle ya un valor. Hasta ahora lo habíamos hecho de la siguiente manera:
-
-- **Declaración de la variable:** `let nombre`
-- **Asignación de un valor:** `nombre = "Tania"`
-
-Es posible hacer todo al mismo tiempo de la siguiente manera: `let nombre = "Tania"`, pero hay que tener cuidado ya que si luego se le quiere asignar un valor a esa variable ya no hay que poner el let (el let solo se pone la primera vez que se usa una variable).
-
-## Constantes
-Una constante es como una variable, solo que nunca más puede cambiar. Esto es, si yo creo una constante de *nombre* y le asigno mi nombre, luego no puedo asignarle otro (se producirá un error si lo intento).
-
-### Ejemplos de constantes
-
-```js title="Declaración de constantes" linenums="1"
-// Declaro una constante que almacena el número PI
-const numeroPi = 3.1416
-
-// Muestro el número por pantalla
-alert(numeroPi)
-
-```
-
-*El texto que aparece en las líneas 1 y 4 se llama comentario. No ejecuta ni crea nada nuevo, solo aporta información sobre el código*
-
-### Ejercicios
+## Ejercicio sobre variables y constantes
 Intenta lo siguiente:
 
 ```js title="Declaración de una constante sin asignación" linenums="1"
@@ -167,7 +142,13 @@ Intenta lo siguiente:
 
 1. ¿Funciona? Razona la razón por la que funciona o no funciona el programa anterior y donde falla.
 
-## Ejercicios
+## Ejercicios básicos sobre variables
+ - Declara una variable *nombre* y asígnale tu nombre. Usa la función console.log(...) para mostrarlo en consola.
+ - Declara una variable *apellidos* y asígnale tus apellidos. Usa la función console.log(...) para mostrarlo en consola.
+ - Declara una variable *edad* y asígnale tu edad. Usa la función console.log(...) para mostrarlo en consola.
+ - Modifica la variable *edad* declarada antes para que ahora almacene un 99 y muestralo con console.log.
+
+## Ejercicios variados
 Crea una carpeta "ejercicios-basicos-<tu_nombre>". Crea dentro un fichero index.html. Desde ese index.html vas a ir cambiando la referencia al fichero .js de cada ejercicio.
 
 1. Crea un fichero básico index.html que enlace a un fichero javascript de nombre “ejercicio1-variables.js”. En ese fichero debes declarar una variable “num1” y una variable “num2”, asígnales valores y luego guarda la suma en una variable resultado que lo muestre por consola.
