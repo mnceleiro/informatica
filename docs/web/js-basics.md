@@ -3,7 +3,106 @@
 ## Tipos de datos básicos
 - **Numéricos**: 2, 4, 7.5, 12387321212, etc.
 - **Textos**: "Hola", 'Hola', 'Buenos días'.
-- **No definidos**: cuando no se establece ningún valor, este texto se marca como undefined.
+- **No definidos**: cuando no se establece ningún valor se marca como **undefined**.
+- **Nulo**: existen valores nulos (*null*)
+
+## Variables y constantes
+
+### Declaración (creación) de una variable
+Puedes guardar textos o números en variables. La sintaxis para declarar variables es la siguiente:
+
+```js
+// Creación de una variable
+let nombreVariable
+
+// Declaración de una constante
+const nombreConstante
+```
+
+### Asignación de valores a una variable
+Si luego quiero guardar algo en ella solo tengo que usar el **operador =**: `nombreVariable = "valor"`
+
+```js
+// Asignación de un valor a una variable (usando el operador '=')
+nombreVariable = 17
+```
+
+El valor se pone entre comillas si es un texto, sin comillas si es un número. Por ejemplo, para un número sería:
+
+- Asignación de valor numérico con: `nombreVariable = 17`
+- Asignación de un texto: `nombreVariable = "Hola, ¿qué tal?`
+
+### Ejemplos de creación de variables y asignación de datos
+ Por ejemplo, si en un programa vasa usar mucho el número PI puedes guardarlo en una variable que se llame pi:
+
+```js title="Ejemplo I => Creación y asignación por separado (Number)"
+// Declaración de una variable de nombre "pi"
+let pi
+
+// Asigno un dato numérico a la variable pi usando el operador '='
+pi = 3.1415926535897
+```
+
+```js title="Ejemplo II => Creación y asignación por separado (String)"
+// Declaración de una variable llamada asignatura
+let asignatura
+
+// Asignación de un texto a la variable
+asignatura = "Filosofía"
+```
+
+```js title="Ejemplo III => Cambiando datos a las variables"
+// Declaración de una variable llamada asignatura
+let asignatura
+
+// Asignación de un texto a la variable
+asignatura = "Filosofía"
+
+// Puedo cambiar el valor de la variable asignatura cuando quiera
+asignatura = "Matemáticas"
+
+// Y vuelvo a cambiarlo nuevamente
+asignatura = "Historia"
+
+/*
+ * Lo único que NO PUEDO HACER es lo siguiente:
+ *
+ * No puedo poner "let" otra vez porque
+ * la variable ya se declaró al principio
+ * del programa y NO PUEDE VOLVER A DECLARARSE
+ *
+ */
+let asignatura = "Ciencias Naturales" // MAL
+```
+
+### Declaración y asignación al mismo tiempo
+Si lo pensamos un poco, cuando creamos una variable es porque queremos que almacene algo en su interior. Por ello, la declaración de variables (`let variable`) y la asignación (`variable = "algo"`) se pueden hacer juntas en la misma línea:
+
+=== "Creación y asignación separadas"
+    ```js title="Creación de variable y asignación en la misma línea"
+    // Declaración de una constante llamada asignatura
+    let asignatura
+
+    // Asignación de un valor a la variable
+    asignatura = "Matemáticas"
+
+    ```
+
+=== "Creación y asignación en la misma línea"
+    ```js title="Creación de variable y asignación en la misma línea"
+    // Declaración de una constante llamada asignatura y asignación de un valor
+    let asignatura = "Matemáticas"
+
+    ```
+
+=== "Creación y asignación de constante"
+    ```js title="Creación y asignación de una constante"
+    const asignatura = "Matemáticas" // (1)!
+
+    ```
+
+    1. Las constantes no pueden crearse y luego asignarse (debe hacerse todo a la vez). Las constantes no pueden cambiar nunca desde el momento de su creación, por lo que deben tener asignado un valor desde el principio.
+
 
 ## Funciones
 Aquí se indicarán funciones que se usarán para la introducción a JavaScript. Las funciones tienen un nombre que indica lo que hacen por nosotros. Por ejemplo:
@@ -28,31 +127,6 @@ En Javascript existen ya funciones que hacen cosas por nosotros:
 - **console.log("Texto"):** muestra en la consola de Javascript el texto que le indiques.
 - **alert("Texto"):** muestra una alerta, esto es, un popup el texto que le indiques. Recuerda, si es un texto es entre comillas.
 - **prompt("Pregunta"):** Puedes introducir un texto y pedir que el usuario haga algo.
-
-## Variables
-
-### Declaración (creación) de una variable
-Puedes guardar textos o números en variables. La sintaxis para declarar variables es la siguiente:
-
-- **let nombreVariable**
-
-Si luego quiero guardar algo en ella solo tengo que usar el **operador =**:
-
-- **nombreVariable = "valor"**
-
-### Asignación de valores a una variable
-El valor se pone entre comillas si es un texto, sin comillas si es un número. Por ejemplo, para un número sería:
-
-- **nombreVariable = 17**
-
-### Ejemplos
- Por ejemplo, si en un programa vasa usar mucho el número PI puedes guardarlo en una variable que se llame pi:
-
-```js title="Variables"
-let pi                  // Declaración de la variable
-pi = 3.1415926535897    // Asignación de un valor a la variable (con el operador =)
-
-```
 
 ### Ejercicios
  - Declara una variable *nombre* y asígnale tu nombre. Usa la función console.log(...) para mostrarlo en consola.
