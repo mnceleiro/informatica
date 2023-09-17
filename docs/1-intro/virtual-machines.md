@@ -9,7 +9,7 @@ Algunas herramientas de virtualización son las siguientes:
 <br>
 # VirtualBox
 
-![](../images/virtualization/virtualbox-1.png)  
+![](../images/virtualization/virtualbox-1.png)
 
 # Instalación de GNU/Linux en un ordenador antiguo
 TODO

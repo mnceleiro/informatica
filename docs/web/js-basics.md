@@ -108,8 +108,80 @@ Si lo pensamos un poco, cuando creamos una variable es porque queremos que almac
 
     1. Las constantes no pueden crearse y luego asignarse (debe hacerse todo a la vez). Las constantes no pueden cambiar nunca desde el momento de su creación, por lo que deben tener asignado un valor desde el principio.
 
+## Operaciones aritméticas
+En programación podemos hacer también operaciones aritméticas, por ejemplo:
+- SUMA: 4 + 5
+- RESTA: 4 - 5
+- MULTIPLICACIÓN: 4 * 5
+- DIVISIÓN: 4 / 5
+- EXPONENTE: 4**5 (4 elevado a 5).
+
+Vamos a ver un ejemplo de código:
+
+```js title="Operaciones matemáticas con números (I)"
+// Declaración de una variable llamada asignatura
+let asignatura
+
+// Asignación de un texto a la variable
+asignatura = "Filosofía"
+```
+
+### Operación suma con textos
+Los números no es lo único que se puede "sumar" en programación. El operador '+' también es posible usarlo en textos. Vamos a jugar un poco con variables, texto y números para ver como se pueden unir entre ellos.
+
+```js title="Operador suma con números y con textos"
+let saludo = "Hola, buenos días."
+let edad = 18
+let despedida = "Me despido por hoy, gracias por vuestra atención."
+
+// Vamos a unir (con el operador +) varios textos y números
+let mensajeFinal = saludo + " Tengo " + 18 + " años." + despedida.
+
+// Aún no lo hemos explicado, alert es una función de sistema
+// que muestra una ventana flotante con un mensaje
+alert(mensajeFinal)
+```
+
+Prueba el código y comprueba si funciona. Intenta entenderlo.
 
 ## Funciones
+Cuando tenemos muchas líneas de código es bueno agrupar estas líneas en funciones con un nombre para mantenerlas organizadas.
+
+Vamos a ver con un ejemplo como se crea una función:
+```js title="Declaración de una función"
+function nombreFuncion() { // (1)!
+
+}
+```
+
+  1. Las funciones siempre tienen la misma estructura:
+     1. Empiezan con la palabra clave "function"
+     2. Van seguidas por el nombre de la función.
+     3. Luego llevan los parámetros entre paréntesis. En este caso no hay ninguno así que solo se abren y cierran => ().
+     4. Finalmente, se abren y cierran llaves y ahí se puede escribir código.
+
+
+Bien, esta función se puede ejecutar cuando se desee. Si queremos ejecutarla solo tenemos que escribir lo siguiente:
+```js title="Llamada a (o ejecución de) una función"
+nombreFuncion()
+
+```
+
+Bien, esta explicación está muy curiosa pero el programa no hace nada. Vamos a ver si hacemos una función útil.
+
+Vamos a ver con un ejemplo como se crea una función:
+
+```js title="Programa que muestra dos mensajes: saludo y despedida."
+function nombreFuncion() { // (1)!
+    let saludo = "Hola, buenos días."
+    let despedida = "Hasta luego!"
+
+    alert(saludo)
+    alert(despedida)
+}
+
+```
+
 Aquí se indicarán funciones que se usarán para la introducción a JavaScript. Las funciones tienen un nombre que indica lo que hacen por nosotros. Por ejemplo:
 
 - **función mostrarEnPantalla:** mostraría en pantalla algo.

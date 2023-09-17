@@ -1,11 +1,5 @@
-# Informática y sistemas operativos
+# Informática
 
-En esta página se disponen los apuntes que se usarán durante los cursos de:
-
-- **Sistemas Operativos en Red (SOR)** de 2º de ciclo medio de informática.
-- **TIC** de bachillerato.
-
-Los apuntes se orientan más bien al módulo de ciclo medio, aunque las partes introductorias son muy útiles para ambos módulos.
-
-Estos apuntes se irán desarrollando a lo largo del curso y para incompletas tendrán la etiqueta de ***TODO*** (para hacer). Estas partes se irán completando a lo largo del curso y complementarán con enlaces en el aula virtual o páginas web que se dispondrán en esta página.
+En esta página web iré desarrollando apuntes a lo largo de los años según los distintos módulos que vaya impartiendo en educación. <br/>
+También, se incrustarán o enlazarán apuntes o documentación externa que será referenciada en el apartado de "referencias", donde se dará crédito Los apuntes se complementarán con enlaces a aula virtual o páginas web externas.
 <div style="text-align: right"><i>Autor: Marcos Núñez Celeiro</i></div>
