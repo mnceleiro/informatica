@@ -1,8 +1,4 @@
-# Introducción a la informática y los sistemas operativos
-## Componentes físicos de los ordenadores
-Esta documentación se encuentra [aquí](/ficheros/componentes-pc.pdf). Puedes consultar información adicional sobre los componentes físicos en [este artículo](https://www.profesionalreview.com/2019/02/06/componentes-de-un-ordenador/).
-
-## Arquitectura
+## Arquitecturas
 
 ### Arquitecturas iniciales
 Von Neumann y Harvard. Harvard modificado.
@@ -19,7 +15,7 @@ El primer microprocesador se ha lanzado en 1971 por Intel. Años más tarde, en 
 Aunque x86 era inicialmente de 16bits, las versiones más actuales y que conocemos en ordenadores las últimas décadas son de 32 bits. Los ordenadores con arquitectura x86 cesaron su producción en 2007.
 
 #### Arquitectura AMD64 (64 bits)
-La arquitectura x86 era de Intel y utilizaba instrucciones de 32 bits desde 1985. La arquitectura más usada actualmente en ordenadores personales es AMD64 (de 64 bits). 
+La arquitectura x86 era de Intel y utilizaba instrucciones de 32 bits desde 1985. La arquitectura más usada actualmente en ordenadores personales es AMD64 (de 64 bits).
 
 En el año 2003 el mercado de procesadores se dividía entre dos marcas que competían entre sí: **AMD** e **Intel** (algo que sigue ocurriendo a día de hoy). AMD se les adelanta en el mercado en esta época sacando procesadores con una nueva arquitectura con un juego de instrucciones x86_64 que no solo era de 64 bits, sino que incluía también en ella el juego de instrucciones completo de x86 tanto para 16 bits como para 32, permitiendo así instalar programas de todo tipo. Consulta [este enlace](https://www.thinkinvirtual.com/2017/03/diferencias-entre-i386-x86-x64-amd64-e.html) para más información sobre el tema.
 
