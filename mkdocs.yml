@@ -24,6 +24,13 @@ nav:
     - 'Powershell': windows/powershell.md
   - Web:
     - 'Javascript': 'web/js-basics.md'
+  - Contenido no actualizado:
+    - 'Intro': 'apuntes-variados/intro.md'
+    - 'Programación': 'apuntes-variados/programming.md'
+    - 'Firewalling': 'apuntes-variados/firewalling.md'
+    - 'Gamedev': 'apuntes-variados/gamedev.md'
+    - 'Android': 'apuntes-variados/android.md'
+    - 'Control versiones': 'apuntes-variados/control-versiones.md'
 theme:
   name: material
   language: es
