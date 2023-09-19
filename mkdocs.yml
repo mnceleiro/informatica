@@ -1,14 +1,19 @@
 site_name: Informática y sistemas operativos
 repo_url: https://github.com/mnceleiro/informatica
 nav:
-  - Introducción:
-    - 'Acerca de...': 'index.md'
+  - Introducción a la informática:
+    - 'Esta página': 'index.md'
     - 'Mecanografía': '1-intro/mecanografia.md'
-    - 'Introducción a la informática': '1-intro/intro-informatica.md'
-    - 'Introducción a los sistemas operativos': '1-intro/intro-sos.md'
+    - 'Moverse en Windows': '1-intro/intro-informatica.md'
     - 'Multimedia': '1-intro/multimedia.md'
-    - 'Arquitecturas físicas': '1-intro/arquitecturas-fisicas.md'
+    - 'Seguridad en internet': '1-intro/seguridad-internet.md'
+    - 'Introducción a los sistemas operativos': '1-intro/intro-sos.md'
     - 'Virtualización': '1-intro/virtual-machines.md'
+  - Arquitectura de computadores:
+    - 'Historia': 'arquitectura-computadores/intro.md'
+    - 'Sistemas numéricos': 'arquitectura-computadores/sistemas-numericos.md'
+    - 'Componentes de un ordenador': 'arquitectura-computadores/componentes-de-ordenador.md'
+    - 'Arquitecturas físicas': 'arquitectura-computadores/arquitecturas-fisicas.md'
   - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
     - 'Comandos básicos': 'gnu-linux/commands-basics.md'
