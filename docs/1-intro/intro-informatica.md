@@ -16,6 +16,9 @@ Hay muchas cosas que pueden abarcarse en una introducción a la informática. En
 | Bloquear pantalla | WINDOWS + L |
 
 ## Ficheros y carpetas
+
+![type:video](https://youtu.be/UKBDUpXEY_0)
+
 ### Crear una nueva carpeta en Windows 11
 Para crear una nueva carpeta en Windows 11 se puede pulsar en el botón derecho en un sitio vacío y seleccionar "Nueva carpeta":
 
