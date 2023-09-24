@@ -5,6 +5,7 @@ nav:
     - 'Esta página': 'index.md'
     - 'Mecanografía': '1-intro/mecanografia.md'
     - 'Moverse en Windows': '1-intro/intro-informatica.md'
+    - 'Ofimática': '1-intro/ofimatica.md'
     - 'Multimedia': '1-intro/multimedia.md'
     - 'Seguridad en internet': '1-intro/seguridad-internet.md'
     - 'Introducción a los sistemas operativos': '1-intro/intro-sos.md'
