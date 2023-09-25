@@ -13,7 +13,9 @@ Bien, la razón es porque es más difícil robarlas. Existen dos tipos de ataque
 | admin     | 123456        |
 | ........  | ........      |
 
-*NOTA: esto es solo un ejemplo de posibles combinaciones muy comunes. Si usas una de estas es más probable que alguien pueda descubrirla (incluso sin ningún tipo de aplicación). Por ello, se obliga a escribir contraseñas seguras.*
+!!! Nota
+
+    Esto es solo un ejemplo de posibles combinaciones muy comunes. Si usas una de estas es más probable que alguien pueda descubrirla (incluso sin ningún tipo de aplicación). Por ello, se obliga a escribir contraseñas seguras.
 
 Para evitar peligros con las contraseñas se recomienda cumplir ciertas normas de: complejidad de la misma (mayúsculas, minúsculas, números y caracteres poco habituales), longitud (más de 8 caracteres) y cambiarla cada cierto tiempo.
 

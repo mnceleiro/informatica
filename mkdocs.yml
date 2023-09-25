@@ -10,10 +10,14 @@ nav:
     - 'Seguridad en internet': '1-intro/seguridad-internet.md'
     - 'Introducción a los sistemas operativos': '1-intro/intro-sos.md'
     - 'Virtualización': '1-intro/virtual-machines.md'
-  - Arquitectura de computadores:
-    - 'Historia': 'arquitectura-computadores/intro.md'
-    - 'Componentes de un ordenador': 'arquitectura-computadores/componentes-de-ordenador.md'
-    - 'Arquitecturas físicas': 'arquitectura-computadores/arquitecturas-fisicas.md'
+  - Hardware:
+    - 'Historia': 'hardware/intro.md'
+    - 'Arquitecturas físicas': 'hardware/arquitecturas-fisicas.md'
+    - 'Componentes de un ordenador': 'hardware/componentes-de-ordenador.md'
+    - 'Torres y placas base': 'hardware/componentes/torre.md'
+    - 'Microprocesador': 'hardware/componentes/procesador.md'
+    - 'Memorias (RAM)': 'hardware/componentes/ram.md'
+
   - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
     - 'Comandos básicos': 'gnu-linux/commands-basics.md'
