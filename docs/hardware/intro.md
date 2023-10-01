@@ -1,10 +1,17 @@
 # Introducción e historia de la informática
+La historia de la informática es reciente, pero sin duda es una de las ciencias que más ha evolucionado y más desarrollo sufrirá en el futuro. A continuación se definirán algunos de los conceptos históricos más importantes relacionados con la misma.
+
+## Definiciones
+### Informática
+El término informática se creó en Francia en el año 1962, y procede de la contracción de las palabras información y automática. Según la RAE, se define informática como **el conjunto de conocimientos científicos y técnicas que permiten el tratamiento de información de forma automática**.
+
+### Ordenador humano
 Ordenador (en inglés: computer y en español latino computadora) es una palabra que se refiere a contar o calcular. Esta palabra se usaba como referencia a las acciones que realizaban los ordenadores mecánicos y, antes de eso, los ordenadores humanos (1613).
 
 La palabra **ordenador (humano)** nació en el siglo XVII y fue definida por Alan Turing tres siglos más tarde como **alguien que debía seguir unas reglas fijas sin ninguna autoridad que los desvíe ni en el más mínimo detalle**. Esto es, era una persona capaz de realizar operaciones matemáticas antes de que los ordenadores electrónicos estuviesen disponibles.
 Más adelante han surgido los ordenadores como máquinas.
 
-## Definición de ordenador
+### Definición de ordenador
 Actualmente, un ordenador se puede definir como una máquina electrónica capaz de realizar las siguientes tareas:
 
 - Aceptar información
@@ -14,6 +21,9 @@ Actualmente, un ordenador se puede definir como una máquina electrónica capaz 
 
 En otras palabras, el ordenador puede aceptar unos datos de entrada, realizar con ellos operaciones lógicas y aritméticas y, finalmente, proporcionar la información resultante a través de un medio de salida.
 
+### Datos e información
+Los datos son hechos y cifras sin procesar, sin ningún análisis ni interpretación añadida. La información es un conjunto de datos que, procesados y analizados, aportan conocimiento sobre las cosas.
+
 ```mermaid
 
     flowchart LR
@@ -21,7 +31,12 @@ En otras palabras, el ordenador puede aceptar unos datos de entrada, realizar co
 
 ```
 
-## Sistema informático
+### Movimiento de información: bits y señales
+En informática, el movimiento de información se realiza de forma digital por lo general. El término **dígito** nos da una idea de que la representación no va a tomar cualquier valor del mundo real (señales analógicas) sino un número discreto de estos y, al igual que los dedos de nuestras manos son limitados, también lo es el sistema decimal (base 10).
+
+El **concepto de bit** (binary digit o dígito binario) está ligado a esta representación digital de información. Los ordenadores solo van a almacenar internamente dos estados (voltaje o ausencia de este, magnetizado o no, refleja un láser o no, etc.). Estos estados se van a representar como dígitos binarios con un uno o un cero. **El bit es la unidad más pequeña de información.**
+
+### Sistema informático
 Un sistema informático se forma no solo por componentes físicos (hardware), sino también lógicos (software). Además de esto se dispone del firmware (software integrado directamente en el hardware, como la BIOS/UEFI). La combinación de estos es lo que forma el sistema informático.
 
 ## Historia del ordenador digital
