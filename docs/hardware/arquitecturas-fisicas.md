@@ -4,6 +4,8 @@ A finales de los años 40, Von Neumann se integró en un grupo y trabajó en el 
 
 La gran aportación de Von Neumann respecto a arquitecturas preexistentes (p. ej: Harvard) fue eliminar la lógica de programación basada en relés o conexiones cableadas, unificando la memoria de datos y la de programa en una sola denominada como **memoria principal** y simplificando, por tanto, la doble gestión de control de datos y programa. Además mejoraba la disponibilidad incremental de espacio permitiendo dividir entre una y otra a voluntad.
 
+[Puedes probar aquí el funcionamiento de VonNeumann](https://lab.xitrus.es/VonNeumann/).
+
 ### Harvard
 Se distingue de Von Neumann por la división de la memoria en instrucciones y datos, de manera que el procesador puede acceder separada y simultáneamente a ambas.
 

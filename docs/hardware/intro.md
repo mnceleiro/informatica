@@ -11,7 +11,7 @@ Ordenador (en inglés: computer y en español latino computadora) es una palabra
 La palabra **ordenador (humano)** nació en el siglo XVII y fue definida por Alan Turing tres siglos más tarde como **alguien que debía seguir unas reglas fijas sin ninguna autoridad que los desvíe ni en el más mínimo detalle**. Esto es, era una persona capaz de realizar operaciones matemáticas antes de que los ordenadores electrónicos estuviesen disponibles.
 Más adelante han surgido los ordenadores como máquinas.
 
-### Definición de ordenador
+### Ordenador
 Actualmente, un ordenador se puede definir como una máquina electrónica capaz de realizar las siguientes tareas:
 
 - Aceptar información
