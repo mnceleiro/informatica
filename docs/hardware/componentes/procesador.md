@@ -1,4 +1,11 @@
+# El procesador
 
+El procesador, microprocesador o micro es el cerebro del ordenador, se encarga de:
+- Coordinar y controlar la ejecución de instrucciones.
+- Decodifica esas instrucciones.
+- Genera pulsos de reloj para que las instrucciones se lleven a cabo de forma síncrona.
+- Realiza operaciones aritméticas y lógicas.
+- Almacena información temporal.
 
 # Componentes que forman la CPU
 La CPU se forma por dos componentes principales: la **Unidad de Control (UC)** y la **Unidad aritmético-lógica (ALU)**. Además, cuenta con unos **buses de sistema** que se encargan de transmitir información y unos **registros** que pueden almacenarla.
@@ -13,6 +20,53 @@ Se ocupa de coordinar y controlar las funciones de un ordenador. Monitoriza y en
 TODO (CISC/RISC)
 
 # Procesadores comerciales
+
+## Características de los procesadores
+## Características
+
+### Frecuencia de reloj
+Se mide en GHz. Es el número de instrucciones por segundo que el procesador es capaz de procesar. Cuánto mayor sea esta frecuencia de reloj mejor.
+
+Existen dos tipos de frecuencias, una **base** y otra **turbo** *(turboboost)*. La turbo se usaría para procesos muy exigentes (*p. ej: gaming*).
+
+### Número de núcleos
+Hoy en día es posible encontrar procesadores, tanto en AMD como en Intel, con muchos núcleos.
+
+El número de núcleos permite ejecutar varias tareas de forma paralela. En esta ejecución influye también como está implementado el software que se ejecuta, es decir, cómo hace este software uso de los núcleos del mismo.
+
+Originalmente los procesadores tenían un solo núcleo, pero con el paso del tiempo han evolucionado hacia múltiples núcleos integrados en el mismo procesador. Habitualmente los procesadores comerciales de entre 2 y 8 núcleos son los más utilizados, aunque existen variantes con mucha mayor cantidad como el AMD Threadripper 3970X (orientado a servidores) con 32 núcleos. Los equipos servidores (que necesitan más potencia y suelen estar encendidos siempre) pueden tener hasta 64 núcleos a día de hoy.
+
+!!! Nota
+
+    En las últimas generaciones de procesadores Intel ha aparecido recientemente el concepto de núcleos de rendimiento (núcleos-P) y núcleos eficientes (núcleos-E).
+
+    Por ejemplo, uno de los procesadores más potentes del mercado ahora mismo (09/10/2023) es el i9-13900KS, el cuál tiene 24 núcleos en total: 8 núcleos de lato rendimiento (P) y 16 núcleos eficientes (E).
+
+### Número de hilos
+  Dentro de cada núcleo existe el concepto de hilo (es como un núcleo virtual, que no está fisicamente presente). Los hilos ayudan a que los núcleos del procesador se aprovechen mejor. Las tareas se dividen en porciones y cada hilo se ocupa de una parte del trabajo.
+
+### Consumo energético
+Su valor se mide en vatios (W), cuánto más potente sea el procesador más consumirá. Es importante elegir la fuente de alimentación del equipo en relación al consumo del procesador y la tarjeta gráfica.
+
+### Memoria caché
+El procesador y la memoria RAM se comunican continuamente. Para acelerar el trabajo, a veces el procesador guarda la información en una memoria propia (caché). Esta memoria muy rápida pero también muy pequeña. La caché tiene tres tipos: L1, L2 y L3.
+
+### Socket
+El lugar donde se inserta el microprocesador en la placa base es el **socket**. Antiguamente iba soldado a la placa base, pero hace muchos años que en ordenadores personales no van soldados a la placa y así se pueden cambiar facilmente.
+
+!!! Nota
+
+    El procesador, cuando va soldado en la placa base se denomina como SoC **(System on a Chip)**. En los smartphones, por ejemplo, el procesador va integrado en la placa.
+
+Los tipos de socket más comunes a día de hoy son:
+
+- PGA (Pin Grid Array): los pines están en el procesador y el socket tiene los contactos planos. Era el utilizado habitualmente por AMD hasta el año pasado. La séptima generación de procesadores AMD (AMD7000) utilizan un socket LGA.
+- LGA (Land Grid Array): los pines van en la placa base en lugar del procesador. Es el utilizado habitualmente por Intel.
+- BGA (Ball Grid Array): el montaje no es sobre un soporte sino sobre la propia placa. El chip va soldado a la placa base. Es muy difícil actualizar los procesadores de este tipo debido a que son complicados de reemplazar (hay que tener en cuenta que va soldado a la placa, para reemplazarlo hay que utilizar una técnica denominada *reballing*).
+- ZIF (Zero Insertion Force): mecanismo en el que el micro se inserta y retira sin necesidad de presión mediante una palanca cercana.
+
+Consulta más información sobre este tema en este [artículo de Hardzone](https://hardzone.es/reportajes/comparativas/socket-pga-lga-placa-base/).
+
 En el ámbito comercial, Intel y AMD se disputan la lucha en la venta de procesadores.
 
 ## AMD vs Intel en el tiempo
@@ -77,11 +131,12 @@ En AM5 tenemos 5 gamas de chipsets. A continuación se resumen brevemente:
 La última generación de Intel (13) utiliza un socket LGA1700. Este socket soporta la generación 13 y soportará la 14 (saldrá a finales de este año 2023 con). En la generación se espera una mejora de rendimiento muy pequeña.
 
 ### Chipsets para LGA1700
-Chipsets presentados en 2021
-- H610:
-- B660:
-- H670:
-- Z690:
+Chipsets presentados en 2021:
+
+- H610
+- B660
+- H670
+- Z690
 
 Nuevos chipsets (finales de 2022):
 - B760
@@ -101,6 +156,7 @@ Algunas novedades de los nuevos chipsets son:
     Estos son los chipsets compatibles mientras se escribe este documento, a fecha del 03/10/2023.
 
 # Referencias:
+- Alberto Cruz. Qué es un procesador, características y tipos. PCComponentes. Obtenido de: [artículo en PCComponentes](https://www.pccomponentes.com/procesador-cpu-que-es-caracteristicas-tipos). Última consulta el 09/10/2023.
 - Ángel Aller. Socket AM5 vs AM4, la comparativa AMD ideal para comprar CPU. Obtenida de: [artículo en PCComponentes](https://www.pccomponentes.com/socket-am5-vs-am4) el 3 de Octubre de 2023.
 - LGA1700, el socket Intel que soporta la 13ª y 14ª generación Core. Obtenida de: [artículo en PCComponentes](https://www.pccomponentes.com/lga1700-intel) el 3 de Octubre de 2023.
 - Guía placas y chipsets AMD Ryzen 7000. Obtenido de: [Wikiversus](https://www.wikiversus.com/informatica/placas-base/guia-placas-chipsets-amd-ryzen-7000/)
