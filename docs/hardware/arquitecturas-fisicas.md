@@ -1,8 +1,12 @@
 ## Arquitecturas tradicionales
 ### Von Neumann
-A finales de los años 40, Von Neumann se integró en un grupo y trabajó en el desarrollo de EDVAC, similar a ENIAC pero añadiendo el concepto de “programa almacenado”. Antes de esto el programa no se guardaba en memoria (la cuál era solo para datos) sino que se indicaba a la máquina qué hacer a través de conexiones físicas. Para cambiar un paso del algoritmo había que recablear.
+A finales de los años 40, Von Neumann se integró en un grupo y trabajó en el desarrollo de EDVAC, similar a ENIAC pero añadiendo el concepto de “programa almacenado”. Antes de esto el programa no se guardaba en memoria (la cuál era solo para datos) sino que se indicaba a la máquina qué hacer a través de conexiones físicas.
 
-La gran aportación de Von Neumann respecto a arquitecturas preexistentes (p. ej: Harvard) fue eliminar la lógica de programación basada en relés o conexiones cableadas, unificando la memoria de datos y la de programa en una sola denominada como **memoria principal** y simplificando, por tanto, la doble gestión de control de datos y programa. Además mejoraba la disponibilidad incremental de espacio permitiendo dividir entre una y otra a voluntad.
+Dicho de otra manera, la lógica de programación era estaba basada en relés y conexiones cableadas en las anteriores arquitecturas (principalmente Harvard) y para cambiar un paso del algoritmo había que recablear. Esto se cambió en esta arquitectura unificando memoria de datos e instrucciones en una sola memoria principal, simplificando la doble gestión de control de datos e instrucciones.
+
+!!! Nota
+
+  La gran aportación de Von Neumann respecto a arquitecturas preexistentes (p. ej: Harvard) fue eliminar la lógica de programación basada en relés o conexiones cableadas, unificando la memoria de datos y la de programa en una sola denominada como **memoria principal** y simplificando, por tanto, la doble gestión de control de datos y programa. Además mejoraba la disponibilidad incremental de espacio permitiendo dividir entre una y otra a voluntad.
 
 [Puedes probar aquí el funcionamiento de VonNeumann](https://lab.xitrus.es/VonNeumann/).
 

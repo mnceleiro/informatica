@@ -16,7 +16,10 @@ nav:
     - 'Componentes de un ordenador': 'hardware/componentes-de-ordenador.md'
     - 'Torres y placas base': 'hardware/componentes/torre.md'
     - 'Microprocesador': 'hardware/componentes/procesador.md'
-    - 'Memorias (RAM)': 'hardware/componentes/ram.md'
+    - 'Refrigeración CPU': 'hardware/componentes/cpu-cooling.md'
+    - 'Memorias': 'hardware/componentes/memorias.md'
+    - 'Almacenamiento': 'hardware/componentes/storage.md'
+    - 'Fuente de alimentación': 'hardware/componentes/power-supply.md'
 
   - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'

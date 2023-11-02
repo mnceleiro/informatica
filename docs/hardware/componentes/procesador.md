@@ -22,7 +22,6 @@ TODO (CISC/RISC)
 # Procesadores comerciales
 
 ## Características de los procesadores
-## Características
 
 ### Frecuencia de reloj
 Se mide en GHz. Es el número de instrucciones por segundo que el procesador es capaz de procesar. Cuánto mayor sea esta frecuencia de reloj mejor.
@@ -60,10 +59,10 @@ El lugar donde se inserta el microprocesador en la placa base es el **socket**. 
 
 Los tipos de socket más comunes a día de hoy son:
 
-- PGA (Pin Grid Array): los pines están en el procesador y el socket tiene los contactos planos. Era el utilizado habitualmente por AMD hasta el año pasado. La séptima generación de procesadores AMD (AMD7000) utilizan un socket LGA.
-- LGA (Land Grid Array): los pines van en la placa base en lugar del procesador. Es el utilizado habitualmente por Intel.
-- BGA (Ball Grid Array): el montaje no es sobre un soporte sino sobre la propia placa. El chip va soldado a la placa base. Es muy difícil actualizar los procesadores de este tipo debido a que son complicados de reemplazar (hay que tener en cuenta que va soldado a la placa, para reemplazarlo hay que utilizar una técnica denominada *reballing*).
-- ZIF (Zero Insertion Force): mecanismo en el que el micro se inserta y retira sin necesidad de presión mediante una palanca cercana.
+- **PGA (Pin Grid Array):** los pines están en el procesador y el socket tiene los contactos planos. Era el utilizado habitualmente por AMD hasta el año pasado. La séptima generación de procesadores AMD (AMD7000) utilizan un socket LGA.
+- **LGA (Land Grid Array):** los pines van en la placa base en lugar del procesador. Es el utilizado habitualmente por Intel.
+- **BGA (Ball Grid Array):** el montaje no es sobre un soporte sino sobre la propia placa. El chip va soldado a la placa base. Es muy difícil actualizar los procesadores de este tipo debido a que son complicados de reemplazar (hay que tener en cuenta que va soldado a la placa, para reemplazarlo hay que utilizar una técnica denominada *reballing*).
+- **ZIF (Zero Insertion Force):** mecanismo en el que el micro se inserta y retira sin necesidad de presión mediante una palanca cercana.
 
 Consulta más información sobre este tema en este [artículo de Hardzone](https://hardzone.es/reportajes/comparativas/socket-pga-lga-placa-base/).
 
@@ -127,7 +126,7 @@ En AM5 tenemos 5 gamas de chipsets. A continuación se resumen brevemente:
 
 ![Ryzen 7000 Chipset](../../ficheros/hardware/cpus/amd7000chipsets.jpg)
 
-# Intel: socket LGA1700
+## Intel: socket LGA1700
 La última generación de Intel (13) utiliza un socket LGA1700. Este socket soporta la generación 13 y soportará la 14 (saldrá a finales de este año 2023 con). En la generación se espera una mejora de rendimiento muy pequeña.
 
 ### Chipsets para LGA1700
@@ -139,11 +138,13 @@ Chipsets presentados en 2021:
 - Z690
 
 Nuevos chipsets (finales de 2022):
+
 - B760
 - H770
 - Z790
 
 Algunas novedades de los nuevos chipsets son:
+
 - PCI-Express 5.0 con 16 raíles, además de PCIe 4.0 y 3.0.
 - Soporte para DDR5.
 - Wifi 6E integrado.

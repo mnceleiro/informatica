@@ -1,0 +1,2 @@
+- [Artículo explicativo sobre fuentes de alimentación](https://www.intel.la/content/www/xl/es/gaming/resources/power-supply.html)
+- [Artículo de ProfesionalReview sobre como elegir una fuente de alimentación](https://www.profesionalreview.com/2020/12/13/elegir-una-fuente-de-alimentacion-en-5-pasos/)

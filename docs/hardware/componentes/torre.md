@@ -110,7 +110,7 @@ Son ordenadores que usan alguno de los factores de forma anteriores y se integra
 ## Tipos de placa base antiguos
 Aunque en este punto se están relacionando los tipos de torre con formatos actuales de placas base (según el tamaño de la placa), en este punto se podrían nombrar tipos de placa base que se han ido quedando obsoletos:
 
-- **Tecnología extendida (Extended Technology) o TX**: creado por IBM en 1983 para el primer ordenador personal (en adelante PC). Las dimensiones eran de 216x279 mm.
+- **Tecnología extendida (Extended Technology) o TX**: creado por IBM en 1983 para el primer ordenador personal. Las dimensiones eran de 216x279 mm.
 - **Tecnología avanzada (Advanced Technology) o AT**: formato introducido en IBM en 1984 de 350x305 mm.
 - **Baby-AT**: ha sido estándar durante muchos años, el tamaño es de 216x330mm y fueron habituales desde los ordenadores 286 hasta los primeros pentium.
 
