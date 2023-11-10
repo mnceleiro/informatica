@@ -110,20 +110,31 @@ Si lo pensamos un poco, cuando creamos una variable es porque queremos que almac
 
 ## Operaciones aritméticas
 En programación podemos hacer también operaciones aritméticas, por ejemplo:
+
 - SUMA: 4 + 5
 - RESTA: 4 - 5
 - MULTIPLICACIÓN: 4 * 5
 - DIVISIÓN: 4 / 5
 - EXPONENTE: 4**5 (4 elevado a 5).
 
-Vamos a ver un ejemplo de código:
+Vamos a ver un ejemplo de código (por pasos):
 
 ```js title="Operaciones matemáticas con números (I)"
-// Declaración de una variable llamada asignatura
-let asignatura
+// Declaración de variables
+let suma
+let resta
+let multi
+let division
+let potencia
 
-// Asignación de un texto a la variable
-asignatura = "Filosofía"
+// Asignación de un valor a una variable
+suma = 4 + 5
+resta = 4 - 5
+multi = 4 * 5
+division = 4 / 5
+potencia = 4**5
+
+
 ```
 
 ### Operación suma con textos

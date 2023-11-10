@@ -83,7 +83,7 @@ El ordenador no funcionaba bien si alguna ranura de RAM estaba vacía. Funcionab
 
 
 ## Resumen
-Actualmente se usan módulos DIMM de tipo DDR5 SDRAM. Veamos que significa esto:
+**Actualmente se usan módulos DIMM de tipo DDR5 SDRAM**. Veamos que significa esto:
 
 - El módulo de RAM es de tipo **DIMM** (esto es, transmiten 32 bits por cada cara del módulo = 64 bits).
 - La RAM **utiliza el reloj para transmitir**. Con cada pulso de reloj se transmiten datos (SDRAM). La **"S" es de Sincronizada** (*synchronous*).
@@ -94,9 +94,9 @@ Actualmente se usan módulos DIMM de tipo DDR5 SDRAM. Veamos que significa esto:
 ## Características
 Las características más interesantes a considerar a la hora de seleccionar una memoria principal comercial son las siguientes:
 
-- Capacidad: es su característica principal, determina la cantidad de información que se puede almacenar. Se mide en Gigabytes.
-- Frecuencia: se mide en Hertzios. Las memorias DDR5 actuales parten de 2400 MHz. Como en DDR se transmite dos veces por ciclo de reloj, esto en la práctica (y en las webs de venta de memorias) aparecerá como el doble: 2400 x 2 = 4800 MHz.
-- Latencia: es el tiempo que se tarda en acceder a un dato.
+- **Capacidad**: es su característica principal, determina la cantidad de información que se puede almacenar. Se mide en Gigabytes.
+- **Frecuencia**: se mide en Hertzios. Las memorias DDR5 actuales parten de 2400 MHz. Como en DDR se transmite dos veces por ciclo de reloj, esto en la práctica (y en las webs de venta de memorias) aparecerá como el doble: 2400 x 2 = 4800 MHz.
+- **Latencia**: es el tiempo que se tarda en acceder a un dato.
 
 ## Referencias
 - SIMM. Obtenido de [Wikipedia](https://es.wikipedia.org/wiki/SIMM). Última consulta: 17/10/2023.
