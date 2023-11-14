@@ -20,6 +20,7 @@ nav:
     - 'Memorias': 'hardware/componentes/memorias.md'
     - 'Almacenamiento': 'hardware/componentes/storage.md'
     - 'Fuente de alimentación': 'hardware/componentes/power-supply.md'
+    - 'Almacenamiento, tarjetas gráficas y monitores': 'apuntes-variados/hardware.md'
 
   - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
