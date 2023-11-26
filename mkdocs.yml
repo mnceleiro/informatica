@@ -19,6 +19,7 @@ nav:
     - 'Memorias': 'hardware/componentes/memorias.md'
     - 'Almacenamiento': 'hardware/componentes/storage.md'
     - 'Fuente de alimentación': 'hardware/componentes/power-supply.md'
+    - 'Almacenamiento, tarjetas gráficas y monitores': 'apuntes-variados/hardware.md'
   - Virtualización y DevOps:
     - 'Introducción': 'virtualizacion-devops/intro.md'
     - 'Virtualbox': 'virtualizacion-devops/virtualbox.md'
