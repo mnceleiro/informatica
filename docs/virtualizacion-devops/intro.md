@@ -7,15 +7,3 @@ Algunas herramientas de virtualización son las siguientes:
 - [VMWare](https://www.vmware.com/es/products/workstation-player.html)
 - [Hyper-V](https://docs.microsoft.com/es-es/virtualization/hyper-v-on-windows/about/) (viene con las versiones profesionales de Windows).
 <br>
-# VirtualBox
-
-![](../images/virtualization/virtualbox-1.png)
-
-# Instalación de GNU/Linux en un ordenador antiguo
-TODO
-
-# Instalación de sistemas GNU/Linux en VirtualBox
-TODO
-
-# Contenedores?
-TODO (bases de Docker si sobra tiempo y para profundizar)

@@ -6,7 +6,7 @@ Dicho de otra manera, la lógica de programación era estaba basada en relés y 
 
 !!! Nota
 
-  La gran aportación de Von Neumann respecto a arquitecturas preexistentes (p. ej: Harvard) fue eliminar la lógica de programación basada en relés o conexiones cableadas, unificando la memoria de datos y la de programa en una sola denominada como **memoria principal** y simplificando, por tanto, la doble gestión de control de datos y programa. Además mejoraba la disponibilidad incremental de espacio permitiendo dividir entre una y otra a voluntad.
+    La gran aportación de Von Neumann respecto a arquitecturas preexistentes (p. ej: Harvard) fue eliminar la lógica de programación basada en relés o conexiones cableadas, unificando la memoria de datos y la de programa en una sola denominada como **memoria principal** y simplificando, por tanto, la doble gestión de control de datos y programa. Además mejoraba la disponibilidad incremental de espacio permitiendo dividir entre una y otra a voluntad.
 
 [Puedes probar aquí el funcionamiento de VonNeumann](https://lab.xitrus.es/VonNeumann/).
 

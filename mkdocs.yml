@@ -9,7 +9,6 @@ nav:
     - 'Multimedia': '1-intro/multimedia.md'
     - 'Seguridad en internet': '1-intro/seguridad-internet.md'
     - 'Introducción a los sistemas operativos': '1-intro/intro-sos.md'
-    - 'Virtualización': '1-intro/virtual-machines.md'
   - Hardware:
     - 'Historia': 'hardware/intro.md'
     - 'Arquitecturas físicas': 'hardware/arquitecturas-fisicas.md'
@@ -20,7 +19,12 @@ nav:
     - 'Memorias': 'hardware/componentes/memorias.md'
     - 'Almacenamiento': 'hardware/componentes/storage.md'
     - 'Fuente de alimentación': 'hardware/componentes/power-supply.md'
-
+  - Virtualización y DevOps:
+    - 'Introducción': 'virtualizacion-devops/intro.md'
+    - 'Virtualbox': 'virtualizacion-devops/virtualbox.md'
+    - 'Docker': 'virtualizacion-devops/docker.md'
+    - 'Vagrant': 'virtualizacion-devops/vagrant.md'
+    - 'Ansible': 'virtualizacion-devops/ansible.md'
   - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
     - 'Comandos básicos': 'gnu-linux/commands-basics.md'
