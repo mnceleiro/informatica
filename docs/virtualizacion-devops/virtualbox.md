@@ -20,6 +20,10 @@ Si no dispones de un disco principal (C: en Windows) enorme, es mejor que o pong
 ## Creando mi primera máquina virtual
 
 ### Descarga de ISOs
+
+Vamos a usar como ejemplo los sistemas operativos **Windows 11** y **Ubuntu 22.04**.
+
+#### Windows 11
 Puedes descargar la ISO de W11 en [la página oficial de Microsoft](https://www.microsoft.com/es-es/software-download/windows11).
 ![Descarga W11](files/images/virtualbox-iso-w11-1.png)
 
@@ -27,15 +31,25 @@ Puedes descargar la ISO de W11 en [la página oficial de Microsoft](https://www.
 
     Recuerda elegir el idioma
 
+#### Ubuntu 22.04
+Descarga Ubuntu 22.04 (hay versiones más modernas, pero esta es la última que ha salido de soporte de larga duración a día de hoy). Para descargar la ISO lo hacemos desde su página oficial [(pulsa aquí)](https://ubuntu.com/download/desktop).
+
+
 ### Creación de máquinas
 
 | **1. Pulsamos en el botón "Nueva" (o máquina &rarr; Nueva)** |
 | :----------------------------------------------------------: |
 |              ![](files/images/virtualbox-1.png)              |
 
-| **2. Elegimos sistema operativo y nombre de la máquina** |
-| :------------------------------------------------------: |
-|            ![](files/images/virtualbox-2.png)            |
+| **2. Elegimos sistema operativo y nombre de la máquina (para máquina con Windows 11)** |
+| :------------------------------------------------------------------------------------: |
+|                         ![](files/images/virtualbox-2-w11.png)                         |
+|                               *Ejemplo para Windows 11*                                |
+
+| **2. Elegimos sistema operativo y nombre de la máquina (para máquina Ubuntu)** |
+| :----------------------------------------------------------------------------: |
+|                  ![](files/images/virtualbox-2-ubuntu22.png)                   |
+|                          *Ejemplo para Ubuntu 22.04*                           |
 
 En este caso, he elegido en el desplegable **Windows 11** como sistema y en el nombre he puesto **Windows 11 - Plantilla**. Puedes elegir una imagen .ISO de Windows 11 en este mismo paso o hacerlo después manualmente.
 
@@ -48,18 +62,27 @@ En este caso, he elegido en el desplegable **Windows 11** como sistema y en el n
 |             ![](files/images/virtualbox-3.png)              |
 |       Asigna según los recursos de los que dispongas        |
 
-Ten en cuenta que Windows 11 tiene como requisitos mínimos 4 GB de RAM.
+Ten en cuenta que Windows 11 tiene como requisitos mínimos 4 GB de RAM. Ubuntu 22.04 tiene 4 GB de RAM como requisitos "recomendados".
 
 - Si tienes un ordenador con más de 8 GB de RAM y más de 2 procesadores no tendrás problema.
 - En caso de tener un ordenador con solo 2 procesadores (dual-core) asígnale a la máquina solo 1. Si tienes más puedes ponerle 2 (no te preocupes, esto puede cambiarse más adelante sin ningún tipo de problema)
 - Mi consejo si dispones de 8GB de RAM o menos es que lo hagas con una ISO de W10 en lugar de Windows 11 y le pongas solo 2 GB.
 
-|                                                **4. Asignamos tamaño del disco duro**                                                |
-| :----------------------------------------------------------------------------------------------------------------------------------: |
-|                                                  ![](files/images/virtualbox-4.png)                                                  |
-| [No asignes menos de 64 GB para Windows 11](https://blogs.oracle.com/virtualization/post/install-microsoft-windows-11-on-virtualbox) |
+|                                                     **4. Asignamos tamaño del disco duro**                                                      |
+| :---------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                       ![](files/images/virtualbox-4.png)                                                        |
+| [No asignes menos de 64 GB si conectas W11 a internet](https://blogs.oracle.com/virtualization/post/install-microsoft-windows-11-on-virtualbox) |
 
 El disco duro no es más que un archivo normal con extensión .vdi. Cualquier cosa que hagas en Virtualbox solo usará ese archivo. Hagas lo que hagas ahí, tu sistema operativo base no corre peligro!
+
+A nivel de disco, puedes encontrar diversas recomendaciones diferentes. Si tienes espacio suficiente, mi consejo es que uses unos 40 GB en Ubuntu y unos 70-80 en Windows. Si en Windows te aseguras de desactivar las actualizaciones inmediatamente o no conectas la máquina a internet seguramente puedas reducir este tamaño consierablemente (quizás hasta unos 35-40 GB si lo necesitas).
+
+!!! Note
+    El *checkbox* de "Pre-allocate Full Size" (si se marca) hace que el espacio que indicamos se ocupe inmediatamente.
+
+    Si, en cambio, no marcamos esta casilla, el espacio se va ocupando según va creciendo el tamaño de la propia máquina. Es decir, el tamaño que ponemos es el máximo que la máquina puede alcanzar.
+
+    Por ejemplo: si tenemos un Windows 11 al que le hemos puesto 80 GB y la casilla no está marcada, si este sistema solo tiene ocupados 40 GB de los 80 que asignamos, en nuestro disco solo ocupará esos 40.
 
 |   **5. Revisamos y finalizamos**   |
 | :--------------------------------: |
@@ -105,3 +128,34 @@ Por defecto viene una configuración NAT. Con NAT, la máquina host (nuestro ord
 | ![Configuraciones de red disponibles en Virtualbox](files/images/virtualbox-configuracion-red-1.png) |
 
 Esta parte es importante. [Consulta este enlace para entender bien como funcionan las configuraciones de red en Virtualbox](https://github.com/davidgchaves/apuntamentos-complementarios-som-distancia-ies-san-clemente/tree/main/1-redes-en-virtualbox).
+
+## Práctica
+En grupos de dos personas realizar una presentación (de la manera que quieras, con diapositivas, solo imágenes, puro texto o incluso sin nada). Lo único obligatorio es hacer demostraciones prácticas de lo que se indica (enseñar carpeta compartida en virtualbox, cambiar procesadores/ram en directo y verlas con comandos, etc.).
+
+### Sistemas operativos
+1. Repaso rápido de la evaluación histórica de los sistemas operativos (consultar apuntes: procesamiento por lotes, monousuario, multiusuario, multipgoramación...)
+
+### Instalación de sistemas operativos y virtualización
+1. Instala un sistema operativo Windows 11.
+2. Instala un sistema operativo Ubuntu 22.04 LTS en una máquina virtual. Particiona a mano y explica para que sirven las particiones que creas.
+3. Instala un Windows Server 2022.
+4. Explica solo 1 de las siguientes:
+   1. Configuración de que el portapapeles se comparta entre host y vm.
+   2. Configuraciones de red, para qué sirven y configurar 2 máquinas para que tengan red entre ellas.
+   3. Carpeta compartida entre una máquina virtual y la máquina host, de manera que si copias algo en tu máquina aparezca en la VM.
+   4. Como exportar una máquina virtual (.ova) y cómo cambiar de directorio una máquina virtual y que virtualbox la reconozca.
+5. Tipos de hipervisores, diferencias.
+
+### Algoritmos de planificación
+6. Explica con un ejemplo práctico como se hace un algoritmo de planificación (escoge 2):
+   1. FIFO
+   2. SJF
+   3. SRTF
+   4. Round Robin
+
+### Sistemas de ficheros
+7. Explica los sistemas de archivos más comunes y algún pequeño detalle que consideres interesante de cada uno de ellos (mínimo 3).
+8. ¿Conoces algún sistema de ficheros orientado a compartición de datos a través de la red?
+
+### OPCIONALES (para nota)
+1. Instala Proxmox y, dentro de este, instala una VM Almalinux o CentOS (OPCIONAL, PARA NOTA)

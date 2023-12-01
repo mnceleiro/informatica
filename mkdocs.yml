@@ -35,7 +35,9 @@ nav:
     - 'Introducción': 'windows/windows-setup.md'
     - 'Powershell': windows/powershell.md
   - Web:
-    - 'Javascript': 'web/js-basics.md'
+    - 'Frontend Roadmap': 'web/intro.md'
+    - 'Iniciación a JavaScript': 'web/js-basics.md'
+
   - Contenido no actualizado:
     - 'Intro': 'apuntes-variados/intro.md'
     - 'Programación': 'apuntes-variados/programming.md'
