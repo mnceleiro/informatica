@@ -35,4 +35,17 @@ Completamente obsoleto, viene de Windows 95.
 
 !!! Nota
 
-    Para hacernos una idea, una de las grandes novedades de FAT32 es que permite escribir nombres de más de 8 caracteres y sin espacios.
+    Para hacernos una idea, una de las grandes novedades de FAT32 es que permite escribir nombres de más de 8 caracteres y sin espacios. Se sigue usando porque es el único de Windows no registrado por ellos y por tanto lo puede implementar cualquiera.
+
+FAT32 está en absoluto retroceso, ya que no reconoce discos de más de 2TiBs y no se pueden grabar ficheros de más de 4GiB.
+
+
+### Resumen
+En general, primero puedes usar NTFS, sino exFAT y sino FAT32 (si no hay más remedio).
+
+- Windows: NTFS
+- Linux: EXT4
+- Partición en Windows y Linux: NTFS (Linux entiende bien hoy en día una NTFS pero Windows es un poco más complicado).
+- Pendrive: NTFS o exFAT. En exFAT va a funcionar algo más rápido (funciona mejor con cosas más sencillas, pero puede tener algo de incompatibilidad con alguna distro de Linux).
+- Tarjeta SD móvil/consola: en general suele ser bueno ponerle exFAT y solo si no hay más remedio FAT32.
+- TV enchufada a disco duro: moderna (NTFS bien), muy vieja (FAT32).
