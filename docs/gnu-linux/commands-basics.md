@@ -9,6 +9,7 @@ No te preocupes si lo que ves te resulta extraño ahora, ya que en pocos días e
 ## Comandos básicos de GNU/Linux
 | Acción | Comando |
 | :----: | ------- |
+| Ver manual de un comando | man comando<br />man ls |
 | Reiniciar ordenador | sudo reboot |
 | Apagar ordenador | sudo shutdown -h now |
 | Ver procesos | top<br>htop<br>ps<br>ps -ef |
@@ -24,18 +25,18 @@ La raíz de todas las carpetas (también llamadas directorios) se denomina en **
 
 | Acción | Comando | Ejemplo |
 | ------ | ------- | ------- |
-| Ver dónde estás | pwd | pwd |
+| Ver dónde estás | pwd | pwd |****
 | Listar ficheros | ls -l<br>ls -la<br>ls -lh | **ls** (muestra ficheros, pero no los ocultos)<br>**ls -l** (muestra ficheros e información)<br>**ls -a** (muestra ficheros, incluídos los ocultos)<br>**ls -lh** (muestra información y "h" de *human readable*)
-| Moverse entre carpetas | cd ruta_carpeta | Si estoy en /home/mnceleiro puedo moverme a "Documentos" de dos formas:<br><br>**Ruta absoluta (pongo la ruta completa)**<br>cd /home/mnceleiro/Documentos<br><br>**Ruta relativa (pongo solo desde donde estoy)**<br>cd Documentos<br><br>**Para volver atrás (.. representa la carpeta superior)**<br>cd .. |
+| Moverse entre carpetas | cd ruta_carpeta | Si estoy en /home/mnceleiro puedo moverme a "Documentos" de dos formas:<br><br>**- Ruta absoluta (pongo la ruta completa)**<br>cd /home/mnceleiro/Documentos<br><br>**- Ruta relativa (pongo solo desde donde estoy)**<br>cd Documentos<br><br>**Para volver atrás (.. representa la carpeta superior)**<br>cd ..<br><br>**Estoy en /home/mnceleiro/ y quiero moverme a /home/mnceleiro/Descargas/dropbox (con ruta relativa):**<br>cd Descargas/dropbox<br><br>**Estoy en /home/mnceleiro/Descargas/Dropbox y quiero ir a /home/maria/misdatos (con ruta relativa):**<br>cd ../../../maria/misdatos (me estoy moviendo 3 carpetas atrás y luego a carpeta maria/misdatos) |
 | Crear carpeta | mkdir nombre_carpeta | mkdir clase
 | Crear fichero vacío | touch nombre_fichero | touch datos.txt |
-| Eliminar algo | rm nombre_carpeta<br>rm nombre_fichero | rm partidos<br>rm -r MisFotos<br><br>*Si hay cosas dentro de una carpeta y queremos que borre la carpeta con todo el contenido de dentro hay que usar la opción **-r** *.
+| Eliminar algo | rmdir nombre_carpeta<br>rm nombre_fichero | rm partidos<br>rm -r MisFotos<br><br>*Si hay cosas dentro de una carpeta y queremos que borre la carpeta con todo el contenido de dentro hay que usar la opción **-r** *.
 | Mover carpeta | Mover un fichero:<br>mv origen destino<br><br>Mover carpeta con cosas:<br>mv **-R** origen destino | **Mover usando rutas absolutas (ruta completa)**<br>mv /home/mnceleiro/downloads/datos.txt /home/mnceleiro/documents/datos.txt<br><br>**Mover usando rutas relativas (relativo al directorio donde te encuentras)**<br>mv datos.txt ../documents.datos.txt<br><br>*Si usas la opción -R puedes mover una carpeta y todo lo que tiene dentro.* |
 | Cambiar nombre a algo | mv nombre_antiguo nombre_nuevo | mv datos.txt ../documents/datoscopia.txt<br><br>También puede usarse para mover y con -R |
 | Ver contenido de un fichero | cat <ruta_fichero><br/>cat -l <ruta_fichero> | cat /etc/shells (el archivo shells tiene una lista con los shells instalados en el sistema)<br /><br />cat /etc/passwd (en este fichero se almacenan los datos de los usuarios del sistema) |
 
 ## Instalación de software
-Existen distintas tiendas de aplicaciones según la distribución GNU/Linux usada así como gestores de paquetes. 
+Existen distintas tiendas de aplicaciones según la distribución GNU/Linux usada así como gestores de paquetes.
 El gestor de paquetes más conocido se llama **APT** y es usado en distribuciones basadas en Debian, por ejemplo: Ubuntu, Linux Mint, Zorin OS, Steam OS.
 
 Los comandos más interesantes a usar con la herramienta APT son los siguientes:
