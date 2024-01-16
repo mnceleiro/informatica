@@ -29,7 +29,8 @@ nav:
   - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
     - 'Comandos básicos': 'gnu-linux/commands-basics.md'
-    - 'Manejo de ficheros': 'gnu-linux/files.md'
+    - 'Gestión de ficheros': 'gnu-linux/files.md'
+    - 'Gestión de ficheros (II)': 'gnu-linux/files-2.md'
     - 'Gestión de usuarios y grupos': 'gnu-linux/users-groups-local.md'
     - 'Programación de scripts': 'gnu-linux/scripting-linux.md'
   - Windows:
