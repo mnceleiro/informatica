@@ -33,6 +33,7 @@ nav:
     - 'Gestión de ficheros (II)': 'gnu-linux/files-2.md'
     - 'Gestión de usuarios y grupos': 'gnu-linux/users-groups-local.md'
     - 'Programación de scripts': 'gnu-linux/scripting-linux.md'
+    - 'Ejercicios variados': 'gnu-linux/ejercicios-variados.md'
   - Windows:
     - 'Introducción': 'windows/windows-setup.md'
     - 'Powershell': windows/powershell.md

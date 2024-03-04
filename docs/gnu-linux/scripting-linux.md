@@ -691,16 +691,12 @@ Realiza los siguientes ejercicios:
     - (3) Mostrar las carpetas del directorio /home.
     - En caso de que el usuario ponga un número distinto de 1, 2 o 3, debe mostrarse un error.
 8. Haz una copia del script anterior y añade una opción 4 que sea "Salir". El programa se repetirá continuamente mostrando el menú y pidiendo opciones hasta que el usuario pulse esa opción. También, si se elige una opción que no existe (por ejemplo: 7) debe mostrarse un mensaje de error.
-9. Crea un programa de nombre copiaSegHome que haga una copia de seguridad del home del usuario. Para ello, primero debe preguntarse al usuario de cuántas carpetas quiere hacer copia de seguridad. Posteriormente, se pedirá al usuario que introduzca nombres de carpetas hasta llegar a esa cifra. Finalmente, se hará la copia de seguridad en /opt/backups (el script debe ejecutrase como sudo para que funcione).
+9. Crea un programa de nombre copiaSegHome que haga una copia de seguridad de carpetas del home de un usuario. Para ello, primero debe preguntarse al usuario de cuántas carpetas quiere hacer copia de seguridad. Posteriormente, se pedirá al usuario que introduzca nombres de carpetas que quiere copiar hasta llegar a esa cifra. Finalmente, se hará la copia de seguridad en /opt/backups (el script debe ejecutrase como sudo para que funcione).
 10. Modifica el script anterior para que pare al principio en caso de que no se ejecute como sudo (busca la manera de comprobarlo). Además, haz que las copias de seguridad se tengan el siguiente formato: usuario-añomesdia.tar.gz.
-
 11. Haz un script que pregunte al usuario **que comando quiere ejecutar**. Guarda el comando y ejecútalo. Después, indica con un mensaje si el comando se ha ejecutado correctamente o no.
-
-Haz un programa que pida números positivos continuamente. Cuando el usuario meta un número negativo (p. ej: -2) el programa debe parar y mostrar la suma de todos los números introducidos (excepto el negativo).
-
-Haz un script que cree un usuario nuevo (el usuario debe ser tu segundo apellido). Luego debe hacerse un backup (una copia del home) en /opt y comprimirla con la herramienta zip. Debe hacerse de forma continuada y cada 5 segundos.
-
-Crea un script que compruebe EL USO TOTAL de disco de la carpeta /etc o /var (la que se pase como parámetro de las dos). Si no es ninguna de las dos debe mostrar un error. Ejecuta el script como root. No pueden verse errores al ejecutar el comando.
+12. Haz un programa que pida números positivos continuamente. Cuando el usuario meta un número negativo (p. ej: -2) el programa debe parar y mostrar la suma de todos los números introducidos (excepto el negativo).
+13. Crea un script que compruebe EL USO TOTAL de disco de la carpeta /etc o /var (la que se pase como parámetro de las dos). Si no es ninguna de las dos debe mostrar un error. Ejecuta el script como root. No pueden verse errores al ejecutar el comando.
+14. Crea un script que compruebe si hay conectividad a una lista de IPs pasadas como parámetro. En caso de no haber conectividad, debe mostrarse en un mensaje: "La IP <IP> no conecta."
 
 ### Ejemplos de ejecución de los ejercicios
 A continuación se muestran ejemplos de salidas de los ejercicios anteriores al ejecutarlos:
