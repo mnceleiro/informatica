@@ -12,18 +12,20 @@
    3. Prueba los comandos crontab -l (lista las tareas configuradas) y crontab -e (comando recomendado para editar el fichero crontab).
 8. Vamos a testear un cronjob. Crea (usando crontab -e desde tu usuario) un cronjob que añada a un fichero de nombre test-cronjob.txt en tu home una línea con el resultado del comando "date" de linux.
 9. Crea un cronjob (crontab -e) desde el usuario root para el script anterior (de backups de los homes) de manera que la copia de seguridad de los homes se realice todos los días a una hora y minuto concreto (el que quieras).
-10. Ya disponemos de copias de seguridad automatizadas que se pasan de un servidor a otro, el problema es que no tenemos logs de lo que ocurre. Crea una carpeta backup-log en el directorio de logs de tu distribución GNU/Linux. Modifica el script de backups para que escriba una línea en el fichero de log indicando el día y hora exacta y si la copia ha dado "error" o "success".
-11. Opcional: configura el logrotate para que se borre la información de ese fichero de logs cada semana o cada vez que supere los 50MB.
-12. Intenta ejecutar un comando con "sudo" con el usuario test1. ¿Es posible? ¿por qué?
-13. Revisa el fichero de grupos de Linux y mira si hay algún usuario sudo. Añade el usuario "test1" al grupo "sudo" (busca en internet el comando usermod). Comprueba de nuevo si puedes ejecutar comandos como sudo con test1.
-14. Crea un nuevo usuario benito (con useradd) y añádelo al grupo sudo en el mismo comando.
-15. Cambia la contraseña del usuario y logeate (prueba si ejecuta comandos como sudo).
-16. Aunque añadir un usuario al grupo de sudo es una solución, existe un fichero (/etc/sudoers) que nos da mucha más potencia, permitiéndonos ejecutar solo ciertos comandos según usuarios o grupos. Consulta esta URL (aunque no haremos nada con esto de momento).
-17. Una vez leído el artículo, elimina a test1 del grupo "sudo".
-18. Crea tres grupos nuevos: un grupo de nombre alumnado, otro profesorado y otro ies.
-19. Añade al usuario test1 a profesorado y a test2 y test3 a alumnado (puedes probarlo ahora con groupadd). Añade los tres usuarios de test al grupo ies. Usa cat y grep para filtrar estos usuarios y grupos en los ficheros del sistema donde se almacena esta información (observa los cambios).
-20. Cambia el nombre del grupo ies a pinguela (puedes usar groupmod, revisa el manual, u otro comando que encuentres). Filtra ahora el fichero de grupos por ies (no debería salir nada) y por pinguela (que es el nuevo nombre) y observa como cambió.
-21. Añade a tu usuario principal al grupo pinguela (como grupo secundario, ya que el grupo principal tendrá el mismo nombre que tu usuario).
+10. Revisa los logs de /var/log/syslog filtrando por "cron". Ahí podrás ver información sobre la ejecución de las tareas definidas en el crontab.
+11. Una vez verifiques que funciona, elimina la línea del cron (ya podemos generar problemas de espacio en la vm).
+12. Ya disponemos de copias de seguridad automatizadas que se pasan de un servidor a otro, el problema es que no tenemos logs de lo que ocurre. Crea una carpeta backup-log en el directorio de logs de tu distribución GNU/Linux. Modifica el script de backups para que escriba una línea en el fichero de log indicando el día y hora exacta y si la copia ha dado "error" o "success".
+13. Opcional: configura el logrotate para que se borre la información de ese fichero de logs cada semana o cada vez que supere los 50MB.
+14. Intenta ejecutar un comando con "sudo" con el usuario test1. ¿Es posible? ¿por qué?
+15. Revisa el fichero de grupos de Linux y mira si hay algún usuario sudo. Añade el usuario "test1" al grupo "sudo" (busca en internet el comando usermod). Comprueba de nuevo si puedes ejecutar comandos como sudo con test1.
+16. Crea un nuevo usuario benito (con useradd) y añádelo al grupo sudo en el mismo comando.
+17. Cambia la contraseña del usuario y logeate (prueba si ejecuta comandos como sudo).
+18. Aunque añadir un usuario al grupo de sudo es una solución, existe un fichero (/etc/sudoers) que nos da mucha más potencia, permitiéndonos ejecutar solo ciertos comandos según usuarios o grupos. Consulta esta URL (aunque no haremos nada con esto de momento).
+19. Una vez leído el artículo, elimina a test1 del grupo "sudo".
+20. Crea tres grupos nuevos: un grupo de nombre alumnado, otro profesorado y otro ies.
+21. Añade al usuario test1 a profesorado y a test2 y test3 a alumnado (puedes probarlo ahora con groupadd). Añade los tres usuarios de test al grupo ies. Usa cat y grep para filtrar estos usuarios y grupos en los ficheros del sistema donde se almacena esta información (observa los cambios).
+22. Cambia el nombre del grupo ies a pinguela (puedes usar groupmod, revisa el manual, u otro comando que encuentres). Filtra ahora el fichero de grupos por ies (no debería salir nada) y por pinguela (que es el nuevo nombre) y observa como cambió.
+23. Añade a tu usuario principal al grupo pinguela (como grupo secundario, ya que el grupo principal tendrá el mismo nombre que tu usuario).
 
 ## Ejercicio de documentación de scripts
 Crea una carpeta bin en tu home y crea un fichero de nombre nuevo-script que pida los siguientes datos y, si se pulsa enter sin introducir nada use lo que hay entre corchetes.
