@@ -701,6 +701,23 @@ Realiza los siguientes ejercicios:
 ### Ejemplos de ejecución de los ejercicios
 A continuación se muestran ejemplos de salidas de los ejercicios anteriores al ejecutarlos:
 
+=== "Resultado ejercicio 1"
+
+    ```
+    ------- EJECUCIÓN CON UN COMANDO CORRECTO -------
+    ./2-funciona-ultimo-comando
+    Introduzca el comando que desea ejecutar: ls
+    2-funciona-ultimo-comando  contar-impares-for  par-impar
+
+    El comando ls se ha ejecutado correctamente.
+
+    ------- EJECUCIÓN CON UN COMANDO QUE NO EXISTE -------
+    ./2-funciona-ultimo-comando
+    Introduzca el comando que desea ejecutar: lsq
+
+    El comando lsq ha dado un error.
+    ```
+
 === "Resultado ejercicio 4"
 
     ```
@@ -746,23 +763,6 @@ A continuación se muestran ejemplos de salidas de los ejercicios anteriores al 
     El número 18 es PAR.
     El número 22 es PAR.
     El número 23 es IMPAR.
-    ```
-
-=== "Resultado ejercicio 1"
-
-    ```
-    ------- EJECUCIÓN CON UN COMANDO CORRECTO -------
-    ./2-funciona-ultimo-comando
-    Introduzca el comando que desea ejecutar: ls
-    2-funciona-ultimo-comando  contar-impares-for  par-impar
-
-    El comando ls se ha ejecutado correctamente.
-
-    ------- EJECUCIÓN CON UN COMANDO QUE NO EXISTE -------
-    ./2-funciona-ultimo-comando
-    Introduzca el comando que desea ejecutar: lsq
-
-    El comando lsq ha dado un error.
     ```
 
 ## Tabla de diferencias entre lenguajes de programación
