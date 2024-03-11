@@ -4,7 +4,7 @@
 2. Haz que cada usuario nuevo que se cree tenga en su home una carpeta "normativa-empresa" con un txt "normas.txt" dentro.
 3. Crea un script en la carpeta de scripts de sbin que cree usuarios nuevos (los cuáles se pasan como parámetro) y debe crearse con shell /bin/bash y un home con el mismo nombre que el del usuario. [Utiliza alguna función en el script](https://ioflood.com/blog/bash-function/). A partir de ahora practica los scripts usando funciones.
 4. Prueba el script anterior con varios usuarios (tres de ellos que sean "test1", "test2" y "test3", ya que los aprovecharemos en siguientes ejercicios). Mira si aparece la carpeta "normativa-empresa" en el home de os usuarios.
-5. Crea un script que cree una copia de seguridad de los homes de los usuarios en /opt/backups con formato anho-mes-dia-home-<nombre-usuario>.tar.gz
+5. Crea un script que cree una copia de seguridad de los homes de los usuarios en /var/backups/homes con formato anho-mes-dia-<nombre-usuario>.tar.gz
 6. (Opcional) El ejercicio anterior está bien, pero si el disco se estropea perdemos tanto los homes como las copias de seguridad. Modifica el script anterior para que en lugar de copiarse en tu ordenador se copie en otra máquina virtual mediante el comando scp (secure copy), quizá tengas que instalarlo.
 7. El crontab permite ejecutar comandos en un instante de tiempo que se le indique (p. ej: todos los lunes a las 7 de la mañana, todos los días a las 12:00 y a las 14:00, etc.).
    1. Haz un cat del fichero /etc/crontab y leelo.

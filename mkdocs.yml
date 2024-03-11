@@ -34,13 +34,16 @@ nav:
     - 'Gestión de usuarios y grupos': 'gnu-linux/users-groups-local.md'
     - 'Programación de scripts': 'gnu-linux/scripting-linux.md'
     - 'Ejercicios variados': 'gnu-linux/ejercicios-variados.md'
+    - 'Gestores de paquetes': 'gnu-linux/software.md'
+    - 'Gestión de discos y particiones': 'gnu-linux/disk-management.md'
+    - 'Cuotas de disco': 'gnu-linux/disk-quotes.md'
+    - 'Redes en Linux': 'gnu-linux/networks.md'
   - Windows:
     - 'Introducción': 'windows/windows-setup.md'
     - 'Powershell': windows/powershell.md
   - Web:
     - 'Frontend Roadmap': 'web/intro.md'
     - 'Iniciación a JavaScript': 'web/js-basics.md'
-
   - Contenido no actualizado:
     - 'Intro': 'apuntes-variados/intro.md'
     - 'Programación': 'apuntes-variados/programming.md'
