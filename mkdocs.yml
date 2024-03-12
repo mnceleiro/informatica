@@ -34,6 +34,7 @@ nav:
     - 'Gestión de usuarios y grupos': 'gnu-linux/users-groups-local.md'
     - 'Programación de scripts': 'gnu-linux/scripting-linux.md'
     - 'Ejercicios variados': 'gnu-linux/ejercicios-variados.md'
+    - 'Examen': 'gnu-linux/examen.md'
     - 'Gestores de paquetes': 'gnu-linux/software.md'
     - 'Gestión de discos y particiones': 'gnu-linux/disk-management.md'
     - 'Cuotas de disco': 'gnu-linux/disk-quotes.md'
