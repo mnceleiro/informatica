@@ -1,0 +1,24 @@
+# Crear un usuario "mario" con home en /home/fontaneria
+
+# Usa o comando "passwd" para establecerlle unha contrasinal
+
+# Abrir una sesión de terminal con mario cargando toda la configuracion
+# de usuario (deberia automaticamente al entrar situaros en su home
+
+# Crear un usuario "luigi" con home en /home/luigi
+
+# Abrir sesión de terminal con luigi
+
+# Configura tu Linux para que los nuevos usuarios que se creen tengan en su home un fichero
+# bievenida.txt que ponga "Hola nuevo usuario". Hazlo con un solo comando.
+# PISTA: la clave esta en la carpeta /etc/skel
+
+
+# Crear un usuario Peach (/home/peach)
+
+
+# Abrir sesión con Peach
+
+
+# Borrar al usuario Luigi (borrando tambien el home con el mismo comando)
+

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "Tu nombre es: $1."
+sleep 2
+echo "Han pasado un tiempo y ahora mi nombre es: $2."
