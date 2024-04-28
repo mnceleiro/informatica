@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Ejercicio que muestra los numeros positivos.
+
+echo -n "Escribe un número: "
+read numero
+
+if [ $numero -gt 0 ]
+then
+	echo "El número $numero es positivo."
+fi
