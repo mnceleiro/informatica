@@ -28,6 +28,7 @@ nav:
     - 'Ansible': 'virtualizacion-devops/ansible.md'
   - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
+    - 'Instalación': 'gnu-linux/installation.md'
     - 'Comandos básicos': 'gnu-linux/commands-basics.md'
     - 'Gestión de ficheros': 'gnu-linux/files.md'
     - 'Gestión de ficheros (II)': 'gnu-linux/files-2.md'
@@ -42,10 +43,20 @@ nav:
   - Windows:
     - 'Introducción': 'windows/windows-setup.md'
     - 'Powershell': windows/powershell.md
+  - Java:
+    - 'Introducción': 'java/intro.md'
+    - 'Gestión de ficheros': 'java/ficheros.md'
+    - 'Actividad I': 'java/ficheros_act1.md'
+    - 'Actividad II': java/ficheros_act2.md'
+    - 'Actividad III': java/ficheros_act3.md'
   - Web:
     - 'Frontend Roadmap': 'web/intro.md'
     - 'Iniciación a JavaScript': 'web/js-basics.md'
-  - Contenido no actualizado:
+  - Seguridad:
+    - 'Intro': ''
+    - 'test': 'test'
+    - 'In': ''
+  - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
     - 'Programación': 'apuntes-variados/programming.md'
     - 'Firewalling': 'apuntes-variados/firewalling.md'
