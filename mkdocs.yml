@@ -23,8 +23,9 @@ nav:
   - Virtualización y DevOps:
     - 'Introducción': 'virtualizacion-devops/intro.md'
     - 'Virtualbox': 'virtualizacion-devops/virtualbox.md'
-    - 'Docker': 'virtualizacion-devops/docker.md'
     - 'Vagrant': 'virtualizacion-devops/vagrant.md'
+    - 'Vagrant (II)': 'virtualizacion-devops/vagrant2.md'
+    - 'Docker': 'virtualizacion-devops/docker.md'
     - 'Ansible': 'virtualizacion-devops/ansible.md'
   - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
