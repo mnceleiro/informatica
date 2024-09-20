@@ -48,7 +48,7 @@ nav:
     - 'Introducción': 'java/intro.md'
     - 'Gestión de ficheros': 'java/ficheros.md'
     - 'Actividad I': 'java/ficheros_act1.md'
-    - 'Actividad II': java/ficheros_act2.md'
+    - 'Actividad II': 'java/ficheros_act2.md'
     - 'Actividad III': java/ficheros_act3.md'
   - Web:
     - 'Frontend Roadmap': 'web/intro.md'
