@@ -200,7 +200,7 @@ En este Vagrantfile se configura lo siguiente:
     2. Una vez lo tengas asegúrate de que funciona (vagrant validate).
     3. Ahora arranca la máquina y comprueba si no da errores.
     4. Una vez funcione, **apaga la máquina y modifica el Vagrantfile** para intentar conseguir lo siguiente:
-        - **Cambiar el nombre del equipo (ahora es vagrant) a rivendell** (no lo confundas con vb.name, eso es el nombre de la máquina en Virtualbox, no el nombre del equipo en Linux).
+        - **Cambiar el nombre del equipo (puedes buscar en internet el comando para saber cuál es) a rivendell** (no lo confundas con vb.name, eso es el nombre de la máquina en Virtualbox, no el nombre del equipo en Linux).
         - **Conseguir que se te abra la interfaz gráfica de la máquina virtual (GUI) al arrancar la máquina.** Esto se hace dentro de la parte de provider, ya que forma parte de Virtualbox.
         - Hacer que la máquina use dos procesadores en lugar de uno (esto es dentro de la parte del provider)
 
@@ -212,13 +212,13 @@ Intenta realizar el ejercicio anterior y levantar la máquina. Puedes ayudarte d
 El aprovisionamiento se trata de darle a la máquina virtual una serie de tareas que se ejecuten automáticamente una vez arrancada. Vamos a empezar con una tarea muy simple: **queremos que al arrancar la máquina por primera vez se cree un fichero con una línea.**
 
 !!! Note "Ejercicio: aprovisionamiento básico usando scripts"
-    Destruye la máquina "2-configuracion-basica". Luego modifica el Vagrantfile de "2-configuracion-basica" para que ejecute la siguiente línea al arrancar la máquina (pon tu nombre y apellidos): 
+    Destruye la máquina "2-configuracion-basica" (importante que lo hagas). Luego modifica el Vagrantfile de "2-configuracion-basica" para que ejecute la siguiente línea al arrancar la máquina (pon tu nombre y apellidos): 
     
     echo "Hola, me llamo X Y Z." >> /home/vagrant/texto.txt
     
     Una vez hecho esto arranca la máquina y verifica que se ha creado el fichero con una línea con tu nombre y apellidos.
 
-En este caso voy a dejar que os busqueis un poco la vida. Para hacer este ejercicio utiliza la [documentación oficial](https://developer.hashicorp.com/vagrant/docs/provisioning/shell) en la parte de "inline Scripts". 
+En este caso voy a dejar que os busqueis un poco la vida. Para hacer este ejercicio utiliza la [documentación oficial](https://developer.hashicorp.com/vagrant/docs/provisioning/shell#inline-scripts) en la parte de "inline Scripts". 
 
 ??? Tip "Consejo"
     También puedes ayudarte de internet y herramientas de IA sin problema (eso sí, asegúrate de aprender y no solo de hacer lo que la IA te dice, la IA bien usada es genial pero mal usada solo te lastra). 
