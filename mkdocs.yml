@@ -41,6 +41,8 @@ nav:
     - 'Gestión de discos y particiones': 'gnu-linux/disk-management.md'
     - 'Cuotas de disco': 'gnu-linux/disk-quotes.md'
     - 'Redes en Linux': 'gnu-linux/networks.md'
+    - 'Servidores web': 'gnu-linux/web-servers.md'
+    - 'Apache': 'gnu-linux/apache.md'
   - Windows:
     - 'Introducción': 'windows/windows-setup.md'
     - 'Powershell': windows/powershell.md
