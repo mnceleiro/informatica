@@ -22,7 +22,7 @@ La raíz de todas las carpetas (también llamadas directorios) se denomina en **
 
 - *Windows 10*:     &emsp;*C:/Usuarios/**nombreUsuario**/*
 - *GNU/Linux*:      &emsp; */home/**nombreUsuario**/*
-
+ 
 | Acción | Comando | Ejemplo |
 | ------ | ------- | ------- |
 | Ver dónde estás | pwd | pwd |****
