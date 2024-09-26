@@ -1,6 +1,44 @@
-# Actividad: Visualización de datos COVID
+# Ficheros en Windows y GNU/Linux
+## Conceptos básicos
+### Directorios o carpetas
+Puede contener otros directorios o carpetas dentro de él
 
-## Parte I: ejercicios guiados sobre formatos de ficheros
+## Directorio raíz
+ Es el primero de todos, donde se empieza a trabajar. Dentro del directorio raíz puede haber más directorios, pero ninguno puede contenerlo a él.
+
+ En Linux es "/", en Windows puede ser: "C:", "D:", "E:", etc.
+
+### Directorio de trabajo actual
+Es el directorio sobre el que el programa o proceso actual se está ejecutando. Se puede representar con el caracter ".".
+
+### Rutas absolutas y relativas
+La ruta absoluta es la ruta completa, desde la raíz del sistema (normalmente C: o / dependiendo si trabajas en Windows o GNU/Linux), y la relativa es desde donde tú estás situado como usuario.
+
+Conocer sin ninguna duda la diferencia entre una ruta **absoluta y relativa es muy importante y básico**.
+
+- Si no lo comprendes NADA puedes revisar [este artículo](https://www.educatica.es/sistemas-operativos/principios-basicos/sistemas-de-ficheros/rutas-de-ficheros-y-directorios/).
+- Si lo entiendes pero no muy bien, [aquí lo explican menos detallado y más al grano en Linux](https://tecnicos.epet1.edu.ar/2021/09/rutas-absolutas-y-relativas-en-linux-cual-es-la-diferencia/).
+
+### Directorio . y directorio ..
+"." representa al directorio actual. Por ejemplo, si estamos en "C:/Usuarios/mnceleiro/trabajo/", el directorio "." es este mismo directorio.
+
+Por otro lado, el ".." representaría al directorio "mnceleiro" (el anterior). Si dentro de "trabajo" hay un fichero "datos.csv", este fichero puede representarse como:
+
+- datos.csv
+- ./datos.csv
+- ../trabajo/datos.csv (en este caso salimos y volvemos a entrar al directorio, pero funcionaría igual).
+- ../../mnceleiro/trabajo/./datos.csv
+- C:/Usuarios/mnceleiro/trabajo/datos.csv
+- C:/Usuarios/mnceleiro/../mnceleiro/../mnceleiro/././trabajo/datos.csv
+
+Los últimos no están normalizados (es ir atrás-adelante sin mucho sentido común), pero funcionarían igual porque siguen la lógica (el . es lo mismo que el directorio actual y .. volver atrás).
+
+### Path
+El "path" es la ruta en castellano. Puede ser solo el nombre de un fichero, una ruta relativa o una ruta absoluta.
+
+## Actividad I: tipos de ficheros
+Se aconeja ver antes el siguiente vídeo:
+
 ![type:video](https://www.youtube.com/embed/UKBDUpXEY_0)
 
 ### Extensiones de ficheros en Windows
@@ -42,7 +80,7 @@ Completa el siguiente fichero JSON para guardar un listado de películas y serie
 {...},
 {...}
   ],
-    
+   
   "series" : [
   {...},
   {...}
@@ -71,16 +109,4 @@ Verifica tus conocimientos intentando responder correctamente a las siguientes c
  6. Identifica que tipo de formato sigue X fichero aportado por el profesor.
  7. Indica tres formatos de fichero binarios que conozcas.
  8. Indica tres formatos de fichero de texto que conozcas.
-
-## Parte II: manipulación de CSVs con Java
-### Contexto
-En 2020, Daniel González Peña, profesor la escuela superior de ingeniería informática en Ourense realizó una recopilación, día a día, de los datos de la incidencia del COVID en Galicia y los centralizó [en un repositorio de GitHub](https://lipido.github.io/galicia-covid19/).
-
-Descarga el fichero CSV con la incidencia del COVID en centros educativos ordenados por fecha disponible [aquí](https://raw.githubusercontent.com/lipido/galicia-covid19/master/centros_educativos/centros_educativos.csv).
-
-### Ejercicio I
-Crea una aplicación en Java que cargue el CSV y muestre por pantalla un menú con las siguientes opciones:
-
-- Obtener todos los datos por nombre del centro educativo.
-- Obtener datos por ayuntamiento y fecha (se pedirá ayuntamiento, día, mes y año, numéricos).
-- Obtener la lista de centros cerrados indicando el número de casos activos y la fecha.
+ 9. Crea un fichero .properties (esto no lo hemos visto, busca en internet) con al menos 3 líneas (tu dirección IP privada, el puerto de MySQL, usuario y contraseña)

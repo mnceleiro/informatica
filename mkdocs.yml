@@ -48,10 +48,8 @@ nav:
     - 'Powershell': windows/powershell.md
   - Java:
     - 'Introducción': 'java/intro.md'
-    - 'Gestión de ficheros': 'java/ficheros.md'
-    - 'Actividad I': 'java/ficheros_act1.md'
-    - 'Actividad II': 'java/ficheros_act2.md'
-    - 'Actividad III': java/ficheros_act3.md'
+    - 'Ficheros I: básico': 'java/file-basics.md'
+    - 'Ficheros II: Java': 'java/files.md'
   - Web:
     - 'Frontend Roadmap': 'web/intro.md'
     - 'Iniciación a JavaScript': 'web/js-basics.md'
