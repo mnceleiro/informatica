@@ -47,7 +47,7 @@ Pero, ¿qué es lo que hay en realidad?
 
 En la respuesta se obtiene el siguiente texto:
 
-```title="Respuesta de GOOGLE (RESPONSE). Lo que en realidad hay detrás de la imagen" linenums="1" hl_lines="1-2"
+```
 HTTP/2 200
 date: Wed, 25 Sep 2024 18:27:35 GMT
 expires: -1
