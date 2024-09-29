@@ -106,7 +106,7 @@ Verifica tus conocimientos intentando responder correctamente a las siguientes c
  3. Explica el formato de fichero CSV.
  4. Escribe tus datos personales (puedes inventarte algunos) en formato XML.
  5. Escribe tus datos personales (puedes inventarte algunos) en formato JSON.
- 6. Identifica que tipo de formato sigue X fichero aportado por el profesor.
- 7. Indica tres formatos de fichero binarios que conozcas.
- 8. Indica tres formatos de fichero de texto que conozcas.
- 9. Crea un fichero .properties (esto no lo hemos visto, busca en internet) con al menos 3 líneas (tu dirección IP privada, el puerto de MySQL, usuario y contraseña)
+ 6. Indica tres formatos de fichero binarios que conozcas.
+ 7. Indica tres formatos de fichero de texto que conozcas.
+ 8. Crea un fichero .properties (esto no lo hemos visto, busca en internet) con al menos 3 líneas (tu dirección IP privada, el puerto de MySQL, usuario y contraseña).
+ 9. Crea un fichero YAML con información personal y la lista de tecnologías que conoces relacionadas con nuestra profesión de manera similar a como se muestra en [este artículo](https://www.arquitecturajava.com/que-es-yaml/).

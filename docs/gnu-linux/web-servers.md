@@ -4,14 +4,14 @@ Los servidores web se ejecutan a través del protocolo HTTP (puerto 80) y HTTPS 
 Deberíamos conocer un poco el concepto de protocolo TCP y el concepto de puerto. Aún así, un servidor web basicamente hace una petición al puerto 80/443 y recibe una respuesta.
 
 ## Lo que envía el navegador
-Si entramos a www.google.com desde el navegador...
+Si entramos a [google.com](https://www.google.com) desde el navegador...
 
 ![Barra de navegación web Google.com](../images/gnu-linux/networks/browser-address-bar-google.png)
 
 Lo que el **navegador de verdad envía** es lo siguiente:
 
 
-```title="Petición web a Google (REQUEST). Lo que ENVÍA EL NAVEGADOR WEB" linenums="1" hl_lines="1-2"
+```title="Petición web a Google (REQUEST)" linenums="1" hl_lines="1-2"
 GET / HTTP/2
 Host: www.google.com
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0
@@ -65,4 +65,4 @@ x-xss-protection: 0
 <!doctype html><html itemscope="" itemtype="http://schema.org/WebPage" lang="es"><head><meta charset="UTF-8">...
 ```
 
-La última línea es TODO el HTML de la página.
+**La última línea es TODO el HTML de la página** (en este ejemplo mostramos solo el principio por simplicidad).
