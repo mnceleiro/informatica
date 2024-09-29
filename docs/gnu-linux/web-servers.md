@@ -11,7 +11,8 @@ Si entramos a [google.com](https://www.google.com) desde el navegador...
 Lo que el **navegador de verdad envía** es lo siguiente:
 
 
-```title="Petición web a Google (REQUEST)"
+```
+
 GET / HTTP/2
 Host: www.google.com
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0
