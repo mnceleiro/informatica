@@ -25,7 +25,7 @@ System.out.println(createdSuccessfully ?
 1. Falta la captura de excepciones. Por limpieza del código se omitirán en la mayoría de casos.
 
 !!! Note "Ejercicio"
-    1. Añade la captura de excepciones necesarias al programa anterior.
+    1. Añade la captura de excepciones necesarias a l programa anterior.
     2. Revisa en qué ruta se ha creado el fichero y por qué.
     3. Comprueba qué ocurre si pones delante de la ruta una "/".
 
@@ -54,6 +54,7 @@ Vamos ahora a cargar un fichero del sistema e imprimir la ruta donde se encuentr
     ```
 
 La clase File tiene un método para comprobar si el fichero existe:
+
     ```java
     private static void printPath(String path) {
         File f = new File(path);
@@ -187,6 +188,7 @@ Descarga el fichero CSV con la incidencia del COVID en centros educativos ordena
 
 ### Ejercicio (parte I: consola)
 Crea una aplicación en dos capas (dos paquetes, iu y datos), donde las clases de la capa de IU se ocupen de mostrar un menú para las siguientes opciones:
+
 - Obtener todos los datos ordenados por el nombre del centro educativo.
 - Obtener todos los datos de un solo día indicado (el día será 1, 2, 3...). Tendrás que agruparlos.
 - Obtener datos por ayuntamiento y fecha (se pedirá ayuntamiento, día, mes y año, numéricos).
