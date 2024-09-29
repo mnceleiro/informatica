@@ -1,4 +1,6 @@
-# Terminal de comandos
+# Comandos básicos en GNU/Linux
+
+## Terminal de comandos
 Un terminal de comandos es una interfaz en modo texto usada para controlar un ordenador (ya sea Linux o Windows).
 
 A continuación se muestra el ejemplo de un terminal de comandos en un sistema operativo basado en Linux (Raspbian):
@@ -6,18 +8,10 @@ A continuación se muestra el ejemplo de un terminal de comandos en un sistema o
 
 No te preocupes si lo que ves te resulta extraño ahora, ya que en pocos días entenderás perfectamente todo lo que aparece en esa imagen.
 
-## Comandos básicos de GNU/Linux
-| Acción | Comando |
-| :----: | ------- |
-| Ver manual de un comando | man comando<br />man ls |
-| Reiniciar ordenador | sudo reboot |
-| Apagar ordenador | sudo shutdown -h now |
-| Ver procesos | top<br>htop<br>ps<br>ps -ef |
-| Probar conexión y latencia | ping www.google.com<br>ping 151.101.133.50
-| Ver información de red | ip address |
-| Mostrar mensaje por pantalla | echo "mensaje". Por ejemplo:<br />echo "Hola mundo"<br /> echo "Estoy ejecutándome en el SHELL: $0."
+## Tutorial de comandos básicos de GNU/Linux
+![type:video](https://www.youtube.com/embed/uJMgyV40k-g)
 
-### Comandos de carpetas y ficheros
+## Comandos de carpetas y ficheros
 La raíz de todas las carpetas (también llamadas directorios) se denomina en **Windows** como **C:**. En **GNU/Linux**, en cambio, **la raíz de todo es “/”**. Un usuario se sitúa en Windows y GNU/Linux en las siguientes carpetas:
 
 - *Windows 10*:     &emsp;*C:/Usuarios/**nombreUsuario**/*
@@ -54,6 +48,17 @@ Si no encuentras la aplicación en apt podrías buscar la aplicación en interne
 - [Instalar Steam en Ubuntu (filtrando último año)](https://www.google.com/search?q=Instalar+spotify+en+Ubuntu&client=firefox-b-d&sxsrf=ALiCzsbNq7lw0-VEnp-j00t0oxK4FidwvA:1651835021653&source=lnt&tbs=qdr:y&sa=X&ved=2ahUKEwi6tMX93Mr3AhUHP-wKHUIhC_EQpwV6BAgBEB4&biw=1920&bih=927&dpr=1).
 
 Te recomiendo hacerlo **filtrando por "último año"** o por la versión de Linux que tengas. Por ejemplo: ["Instalar Spotify en Ubuntu 20.04"](https://www.google.com/search?client=firefox-b-d&q=Instalar+spotify+en+Ubuntu+20.04).
+
+## Comandos básicos relacionados con el sistema
+| Acción | Comando |
+| :----: | ------- |
+| Ver manual de un comando | man comando<br />man ls |
+| Reiniciar ordenador | sudo reboot |
+| Apagar ordenador | sudo shutdown -h now |
+| Ver procesos | top<br>htop<br>ps<br>ps -ef |
+| Probar conexión y latencia | ping www.google.com<br>ping 151.101.133.50
+| Ver información de red | ip address |
+| Mostrar mensaje por pantalla | echo "mensaje". Por ejemplo:<br />echo "Hola mundo"<br /> echo "Estoy ejecutándome en el SHELL: $0."
 
 ## Gestión de procesos
 | Acción            | Comando                   | Descripción/Ejemplos          |

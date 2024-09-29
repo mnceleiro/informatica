@@ -15,11 +15,11 @@ Si funciona saldrá algo como lo de la imagen siguiente:
 ### Creando un Vagrantfile con "vagrant init"
 Crea una carpeta donde almacenar los scripts de Vagrant. Yo, por ejemplo, los guardaré en:
 
-- *C:/Users/<tu-usuario>/Documentos/clases/scripts-vagrant/*. 
+- *C:/Users/<tu-usuario\>/Documentos/clases/scripts-vagrant/*. 
 
 Ahora, vamos a crear nuestro primer script que guardaremos en: 
 
-- C:/Users/<tu-usuario>/Documentos/clases/scripts-vagrant/0-probando-vagrant.
+- C:/Users/<tu-usuario\>/Documentos/clases/scripts-vagrant/0-probando-vagrant.
 
 Sitúate en la carpeta "0-probando-vagrant" desde un terminal. Una vez ahí, ejecuta el siguiente comando:
 
