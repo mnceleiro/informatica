@@ -90,7 +90,7 @@ La teoría de esta parte está en el apartado de [gestión de usuarios y grupos]
 14. Convierte al usuario mostovoi en propietario de la carpeta "copias_seguridad" (comando chown). Verifica que ha funcionando viendo los permisos con el comando: `ls -l`.
 15. Elimina los dos usuarios y el grupo empleados.
 
-## Redirecciones y tuberías (pipes) caracteres "<", ">", ">>" y "|"
+## Redireccion de entrada/salida estándar "<", ">", ">>"
 Una de las cosas más importantes a aprender en GNU/Linux es como redireccionar a ficheros. Para ello se usan los caracteres ">", "<" y ">>". La otra son las tuberías (caracter "|"), que nos permiten mandar la salida de un comando como entrada de otro.
 
 1. Ejecuta el comando: `echo "Mi nombre es <tunombre_tuapellido1/>.`"
@@ -101,3 +101,13 @@ Una de las cosas más importantes a aprender en GNU/Linux es como redireccionar 
 6. Revisa de nuevo con cat el contenido del ficher, ¿qué ha cambiado? ¿por qué? Explica la diferencia entre usar > y >>
 7. Ahora haz lo mismo con ls -la. Haz un `ls -la` de tu home adáptalo para que el resultado no salga por pantalla, sino que la salida del comando se redirija al fichero "resultado_ls.txt" (pista, es como antes: usando el ">").
 8. Ahora modifica el comando para que se añadan nuevas líneas al fichero cada vez que ejecutas el comando.
+
+## Conectividad básica
+1. Ejecuta el comando en Linux para mirar cuál es tu IP (`ip address`). Indica:
+       - ¿Cuál es tu ip privada?
+       - ¿Cuál es tu ip de loopback?
+       - ¿Qué es la ip de loopback?
+2. Ejecuta otro comando de linux para ver tu ip: `ifconfig`. Si te da un error haz lo que sea para arreglarlo y que el comando funcione.
+3. Comprueba la conectividad con google.com.
+4. Comprueba cuál la dirección de tu servidor DNS (busca en internet el comando y pruébalo).
+5. Mira la IP privada de tu ordenador principal (probablemente tengas Windows, tendrás que buscar el comando). ¿Cuál es la puerta de enlace? ¿Qué dispositivo de tu casa es el que tiene asignada esa puerta de enlace?
