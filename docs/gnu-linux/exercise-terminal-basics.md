@@ -13,8 +13,8 @@ A continuación van los ejercicios. No hagas nada con el usuario "root". En algu
 Comenzamos con la actividad. **No te muevas con cd a ninguna carpeta a no ser que se te indique.**
 
 1. Sitúate en tu home (/home/<tu_usuario\>).
-2. Crea una carpeta "Actividad_1" en tu home (hay un espacio en el nombre de la carpeta, tienes que ponerlo). Mira de estar seguro cuál es "tu home", tu home es tu carpeta personal (no la carpeta /home, sino /home/<tu_usuario\>).
-3. Sin moverte de tu home, **crea una carpeta <nombre_apellido1\> dentro de "Actividad_1" usando una ruta absoluta** (donde <nombre_apellido1\> es tu nombre y apellido). Dentro de esta carpeta, crea las siguientes carpetas **con un solo comando** y también ruta absoluta:
+2. Crea una carpeta "Actividad_1" en tu home. Mira de estar seguro cuál es "tu home", tu home es tu carpeta personal (no la carpeta /home, sino /home/<tu_usuario\>).
+3. Sin moverte de tu home, **crea una carpeta <nombre_apellido1\> dentro de "Actividad_1" usando una ruta absoluta** (donde <nombre_apellido1\> es tu nombre y apellido). Dentro de esta carpeta, crea las siguientes carpetas **con un solo comando** y también ruta absoluta (inténtalo por si mismo, si no lo consigues ayúdate de ChatGPT para que te ayude):
 
     - Una carpeta llamada "datos".
     - Otra carpeta llamada "copias_seguridad".
