@@ -1,6 +1,16 @@
 # Redes en GNU/Linux
-## Comandos principales
 
+## Conceptos previos
+Para entender esta parte hay que tener ciertos conceptos previos sobre redes. Algunos de ellos son:
+
+- Direcciones IP públicas y privadas.
+- IP de loopback, 127.0.0.1, localhost.
+- Máscara de red (formato CIDR o no), 
+- DHCP.
+- Direcciones MAC.
+
+## Comandos principales
+### Comando: ip address
 ```bash title="Ver configuración IP"
 ip address
 ```
@@ -11,6 +21,22 @@ ip address
 
 El comando anterior puede sustituirse por `ip -4 address` o `ip -6 address` para ver solo la IPv4 o IPv6 del equipo.
 
+### Comando: ping
+Con el comando ping puedes comprobar si hay conectividad:
+
+```bash
+ping duckduckgo.com # (1)!
+```
+
+1. Se ejecuta indefinidamente. Pulsa "control" + "c" para parar el ping
+
+!!! Note "Ejercicio" 
+
+    1. Comprueba en una máquina virtual tu IP privada. Indica si está en la misma red que la IP de tu máquina host.
+    2. Haz un ping desde la máquina host a la máquina virtual. ¿Funciona? ¿por qué?
+    3. ¿Cuál es tu ip de loopback.
+    4. Haz un ping a localhost, ¿funciona? ¿qué es localhost?
+    5. Localhost está definido en algún sitio (por eso lo identifica tu sistema). Busca donde se define esa IP (y también se pueden crear nombres para otras ips).
 
 === "Ver conexiones (comando actual)"
 

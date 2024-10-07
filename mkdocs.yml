@@ -55,7 +55,7 @@ nav:
     - 'Frontend Roadmap': 'web/intro.md'
     - 'Iniciación a JavaScript': 'web/js-basics.md'
   - Seguridad:
-    - 'Intro': ''
+    - 'Intro': 'intro.md'
     - 'test': 'test'
     - 'In': ''
   - Otros:

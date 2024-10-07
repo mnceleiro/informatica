@@ -22,7 +22,7 @@ Comenzamos con la actividad. **No te muevas con cd a ninguna carpeta a no ser qu
     - Otra carpeta "informacion obsoleta" (con el espacio).
 
     !!! Note "Nota"
-        Los textos entre "<>" significan que el campo es obligatorio. Por ejemplo: <nombre_apellido1\> indica que tienes que poner obligatoriamente tu nombre y apellido pero sin los símbolos "<>". Por ejemplo, en mi caso tendría esta ruta: /home/marcos/Actividad_1/marcos_nunez (fíjate que no pongo los "<>").
+        Los textos entre "<>" significan que el campo es obligatorio: <nombre_apellido1\> indica que tienes que poner obligatoriamente tu nombre y apellido pero sin los símbolos "<>". Por ejemplo, en mi caso tendría esta ruta: /home/marcos/Actividad_1/marcos_nunez (fíjate que no pongo los "<>").
 
         Por otro lado, si el texto se pone entre corchetes "[]" indica campo opcional (podría ponerse o no).
 
