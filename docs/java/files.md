@@ -124,6 +124,39 @@ Algunos de los más interesantes son los siguientes:
 | File      | getCanonicalPath() |
 | File[]    | listFiles() |
 
+!!! Note "Ejercicio"
+    Haz el siguiente ejercicio dos veces:
+    - Primera vez usa los métodos anteriores (java.io).
+    - Segunda vez usa Files + Path (haz los mismos ejercicios con clase Files + Path, es decir, java.nio)
+
+```java
+public static void main(String[] args) {
+    // TODO: Crea una nueva carpeta
+    
+    
+    // TODO: Crea un nuevo fichero (solo si no existía antes)
+    
+    
+    // TODO: Lee lo que hay en el fichero
+    
+    
+    // TODO: Comprobar los permisos que tienes sobre el fichero (puedes escribir en él y leer?)
+    
+    
+    // TODO: ¿Es un fichero o un directorio?
+    
+    
+    // TODO: ¿Está oculto?
+    
+    
+    // TODO: Dame el PATH completo del fichero
+    
+    
+    // TODO: Lista lo que hay en una carpeta del sistema.
+}
+
+```
+
 ## Clase Files (java.nio)
 La clase Files sirve más o menos para lo mismo que File, pero en este caso contiene todo métodos estáticos y recibe un **Path** como parámetro.
 
@@ -134,7 +167,7 @@ Completa la siguiente tabla usando solo métodos de java.nio.Files y escribe un 
 
 La dificultad añadida de "Files" es que siempre recibe como parámetro un ["Path"](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/nio/file/Path.html). [Aquí dejo un buen artículo de internet como apoyo](https://javarush.com/en/groups/posts/en.2275.java-files-path).
 
-| Retorno   | Método clase File     | Método clase Files/Path   |
+| Retorno   | Método clase File     | Método Files/Path   |
 |   :-:     |       :-:             |       :-:                 |
 | boolean   | canRead()             |   -                       |
 | boolean   | canWrite()            |   -                       |
