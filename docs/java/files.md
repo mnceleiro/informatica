@@ -134,21 +134,21 @@ Completa la siguiente tabla usando solo métodos de java.nio.Files y escribe un 
 
 La dificultad añadida de "Files" es que siempre recibe como parámetro un ["Path"](https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/nio/file/Path.html). [Aquí dejo un buen artículo de internet como apoyo](https://javarush.com/en/groups/posts/en.2275.java-files-path).
 
-| Retorno   | Método clase File     | Método clase Files    |
-|   :-:     |       :-:             |       :-:             |
-| boolean   | canRead()             |   -                   |
-| boolean   | canWrite()            |   -                   |
-| boolean   | canExecute()          |   -                   |
-| boolean   | createNewFile()       |   -                   |
-| boolean   | delete()              |   -                   |
-| boolean   | exists()              |   -                   |
-| boolean   | isDirectory()         |   -                   |
-| boolean   | isFile()              |   -                   |
-| boolean   | isHidden()            |   -                   |
-| boolean   | mkdir()               |   -                   |
-| File      | getAbsolutePath()     |   -                   |
-| File      | getCanonicalPath()    |   -                   |
-| File[]    | listFiles()           |   -                   |
+| Retorno   | Método clase File     | Método clase Files/Path   |
+|   :-:     |       :-:             |       :-:                 |
+| boolean   | canRead()             |   -                       |
+| boolean   | canWrite()            |   -                       |
+| boolean   | canExecute()          |   -                       |
+| boolean   | createNewFile()       |   -                       |
+| boolean   | delete()              |   -                       |
+| boolean   | exists()              |   -                       |
+| boolean   | isDirectory()         |   -                       |
+| boolean   | isFile()              |   -                       |
+| boolean   | isHidden()            |   -                       |
+| boolean   | mkdir()               |   -                       |
+| File      | getAbsolutePath()     |   -                       |
+| File      | getCanonicalPath()    |   -                       |
+| File[]    | listFiles()           |   -                       |
 
 ## Actividad III: navegador de archivos sencillo
 Crea un navegador de archivos simple en la consola de Java (mediante un menú) que permita realizar las siguientes operaciones:
