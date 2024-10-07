@@ -188,6 +188,7 @@ Crea un navegador de archivos simple en la consola de Java (mediante un menú) q
 
 ### Arranque del programa
 Cuando inicias el programa se guardará la ruta actual y mostrará:
+ 
 - La ruta absoluta actual.
 - La lista de archivos y carpetas existentes en la ruta.
 
