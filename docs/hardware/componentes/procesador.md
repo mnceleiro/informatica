@@ -1,6 +1,7 @@
 # El procesador
 
 El procesador, microprocesador o micro es el cerebro del ordenador, se encarga de:
+
 - Coordinar y controlar la ejecución de instrucciones.
 - Decodifica esas instrucciones.
 - Genera pulsos de reloj para que las instrucciones se lleven a cabo de forma síncrona.

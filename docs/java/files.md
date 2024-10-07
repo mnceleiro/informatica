@@ -185,13 +185,87 @@ Si se escribe "rm" pide una ruta y se elimina el fichero o directorio correspond
 ### Salir del programa
 Si se escribe "salir" se termina el programa.
 
-## Actividad IV: Visualización de datos COVID
+## Actividad IV: XML
+Crea un nuevo proyecto con una clase "Mascota" con los atributos:
+
+- id: long
+- breed: String
+- name: String
+- type: String
+- color: String
+
+### Conversiones entre XML y objetos Java
+Crea una clase "Principal" con un método "main" y crea un objeto Mascota. Después, conviértelo a XML de manera que consigas una salida como esta por consola:
+
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pet id="1">
+    <nombre>Darwin</nombre>
+    <tipo>gato</tipo>
+    <raza>Siamés</raza>
+    <color>gris</color>
+</pet>
+```
+
+- Haz que el XML anterior se almacene en un fichero en vez de por salida estándar (stdout).
+- Obtén el XML almacenado en el fichero y conviértelo en un objeto Mascota.
+
+### Organización de código y uso de genéricos
+Organiza el código en clases de manera que tengas:
+
+- Una clase **ConversorJaxbDeObjetoAXml** con métodos que reciban objetos mascota y realicen lo siguiente:
+    - Almacenar mascota en fichero.
+    - Mostrar por salida estándar (consola).
+- Una clase **ConversorJaxbDeXmlAObjeto** con métodos que reciban un XML y realicen lo siguiente:
+    - Obtener objeto de fichero.
+- Haz que el código utilizado sirva para cualquier otra clase (no solo para Mascota). Para esto necesitas utilizar genéricos.
+
+
+## Actividad V: Manipulación de JSON
+
+![type:video](https://www.youtube.com/embed/kHw85khzcKE)
+
+### Conversión entre JSON y objetos Java
+Crea un nuevo proyecto con una clase mascota con los atributos:
+
+- id: long
+- breed: String
+- name: String
+- type: String
+- color: String
+
+Crea una clase "Principal" con un método "main" y crea un objeto Mascota. Después, conviértelo a JSON utilizando GSON o Jackson de manera que consigas una salida como esta por consola:
+
+```json
+{
+  "mascota" : {
+    "id" : 1,
+    "nombre" : "Darwin",
+    "tipo" : "gato",
+    "raza" : "Siamés",
+    "color" : "gris"
+  }
+}
+```
+
+Finalmente, cambia el nombre de la mascota y realiza la transformación inversa (convierte el json generado a un objeto "Mascota" nuevamente).
+
+### Organización de código y uso de genéricos
+Crea una interfaz ConversorORMJson con las definiciones de los siguientes métodos:
+1. **aObjeto**(String json): Mascota
+2. **aJson**(Mascota m): String
+
+Posteriormente, crea una clase **ConversorORMGson** o **ConversorORMJackson** (según qué biblioteca estés usando) que implemente la interfaz anterior.
+
+Haz que la interfaz y las clases anteriores sirvan para cualquier tipo de entidad (utiliza genéricos).
+
+## Actividad VI: Visualización de datos COVID
 ### Contexto
 En 2020, Daniel González Peña, profesor la escuela superior de ingeniería informática en Ourense realizó una recopilación, día a día, de los datos de la incidencia del COVID en Galicia y los centralizó [en un repositorio de GitHub](https://lipido.github.io/galicia-covid19/).
 
 Descarga el fichero CSV con la incidencia del COVID en centros educativos ordenados por fecha disponible [aquí](https://raw.githubusercontent.com/lipido/galicia-covid19/master/centros_educativos/centros_educativos.csv).
 
-### Ejercicio (parte I: consola)
+### Visualización en consola
 Crea una aplicación en dos capas (dos paquetes, iu y datos), donde las clases de la capa de IU se ocupen de mostrar un menú para las siguientes opciones:
 
 - Obtener todos los datos ordenados por el nombre del centro educativo.
@@ -201,7 +275,7 @@ Crea una aplicación en dos capas (dos paquetes, iu y datos), donde las clases d
 
 Todas las operaciones de ese menú tendrán que realizarse con funciones en la capa de datos (en este ejercicio solo usaremos una clase a la que vamos a llamar DatosCovidDao). Ahí tendrás que realizar todas las operaciones.
 
-### Ejercicio (parte II: web dinámica)
+### Visualización en web dinámica
 Crea una aplicación en Java que cargue el CSV en memoria con cada petición GET a /datoscovid con las siguientes operaciones:
 
 - /datoscovid/all: Obtener todos los datos ordenados por el nombre del centro educativo.
@@ -213,7 +287,9 @@ Crea una aplicación en Java que cargue el CSV en memoria con cada petición GET
 Puedes aprovechar la capa de datos anterior.
 
 
-## TODOs (apuntes futuros)
-- Ejemplos con java.nio y java.nio2
+## TODOs futuros (mejoras)
+- Separar completamente ejercicios que usan java.io y java.nio. Intentar buscar buen contenido externo que enlazar sobre esto, ya que es enrevesado (o simplemente restarle importancia).
+- Más ejemplos con java.nio y java.nio2
+- Optimizar o reducir la parte de XML. Pensar en dar opción entre librerías (JAXB y XStream)
 - Un posible inicio de proyecto.
-- Referencias externas para crear una web dinámica en Java.
+- Buenas referencias externas para crear una webs dinámicas en Java. Tomcat.
