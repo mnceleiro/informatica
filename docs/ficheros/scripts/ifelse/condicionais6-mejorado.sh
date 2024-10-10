@@ -13,17 +13,17 @@
 # then/entonces
 # ...
 
-# Podríamos poner $# -ne 1, pero utilizamos esto como un ejemplo con varias condiciones
-if [ $# -eq 0 -o $# -gt 1 ]
+# Podríamos poner $# -ne 1, pero utilizamos esto para el ejemplo
+if [ $# -eq 0 ] || [ $# -gt 1 ]
 then
 	echo "O programa debe executarse coa seguinte sintaxe: $0 <numero>"
 
-elif [ $1 -gt 66 ]
+elif [ "$1" -gt 66 ]
 then
 
 	echo "Está xubilado."
 
-elif [ $1 -gt 17  ]
+elif [ "$1" -gt 17  ]
 then
 	echo "É maior de idade."
 
