@@ -3,7 +3,8 @@ Los servidores web se ejecutan a través del protocolo HTTP (puerto 80) y HTTPS 
 
 Deberíamos conocer un poco el concepto de protocolo TCP y el concepto de puerto. Aún así, un servidor web basicamente hace una petición al puerto 80/443 y recibe una respuesta.
 
-## Lo que envía el navegador
+## Protocolo HTTP
+### Lo que envía el navegador
 Si entramos a [google.com](https://www.google.com) desde el navegador...
 
 ![Barra de navegación web Google.com](../images/gnu-linux/networks/browser-address-bar-google.png)
@@ -20,15 +21,11 @@ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/w
 Accept-Language: es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3
 Accept-Encoding: gzip, deflate, br, zstd
 Connection: keep-alive
-Upgrade-Insecure-Requests: 1
-Sec-Fetch-Dest: document
-Sec-Fetch-Mode: navigate
-Sec-Fetch-Site: cross-site
-Priority: u=0, i
-TE: trailers
+(más cosas menos relevantes)
+
 ```
 
-Lo más interesante aquí son las dos primeras líneas (somos el navegador web, el cliente que quiere ver lo que hay en google.com). Explicamos las más interesantes de toda la petición:
+Lo más interesante aquí son las dos primeras líneas (somos el navegador web, el cliente que quiere ver lo que hay en google.com):
 
 - **GET / HTTP/2**: quiero el recurso que está en el directorio raíz, uso el protocolo HTTP versión 2.
 - **Host**: www.google.com: hago la petición a la web www.google.com. En la línea anterior é indicado que quiero el directorio raíz de esta página web.
@@ -38,32 +35,38 @@ Lo más interesante aquí son las dos primeras líneas (somos el navegador web, 
 
 **¿Bien pero ahora, cuál es la respuesta?**
 
-## Respuesta que recibimos del servidor
+### Respuesta que recibimos del servidor
 Lo que vemos al escribir en el navegador la dirección de Google es lo siguiente:
 
 ![Página web de Google](../images/google.png)
 
 Pero, ¿qué es lo que hay en realidad?
 
-En la respuesta se obtiene el siguiente texto:
+En la respuesta se obtiene el siguiente texto (mostramos solo lo más relevante):
 
 ```
 HTTP/2 200
 date: Wed, 25 Sep 2024 18:27:35 GMT
-expires: -1
-cache-control: private, max-age=0
 content-type: text/html; charset=UTF-8
-strict-transport-security: max-age=31536000
-content-security-policy-report-only: object-src 'none';base-uri 'self';script-src 'nonce-LP5Qz-1ZkYGmJpHHPxG-Mg' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
-cross-origin-opener-policy: same-origin-allow-popups; report-to="gws"
-report-to: {"group":"gws","max_age":2592000,"endpoints":[{"url":"https://csp.withgoogle.com/csp/report-to/gws/other"}]}
-accept-ch: Sec-CH-Prefers-Color-Scheme
-content-encoding: br
-server: gws
 content-length: 64200
-x-xss-protection: 0
 
-<!doctype html><html itemscope="" itemtype="http://schema.org/WebPage" lang="es"><head><meta charset="UTF-8">...
+<!doctype html>
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="es">
+    <head>
+        <meta charset="UTF-8">...
+    </head>
+    
+    <body>
+        (cosas)
+    </body>
+</html>
 ```
 
-**La última línea es TODO el HTML de la página** (en este ejemplo mostramos solo el principio por simplicidad).
+## Servidores web
+TODO: Tomcat, Apache, nginx, IIS
+
+
+## Referencias y más información para profundizar
+- Consulta la documentación oficial de mdn sobre el funcionamiento en profundidad del protocolo HTTP: https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview
+
+**Después de la línea en blanco se envía todo el contenido (el HTML, porque en este caso se pide eso) de la página**.
