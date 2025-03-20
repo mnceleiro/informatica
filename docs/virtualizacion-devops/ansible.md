@@ -1,5 +1,5 @@
 # Aprovisionamiento con Ansible
-Ansible es una herramienta de "gestión de la configuración" (otras anteriores fueron Puppet y Chef) de código abierto que nos permite automatizar tareas en distintos equipos que podemos tener en una o varias redes. Por ejemplo: instalación de software, copia de archivos, arranque de servicios, implementación de reglas de seguridad, etc.
+Ansible es una herramienta de **gestión de la configuración** (otras anteriores fueron **Puppet** y **Chef**) de código abierto que nos permite automatizar tareas en distintos equipos que podemos tener en una o varias redes. Por ejemplo: instalación de software, copia de archivos, arranque de servicios, implementación de reglas de seguridad, etc.
 
 Ansible fue creado en 2012 por Michael Dehann, está escrito en Python y usa  ficheros YAML para la configuración. Aprovisiona (instala software, arranca servicios, crea archivos...) en ordenadores remotos utilizando SSH (esto es, debemos tener un servidor SSH instalado en las máquinas que queremos aprovisionar).
 
@@ -74,11 +74,14 @@ Hay dos maneras de instalar Ansible, escoge una:
 === "APT"
 
     ```bash title="Instalando Ansible con APT"
+    # Anhadimos repositorio oficial de Ansible
+    sudo apt‐add‐repository ppa:ansible/ansible
     sudo apt update
 
     # Prerrequisitos
     sudo apt install -y python3
 
+    # Instalamos Ansible
     sudo apt install ansible -y
 
     # Comprobamos instalación correcta y versión
@@ -94,10 +97,14 @@ Hay dos maneras de instalar Ansible, escoge una:
     ```
 
 !!! Tarea
-    Instala ansible.
+    Instala ansible en la máquina de control.
 
 ## Empezando a trabajar con Ansible: generando y copiando claves SSH
-Antes de nada, para hacer cosas en equipos remotos **Ansible utiliza SSH**. Por tanto, tenemos que generar un par de claves en el equipo de control y pasar la clave pública a todos los equipos remotos. De esta manera, como la clave pública del equipo de control está en los demás equipos, este podrá conectarse a ellos sin contraseña y así podrá realizar de forma automatizada operaciones sobre los mismos.
+Antes de nada, para hacer cosas en equipos remotos **Ansible utiliza SSH**. Por tanto, tenemos que:
+
+1. Generar un par de claves en el equipo de control
+2. Pasar la clave pública a todos los equipos remotos. 
+3. Ahora tenemos la clave privada y los equipos a aprovisionar tienen la clave pública. La máquina de control podrá conectarse a los equipos para aprovisionarlos.
 
 ### Generando claves pública y privada en "control"
 En este caso tenemos solo un equipo remoto que queremos "controlar". Por esta razón, debemos generar las claves SSH en control y poner la clave pública en el authorized_keys del equipo remoto.
@@ -114,13 +121,19 @@ No pongas passpharse. Una vez ejecutado el comando deberían generarse las clave
 Tenemos que pasar la clave pública al otro equipo, para ello podemos copiarla en la carpeta /vagrant (está compartida por defecto por todos los hosts).
 
 ```
-cp ~/.ssh/id_rsa /vagrant
+cp ~/.ssh/id_rsa.pub /vagrant
 ```
 
-Después, desde **equipo1** copiamos la clave pública en el fichero authorized_keys:
+Comprobamos que vemos la clave desde **equipo1**:
+```
+cat /vagrant/id_rsa.pub
+```
+
+Si la vemos sin problema, ahora basta con añadir su contenido al fichero authorized_keys:
 ```
 cat /vagrant/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
+Hecho de esta forma (con >>) no sobreescribimos ninguna otra que pudiera haber antes. Además, al no copiar el fichero sino su contenido nos evitamos problemas que podríamos tener con los permisos del fichero que tiene la clave.
 
 ### Probando la conexión SSH
 Comprueba que puedes acceder por SSH sin contraseña desde "control" a "equipo1".
@@ -136,6 +149,9 @@ gandalf ansible_host=IP_equipo ansible_user=nombre_usuario
 arwen ansible_host=IP_equipo ansible_user=nombre_usuario
 frodo ansible_host=IP_equipo ansible_user=nombre_usuario
 ```
+
+!!! Nota
+    Por defecto, el inventario en Ansible está en **/etc/ansible/hosts**.
 
 En este caso, hemos creado el grupo "equipos" con 3 hosts (a los que les indicamos el nombre del host, la ip del equipo y el usuario).
 
@@ -155,6 +171,55 @@ ansible mis_equipos -m ping
     3. Mira para qué sirven las opciones --list y -y indicadas en el comando ejecutado (revisa el manual de ansible-inventory para ver para qué sirven y que cambiaría no ponerlas).
     4. Comprueba si hay ping a los hosts de "mis_equipos" (de forma normal, con un "ping" típico y luego con ansible).
     5. Prueba ahora a hacer ping a TODOS los equipos con Ansible (en este caso coincide que todos los equipos están en el grupo "mis_equipos", por lo que no veremos diferencia). Puedes hacer ping a todos los equipos con Ansible cambiando el grupo ("mis_equipos") por "all".
+
+### Resumen sobre inventarios
+- El inventario de Ansible se encuentra, por defecto, en **/etc/ansible/hosts**.
+- Podemos comprobar la conexión con los equipos definidos en el inventario con el comando `ansible <equipos> <ruta_al_inventario> -m ping`.
+- Los ficheros de inventario se pueden crear en formato ini (el que hemos hecho) o JSON.
+
+### Inventario con varios grupos de hosts
+Un ejemplo de un inventario con varios grupos de hosts podría ser el siguiente:
+```ini
+[webservers]
+web1 ansible_host=192.168.1.10 ansible_user=ubuntu
+web2 ansible_host=192.168.1.11 ansible_user=ubuntu
+
+[databases]
+db1 ansible_host=192.168.1.20 ansible_user=root
+
+[all:vars]
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+```
+
+El grupo final [all:vars] configura opciones que son comunes para todos los hosts. En este caso, indicamos que use esa clave privada para conectarse con cualquier host remoto.
+
+### Ejemplo con múltiples claves privadas para diferentes hosts
+Si queremos, podemos indicar la clave privada a utilizar directamente donde definimos el host:
+```ini
+[webservers]
+web1 ansible_host=192.168.1.10 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
+web2 ansible_host=192.168.1.11 ansible_user=admin ansible_ssh_private_key_file=~/.ssh/admin_key.pem
+```
+
+### Ejemplo simple: solo con el host
+Uno de los ejemplos más simple de inventario que podemos hacer sería el siguiente:
+```ini
+[web]
+host1.murallaromana.com
+host2.murallaromana.com
+host3.murallaromana.com
+
+[db]
+db.murallaromana.com
+db2.murallaromana.com
+```
+
+Tenemos 2 grupos de hosts, pero solo hemos puesto el dominio donde se encuentran (podríamos poner también la ip). Entonces, ¿qué usuario usará Ansible para intentar conectarse por SSH?
+
+Usará el **mismo usuario de la máquina de control**. Esto es, si en las dos máquinas está el usuario "vagrant" y la clave privada está en su ruta por defecto, la conexión debería tener éxito.
+
+!!! Tarea
+    1. Haz una copia del inventario que has creado en el ejercicio anterior. Ahora, modifícalo para simplificarlo como en el ejemplo (solo con las ips de las máquinas).
 
 ## Empezando a trabajar con Ansible: Playbooks
 Los ficheros *Playbook* definen las tareas que ejecutarán los hosts del inventario. Para definir los Playbooks se usan ficheros YAML (similares a JSON).
@@ -203,7 +268,7 @@ Vamos a crear un playbook sencillo.
 ```
 
 Los Playbooks se pueden ejecutar con el comando `ansible-playbook`:
-```
+```bash
 ansible-playbook <nombre_fichero>.yml
 ``` 
 
@@ -211,8 +276,10 @@ ansible-playbook <nombre_fichero>.yml
     En esta tarea realizarás la primera tarea de aprovisionamiento sobre las máquinas que gestiona Ansible (en este caso solo "equipo1").
 
     1. Indica, leyendo el anterior playbook de ejemplo, qué crees que hará.
-    2. Crea el anterior Playbook en **~/ansible/playbooks/1-hello.yml**
-    3. Ejecuta el Playbook y verifica que hace lo que se supone que debe hacer.
+    2. Crea el playbook de ping del ejemplo anterior (equivalente al comando ansible-playbook -m ping que has ejecutado anteriormente).
+    3. Ejecuta el playbook.
+    4. Crea el Playbook "Mi primer Playbook" en **~/ansible/playbooks/1-hello.yml**. Tendrás que crear las carpetas en tu home.
+    5. Ejecuta el Playbook y verifica que hace lo que se supone que debe hacer.
 
 ### Uso de variables
 Vamos a modificar el ejemplo anterior para utilizar una variable para el mensaje de saludo.
@@ -441,4 +508,34 @@ Añade una tercera máquina a la configuración de Vagrant y instala en ella uno
 Finalmente, haz una configuración básica. Por ejemplo, si usas Nextcloud conéctate a él desde una aplicación de escritorio o móvil, si usas Wordpress cambia la plantilla y añade alguna entrada en el blog, si usas Zabbix añade los otros equipos de la red.
 
 ## Inventario
-El inventario en ansible es la lista de equipos que aprovisionamos. **Por defecto, el inventario se encuentra en /etc/ansible/hosts**, pero podemos poner el inventario en donde queramos (en nuestro caso lo tenemos en otro sitio)
+El inventario en ansible es la lista de equipos que aprovisionamos. **Por defecto, el inventario se encuentra en /etc/ansible/hosts**, pero podemos poner el inventario en donde queramos (lo normal es tener un proyecto con todo).
+
+El fichero de inventario puede ser implementado como INI o YAML.
+
+
+
+## TODO
+- Inventarios con hijos: debian:children (que incluya debian 11 y 12 por ejemplo).
+- Ansible Galaxy (desglose del trabajo anterior usando ansible-galaxy en roles).
+- Exploración del repo de Ansible Galaxy: https://galaxy.ansible.com/
+- Variables de inventario (inventory/host_vars e inventory/group_vars).
+- Facts, comprobar facts, deshabilitar facts (gather_facts: false), creación de facts con facts.d y ext .fact, config de cacheo de facts.
+- hostvars, manipulación de variables.
+- Precedencia de variables de menor a mayor: 
+  - Por defecto en los roles: defaults/main.yml
+  - Inventario (inline, [nombre:vars])
+  - Inventario (group_vars)
+  - Inventario (host_vars)
+  - Variables de grupo (group_vars) a nivel de playbook (al lado del playbook.yml).
+  - Lo mismo pero de host de playbook (host_vars)
+  - Facts de host
+  - Variables registradas con "register:".
+  - Facts definidos con set_fact.
+  - Variables de playbook (definidas en la sección vars de un playbook).
+  - Variables de playbook (definidas con vars_prompt, interactivas).
+  - Variables de playbook (en ficheros, con vars_files).
+  - Variables de playbook en un rol concreto (variables de rol, lo mismo que variables de playbook pero dentro del rol).
+  - Variables de playbook en un bloque (block).
+  - Variables de playbook dentro de las tareas (dentro de tasks).
+  - Variables especificadas como parámetro en un comando con `ansible-playbook`. o especificando un fichero de variables.
+- Buenas prácticas.
