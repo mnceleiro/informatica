@@ -305,7 +305,7 @@ Ahora vamos a ir con un Playbook un poco más complejo. Este Playbook instala (e
 ---
 - name: Instalar Nginx si no está instalado
   hosts: mis_equipos
-  become: yes # Si añadimos esto hacemos que Ansible se haga administrador para las tareas
+  become: true # Si añadimos esto hacemos que Ansible se haga administrador para las tareas
   tasks:
     - name: Instalar Nginx
       apt:
@@ -316,7 +316,7 @@ Ahora vamos a ir con un Playbook un poco más complejo. Este Playbook instala (e
 !!! Tarea
     1. Razona lo que hace el fichero anterior.
     2. Crea el fichero **3-nginx.yml** con el contenido anterior y comprueba que hace lo que tiene que hacer. Puedes comprobarlo usando en la máquina gestionada el comando nginx -v.
-    3. Ahora, crea el fichero **4-nginx-absent.yml** para desinstalar nginx. Es muy similar al anterior, pero el estado debe ser ausente (absent) en lugar de presente (present) y además haz que "nginx" sea una variable.
+    3. Ahora, crea el fichero **4-nginx-absent.yml** para desinstalar nginx. Es muy similar al anterior, pero el estado debe ser ausente (absent) en lugar de presente (present) y además haz que "nginx" sea una variable. *Revisa que nginx se elimine completamente (pista: puede que no lo haga), si no lo hace revisa la [documentación del módulo apt de ansible](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html) e intenta añadir alguna propiedad más que haga que se elimine tanto nginx como los paquetes relacionados con él.*
     4. De nuevo, comprueba el funcionamiento con nginx -v en la máquina gestionada.
 
 ### Bucles
@@ -328,7 +328,7 @@ Vamos a ver como instalar varios paquetes juntos:
 ---
 - name: Instalar varios paquetes
   hosts: mis_equipos
-  become: yes
+  become: true
   tasks:
     - name: Instalar paquetes
       apt:
@@ -351,7 +351,7 @@ Se pueden definir listas de variables y luego iterar sobre ellas:
 ---
 - name: Instalar varios paquetes desde una variable
   hosts: mis_equipos
-  become: yes
+  become: true
   vars:
     paquetes:
       - nginx
@@ -376,12 +376,12 @@ Aunque se ha usado este ejemplo para ver el tema de bucles, la instalación de p
 ---
 - name: Instalar varios paquetes
   hosts: mis_equipos
-  become: yes
+  become: true
   tasks:
     - name: Instalar paquetes
       apt:
         state: present
-        update_cache: yes # apt update
+        update_cache: true # apt update
         name:
         - nginx
         - vim
@@ -417,7 +417,7 @@ Vamos a ver otro ejercicio ahora incluyendo ficheros:
 ---
 - name: Verificar existencia de un archivo
   hosts: mis_equipos
-  become: yes
+  become: true
   tasks:
     - name: Comprobar si el archivo existe
       stat:
@@ -437,7 +437,7 @@ Vamos a ver otro ejercicio ahora incluyendo ficheros:
 
 Otro ejercicio:
 
-```
+```yaml
 ---
 - name: Si el sistema operativo que usamos es Ubuntu, instala nginx
   hosts: mis_equipos
@@ -495,11 +495,22 @@ Para ver información de tu inventario puedes usar el comando `ansible-inventory
 ansible-inventory -i inventory --list -y  # Sin -y se muestra en formato json
 ```
 
-!!! Tarea
+!!! Tarea I
     Prueba todos esos comandos en tu máquina.
+
+
+!!! Tarea II
+    1. Crea una carpeta tarea-2 y en ella haz un fichero de inventario (basicamente el mismo que ya tienes, pero ahora no vamos a usar el /etc/ansible/hosts sino que vamos a tener el inventario en la carpeta de nuestro proyecto).
+    2. Comprueba el ping con el inventario (indica que use el que acabamos de crear, no el viejo).
+    3. Guiandote y combinando los playbooks que ya hemos creado antes, vamos a crear uno que nos permita instalar Apache con PHP, copiar ficheros PHP de un proyecto local que tengamos a remoto. Los pasos son los siguientes: 1. crear el fichero de playbook, instalar Apache, instalar php, instalar otras dependencias si son necesarias y, finalmente, copiar tus ficheros php a /var/www/html.
+
+!!! Tarea III
+    1. Crea una copia de tarea-2 con el nombre tarea-3. 
+    2. Ahora, modifícalo para copiar un proyecto PHP que use también base de datos (hay que configurar con ansible la creación de la base de datos e indicar el usuario y contraseña). Para ello, revisa [el módulo de MySQL](https://docs.ansible.com/ansible/latest/collections/community/mysql/index.html) de Ansible.
 
 ## Trabajo
 Añade una tercera máquina a la configuración de Vagrant y instala en ella uno de los siguientes sevicios:
+
 1. Nextcloud: Servicio en la nube (estilo Dropbox/Google Drive) pero en nuestro propio disco.
 2. Wordpress: Gestor de contenidos web.
 3. Zabbix: monitorización de equipos (cuando son apagados, encendidos, estados erróneos, etc.).
@@ -512,10 +523,10 @@ El inventario en ansible es la lista de equipos que aprovisionamos. **Por defect
 
 El fichero de inventario puede ser implementado como INI o YAML.
 
-
-
 ## TODO
 - Inventarios con hijos: debian:children (que incluya debian 11 y 12 por ejemplo).
+- Desplegar playbooks en AWS/Azure.
+- Ansible en sistemas Windows.
 - Ansible Galaxy (desglose del trabajo anterior usando ansible-galaxy en roles).
 - Exploración del repo de Ansible Galaxy: https://galaxy.ansible.com/
 - Variables de inventario (inventory/host_vars e inventory/group_vars).
