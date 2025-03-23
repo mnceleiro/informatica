@@ -480,7 +480,13 @@ Podemos ejecutar un Playboook (p. ej: el anterior) con:
 ansible-playbook ruta/a/comprobacion-ping-equipo1.yml # podemos añadir -v para ver mas información
 ```
 
+### Inventario
+El inventario en ansible es la lista de equipos que aprovisionamos. **Por defecto, el inventario se encuentra en /etc/ansible/hosts**, pero podemos poner el inventario en donde queramos (lo normal es tener un proyecto con todo).
+
+El fichero de inventario puede ser implementado como INI o YAML.
+
 El inventario se encuentra por defecto en /etc/ansible/hosts. Si queremos usar un inventario situado en otro sitio (que es lo más común) podemos usar el siguiente comando:
+
 ```bash
 ansible-playbook -i /vagrant/hello_world_ansible/inventory /vagrant/hello_world_ansible/playbooks/1-hello.yml 
 ```
@@ -491,24 +497,25 @@ ansible-playbook -i ./inventory ./1-hello.yml   # Se puede omitir el ./
 ```
 
 Para ver información de tu inventario puedes usar el comando `ansible-inventory`:
-```bash title="Ver inventario en formato yaml (-y)
+
+```bash title="Ver inventario en formato yaml (-y)"
 ansible-inventory -i inventory --list -y  # Sin -y se muestra en formato json
 ```
 
 !!! Tarea I
     Prueba todos esos comandos en tu máquina.
 
+## Tareas
+### Tarea I: inventario y playbook con PHP y Apache
+1. Crea una carpeta tarea-1 y en ella haz un fichero de inventario (basicamente el mismo que ya tienes, pero ahora no vamos a usar el /etc/ansible/hosts sino que vamos a tener el inventario en la carpeta de nuestro proyecto).
+2. Comprueba el ping con el inventario (indica que use el que acabamos de crear, no el viejo).
+3. Guiandote y combinando los playbooks que ya hemos creado antes, vamos a crear uno que nos permita instalar Apache con PHP, copiar ficheros PHP de un proyecto local que tengamos a remoto. Los pasos son los siguientes: 1. crear el fichero de playbook, instalar Apache, instalar php, instalar otras dependencias si son necesarias y, finalmente, copiar tus ficheros php a /var/www/html.
 
-!!! Tarea II
-    1. Crea una carpeta tarea-2 y en ella haz un fichero de inventario (basicamente el mismo que ya tienes, pero ahora no vamos a usar el /etc/ansible/hosts sino que vamos a tener el inventario en la carpeta de nuestro proyecto).
-    2. Comprueba el ping con el inventario (indica que use el que acabamos de crear, no el viejo).
-    3. Guiandote y combinando los playbooks que ya hemos creado antes, vamos a crear uno que nos permita instalar Apache con PHP, copiar ficheros PHP de un proyecto local que tengamos a remoto. Los pasos son los siguientes: 1. crear el fichero de playbook, instalar Apache, instalar php, instalar otras dependencias si son necesarias y, finalmente, copiar tus ficheros php a /var/www/html.
+### Tarea II: añade base de datos
+1. Crea una copia de tarea-1 con el nombre tarea-2. 
+2. Ahora, modifícalo para copiar un proyecto PHP que use también base de datos (hay que configurar con ansible la creación de la base de datos e indicar el usuario y contraseña). Para ello, revisa [los módulos de mysql](https://docs.ansible.com/ansible/latest/collections/community/mysql/index.html) de Ansible.
 
-!!! Tarea III
-    1. Crea una copia de tarea-2 con el nombre tarea-3. 
-    2. Ahora, modifícalo para copiar un proyecto PHP que use también base de datos (hay que configurar con ansible la creación de la base de datos e indicar el usuario y contraseña). Para ello, revisa [el módulo de MySQL](https://docs.ansible.com/ansible/latest/collections/community/mysql/index.html) de Ansible.
-
-## Trabajo
+### Tarea III: instala un servicio completo a tu elección usando Ansible
 Añade una tercera máquina a la configuración de Vagrant y instala en ella uno de los siguientes sevicios:
 
 1. Nextcloud: Servicio en la nube (estilo Dropbox/Google Drive) pero en nuestro propio disco.
@@ -517,11 +524,6 @@ Añade una tercera máquina a la configuración de Vagrant y instala en ella uno
 4. Otros: consultar antes.
 
 Finalmente, haz una configuración básica. Por ejemplo, si usas Nextcloud conéctate a él desde una aplicación de escritorio o móvil, si usas Wordpress cambia la plantilla y añade alguna entrada en el blog, si usas Zabbix añade los otros equipos de la red.
-
-## Inventario
-El inventario en ansible es la lista de equipos que aprovisionamos. **Por defecto, el inventario se encuentra en /etc/ansible/hosts**, pero podemos poner el inventario en donde queramos (lo normal es tener un proyecto con todo).
-
-El fichero de inventario puede ser implementado como INI o YAML.
 
 ## TODO
 - Inventarios con hijos: debian:children (que incluya debian 11 y 12 por ejemplo).
@@ -533,20 +535,20 @@ El fichero de inventario puede ser implementado como INI o YAML.
 - Facts, comprobar facts, deshabilitar facts (gather_facts: false), creación de facts con facts.d y ext .fact, config de cacheo de facts.
 - hostvars, manipulación de variables.
 - Precedencia de variables de menor a mayor: 
-  - Por defecto en los roles: defaults/main.yml
-  - Inventario (inline, [nombre:vars])
-  - Inventario (group_vars)
-  - Inventario (host_vars)
-  - Variables de grupo (group_vars) a nivel de playbook (al lado del playbook.yml).
-  - Lo mismo pero de host de playbook (host_vars)
-  - Facts de host
-  - Variables registradas con "register:".
-  - Facts definidos con set_fact.
-  - Variables de playbook (definidas en la sección vars de un playbook).
-  - Variables de playbook (definidas con vars_prompt, interactivas).
-  - Variables de playbook (en ficheros, con vars_files).
-  - Variables de playbook en un rol concreto (variables de rol, lo mismo que variables de playbook pero dentro del rol).
-  - Variables de playbook en un bloque (block).
-  - Variables de playbook dentro de las tareas (dentro de tasks).
-  - Variables especificadas como parámetro en un comando con `ansible-playbook`. o especificando un fichero de variables.
+    - Por defecto en los roles: defaults/main.yml
+    - Inventario (inline, [nombre:vars])
+    - Inventario (group_vars)
+    - Inventario (host_vars)
+    - Variables de grupo (group_vars) a nivel de playbook (al lado del playbook.yml).
+    - Lo mismo pero de host de playbook (host_vars)
+    - Facts de host
+    - Variables registradas con "register:".
+    - Facts definidos con set_fact.
+    - Variables de playbook (definidas en la sección vars de un playbook).
+    - Variables de playbook (definidas con vars_prompt, interactivas).
+    - Variables de playbook (en ficheros, con vars_files).
+    - Variables de playbook en un rol concreto (variables de rol, lo mismo que variables de playbook pero dentro del rol).
+    - Variables de playbook en un bloque (block).
+    - Variables de playbook dentro de las tareas (dentro de tasks).
+    - Variables especificadas como parámetro en un comando con `ansible-playbook`. o especificando un fichero de variables.
 - Buenas prácticas.
