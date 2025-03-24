@@ -502,17 +502,104 @@ Para ver información de tu inventario puedes usar el comando `ansible-inventory
 ansible-inventory -i inventory --list -y  # Sin -y se muestra en formato json
 ```
 
-!!! Tarea I
+!!! Tarea
     Prueba todos esos comandos en tu máquina.
 
-## Tareas
-### Tarea I: inventario y playbook con PHP y Apache
-1. Crea una carpeta tarea-1 y en ella haz un fichero de inventario (basicamente el mismo que ya tienes, pero ahora no vamos a usar el /etc/ansible/hosts sino que vamos a tener el inventario en la carpeta de nuestro proyecto).
+## Tarea I: ejercicios variados (ENTREGABLE)
+
+- **Todas las capturas deben mostrar tu nombre y apellidos (de la manera que quieras) y la hora del sistema.**
+- La entrega se hará en formato PDF.
+
+### Puesta a punto (esto es sin ansbile)
+1. Crea una máquina en AWS de nombre: ansible-control-node (Debian)
+2. Crea una máquina en AWS de nombre: ansible-cliente-1 (Amazon Linux). Cuidado, este cliente usa yum para instalar paquetes y no apt.
+3. Actualiza los paquetes en ambas máquinas.
+4. Comprueba que las dos máquinas se hace ping entre ellas (pista: si no funciona quizá tengas que permitir el tráfico ICMP a las máquinas.
+
+**Evidencias:**
+1. Captura de la pantalla de AWS donde se ven las 2 instancias.
+2. Captura del ping entre ambas máquinas.
+
+### Instalación de Ansible y conexión
+1. Instala Python y Ansible.
+2. Crea una carpeta **tarea-1** y dentro un fichero de inventario de nombre **hosts.cfg** con los datos necesarios para aprovisionar software a la máquina cliente.
+3. Comprueba la conectividad con la máquina cliente (módulo ping de ansible).
+
+**Evidencias:**
+1. Captura donde se vea el hosts.cfg que has configurado.
+2. Captura de la prueba de conectividad.
+
+### Playbooks simples
+8. Crea un playbook que, usando el módulo [**file**](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html), cree un fichero en la máquina cliente-1.
+9. Crea un playbook que instale nginx.
+10. Crea un playbook que [copie un fichero](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html#ansible-collections-ansible-builtin-copy-module) de nombre "hola-mundo.txt" de tu home al home de la máquina remota.
+11. Crea un playbook que instale nginx.
+12. Crea un playbook que asegure que nginx está en ejecución.
+13. Ahora, indica **qué módulos de ansible has usado hasta ahora**. Simplemente, escribe el nombre de los módulos que has usado.
+
+**Evidencias:**
+1. Captura donde se vea el playbook.
+2. Captura de la ejecución del playbook exitosa.
+
+### Playbook complejo
+Crea un playbook que ejecute las siguientes tareas:
+
+1. Actualiza el sistema.
+2. Instala nginx.
+3. Crea un fichero de prueba en el servidor remoto de nombre "ejercicio-minombre-miapellido1.txt".
+4. Elimina el fichero index.html que está creado por defecto con nginx.
+5. Copia un fichero index.html creado por ti (que tenga tu nombre y apellidos en un h1) al document root de nginx.
+6. Ejecuta el servicio nginx. 
+7. Instala firewalld y permite el tráfico en los puertos 22 y 80.
+8. Asegúrate de que firewalld esté en ejecución (módulo service).
+
+Te ofrezco la siguiente ayuda:
+```yaml
+---
+- hosts: aws  # Aplicamos este playbook al grupo "aws" del inventario
+  become: yes  # Ejecuta todas las tareas como administrador
+
+  tasks:
+    # Tarea 1: Actualizar todos los paquetes del sistema
+    name: Actualizar todos los paquetes
+    ...
+
+    # Tarea 2: Instalar Nginx
+
+
+    # Tarea 3: Crear un archivo de prueba en el servidor remoto
+
+
+    # Tarea 4: eliminar el index.html del document root de nginx
+
+
+    # Tarea 5: Copiar un index.html desde tu máquina local al servidor remoto
+
+
+    # Tarea 6: Asegurar que el servicio Nginx esté en ejecución
+
+
+    # Tarea 7: instala firewalld y permite el tráfico en los puertos 22 y 80.
+
+
+    # Tarea 8: asegúrate de que firewalld está habilitado y en ejecución (módulo service).
+
+```
+
+**Recomendación**: **ve ejecutando el script tarea a tarea** y asegúrate de que tienes los recursos necesarios (p. ej: para copiar un archivo primero tienes que crearlo).
+
+**Evidencias:**
+1. Captura/s del playbook.
+2. Captura de la ejecución del playbook.
+3. Avisa al profesor para que verifique la ejecución.
+
+### Tarea II: inventario y playbook con PHP y Apache
+1. Crea una carpeta tarea-2 y en ella haz un fichero de inventario (basicamente el mismo que ya tienes, pero ahora no vamos a usar el /etc/ansible/hosts sino que vamos a tener el inventario en la carpeta de nuestro proyecto).
 2. Comprueba el ping con el inventario (indica que use el que acabamos de crear, no el viejo).
 3. Guiandote y combinando los playbooks que ya hemos creado antes, vamos a crear uno que nos permita instalar Apache con PHP, copiar ficheros PHP de un proyecto local que tengamos a remoto. Los pasos son los siguientes: 1. crear el fichero de playbook, instalar Apache, instalar php, instalar otras dependencias si son necesarias y, finalmente, copiar tus ficheros php a /var/www/html.
 
-### Tarea II: añade base de datos
-1. Crea una copia de tarea-1 con el nombre tarea-2. 
+### Tarea III: añade base de datos
+1. Crea una copia de tarea-3 con el nombre tarea-3. 
 2. Ahora, modifícalo para copiar un proyecto PHP que use también base de datos (hay que configurar con ansible la creación de la base de datos e indicar el usuario y contraseña). Para ello, revisa [los módulos de mysql](https://docs.ansible.com/ansible/latest/collections/community/mysql/index.html) de Ansible.
 
 ### Tarea III: instala un servicio completo a tu elección usando Ansible
