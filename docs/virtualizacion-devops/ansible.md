@@ -517,6 +517,7 @@ ansible-inventory -i inventory --list -y  # Sin -y se muestra en formato json
 4. Comprueba que las dos máquinas se hace ping entre ellas (pista: si no funciona quizá tengas que permitir el tráfico ICMP a las máquinas.
 
 **Evidencias:**
+
 1. Captura de la pantalla de AWS donde se ven las 2 instancias.
 2. Captura del ping entre ambas máquinas.
 
@@ -526,6 +527,7 @@ ansible-inventory -i inventory --list -y  # Sin -y se muestra en formato json
 3. Comprueba la conectividad con la máquina cliente (módulo ping de ansible).
 
 **Evidencias:**
+
 1. Captura donde se vea el hosts.cfg que has configurado.
 2. Captura de la prueba de conectividad.
 
@@ -538,6 +540,7 @@ ansible-inventory -i inventory --list -y  # Sin -y se muestra en formato json
 13. Ahora, indica **qué módulos de ansible has usado hasta ahora**. Simplemente, escribe el nombre de los módulos que has usado.
 
 **Evidencias:**
+
 1. Captura donde se vea el playbook.
 2. Captura de la ejecución del playbook exitosa.
 
@@ -589,6 +592,7 @@ Te ofrezco la siguiente ayuda:
 **Recomendación**: **ve ejecutando el script tarea a tarea** y asegúrate de que tienes los recursos necesarios (p. ej: para copiar un archivo primero tienes que crearlo).
 
 **Evidencias:**
+
 1. Captura/s del playbook.
 2. Captura de la ejecución del playbook.
 3. Avisa al profesor para que verifique la ejecución.
