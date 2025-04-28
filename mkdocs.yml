@@ -25,8 +25,11 @@ nav:
     - 'Virtualbox': 'virtualizacion-devops/virtualbox.md'
     - 'Vagrant': 'virtualizacion-devops/vagrant.md'
     - 'Vagrant (II)': 'virtualizacion-devops/vagrant2.md'
-    - 'Docker': 'virtualizacion-devops/docker.md'
     - 'Ansible': 'virtualizacion-devops/ansible.md'
+    - 'Docker I: iniciación': 'virtualizacion-devops/docker.md'
+    - 'Docker II: Dockerfiles': 'virtualizacion-devops/docker-2.md'
+    - 'Docker III: Docker Compose': 'virtualizacion-devops/docker-3.md'
+
   - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
     - 'Instalación': 'gnu-linux/installation.md'
@@ -102,4 +105,4 @@ plugins:
   - search
   - enumerate-headings:
       increment_across_pages: false
-      toc_depth: 4
+      toc_depth: 3
