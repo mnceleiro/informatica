@@ -82,6 +82,7 @@ theme:
 extra:
   generator: false
 markdown_extensions:
+  - sane_lists
   - pymdownx.highlight:
       anchor_linenums: true
   - admonition

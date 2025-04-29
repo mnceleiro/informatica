@@ -326,28 +326,249 @@ Para salir solo tenemos que hacerlo como en cualquier terminal, con `exit`.
 Vamos a hacer lo mismo, pero ahora nos conectamos directamente al contenedor al crearlo:
 
 ```bash
-# Creamos y ejecutamos un contenedor de mysql y el comando ls en él
+# Creamos y ejecutamos un contenedor de ubuntu y el comando ls en él
 docker container run -p 33061:3306 -it ubuntu bash
 ```
 Esto debería abrirnos un terminal dentro de la máquina Ubuntu. Como no entramos en modo -d (dettach), el contenedor se va a parar cuando salgamos.
 
-!!! Ejercicio
-    1. Desde la máquina, mira los archivos que hay en el directorio actual (`ls`).
+!!! Ejercicios
+    1. Ejecuta el comando anterior. Desde dentro de la máquina, mira los archivos que hay en el directorio actual (`ls`).
     2. Comprueba tu ip.
-    3. ¿Puedes hacerte un ping, por ejemplo, a ti mismo?
+    3. ¿Puedes hacerte un ping, por ejemplo, a ti mismo?.
+   
+    !!! abstract "Nota"
+        Supongo que has tenido dificultades con estos tres ejercicios. Esto es porque los contenedores son muy livianos y apenas traen utilidades. No existe ni ifconfig, ni ip address ni ping. La única manera de mirar la ip es viéndolo en el fichero de configuración correspondiente.
 
-Bien, supongo que has tenido dificultades con los ejercicios. Esto es porque los contenedores son muy livianos y apenas traen utilidades. No existe ni ifconfig, ni ip address ni ping. La única manera de mirar la ip es viéndolo en el fichero de configuración correspondiente.
+        Vamos a continuar practicando.
+
+    4. Crea y ejecuta un contenedor de nginx:latest y abre un shell en él, todo en el mismo comando.
+    5. Prueba el comando curl a localhost, si no está instalado instalalo. Finalmente, sal (exit).
+    6. Después de salir, ¿el contenedor sigue en ejecucióno? ¿Sigue existiendo? Si aún existe, elimina el contenedor.
+    7. Después de eliminarlo, vuelve a ejecutar el comando del punto 4 pero esta vez añádele la opción **-rm**. Sal del contenedor e intenta adivinar que hizo el --rm (pista: mira la lista de contenedores de nuevo).
+    8. Ahora, busca en DockerHub "alpine", esta es una distribución muy minimalista,.
+    9.  Descarga la imagen de alpine. Revisa la lista de imágenes para verificar que está descargada. ¿Cuánto ocupa?
+    10. Ahora, intenta crear un contenedor de alpine abriendo un bash en él, ¿qué ocurre?
+    11. Como ves, la imagen es muy pequeña y ni siquiera tiene disponible bash. Inténtalo de nuevo con un shell mucho más antiguo (sh).
+    12. Debería funcionarte. Ahora, sal de la máquina (dejará de estar en ejecución cuando salgas). Luego, arráncala de nuevo (ojo, no es con `docker run`).
+    13. Abre un shell en el contenedor.
+    14. Juega un poco con este gestor de paquetes (hasta ahora probablemente conozcas **apt** y quizás **yum** y **dnf**). Utiliza el comando `apk --help` para intentar actualizar los paquetes e instalar bash. Después sal del contenedor.
+    15. Sal del contenedor y páralo.
+    16. Arranca el contenedor de nuevo abriendo un terminal en él. Todo en el mismo comando (es decir, sin usar docker exec). Pista: al usar `docker start` no es con -it, usa `docker start --help` para la ayuda (tampoco necesitarás poner explicitamente el intérprete de comandos, bash o sh, a usar).
+
+??? success "Ver solución"
+    ```bash
+    # 1. Miramos los archivos de la máquina y hacemos un ls
+    docker container run -p 33061:3306 -it ubuntu bash
+    ls
+
+    # 2. Comprobamos nuestra ip
+    ip address # no está instalado
+    ifconfig # no funcionará, net-tools no está instalado
+
+    # Ya que parece que no tenemos software instalado, la información persistente suele estar en ficheros
+    # Vamos a ver qué ficheros hay en /etc que pueden tener nuestra información de conexión
+    ls /etc/  # Pueden ser interesantes host.conf, networks, hosts, hostname.
+
+    # Comprobamos el fichero hosts y ahí está nuestra ip
+    cat /etc/hosts
+
+    # Otra manera: instalando iproute2 (comandos ip)
+    apt update
+    apt install iproute2
+
+    # 3. No se puede, ping no está instalado, si queremos hacerlo funcionar:
+    apt install -y iputils-ping
+    ping localhost              # ya funciona
+
+    # 4. Crear un contenedor nginx y abrir un shell en 1 solo comando    
+    docker container run -it nginx bash
+
+    # Podriamos mapear puertos con -p si queremos acceder por web al nginx (no se pide ni indica)
+    docker container run -it -p 8080:80 nginx bash
+
+    # 5. Probamos "curl localhost". Si curl no está instalado, lo instalamos
+    apt update
+    apt install curl
+    curl localhost
+    exit
+
+    # 6. Miramos si el contenedor está creado y en ejecución y si existe lo eliminamos
+    docker container ls     # No está en ejecución
+    docker container ls -a  # Sigue creado
+
+    docker container rm 7aa # o tu id de contenedor o nombre, si estuviese en ejecución habría que hacer antes docker stop
+
+    # 7. Ejecutamos lo mismo pero con opción --rm
+    docker container run -it --rm nginx bash
+    
+    # Salimos del shell
+    exit
+
+    # Comprobamos si está el contenedor
+    docker container ls -a  # El contenedor no está, la opción --rm lo borra al salir
+
+    # 8. Buscar alpine en Dockerhub y descargarla. Ver las imágenes
+    docker pull alpine
+
+    # 9. Miramos que está descargada y ocupa entre 7 y 8mbs
+    docker image ls
+
+    # 10. Creamos un contenedor de alpine y abrimos un intérprete de bash
+    docker container run -it alpine bash    # ERROR, bash no se encuentra en la variable PATH
+
+    # 11. Intentamos crearlo y conectarnos con un intérprete sh
+    docker container run -it alpine sh    # Funciona!
+
+    # 12. Salimos y arrancamos de nuevo el contenedor
+    exit
+    docker container ls -a  # Miramos la id del contenedor para arrancarlo nuevamente (en mi caso es 5488588662e6)
+    docker container start 5488588662e6
+
+    # 13. Abrimos sh en el contenedor
+    docker exec -it 5488588662e6 sh
+
+    # 14. Exploramos las opciones del gestor de paquetes de alpine, apk
+    apk --help
+    apk update              # Actualizamos la lista de paquetes
+    apk add bash            # Instalamos bash
+  
+    # 15. Salir del contenedor y pararlo
+    exit
+    docker stop 548
+    docker start --help     # Esta vez no es con -it, sino con -ai (y no ponemos el intérprete al final)
+    docker start -ai 548
+    ```
 
 ## Creación de volúmenes
+Hace un rato creamos contenedores para MySQL. El problema es que, **si eliminamos el contenedor y lo volvemos a crear, los datos de las bases de datos almacenadas se pierden**. Los **volúmenes** nos permiten **almacenar datos de forma persistente** e incluso compartirlos entre distintos contenedores.
 
+Primero, para crear y listar volúmenes:
 
-## Crear redes
+```bash
+# Crea un volumen (aunque no es necesario ya que cuando lo asignes, si no existe, se creará igualmente)
+docker volume create datos-mysql
 
+# Lista los volúmenes
+docker volume ls
+```
 
+Aunque se pueden crear volúmenes con `docker volume create`, no es necesario hacerlo antes de asignarlo (ya que al intentar asignarlo, si no existe, se crea). **Vamos a ver como es la sintaxis para asignar el volumen a contenedores**. Hay varias sintaxis posibles:
+```bash
+docker run --mount type=volume,src=nombre_volumen,dst=ruta_contenedor
+o
+docker run --volume nombre_volumen:ruta_contenedor
+o
+docker run -v nombre_volumen:ruta_contenedor
+```
+
+Vamos a probar a crear un [contenedor de MySQL con un volumen asignado](https://hub.docker.com/_/mysql):
+```bash
+docker run --mount type=volume,src=datos-mysql,dst=/var/lib/mysql # (1)!
+```
+
+1. La ruta `/var/lib/mysql` es donde MySQL guarda los datos.
+
+Recomiendo consultar más información sobre esto en la [documentación oficial de volúmenes de Docker](https://docs.docker.com/engine/storage/volumes/).
+
+También, si quieres ver información sobre un volumen puedes usar `docker inspect <id_volumen|nombre_volumen>`.
+
+!!! Note "Ejercicio (reto)"
+    Como en los anteriores, intenta hacer el ejercicio antes de mirar la solución:
+    
+    1. Intenta, con la información anterior, crear un contenedor nuevo de MySQL de nombre "mysql-with-volume" con un volumen datos-mysql en /var/lib/mysql y conéctala con un puerto de tu máquina host. Verifica desde tu cliente de MySQL que puedes conectarte al contenedor.
+    2. Abre un shell de bash en el contenedor.
+    3. Ejecuta MySQL y crea una base de datos "pruebas" con una tabla usuarios con un id y un nombre. Inserta un usuario.
+    4. Verifica desde tu cliente de MySQL del host que se ha insertado el usuario. Después, sal del contenedor, páralo y elimínalo.
+    5. Usa `docker volume --help`. Luego, guiándote por la ayuda, lista los volúmenes existentes (verás que el que has usado todavía está).
+    6. Crea de nuevo un contenedor de MySQL de la misma manera, que use el mismo volumen. Comprueba que aún están los datos dentro usando SOLO UN COMANDO DE DOCKER EXEC: solo que ahora, **en lugar de ejecutar bash, ejecutarás `mysql -u root -p...`**
+    7. Elimina completamente el contenedor sin pararlo antes (sin usar docker stop). Para ello solo tienes que añadir -f para forzar y así no tendrás que pararlo para eliminarlo.
+    8. Mira si el volumen aún existe y, si existe, mira su información (el comando está un poco más arriba puesto). Verás que aún existe a pesar de que hemos eliminado el contenedor. Mira donde se guarda esa información en tu máquina host y haz un ls de la ubicación (puede que tengas que usar sudo).
+
+??? success "Ver solución"
+    ```bash
+    # 1. Creamos el contenedor
+    docker run -d -p 3336:3306 --name mysql-with-volume --mount type=volume,src=datos-mysql,dst=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc123 mysql
+
+    # Verificamos que está en ejecución (si está en ejecución todo va bien)
+    docker ls
+
+    # 2. Ejecutamos bash
+    docker exec -it mysql-with-volume bash
+
+    # 3. Ejecutamos las consultas (lo hago en una línea, pero podrías hacerlo de forma interactiva)
+    mysql -u root -pabc123 -e "CREATE DATABASE IF NOT EXISTS pruebas;CREATE TABLE IF NOT EXISTS pruebas.usuarios (id int not null primary key auto_increment, nombre varchar(255) not null);INSERT INTO pruebas.usuarios (nombre) VALUES ('Linus Torvalds')";
+
+    # 4. Salimos, paramos y eliminamos el contenedor
+    docker container stop mysql-with-volume
+    docker container rm mysql-with-volume
+
+    # 5. Usamos la ayuda de docker volume y listamos los volúmenes
+    docker volume --help
+    docker volume ls
+
+    # 6. Creamos de nuevo el contenedor. Comprobamos que aún están los datos con un comando de docker exec
+    docker container run -d -p 3336:3306 --name mysql-with-volume --mount type=volume,src=datos-mysql,dst=/var/lib/mysql -e MYSQL_ROOT_PASSWORD=abc123 mysql
+    docker exec -it mysql-with-volume mysql -u root -pabc123 -e "SELECT * FROM pruebas.usuarios;"
+
+    # 7. Eliminamos el contenedor sin pararlo antes
+    docker container rm -f mysql-with-volume
+
+    # 8. Comprobamos si aún existe el volumen y vemos su información con docker inspect. Intentamos hacer ls de la ubicación.
+    docker volume inspect datos-mysql
+    sudo ls /var/lib/docker/volumes/datos-mysql/_data
+
+    # 9. Elimina el volumen
+    docker volume rm datos-mysql
+    ```
 
 ## Creación de puntos de montaje (bind mounts)
+Los **bind mounts** o **puntos de montaje** son similares a lo anterior (incluso su sintaxis es muy parecida). La diferencia radica en que en el caso anterior asignamos el volumen con **nombre del volumen** y **ruta en el contenedor**. En el caso de los bind mounts enlazamos **ruta en el host** con **ruta en el contenedor**:
 
-## Inspeccionar contenedores
+```bash
+docker run --mount type=bind,src=ruta_host,dst=ruta_contenedor
+o
+docker run --volume ruta_host:ruta_contenedor
+o
+docker run -v ruta_host:ruta_contenedor```
+```
+
+La sintaxis es igual, pero ahora en lugar de `type=volume` usamos `type=bind`. En el caso de las 2 últimas sintaxis con --volume o -v, simplemente ponemos una ruta absoluta en lugar del nombre del volumen.
+
+A continuación se muestra la **diferencia entre volúmenes** (nombre:ruta_contenedor) **y puntos de montaje** (ruta_host:ruta_contenedor):
+
+=== "VOLUMEN"
+
+    ```bash
+    docker run --mount type=volume,src=nombre_volumen,dst=ruta_contenedor
+    o
+    docker run --volume nombre_volumen:ruta_contenedor
+    o
+    docker run -v nombre_volumen:ruta_contenedor
+    ```
+
+=== "PUNTO DE MONTAJE"
+
+    ```bash
+    docker run --mount type=bind,src=ruta_host,dst=ruta_contenedor
+    o
+    docker run --volume ruta_host:ruta_contenedor
+    o
+    docker run -v ruta_host:ruta_contenedor```
+    ```
+
+!!! tip "Para saber más"
+    - Los volúmenes se usan para almacenar datos sin importar donde se guardan en el host (de hecho, se almacenarán como ya has visto en `/var/lib/docker/volumes/`). Por ejemplo: almacenar bases de datos.
+    - Los puntos de montaje, por su parte, se sincronizan con una carpeta que tengas en el host. Servirán, por ejemplo, para compartir código que estás editando y que aparezca directamente en una carpeta del contenedor. De esta manera podrás actualizarlo.
+
+!!! Ejercicio
+    1. Busca en Dockerhub una imagen que tenga un servidor web con PHP 8. Crea un fichero .php en él (puedes abrir un shell con `docker exec`) y entra en la página para ver que funciona.
+    2. Crea una carpeta `mi-proyecto` con un fichero .php y abre la carpeta con Visual Studio Code. Luego, crea un contenedor con un punto de montaje (bind mount) de manera que cada vez que edites el código en local se actualice en el contenedor de docker (esto es, que se actualice la página en tu navegador).
+
+## Redes en Docker
+
+
+## Inspeccionar objetos
+Puedes usar `docker image|container|volume|network inspect` para ver información completa de todos estos objetos. Pruébalo con alguno que tengas creado.
 
 
 
