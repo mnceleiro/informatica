@@ -238,12 +238,14 @@ docker container logs <id_contenedor|nombre_contenedor>
 ## Repaso y ampliación de lo visto hasta ahora
 Estos ejercicios se basan en lo visto hasta ahora, pero añaden pequeños matices que tendrás que investigar:
 
-1. Crea un contenedor que levante nginx y lo enlace al puerto 8081 de nuestro host. Esto ya hemos visto como se hace, **pero esta vez el contenedor debe tener un nombre definido (debes darle un nombre al contenedor)**. Para ver como hacer esto usa la ayuda: `docker container run --help` (ahí verás como poner nombre al contenedor). El resto es como hemos hecho hasta ahora.
-2. Crea y ejecuta un contenedor con la última imagen de [MySQL](https://hub.docker.com/_/mysql) y con nombre "base_de_datos". Al crear el contenedor, es posible que este se pare solo (verifica que está en ejecución con `docker container ps`). Si se para solo, pista: revisa bien la documentación que se indica en DockerHub (pista: quizá tengas que crear alguna variable de entorno para establecerle una contraseña a MySQL) y comprueba los logs del contenedor (tal y como indicamos antes). Saca tus conclusiones e intenta arrreglar el problema.
+!!! Ejercicios
+    1. Crea un contenedor que levante nginx y lo enlace al puerto 8081 de nuestro host. Esto ya hemos visto como se hace, **pero esta vez el contenedor debe tener un nombre definido (debes darle un nombre al contenedor)**. Para ver como hacer esto usa la ayuda: `docker container run --help` (ahí verás como poner nombre al contenedor). El resto es como hemos hecho hasta ahora.
+    2. Crea y ejecuta un contenedor con la última imagen de [MySQL](https://hub.docker.com/_/mysql) y con nombre "base_de_datos". Al crear el contenedor, es posible que este se pare solo (verifica que está en ejecución con `docker container ps`). Si se para solo, pista: revisa bien la documentación que se indica en DockerHub (pista: quizá tengas que crear alguna variable de entorno para establecerle una contraseña a MySQL) y comprueba los logs del contenedor (tal y como indicamos antes). Saca tus conclusiones e intenta arrreglar el problema.
 
 Los ejercicios anteriores añaden complejidad a lo que llevamos hecho hasta ahora. Mientras que habíamos solo usado imágenes sencillas, existen otras que requieren un poco (o mucho) más de trabajo de configuración. Por ejemplo, si revisamos la [documentación de MySQL](https://hub.docker.com/_/mysql) podemos ver múltiples variables de entorno disponibles para su configuración.
 
 Vamos a crear un contenedor sencillo de MySQL:
+
 ```bash
 # En el ejercicio hemos creado un contenedor (en el que probablemente falló la ejecución)
 # Vamos a comprobar si sigue existiendo
@@ -322,7 +324,7 @@ Voilá! con este último comando hemos abierto un terminal de bash en el contene
 
 Para salir solo tenemos que hacerlo como en cualquier terminal, con `exit`.
 
-# Crear, ejecutar y conectarse a un contenedor
+### Crear, ejecutar y conectarse a un contenedor
 Vamos a hacer lo mismo, pero ahora nos conectamos directamente al contenedor al crearlo:
 
 ```bash
@@ -450,6 +452,9 @@ docker volume create datos-mysql
 
 # Lista los volúmenes
 docker volume ls
+
+# Ver la información del volumen
+docker volume inspect datos-mysql
 ```
 
 Aunque se pueden crear volúmenes con `docker volume create`, no es necesario hacerlo antes de asignarlo (ya que al intentar asignarlo, si no existe, se crea). **Vamos a ver como es la sintaxis para asignar el volumen a contenedores**. Hay varias sintaxis posibles:
@@ -556,21 +561,127 @@ A continuación se muestra la **diferencia entre volúmenes** (nombre:ruta_conte
     docker run -v ruta_host:ruta_contenedor```
     ```
 
-!!! tip "Para saber más"
-    - Los volúmenes se usan para almacenar datos sin importar donde se guardan en el host (de hecho, se almacenarán como ya has visto en `/var/lib/docker/volumes/`). Por ejemplo: almacenar bases de datos.
+!!! tip "Información adicional"
+    - Los volúmenes se usan para almacenar datos en los que no te importan donde estén en tu máquina host (de hecho, **se almacenarán siempre, como ya has visto en `/var/lib/docker/volumes/`**). Por ejemplo: almacenar bases de datos.
     - Los puntos de montaje, por su parte, se sincronizan con una carpeta que tengas en el host. Servirán, por ejemplo, para compartir código que estás editando y que aparezca directamente en una carpeta del contenedor. De esta manera podrás actualizarlo.
 
 !!! Ejercicio
     1. Busca en Dockerhub una imagen que tenga un servidor web con PHP 8. Crea un fichero .php en él (puedes abrir un shell con `docker exec`) y entra en la página para ver que funciona.
     2. Crea una carpeta `mi-proyecto` con un fichero .php y abre la carpeta con Visual Studio Code. Luego, crea un contenedor con un punto de montaje (bind mount) de manera que cada vez que edites el código en local se actualice en el contenedor de docker (esto es, que se actualice la página en tu navegador).
 
-## Redes en Docker
-
-
 ## Inspeccionar objetos
 Puedes usar `docker image|container|volume|network inspect` para ver información completa de todos estos objetos. Pruébalo con alguno que tengas creado.
 
+## Redes en Docker
+Existen varias redes predeterminadas en docker y es posible crear redes adicionales y eliminarlas:
+```bash
+# Miramos la ayuda de docker network
+docker network --help
+
+# Si queremos crear una red
+docker network create mi-red
+
+# Vemos la lista de redes (por defecto los contenedores que creamos sin asignar red están en la bridge)
+docker network ls
+
+# Vemos la información de la red mi-red y de la red bridge
+docker network inspect mi-red
+docker network inspect bridge
+
+# Si quisiesemos crear un contenedor asignandolo a esa red
+docker container run --network mi-red ...
+
+# Para eliminar la red que hemos creado
+docker network rm mi-red
+```
+
+### Red bridge
+**Por defecto, todos los contenedores que creamos están en la red de tipo bridge** que vemos al hacer `docker network ls`. Esta red bridge está en el rango 172.17.0.0/16. Para exponer puertos desde esta red tenemos que usar la opción **-p** que hemos visto anteriormente.
+
+Si inspeccionamos de un par de contenedores cualquiera que hayamos creado y a los que no hemos asignado ninguna red. Esto estarán en la red por defecto de tipo **bridge**:
+```bash
+docker container inspect base_de_datos
+docker container inspect 54885
+```
+
+El resultado es el siguiente (quito parte de los pares clave-valor que no nos interesan):
+=== "CONTENEDOR 1"
+
+    ```
+    ...
+    "IPAddress": "172.17.0.2",
+    "MacAddress": "b2:b2:4d:a6:fa:78",
+    "Networks": {
+        "bridge": {
+            "NetworkID": "1962135f806ac8414eb317c30acb875d348ccf800f8c11b8e39c6707f366845f",
+            "EndpointID": "d6ddd2aed3c982b1959d9c28bc89f760b6584a877b97d599dee85ab156995dd1",
+            "Gateway": "172.17.0.1",
+            "IPAddress": "172.17.0.2",
+        }
+    }
+    ...
+    ```
+
+=== "CONTENEDOR 2"
+
+    ```
+    "IPAddress": "172.17.0.3",
+    "MacAddress": "e6:b0:a0:b5:ab:50",
+    "Networks": {
+        "bridge": {
+            "NetworkID": "1962135f806ac8414eb317c30acb875d348ccf800f8c11b8e39c6707f366845f",
+            "EndpointID": "9b3caef753d319a7bfb2ee6cd31d94e90aa4ac1ffb9dc8b351eeeb7d7bb7a3e8",
+            "Gateway": "172.17.0.1",
+            "IPAddress": "172.17.0.3",
+        }
+    }
+    ```
+
+Podemos ver que la red de ambos es de tipo **bridge** y las IPs son **172.17.0.2** y **172.17.0.3**, por lo que **están en la misma red local**.
+
+### Red host
+Al hacer `docker network ls` vemos que hay tres redes que ya vienen creadas con docker: **bridge** (la hemos visto antes, es la default), **host** y **none**.
+
+Si creamos un contenedor en la red host, podremos acceder a la web directamente desde localhost. Esto es, no tendrá ip propia y compartirá completamente la red de nuestra máquina.
+
+!!! Note "Ejercicio"
+    Crea un contenedor con Apache que use la red host (no tienes que usar -p, crea el contenedor más básico posible). Deberías poder acceder desde tu propia ip de host y el puerto predeterminado sin necesidad de redirigir puertos.
+
+### Red none
+La red none elimina eth0 y nos deja solo con localhost en el contenedor.
 
 
+### Nuevas redes
+```bash
+docker network create mi-red
+docker network ls
 
+# Vemos la información de la red
+docker network inspect mi-red
 
+# Para la ayuda
+docker network create --help
+```
+
+El comando `docker network create mi-red` nos ha creado una nueva red sencilla de tipo bridge en el rango 172.19.0.0/16 (puedes verlo en el `docker network inspect`).
+
+Si queremos usar la red en un nuevo contenedor:
+```bash
+docker container run -d --name mi-nginx1 --network mi-red nginx
+```
+
+Si, en cambio, queremos conectar un contenedor ya existente a esta nueva red:
+```bash
+# Para conectar
+docker network connect <id_red> <id_contenedor>
+
+# Para desconectar
+docker network disconnect <id_red> <id_contenedor>
+
+```
+
+!!! Note "Ejercicio"
+    1. Conecta un contenedor cualquiera a la misma red que el que hemos creado. Verifícalo con `docker network inspect` y `docker container inspect`.
+    2. Desconectalo con de la misma manera que lo has conectado y verifica que ya no aparece en la red al hacer el inspect.
+
+Para producción no usaremos nunca la red por defecto. Siempre crearemos nuestras propias redes para las máquinas.
