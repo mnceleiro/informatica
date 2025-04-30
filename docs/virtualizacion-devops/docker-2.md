@@ -10,7 +10,7 @@ docker image history mysql
 El primer comando (`inspect`) ya lo habíamos visto, aunque no lo hemos probado sobre imágenes (sí sobre contenedores y redes). El segundo comando muestra el historial de versiones de la imagen.
 
 !!! Note "Tarea"
-  Regístrate en dockerhub.
+    Regístrate en dockerhub.
 
 Para construir una imagen a partir de otra existente podemos usar docker tag, lo que añadirá nuevas capas a partir de las ya existentes. Vamos a construir nuestra propia imagen de Apache2 con `docker image tag`:
 ```
@@ -43,8 +43,8 @@ docker image push <tu_usuario>/mi-apache2
 ```
 
 !!! Ejercicio
-  1. Haz todo lo anterior y luego verifica en tu perfil de Dockerhub que se ha creado el repositorio correspondiente.
-  2. Ahora, **a partir del repositorio que has creado**, añade un tag a la imagen (como nginx**:1.27.5** o nginx**:latest**). Puedes probar por ejemplo con mi-apache2:pruebas. Tendrás que usar los mismos comandos que anteriormente, pero ahora partiendo ya de la imagen que tienes ya subida en lugar de la oficial de Apache2.
+    1. Haz todo lo anterior y luego verifica en tu perfil de Dockerhub que se ha creado el repositorio correspondiente.
+    2. Ahora, **a partir del repositorio que has creado**, añade un tag a la imagen (como nginx**:1.27.5** o nginx**:latest**). Puedes probar por ejemplo con mi-apache2:pruebas. Tendrás que usar los mismos comandos que anteriormente, pero ahora partiendo ya de la imagen que tienes ya subida en lugar de la oficial de Apache2.
 
 Vamos a resolver el ejercicio:
 ```bash

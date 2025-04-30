@@ -625,6 +625,7 @@ El resultado es el siguiente (quito parte de los pares clave-valor que no nos in
 === "CONTENEDOR 2"
 
     ```
+    ...
     "IPAddress": "172.17.0.3",
     "MacAddress": "e6:b0:a0:b5:ab:50",
     "Networks": {
@@ -635,6 +636,7 @@ El resultado es el siguiente (quito parte de los pares clave-valor que no nos in
             "IPAddress": "172.17.0.3",
         }
     }
+    ...
     ```
 
 Podemos ver que la red de ambos es de tipo **bridge** y las IPs son **172.17.0.2** y **172.17.0.3**, por lo que **están en la misma red local**.
