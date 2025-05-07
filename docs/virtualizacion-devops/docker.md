@@ -687,3 +687,10 @@ docker network disconnect <id_red> <id_contenedor>
     2. Desconectalo con de la misma manera que lo has conectado y verifica que ya no aparece en la red al hacer el inspect.
 
 Para producción no usaremos nunca la red por defecto. Siempre crearemos nuestras propias redes para las máquinas.
+
+## Ejercicios
+Prepara un fichero .md (markdown) para documentar estos ejercicios en formato tutorial (puedes usar VSCode con el plugin *Markdown all-in-one*). Usa siempre sentencias de código en lugar de imágenes.
+
+1. Crea un contenedor que monte un Wordpress totalmente funcional con base de datos (empieza creando el Wordpress y luego vas viendo).
+2. Cuando consigas completar el Wordpress, haz que los datos no se pierdan cuando eliminas los contenedores (usando un volumen).
+3. Haz lo mismo pero ahora con un Drupal y MariaDB.
