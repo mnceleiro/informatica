@@ -1,0 +1,13 @@
+services:
+  mkdocs:
+    build: .
+    #image: squidfunk/mkdocs-material:latest
+    container_name: apuntes-informatica
+    ports:
+      - "8005:8000"
+    volumes:
+      - ./:/docs
+      #- ./mkdocs.yml:/mkdocs.yml
+    stdin_open: true
+    tty: true
+#    command: mkdocs serve -a 0.0.0.0:8000

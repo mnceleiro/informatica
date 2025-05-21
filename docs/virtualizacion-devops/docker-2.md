@@ -55,7 +55,7 @@ docker image ls
 
 # Subimos la capa nueva
 docker image push <usuario>/apache2:pruebas
-``` 
+```
 
 Para construir una imagen a partir de otra existente usamos el comando `docker image build`. Como siempre, vamos a empezar viendo la ayuda:
 ```bash
@@ -84,3 +84,6 @@ Prepara un fichero .md (markdown) para documentar estos ejercicios en formato tu
 6. Sube ambas imágenes a tu repositorio en Dockerhub y añade un README en Dockerhub con los comandos que has utilizado.
 7. Finalmente, edita el repositorio en Dockerhub y en "overview" pega tu documentación.
 8. Sube el link de dockerhub de las imágenes al aula virtual.
+9. Crea un docker compose que levante Wordpress.
+10. Crea un docker compose que levante una aplicación Java con Spring y base de datos.
+11. Crea un docker compose que levante tu proyecto Laravel.
