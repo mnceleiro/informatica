@@ -142,6 +142,8 @@ Usando `docker compose --help` verás que también existe el parámetro **exec**
           - ./compose.yml
           - ./src/
           - ./src/index.php
+    
+    Una vez has terminado con esto, deberías poder modificar tu código desde Visual Studio Code y esos cambios se reflejarán inmediatamente en la página web. Confírmalo.
 
 ## Añadiendo un contenedor de base de datos
 Para añadir un nuevo contenedor, simplemente tenemos que hacer lo siguiente:
@@ -183,11 +185,19 @@ services:
     1. Añade al compose.yml lo necesario para que arranque también una base de datos de MariaDB. Recuerda que tendrás que destruir los contenedores y volver a crearlos con comandos como: `docker compose up -d` y `docker compose down` (asegúrate de que se mantiene en ejecución después de arrancarla).
 
 ## Añadiendo volúmenes
-El contenedor de base de datos no ejecuta ningún script de creación de base de datos. Según la **documentación de la imagen de MariaDB en Dockerhub**, si copiamos cualquier script .sql en la carpeta `/docker-entrypoint-initdb.d/`.
+El contenedor de base de datos no ejecuta ningún script de creación de base de datos. Según la **documentación de la imagen de MariaDB en Dockerhub**, si copiamos cualquier script .sql en la carpeta `/docker-entrypoint-initdb.d/` este se ejecutará automáticamente la primera vez que creemos el contenedor.
 
-Igual que hemos añadido un punto de montaje (bind mount) con la etiqueta "volume", se hace igual para volúmenes. Crea un volumen para la base de datos de manera que al arrancar y eliminar el contenedor no se pierdan los datos de la base de datos.
+Igual que hemos añadido un punto de montaje (bind mount) con la etiqueta "volume", se hace igual para volúmenes. Puedes crear un volumen para una base de datos de manera que al arrancar y eliminar el contenedor no se pierdan los datos de la base de datos.
 
-!!! Note "Ejercicio"
-    1. Pídele a ChatGPT u otra IA que te de un script de base de datos con una tabla y un index.php asociado. Añádelo al index y conéctate a base de datos.
+## Ejercicios finales
+### Completando nuestro entorno con PHPMyAdmin y volúmenes
+Este ejercicio consistirá en modificar lo que ya tienes para que se conecte a una base de datos MariaDB. Si eliminas el contenedor la base de datos debe mantenerse intacta. A continuación se dan algunas indicaciones de cómo hacerlo:
 
+1. Pídele a ChatGPT u otra IA que te de un script de base de datos con una tabla y un index.php asociado. Añádelo al index y trata de conectarte a base de datos.
+2. Asegúrate de que al levantar el contenedor se crea la base de datos automáticamente. Esto lo puedes hacer tal como se indica en estos apuntes de teoría, copiando el fichero .sql en `/docker-entrypoint-initdb.d/`. Para realizar esta copia puedes crear **otro volumen que comparta esa carpeta con una carpeta tuya donde tengas el script de base de datos**.
+3. Añade otro contenedor de nombre mi-phpmyadmin que cree un contenedor con PHPMyAdmin y te permita gestionar la base de datos. Tienes una imagen de PHPMyAdmin con toda su documentación en [este enlace](https://hub.docker.com/_/phpmyadmin).
 
+### Creando un nuevo contorno
+Crea una nueva carpeta y un compose.yml dentro para tu proyecto fin de ciclo (que tenga al menos dos contenedores, uno con tu aplicación y otro la base de datos). 
+
+Si lo consigues y quieres ampliar más, puedes añadir otros contenedores adicionales como: PHPMyAdmin, separar frontend y backend, etc.
