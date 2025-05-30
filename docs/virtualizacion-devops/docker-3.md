@@ -189,6 +189,29 @@ El contenedor de base de datos no ejecuta ningún script de creación de base de
 
 Igual que hemos añadido un punto de montaje (bind mount) con la etiqueta "volume", se hace igual para volúmenes. Puedes crear un volumen para una base de datos de manera que al arrancar y eliminar el contenedor no se pierdan los datos de la base de datos.
 
+## Más comandos de Docker
+```bash
+# Actualiza los contenedores (solo los recrea de nuevo si es necesario, si algo en la imagen cambió)
+docker compose up --build
+
+# Recrea los contenedores
+docker compose up --force-recreate
+
+# Elimina los contenedores y las redes y volúmenes anónimas creadas con estos
+docker compose down
+
+# Elimina los contenedores y todos sus volúmenes asociados
+docker compose down -v
+
+# Validar sintaxis de tu compose.yml y ver el resultado final tal como lo interpreta docker
+docker compose config
+
+# Ver la información de todos los servicios que hemos definido en el compose.yml
+docker compose logs
+
+
+```
+
 ## Ejercicios finales
 ### Completando nuestro entorno con PHPMyAdmin y volúmenes
 Este ejercicio consistirá en modificar lo que ya tienes para que se conecte a una base de datos MariaDB. Si eliminas el contenedor la base de datos debe mantenerse intacta. A continuación se dan algunas indicaciones de cómo hacerlo:
