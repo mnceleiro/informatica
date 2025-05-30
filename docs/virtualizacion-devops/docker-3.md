@@ -191,7 +191,7 @@ Igual que hemos añadido un punto de montaje (bind mount) con la etiqueta "volum
 
 ## Más comandos de Docker
 ```bash
-# Actualiza los contenedores (solo los recrea de nuevo si es necesario, si algo en la imagen cambió)
+# Recrea de nuevo los contenedores en caso de que la imagen cambiase (actualiza la imagen y levanta el contenedor de nuevo si la imagen cambió)
 docker compose up --build
 
 # Recrea los contenedores
@@ -208,8 +208,6 @@ docker compose config
 
 # Ver la información de todos los servicios que hemos definido en el compose.yml
 docker compose logs
-
-
 ```
 
 ## Ejercicios finales
