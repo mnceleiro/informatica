@@ -58,10 +58,8 @@ nav:
   - Web:
     - 'Frontend Roadmap': 'web/intro.md'
     - 'Iniciación a JavaScript': 'web/js-basics.md'
-  - Seguridad:
-    - 'Intro': 'intro.md'
-    - 'test': 'test'
-    - 'In': ''
+  - Gamedev:
+    - 'Introducción a Unity': 'gamedev/unity/intro.md'
   - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
     - 'Programación': 'apuntes-variados/programming.md'
