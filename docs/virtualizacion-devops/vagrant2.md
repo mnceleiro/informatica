@@ -1,21 +1,68 @@
-# Vagrant (parte II)
+# Manejando múltiples máquinas
 
+## Script básico multimáquina
+A continuación probamos un script básico con 3 máquinas:
 
-## Aprovisionamiento mediante scripts
-### Ejercicio
-Crea una carpeta al lado de las anteriores con el nombre "3-aprovisionamiento".
+```rb
+Vagrant.configure("2") do |config|
 
-1. Ejecuta los comandos necesarios para actualizar el sistema (son 2).
-2. Ejecuta un comando que instale el paquete "sl".
-3. Ejecuta un comando que instale el paquete "vim".
-4. Los comandos te han pedido todos confirmación, utiliza internet y el manual de Linux para **ejecutar esos comandos asegurándote de que NO te pidan confirmación**. Esto es, si tu instalas un paquete que no te pregunte si estás seguro.
-5. Cada comando del punto 4 guárdalo en tu ordenador en un fichero de nombre "script-provision.sh".
-6. Añade como primera línea en ese fichero de texto "#!/bin/bash".
+  # Configuracion de la maquina1 (pc1)
+  config.vm.define :pc1 do |pc1|
+    pc1.vm.box = "ubuntu/jammy64"
+    pc1.vm.hostname = "pc1"
+  end
 
-Si has hecho bien todos los pasos anteriores tendrás un fichero de texto con una serie de comandos. Has creado tu primer script. Guarda ese script en la carpeta "3-aprovisionamiento" (al lado de tu Vagrantfile). Posteriormente haz que el Vagrantfile ejecute ese script (puedes forzar el aprovisionamiento con vagrant up --provision).
+  # Configuracion de la maquina2 (pc2)
+  config.vm.define :pc2 do |pc2|
+    pc2.vm.box = "ubuntu/jammy64"
+    pc2.vm.hostname = "pc2"
+  end
 
-!!! Note "Nota"
-    Este ejercicio se diferencia del anterior realizado en que en el anterior ejecutábamos una única línea de código directamente. En este caso tenemos un fichero con varias líneas y queremos indicar en el Vagrantfile que se ejecute ese fichero. Esta forma es mucho más ordenada.
+  # Configuracion de la maquina2 (pc3)
+  config.vm.define :pc3 do |pc3|
+    pc3.vm.box = "mnceleiro/ubuntu24"
+    pc3.vm.hostname = "pc3"
+  end
+end
+```
 
+Fíjate que ahora ya no usamos la variable **config** para definir los parámetros, sino la de cada máquina. Con config definimos las máquinas, y luego tenemos variables para definir los parámetros de cada máquina.
 
-TODO: Se ampliará este tutorial. A partir de este momento necesitas saber algo de GNU/Linux y tener conceptos de scripting en BASH. Si no sabes usar GNU/Linux con fluidez o no sabes hacer scripts puedes ir al apartado de "GNU/Linux --> scripting" de esta misma página.
+!!! Ejercicio
+
+    1. Ejecuta el script (puede que haya algún error, si lo hay arréglalo). Si el error está en alguna máquina que no existe o no es compabible, cámbiala por una Debian 12.
+    2. Modifica el script para que la máquina 3 tenga 4096 de RAM y nombre de equipo Linux: "terminator".
+    3. Haz que en la máquina 3 se cree un fichero "bienvenida.txt" en /home/vagrant sin contenido al arrancarla.
+
+## Cambiando las propiedades de red
+### Adaptador puente
+El equivalente al modo "bridge" o puente de virtualbox se puede lograr añadiendo esta línea en el Vagrantfile:
+
+- config.vm.network "public_network".
+
+Si quieres una ip fija:
+
+- config.vm.network "public_network", ip: "192.168.0.200"
+
+De esta manera tu máquina virtual estará en la misma red que tu máquina host.
+
+### Red interna
+Si quieres puedes tener la máquina en red interna introduciendo lo siguiente:
+
+- config.vm.network "private_network", ip: "192.168.11.250"
+
+Esto pondrá tu máquina en red interna con esa ip.
+
+## Agrupando las máquinas
+Con la siguiente línea puedes agrupar la máquina en un sitio concreto:
+
+```rb
+vb.customize ["modifyvm", :id, "--groups", "/nombre-grupo"]
+```
+
+## Ejercicio final
+1. Destruye completamente las máquinas que has creado.
+2. Modifica el Vagrantfile para meter las tres máquinas en la misma red privada, con ips 192.168.33.10, .11 y .12.
+3. Modifica el Vagrantfile para hacer que pc1 esté también en red con la tuya (puedes meter otra línea con lo necesario, cada una añadirá una tarjeta de red).
+4. Mete las tres máquinas en el mismo grupo, que se llamará: "practica-vagrant-daw".
+5. Finalmente, comprueba en Virtualbox que todo se ha hecho correctamente. Mira cuántas interfaces de red tienen pc1, pc2 y pc3 y verifica que las máquinas están en el grupo indicado.
