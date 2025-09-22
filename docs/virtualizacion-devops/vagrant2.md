@@ -61,8 +61,9 @@ vb.customize ["modifyvm", :id, "--groups", "/nombre-grupo"]
 ```
 
 ## Ejercicio final
-1. Destruye completamente las máquinas que has creado.
-2. Modifica el Vagrantfile para meter las tres máquinas en la misma red privada, con ips 192.168.33.10, .11 y .12.
-3. Modifica el Vagrantfile para hacer que pc1 esté también en red con la tuya (puedes meter otra línea con lo necesario, cada una añadirá una tarjeta de red).
-4. Mete las tres máquinas en el mismo grupo, que se llamará: "practica-vagrant-daw".
-5. Finalmente, comprueba en Virtualbox que todo se ha hecho correctamente. Mira cuántas interfaces de red tienen pc1, pc2 y pc3 y verifica que las máquinas están en el grupo indicado.
+Destruye completamente las máquinas que has creado. Después, modifica el Vagrantfile para que soporte lo siguiente:
+
+1. Las tres máquinas deberán estar en la misma red privada, con ips 192.168.33.10, .11 y .12.
+2. PC1, además de estar en la red privada anterior, debe estar también en red con tu máquina (bridge).
+3. Mete las tres máquinas en el mismo grupo, que se llamará: "practica-vagrant-daw".
+4. Finalmente, levanta la máquina y comprueba en Virtualbox que todo se ha hecho correctamente. Mira cuántas interfaces de red tienen pc1, pc2 y pc3 y verifica que las máquinas están en el grupo indicado.
