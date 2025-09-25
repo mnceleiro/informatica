@@ -59,7 +59,8 @@ nav:
     - 'Frontend Roadmap': 'web/intro.md'
     - 'Iniciación a JavaScript': 'web/js-basics.md'
   - Gamedev:
-    - 'Introducción a Unity': 'gamedev/unity/intro.md'
+    - 'Introducción al desarrollo de videojuegos': 'gamedev/intro.md'
+    - 'Unity': 'gamedev/unity/unity2d.md'
   - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
     - 'Programación': 'apuntes-variados/programming.md'
