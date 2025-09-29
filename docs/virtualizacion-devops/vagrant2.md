@@ -33,23 +33,35 @@ Fíjate que ahora ya no usamos la variable **config** para definir los parámetr
     1. Ejecuta el script (puede que haya algún error, si lo hay arréglalo). Si el error está en alguna máquina que no existe o no es compabible, cámbiala por una Debian 12.
     2. Modifica el script para que la máquina 3 tenga 4096 de RAM y nombre de equipo Linux: "terminator".
     3. Haz que en la máquina 3 se cree un fichero "bienvenida.txt" en /home/vagrant sin contenido al arrancarla.
+    4. Haz que aparezca la interfaz gráfica de las 3 máquinas al arrancarlas.
+    5. Conéctate por SSH a la máquina 2.
+    6. Conéctate por SSH a la máquina 1.
+    7. Apaga las máquinas 1 y 2.
+    8. Ahora solo debería estar la 3 encendida. Arranca la máquina 2 también (la 1 debe seguir apagada).
+    9. Destruye todas las máquinas.
 
 ## Cambiando las propiedades de red
 ### Adaptador puente
 El equivalente al modo "bridge" o puente de virtualbox se puede lograr añadiendo esta línea en el Vagrantfile:
 
-- config.vm.network "public_network".
+```rb
+config.vm.network "public_network"
+```
 
 Si quieres una ip fija:
 
-- config.vm.network "public_network", ip: "192.168.0.200"
+```rb
+config.vm.network "public_network", ip: "192.168.0.200"
+```
 
 De esta manera tu máquina virtual estará en la misma red que tu máquina host.
 
 ### Red interna
 Si quieres puedes tener la máquina en red interna introduciendo lo siguiente:
 
-- config.vm.network "private_network", ip: "192.168.11.250"
+```rb
+config.vm.network "private_network", ip: "192.168.11.250"
+```
 
 Esto pondrá tu máquina en red interna con esa ip.
 
