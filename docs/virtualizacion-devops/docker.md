@@ -201,8 +201,6 @@ El principal repositorio de imágenes de Docker es [**Dockerhub**](https://hub.d
 !!! Ejercicio
     1. Entra en Dockerhub y busca **nginx**. Mira qué versiones hay y la documentación de la imagen.
 
-![alt text](files/images/VBOX_USER_HOME.png)
-
 Si te fijas, al buscar algo en el repositorio vemos dos formatos de imágenes:
 
 - En el primero solo aparece **nginx**. Esto es un repositorio oficial de la gente de Docker.
