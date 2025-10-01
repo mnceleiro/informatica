@@ -179,3 +179,9 @@ Si usamos el código anterior (donde usamos un Vector3 para el movimiento del pe
         transform.position = new Vector3(posicionX, posicionY, posicionZ);
     }
 ```
+
+!!! Note "Ejercicio"
+    1. Examina el código anterior y pruébalo. Luego ejecuta el juego y mueve el personaje en horizontal, vertical y diagonal.
+    2. Mientras mueves el personaje en todas direcciones revisa la consola. Verás el vector de movimiento antes y después de llamar a "normalized()".
+
+Como verás, al llamar a `normalized` el valor del vector cambia al moverse en diagonal adaptándose para que su velocidad sea siempre la misma cuando multipliques por la velocidad.

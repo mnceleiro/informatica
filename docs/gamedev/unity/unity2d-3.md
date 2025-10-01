@@ -1,3 +1,22 @@
+Si modificamos el tamaño (escala) del cuadrado, podemos hacerlo parecer una plataforma.
+
+![Conejo y tres plataformas](images/unity-conejo-3-plataformas-rectangulares.png)
+
+!!! Note "Ejercicio"
+    Crea tres plataformas rectangulares sobre las que, en el futuro, nuestro personaje pueda subirse:
+    
+    - Una de ellas hazla creando un cuadrado directamente desde el menú.
+    - Las otras dos creando un GameObject vacío y luego añadiendo el componente con la imagen de un cuadrado (a ver si la encuentras!).
+
+
+## Movimiento del personaje
+
+!!! Note "Ejercicio"
+
+    1. Crea un nuevo proyecto Universal2D y en él crea una cápsula (recuerda, está en *2D Objects - Sprites*). Luego crea un script asociado a la misma.
+    2. Muestra un mensaje "Hola mundo" cuando se ejecute el primer frame. Para esto puedes usar `Debug.Log("Mensaje")`. Ejecuta el juego para probar que aparece en la consola de Unity.
+    3. Si consigues que funcione lo anterior, ahora intenta que se muestre un contador una vez por frame (y que ese contador vaya aumentando). El mensaje será "Frame número: X"
+
 ## Componente transform: moviendo el personaje
 Al pulsar sobre la cápsula que hemos hecho, a la derecha vemos que tiene diversas propiedades: **transform, Sprite Renderer y Script**.
 

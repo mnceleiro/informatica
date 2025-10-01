@@ -252,30 +252,3 @@ Hemos posicionado el personaje en el punto que queríamos. Si lo vamos situando 
 
 !!! Note "Ejercicio"
     1. Intenta conseguir también que se mueva arriba y abajo. ¿Notas algo raro al moverlo en diagonal?
-
-
-
-!!! Note "Ejercicio"
-    1. Examina el código anterior y pruébalo. Luego ejecuta el juego y mueve el personaje en horizontal, vertical y diagonal.
-    2. Mientras mueves el personaje en todas direcciones revisa la consola. Verás el vector de movimiento antes y después de llamar a "normalized()".
-
-Como verás, al llamar a `normalized` el valor del vector cambia al moverse en diagonal adaptándose para que su velocidad sea siempre la misma cuando multipliques por la velocidad.
-
-Si modificamos el tamaño (escala) del cuadrado, podemos hacerlo parecer una plataforma.
-
-![Conejo y tres plataformas](images/unity-conejo-3-plataformas-rectangulares.png)
-
-!!! Note "Ejercicio"
-    Crea tres plataformas rectangulares sobre las que, en el futuro, nuestro personaje pueda subirse:
-    
-    - Una de ellas hazla creando un cuadrado directamente desde el menú.
-    - Las otras dos creando un GameObject vacío y luego añadiendo el componente con la imagen de un cuadrado (a ver si la encuentras!).
-
-
-## Movimiento del personaje
-
-!!! Note "Ejercicio"
-
-    1. Crea un nuevo proyecto Universal2D y en él crea una cápsula (recuerda, está en *2D Objects - Sprites*). Luego crea un script asociado a la misma.
-    2. Muestra un mensaje "Hola mundo" cuando se ejecute el primer frame. Para esto puedes usar `Debug.Log("Mensaje")`. Ejecuta el juego para probar que aparece en la consola de Unity.
-    3. Si consigues que funcione lo anterior, ahora intenta que se muestre un contador una vez por frame (y que ese contador vaya aumentando). El mensaje será "Frame número: X"
