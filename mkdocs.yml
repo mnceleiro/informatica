@@ -29,7 +29,6 @@ nav:
     - 'Docker I: iniciación': 'virtualizacion-devops/docker.md'
     - 'Docker II: Dockerfiles': 'virtualizacion-devops/docker-2.md'
     - 'Docker III: Docker Compose': 'virtualizacion-devops/docker-3.md'
-
   - GNU/Linux:
     - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
     - 'Instalación': 'gnu-linux/installation.md'
@@ -60,7 +59,10 @@ nav:
     - 'Iniciación a JavaScript': 'web/js-basics.md'
   - Gamedev:
     - 'Introducción al desarrollo de videojuegos': 'gamedev/intro.md'
-    - 'Unity': 'gamedev/unity/unity2d.md'
+    - 'Unity I - Primer juego': 'gamedev/unity/unity2d.md'
+    - 'Unity I - Ejercicio': 'gamedev/unity/unity2d-ejercicio1.md'
+    - 'Unity I - Problemas de posicionamiento': 'gamedev/unity/unity2d-2.md'
+
   - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
     - 'Programación': 'apuntes-variados/programming.md'

@@ -1,4 +1,4 @@
-# Unity 2D
+# Creación de un juego básico
 ## Descarga de Unity
 Para desarrollar para Unity, puedes descargarte primero UnityHub (es una aplicación donde puedes gestionar diversas versiones de Unity). Unity, por su parte, es el propio motor de videojuegos (y lo puedes descargar desde Unity Hub).
 
@@ -16,8 +16,6 @@ Para crear un proyecto 2D vamos a "Projects" - New Project (y elegimos Universal
 !!! Ejercicio
     1. Descarga UnityHub y la última versión estable de Unity.
     2. Elige una carpeta para tus proyectos (p. ej: juegos-unity). Después, elige esa carpeta y dentro de ella crea un proyecto **de tipo Universal 2D** que se llame PrimerJuego.
-
-
 
 ## La interfaz de Unity
 En la siguiente imagen podemos ver las partes de las que se compone la interfaz de Unity.
@@ -79,6 +77,22 @@ Esto nos añadirá un nuevo objeto ya con un cuadrado representado (o un círcul
 ### Otros componentes 
 Además de transform y sprite renderer, existen muchos otros componentes (colliders, físicas, tilemaps, sonidos...). Estos los veremos más adelante.
 
+## Configuraciones del editor de Unity
+### Configurar editor de texto para programar
+Podemos elegir Visual Studio 2022 o Visual Studio Code. Consulta la siguiente imagen:
+![Editor de texto](images/unity-configurar-editor-texto.png)
+
+### Cambiar color al estar en modo "ejecución"
+Si ejecutamos un juego y mientras estamos jugándolo cambiamos parámetros del mismo, estos no se cambian. Para identificar cuando estamos en modo "ejecución" es mejor cambiar el color de la interfaz de Unity: 
+
+*Edit → Preferences → Colors → Playmode tint*
+
+![Color en modo juego](images/unity-color-modo-juego.png)
+
+!!! Note "Ejercicio"
+    1. Configura tu IDE para programar a VSCode o VStudio.
+    2. Configura un color diferente al ejecutar tu juego tal y como se indica en el apartado anterior.
+
 ## Scripting básico
 Vamos a explicar esto usando el nuevo InputSystem de Unity (si consultais internet y veis otras formas de hacerlo, es posible que estén hechas con el antiguo InputSystem).
 
@@ -86,6 +100,7 @@ Vamos a empezar viendo, con el nuevo InputSystem de Unity, como mover el persona
 
 ### Creación de un script
 Hay dos maneras de crear un script en Unity:
+
 - Forma I: botón derecho en la zona de `assets` y luego: *create - scripting - Monobehaviour Script*. Después de esto, se le pone el nombre al script y se "arrastra" al GameObject al que se quiere enlazar (los scripts van asociados a un GameObject).
 - Forma II: en un GameObject cualquiera (p. ej: el personaje) añades un nuevo componente de tipo "script" y le das un nombre. De esta manera, ya queda tanto creado como asociado.
 
@@ -135,7 +150,7 @@ Para mostrar un mensaje en la consola de Unity podemos usar `Debug.Log(mensaje)`
     2. Muestra un mensaje "Me ejecuto una vez por frame." de manera que aparezca una vez por cada frame o imagen.
     3. Elimina los mensajes anteriores y crea un contador de frames, de manera que con cada frame vaya sumándose el contador y mostrando el número por pantalla.
 
-#### Movimiento de personaje: comprobando las teclas pulsadas
+## InputSystem de Unity (básico)
 Para mover el personaje puedes utilizar la clase `Keyboard` de Unity.InputSystem:
 ```csharp
 if (Keyboard.current.aKey.isPressed)
@@ -157,7 +172,8 @@ Esto es interesante, ya que si estoy pulsando la tecla "a" o la flecha izquierda
 
 Si has resuelto correctamente el ejercicio, podrás moverte a izquierda y derecha con las flechas y con A-D.
 
-#### Movimiento de personaje: cambiando la posición
+## Movimiento
+### Cambiando la posición de un personaje
 A estas alturas supongo que estais pensando... "todo esto está muy bien, pero cuando podré hacer el próximo League of Legends"?
 
 Pues tranquilos amigos/as, vamos paso a paso. Ahora toca a mover el personaje al pulsar esas teclas (que ya es un gran avance en tan poco tiempo que llevamos de tutorial!):
@@ -178,12 +194,72 @@ Existen **dos tipos de datos principales** para colocar objetos en la escena de 
 - **Vector2**: coordenadas x e y.
 - **Vector3**: coordenadas x, y, z.
 
-Por ejemplo, para crear un Vector3 puedes usar lo siguiente: `Vector3 miPosicion = new Vector3(1, 2, 0);`. El valor que has podido ver en consola (de transform.position) es un Vector3.
+El valor que has podido ver en consola (de transform.position) es un Vector3. Esa posición del personaje puede ser modificada.
 
-Esa posición del personaje puede ser modificada:
+Para crear un Vector3 puedes usar lo siguiente
+```csharp
+Vector3 miPosicion = new Vector3(1, 2, 0);
+```
 
 !!! Note "Ejercicio"
     1. Intenta modificar la posición del personaje desde código al iniciarse el juego (para que esté arriba a la derecha por ejemplo). Para ello tienes que modificar el transform.position para que tenga otro valor (recuerda, un valor de tipo Vector3 y con la "z" a 0, ya que estamos en 2 dimensiones).
+
+### Moviendo el personaje
+Hemos posicionado el personaje en el punto que queríamos. Si lo vamos situando en posiciones muy cercanas en cada frame, podemos simular movimiento en él.
+
+=== "Ejercicio"
+
+    !!! Note "Ejercicio: mover el personaje cambiando su posición lentamente"
+        Ahora vamos a hacer que el personaje se mueva izquierda y derecha. Cuando pulses las teclas a-d, tu personaje debe moverse "un poco a la izquierda" o "un poco a la derecha". 
+        
+        1. Para hacerlo, deberás **sumarle o restarle a la X de tu posición actual un valor** (puedes empezar probando con 1). 
+        2. Si 1 es mucho, puedes probar con decimales (estos se ponen con "f" al final, por ejemplo: 0.1f, 0.55f, etc.).
+
+=== "Posible solución"
+
+    ```csharp
+    void Update()
+    {
+        // Compruebo si pulso "a" o "flecha izquierda" o en caso contrario "d" o "flecha derecha"
+        // En caso de pulsar izquierda resto la X, si voy a la derecha sumo en la X
+        if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
+        {
+            transform.position = new Vector3(
+                transform.position.x - 0.1f,    // (1)!
+                transform.position.y,
+                transform.position.z
+            );
+        }
+        else if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
+        {
+            transform.position = new Vector3(
+                transform.position.x + 0.1f,    // (2)!
+                transform.position.y, 
+                transform.position.z
+            );
+        }
+
+        // Imprimo en consola la posición actual (para ver como va cambiando)
+        Debug.Log("Posición actual: " + transform.position);
+    }
+    ```
+
+    1. `transform.position.x` es la X actual del GameObject al que está ligado el script (es decir, de mi jugador). Lo que hago aquí es sumarle o restarle 0.1f a la X actual para moverlo 0.1 a la derecha o a la izquierda (según si se pulsa la "a" o la "d").
+    2. `transform.position.x` es la X actual del GameObject al que está ligado el script (es decir, de mi jugador). Lo que hago aquí es sumarle o restarle 0.1f a la X actual para moverlo 0.1 a la derecha o a la izquierda (según si se pulsa la "a" o la "d").
+
+!!! info
+    Ten en cuenta que no estamos realmente aplicando una velocidad al personaje y moviéndolo, sino que lo estamos posicionando "casi en el mismo sitio, pero un poquito más a la izquierda o derecha en cada frame". De esta manera, generamos sensación de movimiento en el juego.
+
+!!! Note "Ejercicio"
+    1. Intenta conseguir también que se mueva arriba y abajo. ¿Notas algo raro al moverlo en diagonal?
+
+
+
+!!! Note "Ejercicio"
+    1. Examina el código anterior y pruébalo. Luego ejecuta el juego y mueve el personaje en horizontal, vertical y diagonal.
+    2. Mientras mueves el personaje en todas direcciones revisa la consola. Verás el vector de movimiento antes y después de llamar a "normalized()".
+
+Como verás, al llamar a `normalized` el valor del vector cambia al moverse en diagonal adaptándose para que su velocidad sea siempre la misma cuando multipliques por la velocidad.
 
 Si modificamos el tamaño (escala) del cuadrado, podemos hacerlo parecer una plataforma.
 
@@ -196,18 +272,6 @@ Si modificamos el tamaño (escala) del cuadrado, podemos hacerlo parecer una pla
     - Las otras dos creando un GameObject vacío y luego añadiendo el componente con la imagen de un cuadrado (a ver si la encuentras!).
 
 
-## Configuraciones del editor de Unity
-### Configurar editor de texto para programar
-Podemos elegir Visual Studio 2022 o Visual Studio Code.
-![Editor de texto](images/unity-configurar-editor-texto.png)
-
-### Cambiar color al estar en modo "ejecución"
-Si ejecutamos un juego y mientras estamos jugándolo cambiamos parámetros del mismo, estos no se cambian. Para identificar cuando estamos en modo "ejecución" es mejor cambiar el color de la interfaz de Unity: 
-
-*Edit → Preferences → Colors → Playmode tint*
-
-![Color en modo juego](images/unity-color-modo-juego.png)
-
 ## Movimiento del personaje
 
 !!! Note "Ejercicio"
@@ -215,85 +279,3 @@ Si ejecutamos un juego y mientras estamos jugándolo cambiamos parámetros del m
     1. Crea un nuevo proyecto Universal2D y en él crea una cápsula (recuerda, está en *2D Objects - Sprites*). Luego crea un script asociado a la misma.
     2. Muestra un mensaje "Hola mundo" cuando se ejecute el primer frame. Para esto puedes usar `Debug.Log("Mensaje")`. Ejecuta el juego para probar que aparece en la consola de Unity.
     3. Si consigues que funcione lo anterior, ahora intenta que se muestre un contador una vez por frame (y que ese contador vaya aumentando). El mensaje será "Frame número: X"
-
-## Componente transform: moviendo el personaje
-Al pulsar sobre la cápsula que hemos hecho, a la derecha vemos que tiene diversas propiedades: **transform, Sprite Renderer y Script**.
-
-Cada una de ellas tiene un objetivo concreto. El script lo tiene porque le hemos asociado uno, el Sprite renderer es porque hay un dibujo (un sprite) asociado, en este caso de una cápsula pero podría ser cualquier fichero de imagen que queramos.
-
-El transform se refiere a la posición del objeto en el juego. Tiene como propiedades: position (posición), rotation (rotación) y escala (tamaño).
-![transform](images/unity-transform.png).
-
-!!! Note "Ejercicio"
-    1. Mueve el objeto modificando las propiedades del "position" de transform. Prueba tmabién a moverlo a mano usando la tecla "w" y las flechas.
-    2. Rota el objeto unos 45 grados usando el "rotation" del transform. Prueba a rotarlo en todos los ejes (x, y, z) uno detrás de otro. 
-    3. Luego, prueba también a rotar usando la tecla "r" y girando el objeto. Verás que los números del transform se van cambiando.
-    4. Prueba a cambiar la escala del objeto.
-
-### Transform: método Rotate()
-Con todo lo anterior vemos como cambiar el objeto de forma permanente en el juego (ya sea la posición, escala o rotación). Muchas veces, nos interesa hacerlo dinamicamente desde código (por ejemplo, rotar el personaje cuando lo vas moviendo). La clase `MonoBehaviour` de la que heredamos en el script posee la propiedad `transform`, así que podemos acceder a ella en código con:
-
-```csharp
-transform.Rotate(0, 0, 0); // coordenadas x, y, z
-```
-
-!!! Ejercicio
-    1. Haz que la cápsula gire 45 grados nada más empezar el juego (hazlo en el script, no en Unity).
-    2. Haz que la cápsula gire 45 grados en cada frame (en script).
-    3. Haz que la cápsula gire sin parar muy lentamente (aproximadamente que haga un giro completo cada 5 segundos). Ojo, si usas cifras decimales necesitas añadir una "f" al final (por ejemplo: 5.5f).
-    4. Finalmente, deja todo como al principio (puedes comentar las líneas de código del transform).
-
-
-### Transform: position
-Podemos cambiar la posición también y hacer que el objeto se mueva lentamente. `transform.position` es de tipo Vector3.
-
-Por ejemplo, si hacemos lo siguiente:
-
-```csharp
-void Start()
-{
-    transform.position = new Vector3(2, 4, 0);
-}
-```
-
-Al ejecutar, el personaje (en este caso la cápsula) se moverá 2 en el eje X y 4 puntos en el eje Y.
-
-![Posicion capsula](images/unity-transform-position.png)
-
-!!! Note "Ejercicio: sumar vectores"
-    1. Si mueves el código de cambio de posición del método "Start()" a Update(), ¿qué crees que ocurrirá? Pruébalo.
-    2. Recuerda, position no es un número, es un objeto de tipo "Vector3" que recibe 3 coordenadas. Aún así, **podemos sumar dos objetos de tipo Vector3 con el operador +** (igual que en una suma de números). Eso sí, no podemos sumar un Vector3 + número, tiene que ser Vector3 + Vector3. Intenta ahora que el objeto se mueva lentamente hacia arriba (tendrás que ir actualizando el position con una posición un poco más alta en y cada vez).
-
-### Transform: método Translate()
-Para cambiar la posición de un objeto, hay una forma más cómoda que cambiar el position y es con el método **Translate()**. El método **Translate** nos evita tener que sumar a mano. Vamos a ver como funciona:
-
-```csharp
-    void Update()
-    {
-        // transform.position = transform.position + new Vector3(0, 0.01f, 0);
-        transform.Translate(0, .01f, 0);
-    }
-```
-
-!!! Note "Ejercicio"
-    1. Prueba el código anterior pero ahora, añade una línea más usando el transform.Rotation para que gire un poco.
-
-    Puede que no lo esperes, pero haciendo esto el objeto hará círculos (ya que el movimiento en "y" es sobre sí mismo, no sobre el mundo). Si no lo entiendes prueba a pulsar sobre la cápsula y pulsar "w", verás las flechas y posiblemente entenderás este comportamiento.
-
-
-## Sprites
-Un Sprite en Unity es un objeto C# que representa una imagen. En este caso, nuestra cápsula es un Sprite que es un dibujo de una cápsula, podemos ver que tenemos **Sprite Renderer** además de transform:
-
-![Sprite renderer](images/unity-sprite-renderer.png)
-
-
-Bien, pues podemos hacer que en lugar de una cápsula lo que movemos sea un coche, vamos a hacerlo. 
-
-!!! Note "Ejercicio: descargar y colocar sprite de un coche"
-    1. Cambia el nombre de tu cápsula a "Coche".
-    2. Busca en Google "car sprites" y descarga la imagen de un coche cualquiera que se vea desde arriba, por ejemplo [este](https://nohat.cc/f/related-posts-scratch-race-car-sprite/m2i8K9K9A0d3G6b1-201907241634.html). 
-    3. Una vez lo descargues mételo en la carpeta "assets" de tu proyecto Unity.
-    4. Arrastramos el sprite desde los recursos (assets) de nuestro proyecto, a la propiedad "Sprite" del Coche (ver imagen).
-    5. Finalmente, ajustamos el tamaño (escala) y rotación del coche para que quede lo mejor que podamos (y ejecutamos el juego para probar).
-    
-    ![Cambiar imagen del coche](images/unity-cambiar-sprite.png)
