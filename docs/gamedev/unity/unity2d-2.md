@@ -1,7 +1,7 @@
-# Movimiento del personaje: solucionando problemas
+# Movimiento y rotación
 Continuamos con el juego del conejo!
 
-Ya estamos algo más cerca de hacer el próximo League of Legends :D, pero tenemos todavía algunos problemas con el movimiento:
+Tenemos todavía algunos problemas con el movimiento, así que vamos a estudiarlos y arreglarlos:
 
 1. Si te fijas bien, al mover el personaje en diagonal este va más rápido que si lo mueves solo en horizontal o solo en vertical.
 2. Además, si el juego se ejecuta en un ordenador lento (que solo puede ejecutar, por ejemplo, 5 imágenes por segundo) respecto a uno muy rápido (que puede ejecutar 300 por segundo), el primero se moverá más lento que el segundo, y no queremos eso.
@@ -11,13 +11,15 @@ Ya estamos algo más cerca de hacer el próximo League of Legends :D, pero tenem
 Vamos, de momento, a centrarnos en arreglar **el segundo problema (frames)**.
 
 ## Solucionando el problema de los frames: Time.deltaTime()
-Podemos arreglar estos problemas multiplicando el movimiento por la variable `Time.deltaTime`. Esta variable representa **el tiempo entre cada frame**
+Podemos arreglar estos problemas multiplicando el movimiento por la variable `Time.deltaTime`. Esta variable representa **el tiempo entre cada frame**.
 
 Siguiendo el ejemplo anterior: 
+
 - Para 5 FPS el deltaTime será 1/5 = 0.2. El deltaTime será 0.2 en este caso porque cada frame se ejecuta cada 0.2 segundos. Si multiplicamos 0.2 por el número de frames (5) el resultado nos da 1.
 - Para 300 FPS el deltaTime será 1/300 = 0.0034. Cada frame se ejecuta cada 0.0034 segundos. Si multiplicamos 0.0034 * 300 (el número de frames) nos da 1.
 
 En resumen:
+
 - Si multiplicamos la velocidad 0.1f * 0.2 nos da **0.02**. Eso, multiplicado por el número de frames (5) nos da como resultado 1.
 - Si multiplicamos la velocidad 0.1f * 0.0034 nos da como resultado 0.00034. Eso, multiplicado por el número de frames (300) nos da como resultado 1.
 
@@ -185,3 +187,53 @@ Si usamos el código anterior (donde usamos un Vector3 para el movimiento del pe
     2. Mientras mueves el personaje en todas direcciones revisa la consola. Verás el vector de movimiento antes y después de llamar a "normalized()".
 
 Como verás, al llamar a `normalized` el valor del vector cambia al moverse en diagonal adaptándose para que su velocidad sea siempre la misma cuando multipliques por la velocidad.
+
+## Refactorización de código
+Vamos a limpiar un poco el método Update(), ya que se nos está empezando a llenar de código. Una buena práctica a seguir es que cada método tenga solo una responsabilidad, en este caso, **sería bueno crear un método `Mover()` y pasar todo el código que hemos hecho en Update() a este método**.
+
+Además, podría ser interesante **refactorizar las condiciones de los `ifs`** tal que así:
+=== "Función normal"
+
+    ```csharp
+    bool presionoIzquierda()
+    {
+        return Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed;
+    }
+    ```
+
+=== "Función flecha"
+
+    ```csharp
+    bool pulsoIzquierda() => Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed;
+    ```
+
+Ambas funciones son válidas (puedes ajustar el nombre a tu gusto). En el caso de la primera es una función normal y la segunda una función flecha (donde nos ahorramos la llave y el `return`). Si no entiendes la segunda puedes investigar sobre ellas o simplemente usar la primera.
+
+## Método Translate
+Hasta ahora, para posicionar el conejo cogíamos la posición actual del mismo y le sumábamos un número (de esta manera lo íbamos desplazando un poco *frame* a *frame*). Para ahorrarnos sumar esto a mano existe el método `Translate`. 
+
+Con él solo tenemos que indicar cuánto se desplaza nuestro GameObject en ese frame (sin sumarlo a la posición anterior). Tenemos además de `Translate` el método `Rotate` (para rotación) que funciona de la misma manera.
+
+```csharp
+// Posibles formas de usar Translate
+transform.Translate(x, y, z);
+transform.Translate(new Vector3(x, y, z));
+
+// Además de Translate, podemos usar Rotate si quisieramos rotarlo (siempre en 2D en el eje Z)
+transform.Rotate(0, 0, 90);
+
+// Si definimos una velocidad de movimiento en X y otra de rotación...
+transform.Translate(velocidadMovimiento, 0, 0);
+transform.Rotate(0, 0, velocidadRotacion);
+
+// Existen también vectores ya hechos: Vector3.up, Vector3.down, Vector3.left y Vector3.right
+// que devuelven (0, 1, 0), (0, -1, 0), (-1, 0, 0), (1, 0, 0) por si quisieras usarlos
+transform.Translate(Vector3.right * velocidadMovimiento * Time.deltaTime);
+
+// Rotando con independencia de FPS...
+transform.Rotate(0, 0, velocidadRotacion * Time.deltaTime);
+
+```
+
+!!! Note "Ejercicio"
+    1. Refactoriza el código de tu aplicación siguiendo las indicaciones anteriores. Puedes seguir usando position o usar Translate, a tu gusto.

@@ -59,9 +59,15 @@ nav:
     - 'Iniciación a JavaScript': 'web/js-basics.md'
   - Gamedev:
     - 'Introducción al desarrollo de videojuegos': 'gamedev/intro.md'
-    - 'Unity I - Primer juego': 'gamedev/unity/unity2d.md'
-    - 'Unity I - Ejercicio': 'gamedev/unity/unity2d-ejercicio1.md'
-    - 'Unity I - Problemas de posicionamiento': 'gamedev/unity/unity2d-2.md'
+    - 'Unity - Primer juego':
+      - 'Introducción': 'gamedev/unity/unity2d-1.md'
+      - 'Ejercicio I': 'gamedev/unity/unity2d-ejercicio1.md'
+      - 'Mejorando el movimiento': 'gamedev/unity/unity2d-2.md'
+      - 'Ejercicio I (continuación)': 'gamedev/unity/unity2d-ejercicio1-2.md'
+      - 'Físicas y colisiones (NO TERMINADO)': 'gamedev/unity/unity2d-3.md'
+      - 'Ejercicio II (NO TERMINADO)': 'gamedev/unity/unity2d-ejercicio2.md'
+    - 'Unity - Segundo juego':
+      - 'TODO': 'todo'
 
   - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
@@ -80,6 +86,7 @@ theme:
     - navigation.tabs
     - navigation.sections
     - content.code.annotate
+    - navigation.expand # expande los anidamientos de la seccion izquierda por defecto en lugar de esconder el anidamiento
 extra:
   generator: false
 markdown_extensions:
@@ -103,6 +110,7 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.keys
 plugins:
+#  - glightbox
   - mkdocs-video
   - search
   - enumerate-headings:

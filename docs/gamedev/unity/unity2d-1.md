@@ -101,8 +101,8 @@ Vamos a empezar viendo, con el nuevo InputSystem de Unity, como mover el persona
 ### Creación de un script
 Hay dos maneras de crear un script en Unity:
 
-- Forma I: botón derecho en la zona de `assets` y luego: *create - scripting - Monobehaviour Script*. Después de esto, se le pone el nombre al script y se "arrastra" al GameObject al que se quiere enlazar (los scripts van asociados a un GameObject).
-- Forma II: en un GameObject cualquiera (p. ej: el personaje) añades un nuevo componente de tipo "script" y le das un nombre. De esta manera, ya queda tanto creado como asociado.
+- Forma I: botón derecho en la zona de `assets` y luego: *create -> scripting -> Monobehaviour Script*. Después de esto, se le pone el nombre al script y se "arrastra" al GameObject al que se quiere enlazar (los scripts van asociados a un GameObject).
+- Forma II: en un GameObject cualquiera (p. ej: el personaje) añades un nuevo componente de tipo "*script*" y le das un nombre. De esta manera, ya queda tanto creado como asociado.
 
 !!! Note "Ejercicio"
     En este ejercicio vamos a practicar la creación, enlazado, desenlazado y borrado de un script en Unity:
@@ -118,7 +118,7 @@ Hay dos maneras de crear un script en Unity:
 ### Métodos básicos en un script
 Si has abierto el script tal como se indica en el ejercicio, verás que este hereda de una clase llamada "MonoBehaviour". Además, verás que estamos sobreescribiendo dos métodos: `Start()` y `Update()`:
 
-- Start(): este método se ejecuta en el momento en que el nodo al que está asociado el script (en este caso, el nodo al que lo hemos asociado es el personaje). En el momento en que ejecutamos el juego el método Start() del nodo se ejecutará automáticamente.
+- Start(): este método se ejecuta en el momento en que el GameObject al que está asociado el script entra en la escena (en este caso, el GamneObject al que hemos asociado el script es el personaje). Esto es, en el momento en que ejecutamos el juego el método Start() se ejecutará.
 - Update(): este método se ejecutará una vez por frame. Por ejemplo, si este juego se está ejecutando a 60 frames o imágenes por segundo, entonces el método Update() se ejecutará 60 veces cada segundo. 
 
 ```csharp
