@@ -64,8 +64,10 @@ nav:
       - 'Ejercicio I': 'gamedev/unity/unity2d-ejercicio1.md'
       - 'Mejorando el movimiento': 'gamedev/unity/unity2d-2.md'
       - 'Ejercicio I (continuación)': 'gamedev/unity/unity2d-ejercicio1-2.md'
-      - 'Físicas y colisiones (NO TERMINADO)': 'gamedev/unity/unity2d-3.md'
-      - 'Ejercicio II (NO TERMINADO)': 'gamedev/unity/unity2d-ejercicio2.md'
+      - 'Físicas y colisiones (I)': 'gamedev/unity/unity2d-3.md'
+      #- 'Físicas y colisiones (II)': 'todo'
+    - 'Ejercicio':
+      - 'Minijuego de coches': 'gamedev/unity/unity2d-ejercicio2.md'
     - 'Unity - Segundo juego':
       - 'TODO': 'todo'
 
