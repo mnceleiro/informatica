@@ -29,27 +29,38 @@ nav:
     - 'Docker I: iniciación': 'virtualizacion-devops/docker.md'
     - 'Docker II: Dockerfiles': 'virtualizacion-devops/docker-2.md'
     - 'Docker III: Docker Compose': 'virtualizacion-devops/docker-3.md'
-  - GNU/Linux:
-    - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
-    - 'Instalación': 'gnu-linux/installation.md'
-    - 'Comandos básicos': 'gnu-linux/commands-basics.md'
-    - 'Gestión de ficheros': 'gnu-linux/files.md'
-    - 'Gestión de usuarios y grupos': 'gnu-linux/users-groups-local.md'
-    - 'Actividad: manejo de terminal': 'gnu-linux/exercise-terminal-basics.md'
-    - 'Manipulación de texto y filtros': 'gnu-linux/files-2.md'
-    - 'Programación de scripts (I)': 'gnu-linux/scripting-linux.md'
-    - 'Programación de scripts (II)': 'gnu-linux/scripting-linux-2.md'
-    - 'Ejercicios variados': 'gnu-linux/ejercicios-variados.md'
-    - 'Examen': 'gnu-linux/examen.md'
-    - 'Gestores de paquetes': 'gnu-linux/software.md'
-    - 'Gestión de discos y particiones': 'gnu-linux/disk-management.md'
-    - 'Cuotas de disco': 'gnu-linux/disk-quotes.md'
-    - 'Redes en Linux': 'gnu-linux/networks.md'
-    - 'Servidores web': 'gnu-linux/web-servers.md'
-    - 'Apache': 'gnu-linux/apache.md'
-  - Windows:
-    - 'Introducción': 'windows/windows-setup.md'
-    - 'Powershell': windows/powershell.md
+  - Sistemas operativos:
+    - 'GNU/Linux - básico':
+      - 'Distribuciones y entornos de escritorio': 'gnu-linux/linux-desktop.md'
+      - 'Instalación': 'gnu-linux/installation.md'
+      - 'Comandos básicos': 'gnu-linux/commands-basics.md'
+      - 'Gestión de ficheros': 'gnu-linux/files.md'
+      - 'Gestión de usuarios y grupos': 'gnu-linux/users-groups-local.md'
+      - 'Actividades':
+        - '1. Manejo del terminal': 'gnu-linux/exercise-terminal-basics.md'
+#      - 'Manipulación de texto y filtros': 'gnu-linux/files-2.md'
+    - 'GNU/Linux: scripting':
+      - 'Programación de scripts (I)': 'gnu-linux/scripting-linux.md'
+      - 'Programación de scripts (II)': 'gnu-linux/scripting-linux-2.md'
+      - 'Actividades':
+        - '2. Ejercicios variados': 'gnu-linux/ejercicios-variados.md'
+        - '3. Examen': 'gnu-linux/examen.md'
+    - 'Servidores':
+      - 'Redes en Linux': 'gnu-linux/networks.md'
+      - 'Servidores web': 'gnu-linux/servers/web-servers.md'
+      - 'Apache': 'gnu-linux/servers/apache.md'
+      - '4. Actividad: Instalación y configuración básica de servidores web y de base de datos':
+        - '4.0. Formato y entrega': 'gnu-linux/servers/0-formato-entrega.md'
+        - '4.1. Windows y XAMPP': 'gnu-linux/servers/1-web-servers-xampp.md'
+        - '4.2. Instalación de Apache': 'gnu-linux/servers/2-web-servers-apache.md'
+        #- '4.3. Configuración de Apache'
+    # - 'Otros':
+    #   - 'Gestores de paquetes': 'gnu-linux/software.md'
+    #   - 'Gestión de discos y particiones': 'gnu-linux/disk-management.md'
+    #   - 'Cuotas de disco': 'gnu-linux/disk-quotes.md'
+  #- Windows:
+  #  - 'Introducción': 'windows/windows-setup.md'
+  #  - 'Powershell': windows/powershell.md
   - Java:
     - 'Introducción': 'java/intro.md'
     - 'Ficheros I: básico': 'java/file-basics.md'
