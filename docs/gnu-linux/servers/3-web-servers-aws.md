@@ -1,4 +1,4 @@
-## Creación de una máquina virtual con Apache en AWS
+# Creación de una máquina virtual con Apache en AWS
 ### Parte I: creación de la máquina
 AWS (Amazon Web Services) es la nube de Amazon. Existen licencias de aprendizaje (AWS Academy) en que no tienes riesgo de cobros. Pídele a tu profesor acceso a AWS Academy para poder aprender a usar AWS.
 
@@ -50,13 +50,21 @@ phpinfo();
       Ten en cuenta lo siguiente sobre el lenguaje PHP:
 
       - Si queremos escribir código PHP, primero hay que abrir con `<?php` y, cuando acabamos, cerramos con `?>`.
+      - Si quieres integrar código php, la extensión no debe ser .html sino .php (por ejemplo: index.php, pagina1.php, etc.).
       - El código PHP se escribe dentro de esa sección y podemos abrirla y cerrarla cuando queramos. Fuera de ella podemos escribir CSS o HTML como siempre.
-      - Ejecutando la sentencia `**phpinfo();` lo que hacemos es mostrar una tabla con la información de la instalación de PHP en ese equipo. Ten cuidado no equivocarte con las mayúsculas y minúsculas, ya que un pequeño fallo de sintaxis hará que no funcione la página.
+      - Ejecutando la sentencia `phpinfo();` lo que hacemos es mostrar una tabla con la información de la instalación de PHP en ese equipo. Ten cuidado no equivocarte con las mayúsculas y minúsculas, ya que un pequeño fallo de sintaxis hará que no funcione la página.
 
 Si todo ha ido bien, verás una pantalla como esta:
-![phpinfo](../images/gnu-linux/phpinfo.png)
+![phpinfo](../../images/gnu-linux/phpinfo.png)
+
+## Aprende un poquito de PHP
+Crea nuevos ficheros .php para hacer loss pasos del 3 al 6 (ambos incluídos) del [este tutorial y aporta al menos una captura de prueba de cada uno para ver que los has realizado](https://www.tutorialesprogramacionya.com/phpya/). 
+
+Son ejercicios simples pero te darán una introducción a un lenguaje de programación web. El tutorial muestra las soluciones en la parte inferior de la página, aunque te recomiendo que intentes hacerlo por ti mismo.
 
 ## Servidor de base de datos MariaDB
+Ya sabemos instalar y configurar de forma básica un servidor web: sabemos en qué puerto corre (normalmente 80), instalarlo, cómo cambiar su document root. Vamos a ver ahora lo básico sobre servidores de base de datos.
+
 ### Instalación
 1. MySQL y MariaDB son servidores de base de datos que tienen ambas origen en MySQL 5.7. Después el desarrollo de cada una fue por su lado. Instala el servidor de base de datos MariaDB (paquete mariadb-server).
 2. Comprueba si el servicio de mariadb está en ejecución (con el comando `systemctl`). En caso de no estar arrancado, arráncalo *(captura de los comandos de estos puntos)*
@@ -95,7 +103,7 @@ Vamos a crear alguna tabla en "prueba". Para ello, asegúrate primero de que est
 use prueba;
 ```
 
-![crear base de datos con comandos](../images/gnu-linux/create-database-if-not-exists.png)
+![crear base de datos con comandos](../../images/gnu-linux/create-database-if-not-exists.png)
 
 Comprobamos que se ha creado correctamente:
 ```
@@ -155,9 +163,32 @@ Podríamos escribir línea a línea dentro del cliente de MySQL todos los comand
 mysql -u <tu_usuario> -p < script_creacion_bbdd.sql
 ```
 
+!!! Note "Ejercicio"
+      Accede a MariaDB y comprueba que el script se ejecutó correctamente (es decir, que tanto la base de datos como la tabla se han creado bien).
 
+### Creando un usuario
+Al configurar MariaDB con mysql_secure_installation hemos deshabilitado el acceso remoto del usuario root. Por tanto, si queremos acceder remotamente (desde otro equipo) a la base de datos de la máquina tendremos que crear un usuario en ella que tenga permisos sobre la base de datos que acabamos de crear.
 
-## TODOs para mejorar esta práctica
-Mejoras para mejorar esta práctica en cursos futuros (para mi):
+```sql
+// Sintaxis para crear un usuario nuevo
+CREATE USER 'usuario_bbdd'@'localhost' IDENTIFIED BY 'contrasenha';
 
-- Añadir redirección de puertos en la parte de instalación de servidores web (no prioritario).
+// Sintaxis para dar permisos sobre la tabla
+GRANT ALL PRIVILEGES ON mi_base_de_datos.* TO 'usuario_bbdd'@'localhost';
+```
+
+Esto está muy simplificado (se pueden hacer muchas más cosas) pero son las operaciones más simples y habituales que podemos ver. Al crear el usuario con 'localhost', **solo podremos identificarnos con este usuario desde el mismo equipo (localhost)**. En caso de que queramos permitir acceder desde cualquier equipo, usaríamos '%' en lugar de 'localhost'. Este % se refiere a **cualquier host**.
+
+En el caso de dar privilegios al usuario sobre la base de datos se usa `*` y no porcentaje. En el ejemplo hemos dado permisos a 'usuario_bbdd' para hacer cualquier operación (GRANT ALL PRIVILEGES) sobre cualquier tabla de la base de datos (*).
+
+!!! Note "Ejercicio"
+      - Crea un usuario con tu nombre y primer apellido y la contraseña que quieras (por ejemplo: "Abcd1234.").
+      - Dale permisos a tu usuario sobre la base de datos que creaste antes en el script.
+      - Intenta loguearte en MySQL con use usuario desde la propia máquina y comprueba que puedes hacer un select sobre la tabla empleado.
+
+### Acceso remoto
+1. Utiliza en tu ordenador de casa MySQL Workbench (u otro cliente similar de MySQL) para conectarte a la base de datos. Recuerda que MySQL / MariaDB se ejecuta por defecto en el puerto 3306.
+2. En el caso de que no te funcione, es posible que MariaDB/MySQL solo esté habilitado para funcionar (por seguridad) en tu máquina local (es decir, que solo permite acceder desde el propio equipo donde está instalado). Para cambiar esto, hay que modificar un fichero de configuración y [decirle que quieres permitir el acceso desde 0.0.0.0 (que significa cualquier ip, te dejo este enlace de ayuda)](https://www.google.com/search?client=firefox-b-lm&q=mysql+change+bind+address).
+3. Ten en cuenta que quizá tengas que permitir que a la máquina de AWS entre tráfico por el puerto 3306.
+
+Si tienes en cuenta todo esto, deberías poder usar MySQL desde un cliente remoto sin problemas.
