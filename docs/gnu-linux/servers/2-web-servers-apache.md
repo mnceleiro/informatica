@@ -58,13 +58,13 @@ Al desconectar tu móvil de la wifi, este está en internet y no en tu red local
 5. Necesitamos entrar en nuestro router (que puede ser de muchas marcas y modelos diferentes). Para conectarnos al router necesitamos saber la ip del mismo. Usando `ipconfig` (Windows) mira si ves ahí la IP de tu router (aparecerá como "puerta de enlace predeterminada").
 6. Una vez la tienes, inserta esa ip en un navegador web (lo puedes hacer desde la máquina principal o la virtual, ya que están ambas en la misma red local). Te recomiendo hacerlo desde la principal, ya que te será más cómodo.
 
-![Router Huawei](../images/router-huawei-login.png)
+![Router Huawei](../../images/router-huawei-login.png)
 
 7. En la imagen anterior ves un ejemplo de pantalla de *login* en un router Huawei (según el modelo de Huawei también puede cambiar). Necesitas averiguar el usuario y contraseña por defecto del mismo (si lo tienes de fábrica). Hay dos maneras en que puedes hacerlo:
       1. **Forma I:** mira en las etiquetas del router (debajo de él) y revisa si ves un usuario y contraseña para conectarte. Suelen ser combinaciones como: "admin:admin", "admin:1234", etc.
       2. **Forma II:** buscar en Google: "usuario contraseña por defecto router R TECHNICOLOR tc7210"
 
-![Usuario y contraseña por defecto de un router](../images/gnu-linux/google-user-pw-default-router.png)
+![Usuario y contraseña por defecto de un router](../../images/gnu-linux/google-user-pw-default-router.png)
 
 ### Acceso al router
 8. Accede al router con tu usuario y contraseña y explora las opciones que hay (puedes ver, por ejemplo, cuántos dispositivos hay conectados en tu casa y que IP privada tienen).
