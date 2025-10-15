@@ -58,9 +58,11 @@ Si todo ha ido bien, verás una pantalla como esta:
 ![phpinfo](../../images/gnu-linux/phpinfo.png)
 
 ## Aprende un poquito de PHP
-Crea nuevos ficheros .php para hacer loss pasos del 3 al 6 (ambos incluídos) del [este tutorial y aporta al menos una captura de prueba de cada uno para ver que los has realizado](https://www.tutorialesprogramacionya.com/phpya/). 
+Crea nuevos ficheros .php para hacer loss pasos del 3 al 6 (ambos incluidos) del [este tutorial y aporta al menos una captura de prueba de cada uno para ver que los has realizado](https://www.tutorialesprogramacionya.com/phpya/). 
 
 Son ejercicios simples pero te darán una introducción a un lenguaje de programación web. El tutorial muestra las soluciones en la parte inferior de la página, aunque te recomiendo que intentes hacerlo por ti mismo.
+
+*(captura de código y prueba de cada ejercicio en el navegador)*
 
 ## Servidor de base de datos MariaDB
 Ya sabemos instalar y configurar de forma básica un servidor web: sabemos en qué puerto corre (normalmente 80), instalarlo, cómo cambiar su document root. Vamos a ver ahora lo básico sobre servidores de base de datos.
@@ -110,6 +112,8 @@ Comprobamos que se ha creado correctamente:
 show tables;
 ```
 
+*(captura)*
+
 También podemos ver el código de creación de la tabla con el comando:
 ```
 show create table usuario;
@@ -129,6 +133,8 @@ Volvemos a ver os datos da táboa usuarios:
 ```
 select * from usuario;
 ```
+
+*(captura)*
 
 Vamos a sair de MariaDB:
 ```
@@ -164,7 +170,7 @@ mysql -u <tu_usuario> -p < script_creacion_bbdd.sql
 ```
 
 !!! Note "Ejercicio"
-      Accede a MariaDB y comprueba que el script se ejecutó correctamente (es decir, que tanto la base de datos como la tabla se han creado bien).
+      Accede a MariaDB y comprueba que el script se ejecutó correctamente (es decir, que tanto la base de datos como la tabla se han creado bien). *(captura)*
 
 ### Creando un usuario
 Al configurar MariaDB con mysql_secure_installation hemos deshabilitado el acceso remoto del usuario root. Por tanto, si queremos acceder remotamente (desde otro equipo) a la base de datos de la máquina tendremos que crear un usuario en ella que tenga permisos sobre la base de datos que acabamos de crear.
@@ -183,12 +189,12 @@ En el caso de dar privilegios al usuario sobre la base de datos se usa `*` y no 
 
 !!! Note "Ejercicio"
       - Crea un usuario con tu nombre y primer apellido y la contraseña que quieras (por ejemplo: "Abcd1234.").
-      - Dale permisos a tu usuario sobre la base de datos que creaste antes en el script.
-      - Intenta loguearte en MySQL con use usuario desde la propia máquina y comprueba que puedes hacer un select sobre la tabla empleado.
+      - Dale permisos a tu usuario sobre la base de datos que creaste antes en el script. *(captura)*
+      - Intenta loguearte en MySQL con use usuario desde la propia máquina y comprueba que puedes hacer un select sobre la tabla empleado. *(captura)*
 
 ### Acceso remoto
 1. Utiliza en tu ordenador de casa MySQL Workbench (u otro cliente similar de MySQL) para conectarte a la base de datos. Recuerda que MySQL / MariaDB se ejecuta por defecto en el puerto 3306.
 2. En el caso de que no te funcione, es posible que MariaDB/MySQL solo esté habilitado para funcionar (por seguridad) en tu máquina local (es decir, que solo permite acceder desde el propio equipo donde está instalado). Para cambiar esto, hay que modificar un fichero de configuración y [decirle que quieres permitir el acceso desde 0.0.0.0 (que significa cualquier ip, te dejo este enlace de ayuda)](https://www.google.com/search?client=firefox-b-lm&q=mysql+change+bind+address).
 3. Ten en cuenta que quizá tengas que permitir que a la máquina de AWS entre tráfico por el puerto 3306.
 
-Si tienes en cuenta todo esto, deberías poder usar MySQL desde un cliente remoto sin problemas.
+Si tienes en cuenta todo esto, deberías poder usar MySQL desde un cliente remoto sin problemas. *(captura de la conexión remota demostrando que es la ip de aws)*
