@@ -77,8 +77,8 @@ nav:
       - 'Ejercicio I (continuación)': 'gamedev/unity/unity2d-ejercicio1-2.md'
       - 'Físicas y colisiones (I)': 'gamedev/unity/unity2d-3.md'
       #- 'Físicas y colisiones (II)': 'todo'
-    - 'Ejercicio':
-      - 'Minijuego de coches': 'gamedev/unity/unity2d-ejercicio2.md'
+      - 'Ejercicio: juego de coches': 'gamedev/unity/unity2d-ejercicio2.md'
+      - 'Movimiento y animaciones': 'gamedev/unity/unity2d-4-animaciones.md'
     - 'Unity - Segundo juego':
       - 'TODO': 'todo'
 
