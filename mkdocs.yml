@@ -54,6 +54,8 @@ nav:
         - '4.1. Windows y XAMPP': 'gnu-linux/servers/1-web-servers-xampp.md'
         - '4.2. Instalación de Apache': 'gnu-linux/servers/2-web-servers-apache.md'
         - '4.3. PHP y bases de datos en AWS': 'gnu-linux/servers/3-web-servers-aws.md'
+        - '4.4. Instalando Wordpress': 'gnu-linux/servers/4-web-servers-wordpress.md'
+        - '4.5. Opcional: dominios y HTTPS': 'gnu-linux/servers/https.md'
     # - 'Otros':
     #   - 'Gestores de paquetes': 'gnu-linux/software.md'
     #   - 'Gestión de discos y particiones': 'gnu-linux/disk-management.md'
