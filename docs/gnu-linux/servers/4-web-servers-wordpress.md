@@ -52,5 +52,5 @@ En una máquina como la anterior, instala un Moodle y crea un curso.
 ### Ejercicio: instala Drupal
 En una máquina como la anterior, instala Drupal y crea un post. Intenta lograr que la conexión al Moodle sea en el puerto 8080 (en lugar de en el 80).
 
-### Ejercicio opcional: instala Prestashop
+### Ejercicio: instala Prestashop
 Como ejercicio opcional, intenta instalar Prestashop.

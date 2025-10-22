@@ -79,10 +79,10 @@ nav:
       - 'Ejercicio I (continuación)': 'gamedev/unity/unity2d-ejercicio1-2.md'
       - 'Físicas y colisiones (I)': 'gamedev/unity/unity2d-3.md'
       #- 'Físicas y colisiones (II)': 'todo'
-      - 'Ejercicio: juego de coches': 'gamedev/unity/unity2d-ejercicio2.md'
-      - 'Movimiento y animaciones': 'gamedev/unity/unity2d-4-animaciones.md'
+      - 'Ejercicio: minijuego de coches': 'gamedev/unity/unity2d-ejercicio2.md'
     - 'Unity - Segundo juego':
-      - 'TODO': 'todo'
+      - '1. Movimiento y animaciones': 'gamedev/unity/unity2d-4-animaciones.md'
+      - '2. Recolección de objetos y detección de colisiones': 'gamedev/unity/unity2d-5-colisiones.md'
 
   - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
