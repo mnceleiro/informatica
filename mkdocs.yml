@@ -83,6 +83,7 @@ nav:
     - 'Unity - Segundo juego':
       - '1. Movimiento y animaciones': 'gamedev/unity/unity2d-4-animaciones.md'
       - '2. Recolección de objetos y detección de colisiones': 'gamedev/unity/unity2d-5-colisiones.md'
+      - '3. Modelado del mundo': 'gamedev/unity/unity2d-6-tilemap.md'
 
   - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
