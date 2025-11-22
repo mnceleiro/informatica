@@ -12,7 +12,7 @@ En el siguiente vídeo se explica tanto como mejorar un poco la detección de te
     3. Modela el movimiento del jugador siguiendo las explicaciones del vídeo. Asegúrate de que el salto funcione correctamente.
     4. Implementa las animaciones del jugador (parado, correr, saltar).
 
-    **Opcionalmente**, implementa también lo siguiente: 
+    **Opcionalmente**, implementa también lo siguiente:
 
     5. Añade una plataforma movible a tu proyecto de manera que, duplicándola varias veces, siga funcionando correctamente. Para esto tendrás que programarla tal y como se indica en la segunda forma del vídeo.
     6. Duplica la plataforma anterior (de manera que tengas 3-4 plataformas movibles).
