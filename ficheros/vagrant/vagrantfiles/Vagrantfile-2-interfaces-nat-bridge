@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+$script = <<-SCRIPT
+	apt update && apt install -y lsb-core tree vim
+SCRIPT
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "ubuntu/jammy64"
+  
+  config.vm.provider :virtualbox do |vb|
+    vb.name = "ubuntu"
+    vb.memory = "2048"
+    vb.gui = false
+    
+    vb.customize ["modifyvm", :id, "--groups", "/vagrant-vms"]
+  end
+  
+  config.vm.network "public_network"
+  
+  config.vm.hostname = "examen-20240312"
+  config.vm.synced_folder "./compartido", "/home/vagrant/compartido",
+	  owner: "vagrant",
+	  group: "vagrant",
+	  mount_options: ["dmode=755,fmode=755"]
+	  
+  config.vm.boot_timeout = 1000
+  config.vm.provision "shell", inline: $script
+end

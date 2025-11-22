@@ -1,0 +1,2036 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../intro/" rel="prev"/>
+<link href="../vagrant/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
+<title>Virtualbox - Informática y sistemas operativos</title>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#donde-se-almacenan-las-maquinas-cambiando-la-ruta">1.1 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Virtualbox
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+          
+  
+  
+  Introducción a la informática
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../hardware/intro/">
+          
+  
+  
+  Hardware
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../intro/">
+          
+  
+  
+  Virtualización y DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gnu-linux/linux-desktop/">
+          
+  
+  
+  Sistemas operativos
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../java/intro/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../web/intro/">
+          
+  
+  
+  Web
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gamedev/intro/">
+          
+  
+  
+  Gamedev
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../apuntes-variados/intro/">
+          
+  
+  
+  Otros
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introducción a la informática
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducción a la informática
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Esta página
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/mecanografia/">
+<span class="md-ellipsis">
+    
+  
+    Mecanografía
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-informatica/">
+<span class="md-ellipsis">
+    
+  
+    Moverse en Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/ofimatica/">
+<span class="md-ellipsis">
+    
+  
+    Ofimática
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/multimedia/">
+<span class="md-ellipsis">
+    
+  
+    Multimedia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/seguridad-internet/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad en internet
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-sos/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a los sistemas operativos
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/intro/">
+<span class="md-ellipsis">
+    
+  
+    Historia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/arquitecturas-fisicas/">
+<span class="md-ellipsis">
+    
+  
+    Arquitecturas físicas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes-de-ordenador/">
+<span class="md-ellipsis">
+    
+  
+    Componentes de un ordenador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/torre/">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/procesador/">
+<span class="md-ellipsis">
+    
+  
+    Microprocesador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/cpu-cooling/">
+<span class="md-ellipsis">
+    
+  
+    Refrigeración CPU
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/memorias/">
+<span class="md-ellipsis">
+    
+  
+    Memorias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/storage/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/power-supply/">
+<span class="md-ellipsis">
+    
+  
+    Fuente de alimentación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/hardware/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento, tarjetas gráficas y monitores
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Virtualización y DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Virtualización y DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#donde-se-almacenan-las-maquinas-cambiando-la-ruta">1.1 
+<span class="md-ellipsis">
+      
+        ¿Dónde se almacenan las máquinas? Cambiando la ruta
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creando-mi-primera-maquina-virtual">1.2 
+<span class="md-ellipsis">
+      
+        Creando mi primera máquina virtual
+      
+    </span>
+</a>
+<nav aria-label="Creando mi primera máquina virtual" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descarga-de-isos">1.2.1 
+<span class="md-ellipsis">
+      
+        Descarga de ISOs
+      
+    </span>
+</a>
+<nav aria-label="Descarga de ISOs" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows-11">
+<span class="md-ellipsis">
+      
+        Windows 11
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ubuntu-2204">
+<span class="md-ellipsis">
+      
+        Ubuntu 22.04
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-maquinas">1.2.2 
+<span class="md-ellipsis">
+      
+        Creación de máquinas
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuracion-de-las-maquinas">1.3 
+<span class="md-ellipsis">
+      
+        Configuración de las máquinas
+      
+    </span>
+</a>
+<nav aria-label="Configuración de las máquinas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modificar-la-cantidad-de-procesadores-y-ram-de-la-maquina">1.3.1 
+<span class="md-ellipsis">
+      
+        Modificar la cantidad de procesadores y RAM de la máquina
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#copiar-y-arrastrar-archivos-entre-host-y-maquina-virtual">1.3.2 
+<span class="md-ellipsis">
+      
+        Copiar y arrastrar archivos entre host y máquina virtual
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuracion-de-red">1.3.3 
+<span class="md-ellipsis">
+      
+        Configuración de red
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#practica">1.4 
+<span class="md-ellipsis">
+      
+        Práctica
+      
+    </span>
+</a>
+<nav aria-label="Práctica" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sistemas-operativos">1.4.1 
+<span class="md-ellipsis">
+      
+        Sistemas operativos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion-de-sistemas-operativos-y-virtualizacion">1.4.2 
+<span class="md-ellipsis">
+      
+        Instalación de sistemas operativos y virtualización
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#algoritmos-de-planificacion">1.4.3 
+<span class="md-ellipsis">
+      
+        Algoritmos de planificación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sistemas-de-ficheros">1.4.4 
+<span class="md-ellipsis">
+      
+        Sistemas de ficheros
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opcionales-para-nota">1.4.5 
+<span class="md-ellipsis">
+      
+        OPCIONALES (para nota)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vagrant/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vagrant2/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ansible/">
+<span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker/">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-2/">
+<span class="md-ellipsis">
+    
+  
+    Docker II: Dockerfiles
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-3/">
+<span class="md-ellipsis">
+    
+  
+    Docker III: Docker Compose
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Sistemas operativos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemas operativos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux - básico
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux - básico
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/linux-desktop/">
+<span class="md-ellipsis">
+    
+  
+    Distribuciones y entornos de escritorio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/installation/">
+<span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/commands-basics/">
+<span class="md-ellipsis">
+    
+  
+    Comandos básicos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/files/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/users-groups-local/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de usuarios y grupos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/exercise-terminal-basics/">
+<span class="md-ellipsis">
+    
+  
+    1. Manejo del terminal
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux: scripting
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux: scripting
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux-2/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/ejercicios-variados/">
+<span class="md-ellipsis">
+    
+  
+    2. Ejercicios variados
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/examen/">
+<span class="md-ellipsis">
+    
+  
+    3. Examen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Servidores
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Servidores
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/networks/">
+<span class="md-ellipsis">
+    
+  
+    Redes en Linux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/web-servers/">
+<span class="md-ellipsis">
+    
+  
+    Servidores web
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/apache/">
+<span class="md-ellipsis">
+    
+  
+    Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/0-formato-entrega/">
+<span class="md-ellipsis">
+    
+  
+    4.0. Formato y entrega
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/1-web-servers-xampp/">
+<span class="md-ellipsis">
+    
+  
+    4.1. Windows y XAMPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/2-web-servers-apache/">
+<span class="md-ellipsis">
+    
+  
+    4.2. Instalación de Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/3-web-servers-aws/">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/4-web-servers-wordpress/">
+<span class="md-ellipsis">
+    
+  
+    4.4. Instalando Wordpress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/https/">
+<span class="md-ellipsis">
+    
+  
+    4.5. Opcional: dominios y HTTPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/file-basics/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros I: básico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/files/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/intro/">
+<span class="md-ellipsis">
+    
+  
+    Frontend Roadmap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/js-basics/">
+<span class="md-ellipsis">
+    
+  
+    Iniciación a JavaScript
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Gamedev
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción al desarrollo de videojuegos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Primer juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Primer juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-1/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-2/">
+<span class="md-ellipsis">
+    
+  
+    Mejorando el movimiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1-2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I (continuación)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-3/">
+<span class="md-ellipsis">
+    
+  
+    Físicas y colisiones (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio: minijuego de coches
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Segundo juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Segundo juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-4-animaciones/">
+<span class="md-ellipsis">
+    
+  
+    1. Movimiento y animaciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-5-colisiones/">
+<span class="md-ellipsis">
+    
+  
+    2. Recolección de objetos y detección de colisiones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-6-tilemap/">
+<span class="md-ellipsis">
+    
+  
+    3. Modelado del mundo
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/intro/">
+<span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/programming/">
+<span class="md-ellipsis">
+    
+  
+    Programación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/firewalling/">
+<span class="md-ellipsis">
+    
+  
+    Firewalling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/gamedev/">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/android/">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/control-versiones/">
+<span class="md-ellipsis">
+    
+  
+    Control versiones
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#donde-se-almacenan-las-maquinas-cambiando-la-ruta">1.1 
+<span class="md-ellipsis">
+      
+        ¿Dónde se almacenan las máquinas? Cambiando la ruta
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creando-mi-primera-maquina-virtual">1.2 
+<span class="md-ellipsis">
+      
+        Creando mi primera máquina virtual
+      
+    </span>
+</a>
+<nav aria-label="Creando mi primera máquina virtual" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descarga-de-isos">1.2.1 
+<span class="md-ellipsis">
+      
+        Descarga de ISOs
+      
+    </span>
+</a>
+<nav aria-label="Descarga de ISOs" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows-11">
+<span class="md-ellipsis">
+      
+        Windows 11
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ubuntu-2204">
+<span class="md-ellipsis">
+      
+        Ubuntu 22.04
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-maquinas">1.2.2 
+<span class="md-ellipsis">
+      
+        Creación de máquinas
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuracion-de-las-maquinas">1.3 
+<span class="md-ellipsis">
+      
+        Configuración de las máquinas
+      
+    </span>
+</a>
+<nav aria-label="Configuración de las máquinas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modificar-la-cantidad-de-procesadores-y-ram-de-la-maquina">1.3.1 
+<span class="md-ellipsis">
+      
+        Modificar la cantidad de procesadores y RAM de la máquina
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#copiar-y-arrastrar-archivos-entre-host-y-maquina-virtual">1.3.2 
+<span class="md-ellipsis">
+      
+        Copiar y arrastrar archivos entre host y máquina virtual
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuracion-de-red">1.3.3 
+<span class="md-ellipsis">
+      
+        Configuración de red
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#practica">1.4 
+<span class="md-ellipsis">
+      
+        Práctica
+      
+    </span>
+</a>
+<nav aria-label="Práctica" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sistemas-operativos">1.4.1 
+<span class="md-ellipsis">
+      
+        Sistemas operativos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion-de-sistemas-operativos-y-virtualizacion">1.4.2 
+<span class="md-ellipsis">
+      
+        Instalación de sistemas operativos y virtualización
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#algoritmos-de-planificacion">1.4.3 
+<span class="md-ellipsis">
+      
+        Algoritmos de planificación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sistemas-de-ficheros">1.4.4 
+<span class="md-ellipsis">
+      
+        Sistemas de ficheros
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opcionales-para-nota">1.4.5 
+<span class="md-ellipsis">
+      
+        OPCIONALES (para nota)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Virtualbox</h1>
+<div><h2 id="donde-se-almacenan-las-maquinas-cambiando-la-ruta"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> ¿Dónde se almacenan las máquinas? Cambiando la ruta</h2>
+<p>El primer paso después de instalar Virtualbox es elegir donde quieres que se almacenen las máquinas virtuales.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La ruta por defecto donde se almacenan las máquinas es en: <strong>CARPETA_USUARIO/Virtualbox VMs</strong>.</p>
+<ul>
+<li>Windows: C:/Usuarios/mnceleiro/Virtualbox VMs (para mi usuario mnceleiro)</li>
+<li>GNU/Linux: /home/mnceleiro/Virtualbox VMs (para mi usuario mnceleiro)</li>
+</ul>
+</div>
+<p>En mi caso, tengo un segundo disco duro de 2 TB, por lo que elijo este como sitio para almacenar todas las máquinas.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Paso 1" src="../files/images/virtualbox-path-config-1.png"/></th>
+<th style="text-align: center;"><img alt="Paso 2" src="../files/images/virtualbox-path-config-2.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Paso I: archivo → preferencias</em></td>
+<td style="text-align: center;"><em>Paso II: seleccionamos la carpeta que queramos</em></td>
+</tr>
+</tbody>
+</table>
+<p>Si no dispones de un disco principal (C: en Windows) enorme, es mejor que o pongas en un disco o partición secundaria. Eso sí, ten en cuenta que en un SSD las máquinas irán mejor que si están en un HDD. Otra cosa que se puede hacer es poner la ruta de las máquinas en el HDD (más grande) y luego, individualmente al crear las máquinas, poner en el SSD alguna que uses con mucha frecuencia.</p>
+<h2 id="creando-mi-primera-maquina-virtual"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Creando mi primera máquina virtual</h2>
+<h3 id="descarga-de-isos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Descarga de ISOs</h3>
+<p>Vamos a usar como ejemplo los sistemas operativos <strong>Windows 11</strong> y <strong>Ubuntu 22.04</strong>.</p>
+<h4 id="windows-11"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1.1</span> Windows 11</h4>
+<p>Puedes descargar la ISO de W11 en <a href="https://www.microsoft.com/es-es/software-download/windows11">la página oficial de Microsoft</a>.
+<img alt="Descarga W11" src="../files/images/virtualbox-iso-w11-1.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recuerda elegir el idioma</p>
+</div>
+<h4 id="ubuntu-2204"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1.2</span> Ubuntu 22.04</h4>
+<p>Descarga Ubuntu 22.04 (hay versiones más modernas, pero esta es la última que ha salido de soporte de larga duración a día de hoy). Para descargar la ISO lo hacemos desde su página oficial <a href="https://ubuntu.com/download/desktop">(pulsa aquí)</a>.</p>
+<h3 id="creacion-de-maquinas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Creación de máquinas</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>1. Pulsamos en el botón "Nueva" (o máquina → Nueva)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="" src="../files/images/virtualbox-1.png"/></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>2. Elegimos sistema operativo y nombre de la máquina (para máquina con Windows 11)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="" src="../files/images/virtualbox-2-w11.png"/></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>Ejemplo para Windows 11</em></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>2. Elegimos sistema operativo y nombre de la máquina (para máquina Ubuntu)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="" src="../files/images/virtualbox-2-ubuntu22.png"/></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>Ejemplo para Ubuntu 22.04</em></td>
+</tr>
+</tbody>
+</table>
+<p>En este caso, he elegido en el desplegable <strong>Windows 11</strong> como sistema y en el nombre he puesto <strong>Windows 11 - Plantilla</strong>. Puedes elegir una imagen .ISO de Windows 11 en este mismo paso o hacerlo después manualmente.</p>
+<div class="admonition warning">
+<p class="admonition-title">Instalación desatendida (<em>unattended installation</em>)</p>
+<p>Marca la casilla de "saltarse la instalación desatendida". La instalación desatendida de Virtualbox es bastante nueva y en la mayoría de sistemas no funciona aún como debe.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>3. Asignamos recursos a la máquina (RAM y procesadores)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="" src="../files/images/virtualbox-3.png"/></td>
+</tr>
+<tr>
+<td style="text-align: center;">Asigna según los recursos de los que dispongas</td>
+</tr>
+</tbody>
+</table>
+<p>Ten en cuenta que Windows 11 tiene como requisitos mínimos 4 GB de RAM. Ubuntu 22.04 tiene 4 GB de RAM como requisitos "recomendados".</p>
+<ul>
+<li>Si tienes un ordenador con más de 8 GB de RAM y más de 2 procesadores no tendrás problema.</li>
+<li>En caso de tener un ordenador con solo 2 procesadores (dual-core) asígnale a la máquina solo 1. Si tienes más puedes ponerle 2 (no te preocupes, esto puede cambiarse más adelante sin ningún tipo de problema)</li>
+<li>Mi consejo si dispones de 8GB de RAM o menos es que lo hagas con una ISO de W10 en lugar de Windows 11 y le pongas solo 2 GB.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>4. Asignamos tamaño del disco duro</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="" src="../files/images/virtualbox-4.png"/></td>
+</tr>
+<tr>
+<td style="text-align: center;"><a href="https://blogs.oracle.com/virtualization/post/install-microsoft-windows-11-on-virtualbox">No asignes menos de 64 GB si conectas W11 a internet</a></td>
+</tr>
+</tbody>
+</table>
+<p>El disco duro no es más que un archivo normal con extensión .vdi. Cualquier cosa que hagas en Virtualbox solo usará ese archivo. Hagas lo que hagas ahí, tu sistema operativo base no corre peligro!</p>
+<p>A nivel de disco, puedes encontrar diversas recomendaciones diferentes. Si tienes espacio suficiente, mi consejo es que uses unos 40 GB en Ubuntu y unos 70-80 en Windows. Si en Windows te aseguras de desactivar las actualizaciones inmediatamente o no conectas la máquina a internet seguramente puedas reducir este tamaño consierablemente (quizás hasta unos 35-40 GB si lo necesitas).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El <em>checkbox</em> de "Pre-allocate Full Size" (si se marca) hace que el espacio que indicamos se ocupe inmediatamente.</p>
+<p>Si, en cambio, no marcamos esta casilla, el espacio se va ocupando según va creciendo el tamaño de la propia máquina. Es decir, el tamaño que ponemos es el máximo que la máquina puede alcanzar.</p>
+<p>Por ejemplo: si tenemos un Windows 11 al que le hemos puesto 80 GB y la casilla no está marcada, si este sistema solo tiene ocupados 40 GB de los 80 que asignamos, en nuestro disco solo ocupará esos 40.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>5. Revisamos y finalizamos</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="" src="../files/images/virtualbox-5.png"/></td>
+</tr>
+</tbody>
+</table>
+<p>Para arrancar la máquina podemos hacerlo pulsando botón derecho en ella, pulsando "iniciar" en el menú superior o simplemente haciendo doble click sobre ella.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>6. Arrancar la máquina</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="" src="../files/images/virtualbox-6.png"/></td>
+</tr>
+<tr>
+<td style="text-align: center;">Para arrancar la máquina podemos hacerlo pulsando botón derecho en ella, pulsando "iniciar" en el menú superior o simplemente haciendo doble click sobre ella.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="configuracion-de-las-maquinas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Configuración de las máquinas</h2>
+<p>La mayor parte de las configuraciones de máquinas solo puede cambiarse si estas están apagadas (tenlo en cuenta). Esto es, no puedes ampliarle la RAM a la VM si está encendida.</p>
+<p>Para acceder a la configuración:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Accediendo a la configuración</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="" src="../files/images/virtualbox-configuracion-1.png"/></td>
+</tr>
+<tr>
+<td style="text-align: center;">Se puede acceder con <strong>botón derecho sobre la máquina y "configuración"</strong> o bien pulsando sobre la máquina con <strong>click izquierdo y "configuración" en la parte superior</strong>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="modificar-la-cantidad-de-procesadores-y-ram-de-la-maquina"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Modificar la cantidad de procesadores y RAM de la máquina</h3>
+<p>Accedemos a la configuración → Sistema. Podemos modificar las cantidades en las pestañas "Placa base" y "Procesador".</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Cambiando procesadores" src="../files/images/virtualbox-configuracion-procesador.png"/></th>
+<th style="text-align: center;"><img alt="Cambiando RAM" src="../files/images/virtualbox-configuracion-placabase.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Cambiando número de procesadores</td>
+<td style="text-align: center;">Cambiando RAM (pestaña <em>placa base</em>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="copiar-y-arrastrar-archivos-entre-host-y-maquina-virtual"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Copiar y arrastrar archivos entre host y máquina virtual</h3>
+<p>Puede habilitarse el arrastrar y soltar y el copy/paste entre el host y la VM (si no se hace serían máquinas independientes y no podrías copiar textos entre una y otra).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>6. Compartición entre las máquinas de copiar/pegar y arrastrar ficheros</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Configuración de copiar y pegar entre máquinas" src="../files/images/virtualbox-configuracion-copypaste.png"/></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Hay que cambiar ambas opciones de "inhabilitado" a "bidireccional"</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="configuracion-de-red"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> Configuración de red</h3>
+<p>Por defecto viene una configuración NAT. Con NAT, la máquina host (nuestro ordenador) no puede hacer ping a la máquina virtual (no hay comunicación entre ellas). A veces nos interesa tener distintas alternativas a esto como, por ejemplo, tener dos máquinas en la misma red (adaptador puente) o poner múltiples máquinas sin acceso a internet en la misma red interna (red interna).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>6. Configuraciones de RED</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Configuraciones de red disponibles en Virtualbox" src="../files/images/virtualbox-configuracion-red-1.png"/></td>
+</tr>
+</tbody>
+</table>
+<p>Esta parte es importante. <a href="https://github.com/davidgchaves/apuntamentos-complementarios-som-distancia-ies-san-clemente/tree/main/1-redes-en-virtualbox">Consulta este enlace para entender bien como funcionan las configuraciones de red en Virtualbox</a>.</p>
+<h2 id="practica"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Práctica</h2>
+<p>En grupos de dos personas realizar una presentación (de la manera que quieras, con diapositivas, solo imágenes, puro texto o incluso sin nada). Lo único obligatorio es hacer demostraciones prácticas de lo que se indica (enseñar carpeta compartida en virtualbox, cambiar procesadores/ram en directo y verlas con comandos, etc.).</p>
+<h3 id="sistemas-operativos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Sistemas operativos</h3>
+<ol>
+<li>Repaso rápido de la evaluación histórica de los sistemas operativos (consultar apuntes: procesamiento por lotes, monousuario, multiusuario, multipgoramación...)</li>
+</ol>
+<h3 id="instalacion-de-sistemas-operativos-y-virtualizacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> Instalación de sistemas operativos y virtualización</h3>
+<ol>
+<li>Instala un sistema operativo Windows 11.</li>
+<li>Instala un sistema operativo Ubuntu 22.04 LTS en una máquina virtual. Particiona a mano y explica para que sirven las particiones que creas.</li>
+<li>Instala un Windows Server 2022.</li>
+<li>Explica solo 1 de las siguientes:</li>
+<li>Configuración de que el portapapeles se comparta entre host y vm.</li>
+<li>Configuraciones de red, para qué sirven y configurar 2 máquinas para que tengan red entre ellas.</li>
+<li>Carpeta compartida entre una máquina virtual y la máquina host, de manera que si copias algo en tu máquina aparezca en la VM.</li>
+<li>Como exportar una máquina virtual (.ova) y cómo cambiar de directorio una máquina virtual y que virtualbox la reconozca.</li>
+<li>Tipos de hipervisores, diferencias.</li>
+</ol>
+<h3 id="algoritmos-de-planificacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.3</span> Algoritmos de planificación</h3>
+<ol start="6">
+<li>Explica con un ejemplo práctico como se hace un algoritmo de planificación (escoge 2):</li>
+<li>FIFO</li>
+<li>SJF</li>
+<li>SRTF</li>
+<li>Round Robin</li>
+</ol>
+<h3 id="sistemas-de-ficheros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.4</span> Sistemas de ficheros</h3>
+<ol start="7">
+<li>Explica los sistemas de archivos más comunes y algún pequeño detalle que consideres interesante de cada uno de ellos (mínimo 3).</li>
+<li>¿Conoces algún sistema de ficheros orientado a compartición de datos a través de la red?</li>
+</ol>
+<h3 id="opcionales-para-nota"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.5</span> OPCIONALES (para nota)</h3>
+<ol>
+<li>Instala Proxmox y, dentro de este, instala una VM Almalinux o CentOS (OPCIONAL, PARA NOTA)</li>
+</ol></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+</body>
+</html>

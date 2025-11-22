@@ -1,0 +1,1807 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../2-web-servers-apache/" rel="prev"/>
+<link href="../4-web-servers-wordpress/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
+<title>4.3. PHP y bases de datos en AWS - Informática y sistemas operativos</title>
+<link href="../../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#creacion-de-una-maquina-virtual-con-apache-en-aws">1. 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              4.3. PHP y bases de datos en AWS
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+          
+  
+  
+  Introducción a la informática
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../hardware/intro/">
+          
+  
+  
+  Hardware
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../virtualizacion-devops/intro/">
+          
+  
+  
+  Virtualización y DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../linux-desktop/">
+          
+  
+  
+  Sistemas operativos
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../java/intro/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../web/intro/">
+          
+  
+  
+  Web
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../gamedev/intro/">
+          
+  
+  
+  Gamedev
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../apuntes-variados/intro/">
+          
+  
+  
+  Otros
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introducción a la informática
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducción a la informática
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Esta página
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/mecanografia/">
+<span class="md-ellipsis">
+    
+  
+    Mecanografía
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/intro-informatica/">
+<span class="md-ellipsis">
+    
+  
+    Moverse en Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/ofimatica/">
+<span class="md-ellipsis">
+    
+  
+    Ofimática
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/multimedia/">
+<span class="md-ellipsis">
+    
+  
+    Multimedia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/seguridad-internet/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad en internet
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/intro-sos/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a los sistemas operativos
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/intro/">
+<span class="md-ellipsis">
+    
+  
+    Historia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/arquitecturas-fisicas/">
+<span class="md-ellipsis">
+    
+  
+    Arquitecturas físicas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes-de-ordenador/">
+<span class="md-ellipsis">
+    
+  
+    Componentes de un ordenador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/torre/">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/procesador/">
+<span class="md-ellipsis">
+    
+  
+    Microprocesador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/cpu-cooling/">
+<span class="md-ellipsis">
+    
+  
+    Refrigeración CPU
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/memorias/">
+<span class="md-ellipsis">
+    
+  
+    Memorias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/storage/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/power-supply/">
+<span class="md-ellipsis">
+    
+  
+    Fuente de alimentación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/hardware/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento, tarjetas gráficas y monitores
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Virtualización y DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Virtualización y DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/virtualbox/">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/vagrant/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/vagrant2/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/ansible/">
+<span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker/">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker-2/">
+<span class="md-ellipsis">
+    
+  
+    Docker II: Dockerfiles
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker-3/">
+<span class="md-ellipsis">
+    
+  
+    Docker III: Docker Compose
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Sistemas operativos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemas operativos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux - básico
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux - básico
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../linux-desktop/">
+<span class="md-ellipsis">
+    
+  
+    Distribuciones y entornos de escritorio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../installation/">
+<span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../commands-basics/">
+<span class="md-ellipsis">
+    
+  
+    Comandos básicos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../files/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../users-groups-local/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de usuarios y grupos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exercise-terminal-basics/">
+<span class="md-ellipsis">
+    
+  
+    1. Manejo del terminal
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux: scripting
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux: scripting
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../scripting-linux/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../scripting-linux-2/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ejercicios-variados/">
+<span class="md-ellipsis">
+    
+  
+    2. Ejercicios variados
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examen/">
+<span class="md-ellipsis">
+    
+  
+    3. Examen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Servidores
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Servidores
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../networks/">
+<span class="md-ellipsis">
+    
+  
+    Redes en Linux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../web-servers/">
+<span class="md-ellipsis">
+    
+  
+    Servidores web
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../apache/">
+<span class="md-ellipsis">
+    
+  
+    Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0-formato-entrega/">
+<span class="md-ellipsis">
+    
+  
+    4.0. Formato y entrega
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../1-web-servers-xampp/">
+<span class="md-ellipsis">
+    
+  
+    4.1. Windows y XAMPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2-web-servers-apache/">
+<span class="md-ellipsis">
+    
+  
+    4.2. Instalación de Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parte-i-creacion-de-la-maquina">1.0.1 
+<span class="md-ellipsis">
+      
+        Parte I: creación de la máquina
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parte-ii-instalacion-de-un-servidor-y-redireccion-de-puertos">1.0.2 
+<span class="md-ellipsis">
+      
+        Parte II: instalación de un servidor y redirección de puertos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion-de-php">1.1 
+<span class="md-ellipsis">
+      
+        Instalación de PHP
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aprende-un-poquito-de-php">1.2 
+<span class="md-ellipsis">
+      
+        Aprende un poquito de PHP
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#servidor-de-base-de-datos-mariadb">1.3 
+<span class="md-ellipsis">
+      
+        Servidor de base de datos MariaDB
+      
+    </span>
+</a>
+<nav aria-label="Servidor de base de datos MariaDB" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion">1.3.1 
+<span class="md-ellipsis">
+      
+        Instalación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usando-mysql-desde-un-cliente-de-terminal">1.3.2 
+<span class="md-ellipsis">
+      
+        Usando MySQL desde un cliente de terminal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#importando-un-script-de-mysqlmariadb-con-comandos">1.3.3 
+<span class="md-ellipsis">
+      
+        Importando un script de MySQL/MariaDB con comandos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creando-un-usuario">1.3.4 
+<span class="md-ellipsis">
+      
+        Creando un usuario
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acceso-remoto">1.3.5 
+<span class="md-ellipsis">
+      
+        Acceso remoto
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../4-web-servers-wordpress/">
+<span class="md-ellipsis">
+    
+  
+    4.4. Instalando Wordpress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../https/">
+<span class="md-ellipsis">
+    
+  
+    4.5. Opcional: dominios y HTTPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/file-basics/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros I: básico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/files/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/intro/">
+<span class="md-ellipsis">
+    
+  
+    Frontend Roadmap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/js-basics/">
+<span class="md-ellipsis">
+    
+  
+    Iniciación a JavaScript
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Gamedev
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción al desarrollo de videojuegos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Primer juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Primer juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-1/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-ejercicio1/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-2/">
+<span class="md-ellipsis">
+    
+  
+    Mejorando el movimiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-ejercicio1-2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I (continuación)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-3/">
+<span class="md-ellipsis">
+    
+  
+    Físicas y colisiones (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-ejercicio2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio: minijuego de coches
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Segundo juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Segundo juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-4-animaciones/">
+<span class="md-ellipsis">
+    
+  
+    1. Movimiento y animaciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-5-colisiones/">
+<span class="md-ellipsis">
+    
+  
+    2. Recolección de objetos y detección de colisiones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-6-tilemap/">
+<span class="md-ellipsis">
+    
+  
+    3. Modelado del mundo
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/intro/">
+<span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/programming/">
+<span class="md-ellipsis">
+    
+  
+    Programación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/firewalling/">
+<span class="md-ellipsis">
+    
+  
+    Firewalling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/gamedev/">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/android/">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/control-versiones/">
+<span class="md-ellipsis">
+    
+  
+    Control versiones
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parte-i-creacion-de-la-maquina">1.0.1 
+<span class="md-ellipsis">
+      
+        Parte I: creación de la máquina
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parte-ii-instalacion-de-un-servidor-y-redireccion-de-puertos">1.0.2 
+<span class="md-ellipsis">
+      
+        Parte II: instalación de un servidor y redirección de puertos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion-de-php">1.1 
+<span class="md-ellipsis">
+      
+        Instalación de PHP
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aprende-un-poquito-de-php">1.2 
+<span class="md-ellipsis">
+      
+        Aprende un poquito de PHP
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#servidor-de-base-de-datos-mariadb">1.3 
+<span class="md-ellipsis">
+      
+        Servidor de base de datos MariaDB
+      
+    </span>
+</a>
+<nav aria-label="Servidor de base de datos MariaDB" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion">1.3.1 
+<span class="md-ellipsis">
+      
+        Instalación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usando-mysql-desde-un-cliente-de-terminal">1.3.2 
+<span class="md-ellipsis">
+      
+        Usando MySQL desde un cliente de terminal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#importando-un-script-de-mysqlmariadb-con-comandos">1.3.3 
+<span class="md-ellipsis">
+      
+        Importando un script de MySQL/MariaDB con comandos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creando-un-usuario">1.3.4 
+<span class="md-ellipsis">
+      
+        Creando un usuario
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#acceso-remoto">1.3.5 
+<span class="md-ellipsis">
+      
+        Acceso remoto
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div><h1 id="creacion-de-una-maquina-virtual-con-apache-en-aws"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Creación de una máquina virtual con Apache en AWS</h1>
+<h3 id="parte-i-creacion-de-la-maquina"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.0.1</span> Parte I: creación de la máquina</h3>
+<p>AWS (Amazon Web Services) es la nube de Amazon. Existen licencias de aprendizaje (AWS Academy) en que no tienes riesgo de cobros. Pídele a tu profesor acceso a AWS Academy para poder aprender a usar AWS.</p>
+<p>En AWS existe una gran cantidad de servicios. En nuestro caso usaremos el de creación de máquinas virtuales en la nube (similar a la de Virtualbox que hemos creado antes). Este servicio, en Amazon, se llama <strong>Elastic Compute Cloud 2 (EC2)</strong>.</p>
+<ol>
+<li>Crea una máquina con Ubuntu 24.04 en AWS. Asegúrate de que la configuras usando solo la capa gratuita.</li>
+<li>Durante la creación de la máquina, genera unas claves SSH. La clave pública se almacenará en la máquina que creas, per ola privada tendrás que descargarla y no perderla. Mas adelante la usaremos para conectarnos desde nuestro terminal a la máquina de forma segura.</li>
+<li>Arranca la máquina.</li>
+</ol>
+<h3 id="parte-ii-instalacion-de-un-servidor-y-redireccion-de-puertos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.0.2</span> Parte II: instalación de un servidor y redirección de puertos</h3>
+<ol>
+<li>Instala Apache2 en la máquina.</li>
+<li>Elimina el contenido del index. Crea un HTML sencillo con un head, un body, encoding UTF-8, idioma español y un H1 con tu nombre y apellidos.</li>
+<li>Ejecuta desde la propia máquina los siguientes comandos:<ol>
+<li>curl -I localhost (i mayúscula, esto debería devolver las cabeceras HTTP).</li>
+<li>curl localhost (esto debería devolverte el contenido de la página web).</li>
+</ol>
+</li>
+</ol>
+<p>¿Por qué estamos ejecutando los comandos anteriores? Porque <strong>ese es el contenido exacto que se devuelve cuando escribimos en el navegador web (Chrome por ejemplo) una página y le damos a ENTER</strong>. El navegador es un programa que interpreta ese código y muestra el contenido de una forma más visual (cajas de texto, imágenes, etc.).</p>
+<ul>
+<li>Configura el reenvío de puertos de la máquina de AWS para que todo el tráfico <strong>que vaya al puerto 80 de la ip pública de AWS se envíe al puerto 80 de la IP privada de la máquina que has creado</strong>. Después, trata de acceder desde tu ordenador y desde el móvil <em>(captura de la configuración del puerto en AWS)</em>.</li>
+</ul>
+<h2 id="instalacion-de-php"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Instalación de PHP</h2>
+<p>Seguimos con la máquina de EC2. El servidor web anterior almacena los ficheros HTML y CSS que queramos crear en él y los sirve al cliente, quien los pide desde su navegador web.</p>
+<p>Por otro lado, a diferencia de HTML y CSS, que son interpretados por el navegador web del cliente (el servidor no hace nada más que enviarlos al cliente que los pide), PHP <strong>se ejecuta en el propio servidor</strong>.</p>
+<p>Por defecto, Apache no integra PHP (<a href="https://www.google.com/search?q=install+php+apache+ubuntu+24.04&amp;client=firefox-b-d&amp;sca_esv=a385e8322a02f559&amp;sxsrf=AE3TifMJkpV-2QyTBhuP3LXNRmMNUIXu_g%3A1759789095912&amp;ei=J0DkaOS7N_LY5NoPo7KDgQo&amp;ved=0ahUKEwik68OfzZCQAxVyLFkFHSPZIKAQ4dUDCBA&amp;uact=5&amp;oq=install+php+apache+ubuntu+24.04&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiH2luc3RhbGwgcGhwIGFwYWNoZSB1YnVudHUgMjQuMDQyBxAAGLADGB4yCRAAGLADGAgYHjILEAAYsAMYCBgKGB4yCRAAGLADGAgYHjIJEAAYsAMYCBgeMgkQABiwAxgIGB4yCRAAGLADGAgYHjIJEAAYsAMYCBgeMggQABiwAxjvBTIIEAAYsAMY7wVIhwdQ7gVYtgZwAXgAkAEAmAGUAaABlAGqAQMwLjG4AQPIAQD4AQGYAgGgAgSYAwCIBgGQBgqSBwExoAegA7IHALgHAMIHAzItMcgHAw&amp;sclient=gws-wiz-serp">necesitamos instalar PHP en nuestro Ubuntu</a>). Para ello podemos ejecutar el siguiente comando:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php<span class="w"> </span>libapache2-mod-php
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>El comando anterior instala dos paquetes:</p>
+<ul>
+<li>PHP.</li>
+<li>libapache2-mod-php: es la integración de PHP con Apache (sin esto Apache sigue sin poder ejecutar código PHP).</li>
+</ul>
+</div>
+<p>Crea un fichero prueba.php en tu directorio de Apache con la siguiente línea</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">&lt;?php</span> 
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nb">phpinfo</span><span class="p">();</span> 
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="cp">?&gt;</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Ten en cuenta lo siguiente sobre el lenguaje PHP:</p>
+<ul>
+<li>Si queremos escribir código PHP, primero hay que abrir con <code>&lt;?php</code> y, cuando acabamos, cerramos con <code>?&gt;</code>.</li>
+<li>Si quieres integrar código php, la extensión no debe ser .html sino .php (por ejemplo: index.php, pagina1.php, etc.).</li>
+<li>El código PHP se escribe dentro de esa sección y podemos abrirla y cerrarla cuando queramos. Fuera de ella podemos escribir CSS o HTML como siempre.</li>
+<li>Ejecutando la sentencia <code>phpinfo();</code> lo que hacemos es mostrar una tabla con la información de la instalación de PHP en ese equipo. Ten cuidado no equivocarte con las mayúsculas y minúsculas, ya que un pequeño fallo de sintaxis hará que no funcione la página.</li>
+</ul>
+</div>
+<p>Si todo ha ido bien, verás una pantalla como esta:
+<img alt="phpinfo" src="../../../images/gnu-linux/phpinfo.png"/></p>
+<h2 id="aprende-un-poquito-de-php"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Aprende un poquito de PHP</h2>
+<p>Crea nuevos ficheros .php para hacer loss pasos del 3 al 6 (ambos incluidos) del <a href="https://www.tutorialesprogramacionya.com/phpya/">este tutorial y aporta al menos una captura de prueba de cada uno para ver que los has realizado</a>. </p>
+<p>Son ejercicios simples pero te darán una introducción a un lenguaje de programación web. El tutorial muestra las soluciones en la parte inferior de la página, aunque te recomiendo que intentes hacerlo por ti mismo.</p>
+<p><em>(captura de código y prueba de cada ejercicio en el navegador)</em></p>
+<h2 id="servidor-de-base-de-datos-mariadb"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Servidor de base de datos MariaDB</h2>
+<p>Ya sabemos instalar y configurar de forma básica un servidor web: sabemos en qué puerto corre (normalmente 80), instalarlo, cómo cambiar su document root. Vamos a ver ahora lo básico sobre servidores de base de datos.</p>
+<h3 id="instalacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Instalación</h3>
+<ol>
+<li>MySQL y MariaDB son servidores de base de datos que tienen ambas origen en MySQL 5.7. Después el desarrollo de cada una fue por su lado. Instala el servidor de base de datos MariaDB (paquete mariadb-server).</li>
+<li>Comprueba si el servicio de mariadb está en ejecución (con el comando <code>systemctl</code>). En caso de no estar arrancado, arráncalo <em>(captura de los comandos de estos puntos)</em></li>
+<li>Securiza MariaDB con el comando <code>mysql_secure_installation</code>. Aparecerán varias preguntas:<ol>
+<li>Introducir la contraseña de administrador de MySQL/MariaDB.</li>
+<li>Cambiar a tipo de autenticación "unix_socket". Responderemos a esto que <strong>NO</strong>. Si respondemos que "sí", el usuario <em>root</em> puede identificarse sin contraseña (esto es, el administrador de MySQL está ligado al usuario <em>root</em>). Si respondes "no" la contraseña de root de MySQL será independiente.</li>
+<li>Deshabilitar el login como <em>root</em> remotamente: sí (es más seguro).</li>
+<li>Recargar las tablas de privilegios: respondemos sí.</li>
+</ol>
+</li>
+</ol>
+<h3 id="usando-mysql-desde-un-cliente-de-terminal"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Usando MySQL desde un cliente de terminal</h3>
+<p>En esta parte vamos a ver como usar por consola MySQL/MariaDB de forma básica:</p>
+<p>Para entrar en el cliente de MariaDB o MySQL:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>mysql -u root -p
+</code></pre></div>
+<p>Una vez dentro, puedes ver las bases de datos que hay creadas con:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>show databases;
+</code></pre></div>
+<p>Si queremos crear una base de datos sencilla:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>create database prueba;
+</code></pre></div>
+<p>Si se ha creado la base de datos e intentas volver a ejecutar la última línea, no va a funcionar porque “prueba” ya existe. Si quieres asegurarte de que no te de error podrías usar:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>create database if not exists prueba;
+</code></pre></div>
+<p>Vamos a crear alguna tabla en "prueba". Para ello, asegúrate primero de que está creada usando el comando <code>show databases</code>. Luego, sitúate en la base de datos con el comando:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>use prueba;
+</code></pre></div>
+<p><img alt="crear base de datos con comandos" src="../../../images/gnu-linux/create-database-if-not-exists.png"/></p>
+<p>Comprobamos que se ha creado correctamente:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>show tables;
+</code></pre></div>
+<p><em>(captura)</em></p>
+<p>También podemos ver el código de creación de la tabla con el comando:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>show create table usuario;
+</code></pre></div>
+<p>Ahora, haz un select:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>select * from usuario;
+</code></pre></div>
+<p>No hay nada, así que insertemos una fila:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>insert into usuario (nombre, apellidos) values ("Michael", "Widenius");
+</code></pre></div>
+<p>Volvemos a ver os datos da táboa usuarios:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>select * from usuario;
+</code></pre></div>
+<p><em>(captura)</em></p>
+<p>Vamos a sair de MariaDB:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>exit;
+</code></pre></div>
+<h3 id="importando-un-script-de-mysqlmariadb-con-comandos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> Importando un script de MySQL/MariaDB con comandos</h3>
+<p>Dado el siguiente script que crea una base de datos sencilla con una tabla empleado:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1">-- Creamos la base de datos con codificación UTF-8</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">exists</span><span class="w"> </span><span class="n">bd_empresa</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8mb4</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">utf8mb4_unicode_ci</span><span class="p">;</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="c1">-- Usamos la base de datos</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">USE</span><span class="w"> </span><span class="n">bd_empresa</span><span class="p">;</span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="c1">-- 3. Usamos InnoDB como motor de almacenamiento (es el más moderno, el por defecto es MyISAM)</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="k">SET</span><span class="w"> </span><span class="n">default_storage_engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnoDB</span><span class="p">;</span>
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="c1">-- 4. Creamos una tabla sencilla</span>
+<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">empleado</span><span class="w"> </span><span class="p">(</span>
+<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">  </span><span class="c1">-- Columna de ID autoincremental</span>
+<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="w">    </span><span class="n">nombre</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="w">    </span><span class="n">fecha_creacion</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span>
+<a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="p">);</span>
+</code></pre></div>
+<p>Copia el script y guárdalo en un fichero <strong>script_creacion_bbdd.sql</strong>.</p>
+<p>Podríamos escribir línea a línea dentro del cliente de MySQL todos los comandos del script, pero hay una manera mas fácil que es importarlo directamente:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>mysql -u &lt;tu_usuario&gt; -p &lt; script_creacion_bbdd.sql
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Accede a MariaDB y comprueba que el script se ejecutó correctamente (es decir, que tanto la base de datos como la tabla se han creado bien). <em>(captura)</em></p>
+</div>
+<h3 id="creando-un-usuario"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.4</span> Creando un usuario</h3>
+<p>Al configurar MariaDB con mysql_secure_installation hemos deshabilitado el acceso remoto del usuario root. Por tanto, si queremos acceder remotamente (desde otro equipo) a la base de datos de la máquina tendremos que crear un usuario en ella que tenga permisos sobre la base de datos que acabamos de crear.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="o">//</span><span class="w"> </span><span class="n">Sintaxis</span><span class="w"> </span><span class="n">para</span><span class="w"> </span><span class="n">crear</span><span class="w"> </span><span class="n">un</span><span class="w"> </span><span class="n">usuario</span><span class="w"> </span><span class="n">nuevo</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">'usuario_bbdd'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">'contrasenha'</span><span class="p">;</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="o">//</span><span class="w"> </span><span class="n">Sintaxis</span><span class="w"> </span><span class="n">para</span><span class="w"> </span><span class="n">dar</span><span class="w"> </span><span class="n">permisos</span><span class="w"> </span><span class="n">sobre</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">tabla</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">ALL</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">mi_base_de_datos</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">'usuario_bbdd'</span><span class="o">@</span><span class="s1">'localhost'</span><span class="p">;</span>
+</code></pre></div>
+<p>Esto está muy simplificado (se pueden hacer muchas más cosas) pero son las operaciones más simples y habituales que podemos ver. Al crear el usuario con 'localhost', <strong>solo podremos identificarnos con este usuario desde el mismo equipo (localhost)</strong>. En caso de que queramos permitir acceder desde cualquier equipo, usaríamos '%' en lugar de 'localhost'. Este % se refiere a <strong>cualquier host</strong>.</p>
+<p>En el caso de dar privilegios al usuario sobre la base de datos se usa <code>*</code> y no porcentaje. En el ejemplo hemos dado permisos a 'usuario_bbdd' para hacer cualquier operación (GRANT ALL PRIVILEGES) sobre cualquier tabla de la base de datos (*).</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ul>
+<li>Crea un usuario con tu nombre y primer apellido y la contraseña que quieras (por ejemplo: "Abcd1234.").</li>
+<li>Dale permisos a tu usuario sobre la base de datos que creaste antes en el script. <em>(captura)</em></li>
+<li>Intenta loguearte en MySQL con use usuario desde la propia máquina y comprueba que puedes hacer un select sobre la tabla empleado. <em>(captura)</em></li>
+</ul>
+</div>
+<h3 id="acceso-remoto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.5</span> Acceso remoto</h3>
+<ol>
+<li>Utiliza en tu ordenador de casa MySQL Workbench (u otro cliente similar de MySQL) para conectarte a la base de datos. Recuerda que MySQL / MariaDB se ejecuta por defecto en el puerto 3306.</li>
+<li>En el caso de que no te funcione, es posible que MariaDB/MySQL solo esté habilitado para funcionar (por seguridad) en tu máquina local (es decir, que solo permite acceder desde el propio equipo donde está instalado). Para cambiar esto, hay que modificar un fichero de configuración y <a href="https://www.google.com/search?client=firefox-b-lm&amp;q=mysql+change+bind+address">decirle que quieres permitir el acceso desde 0.0.0.0 (que significa cualquier ip, te dejo este enlace de ayuda)</a>.</li>
+<li>Ten en cuenta que quizá tengas que permitir que a la máquina de AWS entre tráfico por el puerto 3306.</li>
+</ol>
+<p>Si tienes en cuenta todo esto, deberías poder usar MySQL desde un cliente remoto sin problemas. <em>(captura de la conexión remota demostrando que es la ip de aws)</em></p></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+</body>
+</html>

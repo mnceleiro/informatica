@@ -1,0 +1,2013 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../virtualbox/" rel="prev"/>
+<link href="../vagrant2/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
+<title>Vagrant - Informática y sistemas operativos</title>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#gestion-de-maquinas-virtuales-con-vagrant">1. 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Vagrant
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+          
+  
+  
+  Introducción a la informática
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../hardware/intro/">
+          
+  
+  
+  Hardware
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../intro/">
+          
+  
+  
+  Virtualización y DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gnu-linux/linux-desktop/">
+          
+  
+  
+  Sistemas operativos
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../java/intro/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../web/intro/">
+          
+  
+  
+  Web
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gamedev/intro/">
+          
+  
+  
+  Gamedev
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../apuntes-variados/intro/">
+          
+  
+  
+  Otros
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introducción a la informática
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducción a la informática
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Esta página
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/mecanografia/">
+<span class="md-ellipsis">
+    
+  
+    Mecanografía
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-informatica/">
+<span class="md-ellipsis">
+    
+  
+    Moverse en Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/ofimatica/">
+<span class="md-ellipsis">
+    
+  
+    Ofimática
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/multimedia/">
+<span class="md-ellipsis">
+    
+  
+    Multimedia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/seguridad-internet/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad en internet
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-sos/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a los sistemas operativos
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/intro/">
+<span class="md-ellipsis">
+    
+  
+    Historia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/arquitecturas-fisicas/">
+<span class="md-ellipsis">
+    
+  
+    Arquitecturas físicas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes-de-ordenador/">
+<span class="md-ellipsis">
+    
+  
+    Componentes de un ordenador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/torre/">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/procesador/">
+<span class="md-ellipsis">
+    
+  
+    Microprocesador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/cpu-cooling/">
+<span class="md-ellipsis">
+    
+  
+    Refrigeración CPU
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/memorias/">
+<span class="md-ellipsis">
+    
+  
+    Memorias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/storage/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/power-supply/">
+<span class="md-ellipsis">
+    
+  
+    Fuente de alimentación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/hardware/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento, tarjetas gráficas y monitores
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Virtualización y DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Virtualización y DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../virtualbox/">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descarga-e-instalacion">1.1 
+<span class="md-ellipsis">
+      
+        Descarga e instalación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#antes-de-empezar-opcional-cambio-de-directorios-de-las-maquinas-virtuales-de-virtualbox-y-vagrant">1.2 
+<span class="md-ellipsis">
+      
+        Antes de empezar... (opcional, cambio de directorios de las máquinas virtuales de Virtualbox y Vagrant)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-la-primera-maquina-virtual-con-vagrant-y-virtualbox">1.3 
+<span class="md-ellipsis">
+      
+        Creación de la primera máquina virtual con Vagrant y Virtualbox
+      
+    </span>
+</a>
+<nav aria-label="Creación de la primera máquina virtual con Vagrant y Virtualbox" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creando-un-vagrantfile-con-vagrant-init">1.3.1 
+<span class="md-ellipsis">
+      
+        Creando un Vagrantfile con "vagrant init"
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobacion-de-que-el-vagrantfile-esta-correctamente">1.3.2 
+<span class="md-ellipsis">
+      
+        Comprobación de que el Vagrantfile está correctamente
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descargar-y-encender-la-maquina">1.3.3 
+<span class="md-ellipsis">
+      
+        Descargar y encender la máquina
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conexion-con-la-maquina-virtual">1.3.4 
+<span class="md-ellipsis">
+      
+        Conexión con la máquina virtual
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#apagando-la-maquina-virtual">1.3.5 
+<span class="md-ellipsis">
+      
+        Apagando la máquina virtual
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examinando-las-propiedades-de-la-maquina-virtual">1.3.6 
+<span class="md-ellipsis">
+      
+        Examinando las propiedades de la máquina virtual
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#destruccion-de-la-maquina-virtual">1.3.7 
+<span class="md-ellipsis">
+      
+        Destrucción de la máquina virtual
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vagrant-boxes">1.4 
+<span class="md-ellipsis">
+      
+        Vagrant boxes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configurando-la-maquina-virtual">1.5 
+<span class="md-ellipsis">
+      
+        Configurando la máquina virtual
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aprovisionamiento-mediante-scripts">1.6 
+<span class="md-ellipsis">
+      
+        Aprovisionamiento mediante scripts
+      
+    </span>
+</a>
+<nav aria-label="Aprovisionamiento mediante scripts" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio">1.6.1 
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referencias">1.7 
+<span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vagrant2/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ansible/">
+<span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker/">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-2/">
+<span class="md-ellipsis">
+    
+  
+    Docker II: Dockerfiles
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-3/">
+<span class="md-ellipsis">
+    
+  
+    Docker III: Docker Compose
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Sistemas operativos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemas operativos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux - básico
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux - básico
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/linux-desktop/">
+<span class="md-ellipsis">
+    
+  
+    Distribuciones y entornos de escritorio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/installation/">
+<span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/commands-basics/">
+<span class="md-ellipsis">
+    
+  
+    Comandos básicos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/files/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/users-groups-local/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de usuarios y grupos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/exercise-terminal-basics/">
+<span class="md-ellipsis">
+    
+  
+    1. Manejo del terminal
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux: scripting
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux: scripting
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux-2/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/ejercicios-variados/">
+<span class="md-ellipsis">
+    
+  
+    2. Ejercicios variados
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/examen/">
+<span class="md-ellipsis">
+    
+  
+    3. Examen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Servidores
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Servidores
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/networks/">
+<span class="md-ellipsis">
+    
+  
+    Redes en Linux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/web-servers/">
+<span class="md-ellipsis">
+    
+  
+    Servidores web
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/apache/">
+<span class="md-ellipsis">
+    
+  
+    Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/0-formato-entrega/">
+<span class="md-ellipsis">
+    
+  
+    4.0. Formato y entrega
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/1-web-servers-xampp/">
+<span class="md-ellipsis">
+    
+  
+    4.1. Windows y XAMPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/2-web-servers-apache/">
+<span class="md-ellipsis">
+    
+  
+    4.2. Instalación de Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/3-web-servers-aws/">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/4-web-servers-wordpress/">
+<span class="md-ellipsis">
+    
+  
+    4.4. Instalando Wordpress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/https/">
+<span class="md-ellipsis">
+    
+  
+    4.5. Opcional: dominios y HTTPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/file-basics/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros I: básico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/files/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/intro/">
+<span class="md-ellipsis">
+    
+  
+    Frontend Roadmap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/js-basics/">
+<span class="md-ellipsis">
+    
+  
+    Iniciación a JavaScript
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Gamedev
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción al desarrollo de videojuegos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Primer juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Primer juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-1/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-2/">
+<span class="md-ellipsis">
+    
+  
+    Mejorando el movimiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1-2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I (continuación)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-3/">
+<span class="md-ellipsis">
+    
+  
+    Físicas y colisiones (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio: minijuego de coches
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Segundo juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Segundo juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-4-animaciones/">
+<span class="md-ellipsis">
+    
+  
+    1. Movimiento y animaciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-5-colisiones/">
+<span class="md-ellipsis">
+    
+  
+    2. Recolección de objetos y detección de colisiones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-6-tilemap/">
+<span class="md-ellipsis">
+    
+  
+    3. Modelado del mundo
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/intro/">
+<span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/programming/">
+<span class="md-ellipsis">
+    
+  
+    Programación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/firewalling/">
+<span class="md-ellipsis">
+    
+  
+    Firewalling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/gamedev/">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/android/">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/control-versiones/">
+<span class="md-ellipsis">
+    
+  
+    Control versiones
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descarga-e-instalacion">1.1 
+<span class="md-ellipsis">
+      
+        Descarga e instalación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#antes-de-empezar-opcional-cambio-de-directorios-de-las-maquinas-virtuales-de-virtualbox-y-vagrant">1.2 
+<span class="md-ellipsis">
+      
+        Antes de empezar... (opcional, cambio de directorios de las máquinas virtuales de Virtualbox y Vagrant)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-la-primera-maquina-virtual-con-vagrant-y-virtualbox">1.3 
+<span class="md-ellipsis">
+      
+        Creación de la primera máquina virtual con Vagrant y Virtualbox
+      
+    </span>
+</a>
+<nav aria-label="Creación de la primera máquina virtual con Vagrant y Virtualbox" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creando-un-vagrantfile-con-vagrant-init">1.3.1 
+<span class="md-ellipsis">
+      
+        Creando un Vagrantfile con "vagrant init"
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobacion-de-que-el-vagrantfile-esta-correctamente">1.3.2 
+<span class="md-ellipsis">
+      
+        Comprobación de que el Vagrantfile está correctamente
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descargar-y-encender-la-maquina">1.3.3 
+<span class="md-ellipsis">
+      
+        Descargar y encender la máquina
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conexion-con-la-maquina-virtual">1.3.4 
+<span class="md-ellipsis">
+      
+        Conexión con la máquina virtual
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#apagando-la-maquina-virtual">1.3.5 
+<span class="md-ellipsis">
+      
+        Apagando la máquina virtual
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#examinando-las-propiedades-de-la-maquina-virtual">1.3.6 
+<span class="md-ellipsis">
+      
+        Examinando las propiedades de la máquina virtual
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#destruccion-de-la-maquina-virtual">1.3.7 
+<span class="md-ellipsis">
+      
+        Destrucción de la máquina virtual
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vagrant-boxes">1.4 
+<span class="md-ellipsis">
+      
+        Vagrant boxes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configurando-la-maquina-virtual">1.5 
+<span class="md-ellipsis">
+      
+        Configurando la máquina virtual
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aprovisionamiento-mediante-scripts">1.6 
+<span class="md-ellipsis">
+      
+        Aprovisionamiento mediante scripts
+      
+    </span>
+</a>
+<nav aria-label="Aprovisionamiento mediante scripts" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio">1.6.1 
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referencias">1.7 
+<span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div><h1 id="gestion-de-maquinas-virtuales-con-vagrant"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Gestión de máquinas virtuales con Vagrant</h1>
+<p>Vagrant es un software que requiere tener detrás otras aplicaciones de virtualización. Algunas compatibles son: VirtualBox, VMWare e HyperV.</p>
+<h2 id="descarga-e-instalacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Descarga e instalación</h2>
+<p>Entra en <a href="https://www.vagrantup.com" target="_blank">www.vagrantup.com</a> y descarga e instala Vagrant:
+<img alt="download vagrant" src="../files/images/vagrant-download.png"/></p>
+<p>Una vez instalado se te pedirá reiniciar. Para comprobar si Vagrant funciona correctamente abre un CMD o Powershell y ejecuta el comando "vagrant". </p>
+<p>Si funciona saldrá algo como lo de la imagen siguiente:
+<img alt="vagrant works" src="../files/images/vagrant-test-itworks.png"/></p>
+<h2 id="antes-de-empezar-opcional-cambio-de-directorios-de-las-maquinas-virtuales-de-virtualbox-y-vagrant"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Antes de empezar... (opcional, cambio de directorios de las máquinas virtuales de Virtualbox y Vagrant)</h2>
+<p>Antes de empezar con Vagrant, puede que quieras configurar la carpeta donde se guardan las boxes de Vagrant y las máquinas virtuales de Virtualbox (ya que ambas ocuparán mucho espacio).</p>
+<p>Por defecto, Virtualbox almacena las máquinas virtuales que creas en:</p>
+<ul>
+<li>CARPETA_USUARIO/Virtualbox VMs.</li>
+</ul>
+<p>Vagrant, por su parte, almacena datos en:</p>
+<ul>
+<li>CARPETA_USUARIO/.vagrant/</li>
+</ul>
+<p>Estas rutas se definen en variables de entorno, llamadas: VBOX_USER_HOME (virtualbox) y VAGRANT_HOME (Vagrant). Si se cambian, tus archivos de esas aplicaciones irán a almacenarse en otro sitio. Muchas de las aplicaciones que usas, utilizan <strong>variables de entorno</strong> para indicar donde se almacenan ciertas cosas. En el caso de Virtualbox y Vagrant estas variables son <strong>VBOX_USER_HOME</strong> y <strong>VAGRANT_HOME</strong>.</p>
+<p>Si vas a la <a href="../virtualbox">sección de Virtualbox de esta misma página</a>, puedes ver como cambiar graficamente la carpeta donde almacenar las máquinas virtuales:</p>
+<p><img alt="Cambiar directorio máquinas virtuales Virtualbox" src="../files/images/virtualbox-path-config-2.png"/>.</p>
+<p>Al hacer este cambio, lo que Virtualbox hace por detrás es crear la variable de entorno VBOX_USER_HOME y asignarle como valor la ruta que hayas indicado. Podemos comprobar esto si vamos a "Inicio" y buscamos "Variables de entorno":</p>
+<p><img alt="variables de entorno VBOX_USER_HOME" src="../files/images/VBOX_USER_HOME.png"/></p>
+<p>En el caso de crear máquinas virtuales con <strong>Vagrant</strong>, estas, realmente, se almacenarán en Virtualbox. Por otro lado, Vagrant descarga muchos ficheros también de gran tamaño, por lo que puede interesarte modificar la variable de entorno <strong>VAGRANT_HOME</strong> con un disco duro o ruta diferente.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Cambia el directorio donde se guardan las máquinas virtuales de Virtualbox. Después, mira las variables de entorno y comprueba que hay una variable con la ruta que hayas indicado. Luego, si quieres, puedes volver a dejar la carpeta por defecto.</li>
+<li>Ahora, crea una variable de entorno VAGRANT_HOME donde escribas la ruta para almacenar los datos de Vagrant (ten en cuenta que, de la misma manera que con Virtualbox, estos datos ocuparán mucho espacio en disco).</li>
+</ol>
+</div>
+<h2 id="creacion-de-la-primera-maquina-virtual-con-vagrant-y-virtualbox"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Creación de la primera máquina virtual con Vagrant y Virtualbox</h2>
+<h3 id="creando-un-vagrantfile-con-vagrant-init"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Creando un Vagrantfile con "vagrant init"</h3>
+<p>Crea una carpeta donde almacenar los scripts de Vagrant. Yo, por ejemplo, los guardaré en:</p>
+<ul>
+<li><em>C:/Users/&lt;tu-usuario&gt;/Documentos/clases/scripts-vagrant/</em>. </li>
+</ul>
+<p>Ahora, vamos a crear la siguiente carpeta (en la que más tarde crearmos un sript): </p>
+<ul>
+<li>C:/Users/&lt;tu-usuario&gt;/Documentos/clases/scripts-vagrant/0-probando-vagrant/.</li>
+</ul>
+<p>Sitúate en la carpeta "0-probando-vagrant" desde un terminal. Una vez ahí, ejecuta el siguiente comando:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>vagrant init
+</code></pre></div>
+<p><img alt="vagrant init captura" src="../files/images/vagrant-init.png"/></p>
+<p>Si has hecho todo bien, al abrir el Vagrantfile debería aparecer un fichero de más de 60 líneas (con casi todo comentarios iniciados con el caracter "#"). <strong>Vamos a borrar esos comentarios</strong> y el script debería quedar así:</p>
+<div class="highlight"><span class="filename">Vagrantfile</span><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"base"</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">end</span>
+</code></pre></div>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Borra todos los comentarios para dejar el Vagrantfile limpio como el anterior.</li>
+</ol>
+</div>
+<p>La línea importante a fijarnos aquí es: <strong>config.vm.box = "base"</strong>. Una box de Vagrant es basicamente una imagen de una máquina virtual exportada destinada a usarse en Vagrant.</p>
+<p>Si consultamos la <a href="https://developer.hashicorp.com/vagrant/tutorials/getting-started/getting-started-project-setup">el quickstart de la documentación oficial</a>, en él utilizan como box "hashicorp/bionic64", vamos a cambiar el script para adaptarlo a la documentación oficial.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Modifica el Vagrantfile para que utilice como imagen de máquina virtual (en vagrant conocida con el nombre de "box") la que sale en la documentación oficial: <em>hashicorp/bionic64</em></p>
+</div>
+<div class="highlight"><span class="filename">Solución</span><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"hashicorp/bionic64"</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="k">end</span>
+</code></pre></div>
+<h3 id="comprobacion-de-que-el-vagrantfile-esta-correctamente"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Comprobación de que el Vagrantfile está correctamente</h3>
+<p>Existe un comando para comprobar que el script está correcto y sin errores, este comando es:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Comando</label><label for="__tabbed_1_2">Resultado esperado</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>vagrant validate
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>Vagrantfile validated successfully.
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Utiliza el comando anterior para comprobar que tu Vagrantfile no tiene errores. Para ello, sitúate en un terminal en la carpeta donde está el Vagrantfile y escribe el comando.</p>
+</div>
+<h3 id="descargar-y-encender-la-maquina"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> Descargar y encender la máquina</h3>
+<p>Si queremos descargar y encender una máquina a través de Vagrant usamos el siguiente comando:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>vagrant up
+</code></pre></div>
+<p>Este comando lee el Vagrantfile, descarga la box (si no estaba descargada anteriormente), crea la máquina virtual y la enciende. Cuando el comando termine tu máquina estará encendida (aunque no verás la interfaz gráfica).</p>
+<div class="admonition info">
+<p class="admonition-title">Más información</p>
+<ul>
+<li>
+<p><img alt="❓" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2753.svg" title=":question:"/> Una vez termine la ejecución del "vagrant up", si no ha dado errores, <strong>abre Virtualbox, ¿ves algo nuevo?</strong></p>
+</li>
+<li>
+<p><img alt="👍" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f44d.svg" title=":thumbsup:"/> Si el comando tuvo éxito <strong>deberías ver la nueva máquina virtual</strong>. Esto es porque <strong>Vagrant utiliza por detrás Virtualbox como provider</strong> (si alguna vez recibes algún error en Vagrant en que veas la palabra "provider", está relacionado con Virtualbox). </p>
+</li>
+<li>
+<p><img alt="ℹ" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2139.svg" title=":information_source:"/> Existen otros providers (VMWare o HyperV) compatibles con Vagrant.</p>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Ahora prueba tu el comando anterior. Esto descargará la máquina, la configurará con unos parámetros por defecto y la arrancará. No te preocupes por no ver ninguna máquina en la interfaz gráfica, esto es normal.</p>
+</div>
+<h3 id="conexion-con-la-maquina-virtual"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.4</span> Conexión con la máquina virtual</h3>
+<p><strong>En vagrant, por defecto, la máquina se inicia sin la interfaz gráfica.</strong> Esto también es posible hacerlo en Virtualbox (recuerda, usamos Virtualbox como provider y estamos, por tanto, limitados a lo que se puede hacer en Virtualbox). </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Inicio sin interfaz gráfica en Virtualbox" src="../files/images/virtualbox-inicio-sin-gui.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Captura de ejemplo de como iniciar una máquina sin pantalla en Virtualbox</em></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">Pero, si no tiene pantalla ¡¿cómo demonios la uso?!</p>
+<p>No problem <img alt="👌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f44c.svg" title=":ok_hand:"/> <img alt="🙆" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f646.svg" title=":person_gesturing_ok:"/></p>
+<p>Las boxes de Vagrant vienen con conexión remota configurada, por lo que podemos conectarnos a la máquina remotamente de forma transparente con el comando: <em>vagrant ssh</em></p>
+</div>
+<p>En la siguiente captura vemos como nos conectamos desde nuestra máquina Windows a la máquina Linux que hemos encendido previamente:</p>
+<p><img alt="Conexión remota a la máquina virtual con vagrant ssh" src="../files/images/vagrant-ssh.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Ejecuta el comando <code>vagrant ssh</code> para conectarte a la máquina. <strong>Importante</strong>: ejecuta siempre el comando desde la carpeta donde tienes el Vagrantfile, igual que has hehco con <code>vagrant validate</code> y <code>vagrant up</code>.</li>
+<li>Muestra un mensaje con el comando <code>echo</code>.</li>
+<li>Crea un fichero con el comando <code>touch &lt;nombre_fichero&gt;</code>. Revisa que se ha creado con <code>ls</code>.</li>
+<li>Sal de la máquina con el comando <code>exit</code>. Esto te devolverá a la máquina host (en mi caso una máquina Windows).</li>
+</ol>
+</div>
+<h3 id="apagando-la-maquina-virtual"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.5</span> Apagando la máquina virtual</h3>
+<p>Para apagar la máquina se usa el comando:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>vagrant halt
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Abre Virtualbox.</li>
+<li>Escribe en el terminal el comando "vagrant halt" y fíjate si la máquina se apaga.</li>
+</ol>
+</div>
+<p>También se puede comprobar si la máquina está apagada con comandos de Vagrant. Comprueba que la máquina está apagada usando el comando </p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>vagrant status
+</code></pre></div>
+<h3 id="examinando-las-propiedades-de-la-maquina-virtual"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.6</span> Examinando las propiedades de la máquina virtual</h3>
+<p>Hemos creado la máquina virtual pero solo hemos configurado la imagen (de Ubuntu 18.04) que queríamos. </p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Desde Virtualbox, examina las propiedades que tiene por defecto la máquina virtual que has creado e intenta responder a las siguientes preguntas:</p>
+<ol>
+<li>Número de procesadores (esto puedes verlo mirando en Virtualbox)</li>
+<li>RAM (puedes verlo en Virtualbox)</li>
+<li>Capacidad (disco duro, puedes verlo en Virtualbox).</li>
+<li>Tipo de adaptador de red (red interna, NAT, puente...)</li>
+<li>Nombre de la máquina en Virtualbox</li>
+<li>Nombre de la máquina dentro del sistema GNU/Linux (esto es lo único que estoy preguntando que no depende de Virtualbox, tienes que mirarlo accediendo a la máquina virtual).</li>
+</ol>
+</div>
+<p>Bien, <strong>todas estas propiedades son configurables</strong> y se configuran desde el Vagrantfile (lo veremos pronto).</p>
+<h3 id="destruccion-de-la-maquina-virtual"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.7</span> Destrucción de la máquina virtual</h3>
+<p>Para eliminar la máquina virtual se usa el comando siguiente:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>vagrant destroy -f
+</code></pre></div>
+<p>La bandera <code>-f</code> es para forzar. Además, en el borrado, se recomienda eliminar la carpeta ".vagrant" (esta se crea automáticamente la primera vez que levantas la máquina con <code>vagrant up</code>).</p>
+<p><img alt="Eliminando la carpeta .vagrant" src="../files/images/vagrant_directory_dotvagrant.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Destruye totalmente la máquina virtual creada.</p>
+</div>
+<h2 id="vagrant-boxes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Vagrant boxes</h2>
+<p>Antes hemos utilizado como "box" (como imagen de máquina virtual) la que nos viene en la documentación oficial de Vagrant en el <a href="https://developer.hashicorp.com/vagrant/tutorials/getting-started/getting-started-project-setup"><em>getting started</em></a>.</p>
+<p>Pero, ¿y si queremos crear máquinas con otras versiones de Ubuntu distintas a la 18.04 o queremos instalar otros sistemas operativos (p. ej: Almalinux, Debian, RHEL, Fedora, OpenSuse...)?</p>
+<p>Bien, pues existe una <a href="https://portal.cloud.hashicorp.com/vagrant/discover">lista de boxes de Vagrant listas para usarse</a> (Vagrant cloud).</p>
+<p>Si entras al enlace verás que las boxes están definidas en un formato "usuario/máquina". Es más fiable utilizar máquinas oficiales y, por ello, si queremos una máquina de Ubuntu iremos mejor al usuario "Ubuntu" y la buscaremos.</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Busca una máquina con Ubuntu 22.04 (o superior) del usuario "Ubuntu". Ojo! No te será tan fácil y vas a tener que buscarte la vida para descubrir cuál es la máquina 22.04 ya que no vienen las versiones de la máquina si no "el nombre" que recibe la versión. Utiliza Google para descubrir cuál de las disponibles es la 22.04 (o una superior a esa, pero que sea del usuario Ubuntu). </li>
+<li>
+<p>Una vez descubras la máquina que quieras, crea una carpeta <strong>"1-ubuntu22"</strong> (al lado de la anterior <strong>"0-probando-vagrant"</strong>) y crea un Vagrantfile como el anterior pero ahora con el box de Ubuntu 22.04. Después:</p>
+<ul>
+<li>Arranca la máquina.</li>
+<li>Conéctate a ella con vagrant ssh</li>
+<li>Desde dentro de la máquina, comprueba que el sistema operativo instalado es Ubuntu 22.04. Esto puedes hacerlo con el comando: "lsb_release -a"</li>
+<li>Crea una carpeta con tu nombre y apellidos en la máquina.</li>
+<li>Sal de la máquina.</li>
+<li>Apaga la máquina</li>
+<li>Destruye totalmente la máquina (usa el comando y borra la carpeta .vagrant después).</li>
+</ul>
+</li>
+</ol>
+</div>
+<h2 id="configurando-la-maquina-virtual"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Configurando la máquina virtual</h2>
+<p>La configuración de la máquina virtual se hace desde el Vagrantfile (antes se ha puesto en un ejercicio el comprobar cuáles eran las propiedades que tenía por defecto). Vamos a crear una máquina virtual y configurar alguna cosa más.</p>
+<p>A continuación se muestra un Vagrantfile algo más completo que los anteriores:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="no">Vagrant</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"ubuntu/jammy64"</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provider</span><span class="w"> </span><span class="ss">:virtualbox</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">vb</span><span class="o">|</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="n">vb</span><span class="o">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"2-configuracion-basica"</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">  </span><span class="k">end</span>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">  </span><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">boot_timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="k">end</span>
+</code></pre></div>
+<p>En este Vagrantfile se configura lo siguiente:</p>
+<ol>
+<li>Usar como imagen "ubuntu/jammy64".</li>
+<li>Se configura que el arranque pueda durar hasta 1000 segundos antes de fallar (por defecto se corta a los 300 segundos -&gt; 5 minutos).</li>
+<li>Se indican las configuraciones de virtualbox dentro de la parte "config.vm.provider :virtualbox". Dentro solo hemos configurado una cosa, ¿qué crees que es eso de <strong>vb.name</strong>?</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Crea la carpeta 2-configuracion-basica y copia el anterior Vagrantfile (algo más completo que los primeros que vimos).</li>
+<li>Una vez lo tengas asegúrate de que funciona (vagrant validate).</li>
+<li>Ahora arranca la máquina y comprueba que no da errores. Mira que ha hecho por ti la línea donde cambias el <strong>vb.name</strong>.</li>
+<li>Una vez funcione, <strong>apaga la máquina y modifica el Vagrantfile</strong> para intentar conseguir lo siguiente:<ul>
+<li><strong>Cambiar el nombre del equipo (puedes buscar en internet el comando para saber cuál es) a rivendel</strong> (no lo confundas con vb.name, eso es el nombre de la máquina en Virtualbox, no el nombre del equipo en Linux). Hay otra línea que puedes escribir que te cambiará por ti el nombre de la máquina Linux dentro.</li>
+<li><strong>Conseguir que se te abra la interfaz gráfica de la máquina virtual (GUI) al arrancar la máquina.</strong> Esto se hace dentro de la parte de provider, ya que forma parte de Virtualbox y es también una sola línea.</li>
+<li>Hacer que la máquina use dos procesadores en lugar de uno (esto es dentro de la parte del provider nuevamente, que es virtualbox). Es solo una línea también.</li>
+</ul>
+</li>
+</ol>
+</div>
+<p>Recuerda, por lógica, si quieres cambiar número de procesadores, ram u otras cosas que se hacen en Virtualbox, tienes que hacerlo en la parte del Vagrantfile relacionada con Virtualbox (dentro de la parte de provider :virtualbox). Si lo que quieres cambiar es algo relacionado con la configuración de la propia máquina Linux, lo haces fuera.</p>
+<p>Intenta realizar el ejercicio anterior y levantar la máquina. Puedes ayudarte de <a href="https://developer.hashicorp.com/vagrant/docs/vagrantfile/machine_settings">la documentación oficial</a>, búsquedas en Google y ChatGPT (no te compliques demasiado, el ejercicio son sentencias de código bastante simples dentro del Vagrantfile, basicamente cada ejercicio es una línea).</p>
+<h2 id="aprovisionamiento-mediante-scripts"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Aprovisionamiento mediante scripts</h2>
+<p>El aprovisionamiento se trata de darle a la máquina virtual una serie de tareas que se ejecuten automáticamente una vez arrancada. Vamos a empezar con una tarea muy simple: <strong>queremos que al arrancar la máquina por primera vez se cree un fichero con una línea.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio: aprovisionamiento básico usando scripts</p>
+<p>Destruye la máquina "2-configuracion-basica" (importante que lo hagas). Luego modifica el Vagrantfile de "2-configuracion-basica" para que ejecute la siguiente línea al arrancar la máquina (pon tu nombre y apellidos): </p>
+<p>echo "Hola, me llamo X Y Z." &gt;&gt; /home/vagrant/texto.txt</p>
+<p>Una vez hecho esto arranca la máquina y verifica que se ha creado el fichero con una línea con tu nombre y apellidos.</p>
+</div>
+<p>En este caso voy a dejar que os busqueis un poco la vida. Para hacer este ejercicio utiliza la <a href="https://developer.hashicorp.com/vagrant/docs/provisioning/shell#inline-scripts">documentación oficial</a> en la parte de "inline Scripts". </p>
+<details class="tip">
+<summary>Consejo</summary>
+<p>También puedes ayudarte de internet y herramientas de IA sin problema (eso sí, asegúrate de aprender y no solo de hacer lo que la IA te dice, la IA bien usada es genial pero mal usada solo te lastra). </p>
+<p>Interactúa con ChatGPT o cualquier otra IA de manera que, si hay partes que te cuenta que no entiendes, le puedes decir que te especifique más, pregúntale por qué algo es como es, dile que algo te funciona pero no entiendes por qué, etc.</p>
+<p>Si utilizas las IAs para hacer las cosas rápido en lugar de para aprender las estás usando mal.</p>
+</details>
+<p>Ahora, ya has conseguido que al levantar la máquina se ejecute un script de una línea incrustado en el Vagrantfile. Bien, vayamos un paso más allá!</p>
+<h3 id="ejercicio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> Ejercicio</h3>
+<p>Crea una carpeta al lado de las anteriores con el nombre "3-aprovisionamiento". Debe tener 2GB de ram, 2 procesadores y Debian 12 instalado. Además, la máquina en Virtualbox se llamará con tu nombre y dentro del Debian con tu primer apellido.</p>
+<p>Arranca la máquina, conéctate a ella y haz lo siguiente:</p>
+<ol>
+<li>Ejecuta los comandos necesarios para actualizar tu sistema Debian (son 2, tendrás que descubrirlos).</li>
+<li>Ejecuta un comando que instale el paquete "sl".</li>
+<li>Ejecuta un comando que instale el paquete "vim".</li>
+<li>Los comandos te han pedido todos confirmación, utiliza internet y el manual de Linux para <strong>ejecutar esos comandos asegurándote de que NO te pidan confirmación</strong>. Esto es, si tu instalas un paquete que no te pregunte si estás seguro.</li>
+<li>Cada comando del punto 4 guárdalo en tu ordenador en un fichero de nombre "script-provision.sh".</li>
+<li>Añade como primera línea en ese fichero de texto "#!/bin/bash".</li>
+</ol>
+<p>Si has hecho bien todos los pasos anteriores tendrás un fichero de texto con una serie de comandos. Has creado tu primer script. Guarda ese script en la carpeta "3-aprovisionamiento" (al lado de tu Vagrantfile). Posteriormente, modifica el Vagrantfile para que al ejecutar <code>vagrant up</code> se ejecute ese script (puedes forzar el aprovisionamiento con vagrant up --provision).</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Este ejercicio se diferencia del anterior realizado en que en el anterior ejecutábamos una única línea de código directamente. En este caso tenemos un fichero con varias líneas y queremos indicar en el Vagrantfile que se ejecute ese fichero. Esta forma es mucho más ordenada.</p>
+</div>
+<p>TODO: Se ampliará este tutorial. A partir de este momento necesitas saber algo de GNU/Linux y tener conceptos de scripting en BASH. Si no sabes usar GNU/Linux con fluidez o no sabes hacer scripts puedes ir al apartado de "GNU/Linux --&gt; scripting" de esta misma página.</p>
+<h2 id="referencias"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Referencias</h2>
+<ul>
+<li>Vagrant quickstart (documentación oficial de Vagrant). Obtenido de: https://developer.hashicorp.com/vagrant/tutorials/getting-started/getting-started-project-setup</li>
+</ul></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+</body>
+</html>

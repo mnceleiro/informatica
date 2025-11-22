@@ -1,0 +1,2383 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../file-basics/" rel="prev"/>
+<link href="../../web/intro/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
+<title>Ficheros II: Java - Informática y sistemas operativos</title>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#gestion-de-ficheros-en-java">1. 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Ficheros II: Java
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+          
+  
+  
+  Introducción a la informática
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../hardware/intro/">
+          
+  
+  
+  Hardware
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../virtualizacion-devops/intro/">
+          
+  
+  
+  Virtualización y DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gnu-linux/linux-desktop/">
+          
+  
+  
+  Sistemas operativos
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../intro/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../web/intro/">
+          
+  
+  
+  Web
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gamedev/intro/">
+          
+  
+  
+  Gamedev
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../apuntes-variados/intro/">
+          
+  
+  
+  Otros
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introducción a la informática
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducción a la informática
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Esta página
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/mecanografia/">
+<span class="md-ellipsis">
+    
+  
+    Mecanografía
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-informatica/">
+<span class="md-ellipsis">
+    
+  
+    Moverse en Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/ofimatica/">
+<span class="md-ellipsis">
+    
+  
+    Ofimática
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/multimedia/">
+<span class="md-ellipsis">
+    
+  
+    Multimedia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/seguridad-internet/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad en internet
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-sos/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a los sistemas operativos
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/intro/">
+<span class="md-ellipsis">
+    
+  
+    Historia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/arquitecturas-fisicas/">
+<span class="md-ellipsis">
+    
+  
+    Arquitecturas físicas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes-de-ordenador/">
+<span class="md-ellipsis">
+    
+  
+    Componentes de un ordenador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/torre/">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/procesador/">
+<span class="md-ellipsis">
+    
+  
+    Microprocesador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/cpu-cooling/">
+<span class="md-ellipsis">
+    
+  
+    Refrigeración CPU
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/memorias/">
+<span class="md-ellipsis">
+    
+  
+    Memorias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/storage/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/power-supply/">
+<span class="md-ellipsis">
+    
+  
+    Fuente de alimentación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/hardware/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento, tarjetas gráficas y monitores
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Virtualización y DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Virtualización y DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/virtualbox/">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/vagrant/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/vagrant2/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/ansible/">
+<span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/docker/">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/docker-2/">
+<span class="md-ellipsis">
+    
+  
+    Docker II: Dockerfiles
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/docker-3/">
+<span class="md-ellipsis">
+    
+  
+    Docker III: Docker Compose
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Sistemas operativos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemas operativos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux - básico
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux - básico
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/linux-desktop/">
+<span class="md-ellipsis">
+    
+  
+    Distribuciones y entornos de escritorio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/installation/">
+<span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/commands-basics/">
+<span class="md-ellipsis">
+    
+  
+    Comandos básicos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/files/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/users-groups-local/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de usuarios y grupos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/exercise-terminal-basics/">
+<span class="md-ellipsis">
+    
+  
+    1. Manejo del terminal
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux: scripting
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux: scripting
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux-2/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/ejercicios-variados/">
+<span class="md-ellipsis">
+    
+  
+    2. Ejercicios variados
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/examen/">
+<span class="md-ellipsis">
+    
+  
+    3. Examen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Servidores
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Servidores
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/networks/">
+<span class="md-ellipsis">
+    
+  
+    Redes en Linux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/web-servers/">
+<span class="md-ellipsis">
+    
+  
+    Servidores web
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/apache/">
+<span class="md-ellipsis">
+    
+  
+    Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/0-formato-entrega/">
+<span class="md-ellipsis">
+    
+  
+    4.0. Formato y entrega
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/1-web-servers-xampp/">
+<span class="md-ellipsis">
+    
+  
+    4.1. Windows y XAMPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/2-web-servers-apache/">
+<span class="md-ellipsis">
+    
+  
+    4.2. Instalación de Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/3-web-servers-aws/">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/4-web-servers-wordpress/">
+<span class="md-ellipsis">
+    
+  
+    4.4. Instalando Wordpress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/https/">
+<span class="md-ellipsis">
+    
+  
+    4.5. Opcional: dominios y HTTPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../file-basics/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros I: básico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-file">1.1 
+<span class="md-ellipsis">
+      
+        Clase File
+      
+    </span>
+</a>
+<nav aria-label="Clase File" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creando-un-fichero">1.1.1 
+<span class="md-ellipsis">
+      
+        Creando un fichero
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobando-la-raiz-de-sistema">1.1.2 
+<span class="md-ellipsis">
+      
+        Comprobando la raíz de sistema
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#otros-metodos-de-file">1.1.3 
+<span class="md-ellipsis">
+      
+        Otros métodos de File
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-files-javanio">1.2 
+<span class="md-ellipsis">
+      
+        Clase Files (java.nio)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actividad-ii-javaniofiles">1.3 
+<span class="md-ellipsis">
+      
+        Actividad II: java.nio.Files
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actividad-iii-navegador-de-archivos-sencillo">1.4 
+<span class="md-ellipsis">
+      
+        Actividad III: navegador de archivos sencillo
+      
+    </span>
+</a>
+<nav aria-label="Actividad III: navegador de archivos sencillo" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arranque-del-programa">1.4.1 
+<span class="md-ellipsis">
+      
+        Arranque del programa
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#listar-ficheros">1.4.2 
+<span class="md-ellipsis">
+      
+        Listar ficheros
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lectura-de-un-fichero-o-directorio">1.4.3 
+<span class="md-ellipsis">
+      
+        Lectura de un fichero o directorio
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leer-el-principio-de-un-fichero">1.4.4 
+<span class="md-ellipsis">
+      
+        Leer el principio de un fichero
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-directorio">1.4.5 
+<span class="md-ellipsis">
+      
+        Crear un directorio
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-fichero-con-contenido">1.4.6 
+<span class="md-ellipsis">
+      
+        Crear un fichero (con contenido)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#anadir-contenido-a-un-fichero">1.4.7 
+<span class="md-ellipsis">
+      
+        Añadir contenido a un fichero
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eliminar-un-fichero-o-directorio">1.4.8 
+<span class="md-ellipsis">
+      
+        Eliminar un fichero o directorio
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#salir-del-programa">1.4.9 
+<span class="md-ellipsis">
+      
+        Salir del programa
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actividad-iv-xml">1.5 
+<span class="md-ellipsis">
+      
+        Actividad IV: XML
+      
+    </span>
+</a>
+<nav aria-label="Actividad IV: XML" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conversiones-entre-xml-y-objetos-java">1.5.1 
+<span class="md-ellipsis">
+      
+        Conversiones entre XML y objetos Java
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#organizacion-de-codigo-y-uso-de-genericos">1.5.2 
+<span class="md-ellipsis">
+      
+        Organización de código y uso de genéricos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actividad-v-manipulacion-de-json">1.6 
+<span class="md-ellipsis">
+      
+        Actividad V: Manipulación de JSON
+      
+    </span>
+</a>
+<nav aria-label="Actividad V: Manipulación de JSON" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conversion-entre-json-y-objetos-java">1.6.1 
+<span class="md-ellipsis">
+      
+        Conversión entre JSON y objetos Java
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#organizacion-de-codigo-y-uso-de-genericos_1">1.6.2 
+<span class="md-ellipsis">
+      
+        Organización de código y uso de genéricos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actividad-vi-visualizacion-de-datos-covid">1.7 
+<span class="md-ellipsis">
+      
+        Actividad VI: Visualización de datos COVID
+      
+    </span>
+</a>
+<nav aria-label="Actividad VI: Visualización de datos COVID" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexto">1.7.1 
+<span class="md-ellipsis">
+      
+        Contexto
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visualizacion-en-consola">1.7.2 
+<span class="md-ellipsis">
+      
+        Visualización en consola
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visualizacion-en-web-dinamica">1.7.3 
+<span class="md-ellipsis">
+      
+        Visualización en web dinámica
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#todos-futuros-mejoras">1.8 
+<span class="md-ellipsis">
+      
+        TODOs futuros (mejoras)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/intro/">
+<span class="md-ellipsis">
+    
+  
+    Frontend Roadmap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/js-basics/">
+<span class="md-ellipsis">
+    
+  
+    Iniciación a JavaScript
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Gamedev
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción al desarrollo de videojuegos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Primer juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Primer juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-1/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-2/">
+<span class="md-ellipsis">
+    
+  
+    Mejorando el movimiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1-2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I (continuación)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-3/">
+<span class="md-ellipsis">
+    
+  
+    Físicas y colisiones (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio: minijuego de coches
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Segundo juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Segundo juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-4-animaciones/">
+<span class="md-ellipsis">
+    
+  
+    1. Movimiento y animaciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-5-colisiones/">
+<span class="md-ellipsis">
+    
+  
+    2. Recolección de objetos y detección de colisiones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-6-tilemap/">
+<span class="md-ellipsis">
+    
+  
+    3. Modelado del mundo
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/intro/">
+<span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/programming/">
+<span class="md-ellipsis">
+    
+  
+    Programación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/firewalling/">
+<span class="md-ellipsis">
+    
+  
+    Firewalling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/gamedev/">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/android/">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/control-versiones/">
+<span class="md-ellipsis">
+    
+  
+    Control versiones
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-file">1.1 
+<span class="md-ellipsis">
+      
+        Clase File
+      
+    </span>
+</a>
+<nav aria-label="Clase File" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creando-un-fichero">1.1.1 
+<span class="md-ellipsis">
+      
+        Creando un fichero
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobando-la-raiz-de-sistema">1.1.2 
+<span class="md-ellipsis">
+      
+        Comprobando la raíz de sistema
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#otros-metodos-de-file">1.1.3 
+<span class="md-ellipsis">
+      
+        Otros métodos de File
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-files-javanio">1.2 
+<span class="md-ellipsis">
+      
+        Clase Files (java.nio)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actividad-ii-javaniofiles">1.3 
+<span class="md-ellipsis">
+      
+        Actividad II: java.nio.Files
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actividad-iii-navegador-de-archivos-sencillo">1.4 
+<span class="md-ellipsis">
+      
+        Actividad III: navegador de archivos sencillo
+      
+    </span>
+</a>
+<nav aria-label="Actividad III: navegador de archivos sencillo" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arranque-del-programa">1.4.1 
+<span class="md-ellipsis">
+      
+        Arranque del programa
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#listar-ficheros">1.4.2 
+<span class="md-ellipsis">
+      
+        Listar ficheros
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lectura-de-un-fichero-o-directorio">1.4.3 
+<span class="md-ellipsis">
+      
+        Lectura de un fichero o directorio
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leer-el-principio-de-un-fichero">1.4.4 
+<span class="md-ellipsis">
+      
+        Leer el principio de un fichero
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-directorio">1.4.5 
+<span class="md-ellipsis">
+      
+        Crear un directorio
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-fichero-con-contenido">1.4.6 
+<span class="md-ellipsis">
+      
+        Crear un fichero (con contenido)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#anadir-contenido-a-un-fichero">1.4.7 
+<span class="md-ellipsis">
+      
+        Añadir contenido a un fichero
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eliminar-un-fichero-o-directorio">1.4.8 
+<span class="md-ellipsis">
+      
+        Eliminar un fichero o directorio
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#salir-del-programa">1.4.9 
+<span class="md-ellipsis">
+      
+        Salir del programa
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actividad-iv-xml">1.5 
+<span class="md-ellipsis">
+      
+        Actividad IV: XML
+      
+    </span>
+</a>
+<nav aria-label="Actividad IV: XML" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conversiones-entre-xml-y-objetos-java">1.5.1 
+<span class="md-ellipsis">
+      
+        Conversiones entre XML y objetos Java
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#organizacion-de-codigo-y-uso-de-genericos">1.5.2 
+<span class="md-ellipsis">
+      
+        Organización de código y uso de genéricos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actividad-v-manipulacion-de-json">1.6 
+<span class="md-ellipsis">
+      
+        Actividad V: Manipulación de JSON
+      
+    </span>
+</a>
+<nav aria-label="Actividad V: Manipulación de JSON" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conversion-entre-json-y-objetos-java">1.6.1 
+<span class="md-ellipsis">
+      
+        Conversión entre JSON y objetos Java
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#organizacion-de-codigo-y-uso-de-genericos_1">1.6.2 
+<span class="md-ellipsis">
+      
+        Organización de código y uso de genéricos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#actividad-vi-visualizacion-de-datos-covid">1.7 
+<span class="md-ellipsis">
+      
+        Actividad VI: Visualización de datos COVID
+      
+    </span>
+</a>
+<nav aria-label="Actividad VI: Visualización de datos COVID" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contexto">1.7.1 
+<span class="md-ellipsis">
+      
+        Contexto
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visualizacion-en-consola">1.7.2 
+<span class="md-ellipsis">
+      
+        Visualización en consola
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visualizacion-en-web-dinamica">1.7.3 
+<span class="md-ellipsis">
+      
+        Visualización en web dinámica
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#todos-futuros-mejoras">1.8 
+<span class="md-ellipsis">
+      
+        TODOs futuros (mejoras)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div><h1 id="gestion-de-ficheros-en-java"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Gestión de ficheros en Java</h1>
+<p>Cuando accedemos a un fichero desde Java este delega luego en el sistema operativo (este comprueba que el fichero no esté ya abierto por otro proceso, permisos, etc.). Si todo está correcto obtenemos los metadatos del fichero.</p>
+<p>En Java existen varios paquetes para gestión de ficheros:</p>
+<ul>
+<li>java.io: File, InputStream, FileInputStream, OutputStream, FileOutputStream, Reader, FileReader, Writer, FileWriter, BufferedReader, BufferedWriter, BufferedInputStream, BufferedOutputStream...</li>
+<li>java.nio: Buffer, Channel</li>
+<li>java.nio.2: Path (interfaz), Files, FileSystem, FileSystems, Paths. Paths y Files contiene solamente métodos estáticos que retornan objetos de tipo "Path" (Path es una interfaz).</li>
+</ul>
+<h2 id="clase-file"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Clase File</h2>
+<h3 id="creando-un-fichero"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.1</span> Creando un fichero</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">String</span><span class="w"> </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"ficheros/test.csv"</span><span class="p">;</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">File</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kt">boolean</span><span class="w"> </span><span class="n">createdSuccessfully</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="na">createNewFile</span><span class="p">();</span><span class="w"> </span><span class="c1">// (1)!</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">createdSuccessfully</span><span class="w"> </span><span class="o">?</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="s">"Fichero creado con éxito."</span><span class="w"> </span><span class="p">:</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="s">"No se ha podido crear el fichero."</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">);</span>
+</code></pre></div>
+<ol>
+<li>Falta la captura de excepciones. Por limpieza del código se omitirán en la mayoría de casos.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Añade la captura de excepciones necesarias a l programa anterior.</li>
+<li>Revisa en qué ruta se ha creado el fichero y por qué.</li>
+<li>Comprueba qué ocurre si pones delante de la ruta una "/".</li>
+</ol>
+</div>
+<p>Vamos ahora a cargar un fichero del sistema e imprimir la ruta donde se encuentra:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Código</label><label for="__tabbed_1_2">Resultado</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// Probamos dos llamadas al método</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"=== RUTA ABSOLUTA DEL FICHERO \"testing.csv\" ==="</span><span class="p">);</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">printPath</span><span class="p">(</span><span class="s">"files/testing.csv"</span><span class="p">);</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">printPath</span><span class="p">(</span><span class="s">"/files/testing.csv"</span><span class="p">);</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="p">...</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printPath</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="n">File</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">getAbsolutePath</span><span class="p">());</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>=== RUTA ABSOLUTA DEL FICHERO "testing.csv" ===
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>C:\Users\mnceleiro\IdeaProjects\file-test-project\files\testing.csv
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>C:\files\testing.csv
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>La clase File tiene un método para comprobar si el fichero existe:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printPath</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">File</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">path</span><span class="p">);</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">exists</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="na">getAbsolutePath</span><span class="p">());</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">"El fichero no existe."</span><span class="p">);</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="comprobando-la-raiz-de-sistema"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2</span> Comprobando la raíz de sistema</h3>
+<p>La raíz es distinta en Windows (C/D/E...) y GNU/Linux (/). Podemos usar lo siguiente para ver la raíz (o las raices del sistema):</p>
+<div class="highlight"><span class="filename">Imprime todos los directorios raíz del sistema.</span><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printAllSystemRoots</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">File</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">File</span><span class="p">.</span><span class="na">listRoots</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">}</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="n">printAllSystemRoots</span><span class="p">();</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Podemos usar también la Stream API de Java e imprimirlas con un foreach:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Código</label><label for="__tabbed_2_2">Resultado</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">Arrays</span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="n">File</span><span class="p">.</span><span class="na">listRoots</span><span class="p">()).</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>C:\
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>D:\
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>M:\
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>N:\
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>O:\
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>W:\
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>X:\
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>Y:\
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>Z:\
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="otros-metodos-de-file"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.3</span> Otros métodos de File</h3>
+<p>Algunos de los más interesantes son los siguientes:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Retorno</th>
+<th style="text-align: center;">Método</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">canRead()</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">canWrite()</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">canExecute()</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">createNewFile()</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">delete()</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">exists()</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">isDirectory()</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">isFile()</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">isHidden()</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">mkdir()</td>
+</tr>
+<tr>
+<td style="text-align: center;">File</td>
+<td style="text-align: center;">getAbsolutePath()</td>
+</tr>
+<tr>
+<td style="text-align: center;">File</td>
+<td style="text-align: center;">getCanonicalPath()</td>
+</tr>
+<tr>
+<td style="text-align: center;">File[]</td>
+<td style="text-align: center;">listFiles()</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Haz el siguiente ejercicio dos veces:
+- Primera vez usa los métodos anteriores (java.io).
+- Segunda vez usa Files + Path (haz los mismos ejercicios con clase Files + Path, es decir, java.nio)</p>
+</div>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="c1">// TODO: Crea una nueva carpeta</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="c1">// TODO: Crea un nuevo fichero (solo si no existía antes)</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">    </span><span class="c1">// TODO: Lee lo que hay en el fichero</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="w">    </span><span class="c1">// TODO: Comprobar los permisos que tienes sobre el fichero (puedes escribir en él y leer?)</span>
+<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a>
+<a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">    </span><span class="c1">// TODO: ¿Es un fichero o un directorio?</span>
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a>
+<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a>
+<a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">    </span><span class="c1">// TODO: ¿Está oculto?</span>
+<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a>
+<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a>
+<a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="w">    </span><span class="c1">// TODO: Dame el PATH completo del fichero</span>
+<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a>
+<a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a>
+<a href="#__codelineno-7-23" id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="w">    </span><span class="c1">// TODO: Lista lo que hay en una carpeta del sistema.</span>
+<a href="#__codelineno-7-24" id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="clase-files-javanio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Clase Files (java.nio)</h2>
+<p>La clase Files sirve más o menos para lo mismo que File, pero en este caso contiene todo métodos estáticos y recibe un <strong>Path</strong> como parámetro.</p>
+<p>No tienes que saberlos de memoria, si quieres realizar alguna operación puedes usar tu IDE o internet para ver como hacerla. También, si quereis ver más información u otros métodos de java.io.File <a href="https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/io/File.html">podéis consultar el API de Java</a>.</p>
+<h2 id="actividad-ii-javaniofiles"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Actividad II: java.nio.Files</h2>
+<p>Completa la siguiente tabla usando solo métodos de java.nio.Files y escribe un programa muy simple que pruebe 5 de ellos y otros 5 distintos que te parezcan interesantes del <a href="https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/nio/file/Files.html">API de Java</a>).</p>
+<p>La dificultad añadida de "Files" es que siempre recibe como parámetro un <a href="https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/nio/file/Path.html">"Path"</a>. <a href="https://javarush.com/en/groups/posts/en.2275.java-files-path">Aquí dejo un buen artículo de internet como apoyo</a>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Retorno</th>
+<th style="text-align: center;">Método clase File</th>
+<th style="text-align: center;">Método Files/Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">canRead()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">canWrite()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">canExecute()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">createNewFile()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">delete()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">exists()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">isDirectory()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">isFile()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">isHidden()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">mkdir()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">File</td>
+<td style="text-align: center;">getAbsolutePath()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">File</td>
+<td style="text-align: center;">getCanonicalPath()</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;">File[]</td>
+<td style="text-align: center;">listFiles()</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="actividad-iii-navegador-de-archivos-sencillo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Actividad III: navegador de archivos sencillo</h2>
+<p>Crea un navegador de archivos simple en la consola de Java (mediante un menú) que permita realizar las siguientes operaciones:</p>
+<h3 id="arranque-del-programa"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Arranque del programa</h3>
+<p>Cuando inicias el programa se guardará la ruta actual y mostrará:</p>
+<ul>
+<li>La ruta absoluta actual.</li>
+<li>La lista de archivos y carpetas existentes en la ruta.</li>
+</ul>
+<h3 id="listar-ficheros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> Listar ficheros</h3>
+<p>Si escribes la palabra "ls" se mostrará la lista de archivos en la carpeta actual.</p>
+<h3 id="lectura-de-un-fichero-o-directorio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.3</span> Lectura de un fichero o directorio</h3>
+<p>Si se introduce la palabra "cd" y una ruta absoluta pueden pasar dos cosas:</p>
+<ul>
+<li>En caso de corresponder a un directorio se mostrarán los archivos y directorios contenidos en él.</li>
+<li>En caso de corresponder a un fichero se mostrará su contenido.</li>
+</ul>
+<h3 id="leer-el-principio-de-un-fichero"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.4</span> Leer el principio de un fichero</h3>
+<p>Si se introduce la palabra "head" se preguntará un nombre de fichero, en caso de existir se mostrarán las 10 primeras líneas (en caso contrario se indicará que no existe).</p>
+<h3 id="crear-un-directorio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.5</span> Crear un directorio</h3>
+<p>Si se escribe "mkdir" se debe preguntar al usuario el nombre del directorio y la ruta donde se desea crear.</p>
+<h3 id="crear-un-fichero-con-contenido"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.6</span> Crear un fichero (con contenido)</h3>
+<p>Si se escribe "file" se pregunta al usuario el nombre del fichero y la ruta donde se desea crear. Si esto es válido pregúntale al usuario que contenido desea añadir al mismo.</p>
+<h3 id="anadir-contenido-a-un-fichero"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.7</span> Añadir contenido a un fichero</h3>
+<p>Si se escribe "add-text" preguntarás al usuario la ruta del fichero y el texto que quiere añadirse. Se añadirá después del último carácter que haya escrito en el fichero.</p>
+<h3 id="eliminar-un-fichero-o-directorio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.8</span> Eliminar un fichero o directorio</h3>
+<p>Si se escribe "rm" pide una ruta y se elimina el fichero o directorio correspondiente a la misma.</p>
+<h3 id="salir-del-programa"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.9</span> Salir del programa</h3>
+<p>Si se escribe "salir" se termina el programa.</p>
+<h2 id="actividad-iv-xml"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Actividad IV: XML</h2>
+<p>Crea un nuevo proyecto con una clase "Mascota" con los atributos:</p>
+<ul>
+<li>id: long</li>
+<li>breed: String</li>
+<li>name: String</li>
+<li>type: String</li>
+<li>color: String</li>
+</ul>
+<h3 id="conversiones-entre-xml-y-objetos-java"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> Conversiones entre XML y objetos Java</h3>
+<p>Crea una clase "Principal" con un método "main" y crea un objeto Mascota. Después, conviértelo a XML de manera que consigas una salida como esta por consola:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nt">&lt;pet</span><span class="w"> </span><span class="na">id=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="nt">&lt;nombre&gt;</span>Darwin<span class="nt">&lt;/nombre&gt;</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="nt">&lt;tipo&gt;</span>gato<span class="nt">&lt;/tipo&gt;</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="nt">&lt;raza&gt;</span>Siamés<span class="nt">&lt;/raza&gt;</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="nt">&lt;color&gt;</span>gris<span class="nt">&lt;/color&gt;</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="nt">&lt;/pet&gt;</span>
+</code></pre></div>
+<ul>
+<li>Haz que el XML anterior se almacene en un fichero en vez de por salida estándar (stdout).</li>
+<li>Obtén el XML almacenado en el fichero y conviértelo en un objeto Mascota.</li>
+</ul>
+<h3 id="organizacion-de-codigo-y-uso-de-genericos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> Organización de código y uso de genéricos</h3>
+<p>Organiza el código en clases de manera que tengas:</p>
+<ul>
+<li>Una clase <strong>ConversorJaxbDeObjetoAXml</strong> con métodos que reciban objetos mascota y realicen lo siguiente:<ul>
+<li>Almacenar mascota en fichero.</li>
+<li>Mostrar por salida estándar (consola).</li>
+</ul>
+</li>
+<li>Una clase <strong>ConversorJaxbDeXmlAObjeto</strong> con métodos que reciban un XML y realicen lo siguiente:<ul>
+<li>Obtener objeto de fichero.</li>
+</ul>
+</li>
+<li>Haz que el código utilizado sirva para cualquier otra clase (no solo para Mascota). Para esto necesitas utilizar genéricos.</li>
+</ul>
+<h2 id="actividad-v-manipulacion-de-json"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Actividad V: Manipulación de JSON</h2>
+<p><div class="video-container"><iframe allowfullscreen="" alt="type:video" frameborder="0" src="https://www.youtube.com/embed/kHw85khzcKE" style="position:relative;width:100%;height:22.172vw"></iframe></div></p>
+<h3 id="conversion-entre-json-y-objetos-java"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> Conversión entre JSON y objetos Java</h3>
+<p>Crea un nuevo proyecto con una clase mascota con los atributos:</p>
+<ul>
+<li>id: long</li>
+<li>breed: String</li>
+<li>name: String</li>
+<li>type: String</li>
+<li>color: String</li>
+</ul>
+<p>Crea una clase "Principal" con un método "main" y crea un objeto Mascota. Después, conviértelo a JSON utilizando GSON o Jackson de manera que consigas una salida como esta por consola:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="p">{</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">  </span><span class="nt">"mascota"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="nt">"nombre"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Darwin"</span><span class="p">,</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span><span class="nt">"tipo"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"gato"</span><span class="p">,</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="nt">"raza"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Siamés"</span><span class="p">,</span>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="nt">"color"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"gris"</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">  </span><span class="p">}</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Finalmente, cambia el nombre de la mascota y realiza la transformación inversa (convierte el json generado a un objeto "Mascota" nuevamente).</p>
+<h3 id="organizacion-de-codigo-y-uso-de-genericos_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.2</span> Organización de código y uso de genéricos</h3>
+<p>Crea una interfaz ConversorORMJson con las definiciones de los siguientes métodos:
+1. <strong>aObjeto</strong>(String json): Mascota
+2. <strong>aJson</strong>(Mascota m): String</p>
+<p>Posteriormente, crea una clase <strong>ConversorORMGson</strong> o <strong>ConversorORMJackson</strong> (según qué biblioteca estés usando) que implemente la interfaz anterior.</p>
+<p>Haz que la interfaz y las clases anteriores sirvan para cualquier tipo de entidad (utiliza genéricos).</p>
+<h2 id="actividad-vi-visualizacion-de-datos-covid"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Actividad VI: Visualización de datos COVID</h2>
+<h3 id="contexto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.1</span> Contexto</h3>
+<p>En 2020, Daniel González Peña, profesor la escuela superior de ingeniería informática en Ourense realizó una recopilación, día a día, de los datos de la incidencia del COVID en Galicia y los centralizó <a href="https://lipido.github.io/galicia-covid19/">en un repositorio de GitHub</a>.</p>
+<p>Descarga el fichero CSV con la incidencia del COVID en centros educativos ordenados por fecha disponible <a href="https://raw.githubusercontent.com/lipido/galicia-covid19/master/centros_educativos/centros_educativos.csv">aquí</a>.</p>
+<h3 id="visualizacion-en-consola"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.2</span> Visualización en consola</h3>
+<p>Crea una aplicación en dos capas (dos paquetes, iu y datos), donde las clases de la capa de IU se ocupen de mostrar un menú para las siguientes opciones:</p>
+<ul>
+<li>Obtener todos los datos ordenados por el nombre del centro educativo.</li>
+<li>Obtener todos los datos de un solo día indicado (el día será 1, 2, 3...). Tendrás que agruparlos.</li>
+<li>Obtener datos por ayuntamiento y fecha (se pedirá ayuntamiento, día, mes y año, numéricos).</li>
+<li>Obtener la lista de centros cerrados indicando el número de casos activos y la fecha.</li>
+</ul>
+<p>Todas las operaciones de ese menú tendrán que realizarse con funciones en la capa de datos (en este ejercicio solo usaremos una clase a la que vamos a llamar DatosCovidDao). Ahí tendrás que realizar todas las operaciones.</p>
+<h3 id="visualizacion-en-web-dinamica"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.3</span> Visualización en web dinámica</h3>
+<p>Crea una aplicación en Java que cargue el CSV en memoria con cada petición GET a /datoscovid con las siguientes operaciones:</p>
+<ul>
+<li>/datoscovid/all: Obtener todos los datos ordenados por el nombre del centro educativo.</li>
+<li>/datoscovid/all?page={dia}: Obtiene los datos del primer día disponible (si se pasa en dia un 1), si se pasa un 2 será el segundo día, etc.</li>
+<li>/datoscovid/all?centro={nombre}: Obtiene los datos históricos del centro educativo, si existe.</li>
+<li>/datoscovid/all?ayuntamiento={nombre}: Obtener datos por ayuntamiento.</li>
+<li>/datoscovid/all?cerrado=1 (o cerrado=0): Obtener la lista de centros cerrados.</li>
+</ul>
+<p>Puedes aprovechar la capa de datos anterior.</p>
+<h2 id="todos-futuros-mejoras"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> TODOs futuros (mejoras)</h2>
+<ul>
+<li>Separar completamente ejercicios que usan java.io y java.nio. Intentar buscar buen contenido externo que enlazar sobre esto, ya que es enrevesado (o simplemente restarle importancia).</li>
+<li>Más ejemplos con java.nio y java.nio2</li>
+<li>Optimizar o reducir la parte de XML. Pensar en dar opción entre librerías (JAXB y XStream)</li>
+<li>Un posible inicio de proyecto.</li>
+<li>Buenas referencias externas para crear una webs dinámicas en Java. Tomcat.</li>
+</ul></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+</body>
+</html>

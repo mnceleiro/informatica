@@ -1,0 +1,2096 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../intro/" rel="prev"/>
+<link href="../unity2d-ejercicio1/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
+<title>Introducción - Informática y sistemas operativos</title>
+<link href="../../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#creacion-de-un-juego-basico">1. 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Introducción
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+          
+  
+  
+  Introducción a la informática
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../hardware/intro/">
+          
+  
+  
+  Hardware
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../virtualizacion-devops/intro/">
+          
+  
+  
+  Virtualización y DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../gnu-linux/linux-desktop/">
+          
+  
+  
+  Sistemas operativos
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../java/intro/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../web/intro/">
+          
+  
+  
+  Web
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../intro/">
+          
+  
+  
+  Gamedev
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../apuntes-variados/intro/">
+          
+  
+  
+  Otros
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introducción a la informática
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducción a la informática
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Esta página
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/mecanografia/">
+<span class="md-ellipsis">
+    
+  
+    Mecanografía
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/intro-informatica/">
+<span class="md-ellipsis">
+    
+  
+    Moverse en Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/ofimatica/">
+<span class="md-ellipsis">
+    
+  
+    Ofimática
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/multimedia/">
+<span class="md-ellipsis">
+    
+  
+    Multimedia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/seguridad-internet/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad en internet
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/intro-sos/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a los sistemas operativos
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/intro/">
+<span class="md-ellipsis">
+    
+  
+    Historia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/arquitecturas-fisicas/">
+<span class="md-ellipsis">
+    
+  
+    Arquitecturas físicas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes-de-ordenador/">
+<span class="md-ellipsis">
+    
+  
+    Componentes de un ordenador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/torre/">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/procesador/">
+<span class="md-ellipsis">
+    
+  
+    Microprocesador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/cpu-cooling/">
+<span class="md-ellipsis">
+    
+  
+    Refrigeración CPU
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/memorias/">
+<span class="md-ellipsis">
+    
+  
+    Memorias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/storage/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/power-supply/">
+<span class="md-ellipsis">
+    
+  
+    Fuente de alimentación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/hardware/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento, tarjetas gráficas y monitores
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Virtualización y DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Virtualización y DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/virtualbox/">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/vagrant/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/vagrant2/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/ansible/">
+<span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker/">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker-2/">
+<span class="md-ellipsis">
+    
+  
+    Docker II: Dockerfiles
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker-3/">
+<span class="md-ellipsis">
+    
+  
+    Docker III: Docker Compose
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Sistemas operativos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemas operativos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux - básico
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux - básico
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/linux-desktop/">
+<span class="md-ellipsis">
+    
+  
+    Distribuciones y entornos de escritorio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/installation/">
+<span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/commands-basics/">
+<span class="md-ellipsis">
+    
+  
+    Comandos básicos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/files/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/users-groups-local/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de usuarios y grupos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/exercise-terminal-basics/">
+<span class="md-ellipsis">
+    
+  
+    1. Manejo del terminal
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux: scripting
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux: scripting
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/scripting-linux/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/scripting-linux-2/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/ejercicios-variados/">
+<span class="md-ellipsis">
+    
+  
+    2. Ejercicios variados
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/examen/">
+<span class="md-ellipsis">
+    
+  
+    3. Examen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Servidores
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Servidores
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/networks/">
+<span class="md-ellipsis">
+    
+  
+    Redes en Linux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/web-servers/">
+<span class="md-ellipsis">
+    
+  
+    Servidores web
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/apache/">
+<span class="md-ellipsis">
+    
+  
+    Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/0-formato-entrega/">
+<span class="md-ellipsis">
+    
+  
+    4.0. Formato y entrega
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/1-web-servers-xampp/">
+<span class="md-ellipsis">
+    
+  
+    4.1. Windows y XAMPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/2-web-servers-apache/">
+<span class="md-ellipsis">
+    
+  
+    4.2. Instalación de Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/3-web-servers-aws/">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/4-web-servers-wordpress/">
+<span class="md-ellipsis">
+    
+  
+    4.4. Instalando Wordpress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/https/">
+<span class="md-ellipsis">
+    
+  
+    4.5. Opcional: dominios y HTTPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/file-basics/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros I: básico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/files/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/intro/">
+<span class="md-ellipsis">
+    
+  
+    Frontend Roadmap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/js-basics/">
+<span class="md-ellipsis">
+    
+  
+    Iniciación a JavaScript
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Gamedev
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción al desarrollo de videojuegos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Unity - Primer juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Primer juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descarga-de-unity">1.1 
+<span class="md-ellipsis">
+      
+        Descarga de Unity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-proyecto-en-unity">1.2 
+<span class="md-ellipsis">
+      
+        Creación de proyecto en Unity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-interfaz-de-unity">1.3 
+<span class="md-ellipsis">
+      
+        La interfaz de Unity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#los-gameobjects-y-sus-componentes">1.4 
+<span class="md-ellipsis">
+      
+        Los GameObjects y sus componentes
+      
+    </span>
+</a>
+<nav aria-label="Los GameObjects y sus componentes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gameobjects-el-componente-transform">1.4.1 
+<span class="md-ellipsis">
+      
+        GameObjects: el componente transform
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gameobjects-imagenes-con-el-componente-sprite-renderer">1.4.2 
+<span class="md-ellipsis">
+      
+        GameObjects: imágenes con el componente Sprite Renderer
+      
+    </span>
+</a>
+<nav aria-label="GameObjects: imágenes con el componente Sprite Renderer" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-directa-de-objetos-sprite-en-unity">
+<span class="md-ellipsis">
+      
+        Creación directa de objetos Sprite en Unity
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#otros-componentes">1.4.3 
+<span class="md-ellipsis">
+      
+        Otros componentes
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuraciones-del-editor-de-unity">1.5 
+<span class="md-ellipsis">
+      
+        Configuraciones del editor de Unity
+      
+    </span>
+</a>
+<nav aria-label="Configuraciones del editor de Unity" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configurar-editor-de-texto-para-programar">1.5.1 
+<span class="md-ellipsis">
+      
+        Configurar editor de texto para programar
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cambiar-color-al-estar-en-modo-ejecucion">1.5.2 
+<span class="md-ellipsis">
+      
+        Cambiar color al estar en modo "ejecución"
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scripting-basico">1.6 
+<span class="md-ellipsis">
+      
+        Scripting básico
+      
+    </span>
+</a>
+<nav aria-label="Scripting básico" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-un-script">1.6.1 
+<span class="md-ellipsis">
+      
+        Creación de un script
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metodos-basicos-en-un-script">1.6.2 
+<span class="md-ellipsis">
+      
+        Métodos básicos en un script
+      
+    </span>
+</a>
+<nav aria-label="Métodos básicos en un script" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mostrando-mensajes-por-pantalla">
+<span class="md-ellipsis">
+      
+        Mostrando mensajes por pantalla
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inputsystem-de-unity-basico">1.7 
+<span class="md-ellipsis">
+      
+        InputSystem de Unity (básico)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#movimiento">1.8 
+<span class="md-ellipsis">
+      
+        Movimiento
+      
+    </span>
+</a>
+<nav aria-label="Movimiento" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cambiando-la-posicion-de-un-personaje">1.8.1 
+<span class="md-ellipsis">
+      
+        Cambiando la posición de un personaje
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#moviendo-el-personaje">1.8.2 
+<span class="md-ellipsis">
+      
+        Moviendo el personaje
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../unity2d-ejercicio1/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../unity2d-2/">
+<span class="md-ellipsis">
+    
+  
+    Mejorando el movimiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../unity2d-ejercicio1-2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I (continuación)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../unity2d-3/">
+<span class="md-ellipsis">
+    
+  
+    Físicas y colisiones (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../unity2d-ejercicio2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio: minijuego de coches
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Unity - Segundo juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Segundo juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../unity2d-4-animaciones/">
+<span class="md-ellipsis">
+    
+  
+    1. Movimiento y animaciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../unity2d-5-colisiones/">
+<span class="md-ellipsis">
+    
+  
+    2. Recolección de objetos y detección de colisiones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../unity2d-6-tilemap/">
+<span class="md-ellipsis">
+    
+  
+    3. Modelado del mundo
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/intro/">
+<span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/programming/">
+<span class="md-ellipsis">
+    
+  
+    Programación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/firewalling/">
+<span class="md-ellipsis">
+    
+  
+    Firewalling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/gamedev/">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/android/">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/control-versiones/">
+<span class="md-ellipsis">
+    
+  
+    Control versiones
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descarga-de-unity">1.1 
+<span class="md-ellipsis">
+      
+        Descarga de Unity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-proyecto-en-unity">1.2 
+<span class="md-ellipsis">
+      
+        Creación de proyecto en Unity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-interfaz-de-unity">1.3 
+<span class="md-ellipsis">
+      
+        La interfaz de Unity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#los-gameobjects-y-sus-componentes">1.4 
+<span class="md-ellipsis">
+      
+        Los GameObjects y sus componentes
+      
+    </span>
+</a>
+<nav aria-label="Los GameObjects y sus componentes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gameobjects-el-componente-transform">1.4.1 
+<span class="md-ellipsis">
+      
+        GameObjects: el componente transform
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gameobjects-imagenes-con-el-componente-sprite-renderer">1.4.2 
+<span class="md-ellipsis">
+      
+        GameObjects: imágenes con el componente Sprite Renderer
+      
+    </span>
+</a>
+<nav aria-label="GameObjects: imágenes con el componente Sprite Renderer" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-directa-de-objetos-sprite-en-unity">
+<span class="md-ellipsis">
+      
+        Creación directa de objetos Sprite en Unity
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#otros-componentes">1.4.3 
+<span class="md-ellipsis">
+      
+        Otros componentes
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuraciones-del-editor-de-unity">1.5 
+<span class="md-ellipsis">
+      
+        Configuraciones del editor de Unity
+      
+    </span>
+</a>
+<nav aria-label="Configuraciones del editor de Unity" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configurar-editor-de-texto-para-programar">1.5.1 
+<span class="md-ellipsis">
+      
+        Configurar editor de texto para programar
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cambiar-color-al-estar-en-modo-ejecucion">1.5.2 
+<span class="md-ellipsis">
+      
+        Cambiar color al estar en modo "ejecución"
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scripting-basico">1.6 
+<span class="md-ellipsis">
+      
+        Scripting básico
+      
+    </span>
+</a>
+<nav aria-label="Scripting básico" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-un-script">1.6.1 
+<span class="md-ellipsis">
+      
+        Creación de un script
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metodos-basicos-en-un-script">1.6.2 
+<span class="md-ellipsis">
+      
+        Métodos básicos en un script
+      
+    </span>
+</a>
+<nav aria-label="Métodos básicos en un script" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mostrando-mensajes-por-pantalla">
+<span class="md-ellipsis">
+      
+        Mostrando mensajes por pantalla
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inputsystem-de-unity-basico">1.7 
+<span class="md-ellipsis">
+      
+        InputSystem de Unity (básico)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#movimiento">1.8 
+<span class="md-ellipsis">
+      
+        Movimiento
+      
+    </span>
+</a>
+<nav aria-label="Movimiento" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cambiando-la-posicion-de-un-personaje">1.8.1 
+<span class="md-ellipsis">
+      
+        Cambiando la posición de un personaje
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#moviendo-el-personaje">1.8.2 
+<span class="md-ellipsis">
+      
+        Moviendo el personaje
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div><h1 id="creacion-de-un-juego-basico"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Creación de un juego básico</h1>
+<h2 id="descarga-de-unity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Descarga de Unity</h2>
+<p>Para desarrollar para Unity, puedes descargarte primero UnityHub (es una aplicación donde puedes gestionar diversas versiones de Unity). Unity, por su parte, es el propio motor de videojuegos (y lo puedes descargar desde Unity Hub).</p>
+<p>En pocas palabras, el primer paso es descargarte <a href="https://unity.com/es/unity-hub">UnityHub</a> y después, desde dentro de Unity Hub podrás descargar la última versión estable de Unity (es posible que se te inicie la descarga automáticamente).</p>
+<p><img alt="Unity Hub" src="../images/unity-hub.png"/></p>
+<p>En la imagen anterior podemos ver las pestañas de <strong>proyectos</strong> e <strong>instalaciones</strong> (estamos en la de instalaciones). Arriba podemos pulsar en "Instalar Editor" para instalar versiones de Unity. Es posible que al entrar ahí ya se te ponga una versión a descargar automáticamente (sino, lo puedes hacer con el botón correspondiente).</p>
+<h2 id="creacion-de-proyecto-en-unity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Creación de proyecto en Unity</h2>
+<p>Para crear un proyecto 2D vamos a "Projects" - New Project (y elegimos Universal 2D):</p>
+<p><img alt="Nuevo proyecto" src="../images/unity-new-project.png"/></p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Descarga UnityHub y la última versión estable de Unity.</li>
+<li>Elige una carpeta para tus proyectos (p. ej: juegos-unity). Después, elige esa carpeta y dentro de ella crea un proyecto <strong>de tipo Universal 2D</strong> que se llame PrimerJuego.</li>
+</ol>
+</div>
+<h2 id="la-interfaz-de-unity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> La interfaz de Unity</h2>
+<p>En la siguiente imagen podemos ver las partes de las que se compone la interfaz de Unity.
+<img alt="Interfaz Unity" src="../images/unity-interface.png"/></p>
+<ol>
+<li>La parte principal es la central: <strong>La escena</strong>. Una escena representa una pantalla del juego (por ejemplo, la pantalla del menú, un nivel del juego con el jugador y los monstruos, etc.).</li>
+<li>Cada escena contiene <strong>objetos del juego (GameObjects)</strong>. Estos son los que salen en el menú de la parte izquierda de la imagen (la jerarquía). Por ejemplo: monstruos, el personaje, una plataforma, etc.</li>
+<li>Si pulso en un GameObject (parte izquierda) podré ver sus propiedades en la parte derecha.</li>
+</ol>
+<p>Resumiendo, la parte principal de Unity es la escena (que será el nivel que vamos a crear). En esta escena vamos a añadir objetos para mejorarla.</p>
+<h2 id="los-gameobjects-y-sus-componentes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Los GameObjects y sus componentes</h2>
+<p>Para crear el <strong>GameObject más básico posible</strong> en la escena hacemos lo siguiente:
+<img alt="Crear GameObject vacío" src="../images/unity-create-empty-gameobject.png"/></p>
+<h3 id="gameobjects-el-componente-transform"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> GameObjects: el componente transform</h3>
+<p>Si pulsas sobre el GameObject (recuerda, el que hemos creado es <strong>el más básico posible</strong>) podrás ver que solo tiene un componente llamado <strong>transform</strong>. Este componente <strong>representa la posición del objeto en la escena y su tamaño</strong>. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Todos los GameObjects tienen, al menos, este componente transform.</p>
+</div>
+<h3 id="gameobjects-imagenes-con-el-componente-sprite-renderer"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> GameObjects: imágenes con el componente Sprite Renderer</h3>
+<p><img align="right" alt="Sprite conejo" src="../images/bunny2_ready.png"/>
+Aunque tenemos un GameObject, no vemos nada todavía en la escena. Quiero hacer que este GameObject sea en el futuro el personaje de mi juego. Para ello, lo primero debería ser poder poner una imagen del mismo. Para ello usamos el componente <strong>Sprite Renderer</strong>.</p>
+<p>Ten en cuenta que una imagen en desarrollo de juegos se denomina como Sprite**. </p>
+<p>Si pulsas sobre el GameObject que has creado para que te aparezcan sus propiedades/componentes en el inspector (panel derecho). Una vez hecho esto, en la parte inferior del inspector (bajo el transform) verás un botón <strong>"Add Component"</strong>.</p>
+<p>Si en ese "Add Component" añadimos un componente de tipo "Sprite Renderer" podremos ahí añadir las propiedades de la imagen.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Ya tenemos dos componentes:</p>
+<ul>
+<li>El <strong>transform</strong> posee la posición, rotación y tamaño del GameObject.</li>
+<li>El <strong>Sprite Renderer</strong> nos permite añadir una imagen al GameObject.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Cambia el nombre al Game Object para que se llame "Personaje" (será el personaje que luego moveremos).</li>
+<li>Descarga la imagen del conejo (este conejo es de un pack de recursos de <a href="https://kenney.nl" target="_blank">kenney.nl</a>).</li>
+<li>Copia o arrastra el conejo a los recursos (assets) de tu proyecto (panel inferior). Esto nos permitirá usarlo después.</li>
+<li>Añade un Sprite Renderer al personaje. Verás que el componente Sprite Renderer tiene la propiedad <strong>"Sprite"</strong>. Arrastra el conejo desde los assets hasta el atributo Sprite y debería aparecer en la escena.</li>
+<li>Modifica su <em>transform</em> en el inspector (panel derecho) para moverlo a la parte inferior derecha de la pantalla. Para ello tendrás que modificar su posición en el eje X y en el eje Y.</li>
+<li>Modifica su escala: haz que sea 1.5 veces más grande.</li>
+<li>Ahora, resetea de nuevo su posición y escala a como estaban al principio. Posición (0,0,0) y escala 1.</li>
+</ol>
+</div>
+<p>También, en lugar de crear un GameObject vacío (el cuál recordemos que tendrá siempre, como mínimo, un transform) y luego añadirle el "Sprite Renderer" para poder añadirle un Sprite (imagen), <strong>Unity nos permite añadir directamente el GameObject con el SpriteRenderer</strong>. Veámoslo:</p>
+<h4 id="creacion-directa-de-objetos-sprite-en-unity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2.1</span> Creación directa de objetos Sprite en Unity</h4>
+<p>Para crear un objeto que directamente tenga ya un Sprite Renderer con una forma concreta (por ejemplo, un cuadrado) hacemos lo siguiente:</p>
+<p><img alt="Crear sprite 2D" src="../images/unity-crear-sprite-cuadrado.png"/></p>
+<p>Esto nos añadirá un nuevo objeto ya con un cuadrado representado (o un círculo, triángulo, etc.). </p>
+<h3 id="otros-componentes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.3</span> Otros componentes</h3>
+<p>Además de transform y sprite renderer, existen muchos otros componentes (colliders, físicas, tilemaps, sonidos...). Estos los veremos más adelante.</p>
+<h2 id="configuraciones-del-editor-de-unity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Configuraciones del editor de Unity</h2>
+<h3 id="configurar-editor-de-texto-para-programar"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> Configurar editor de texto para programar</h3>
+<p>Podemos elegir Visual Studio 2022 o Visual Studio Code. Consulta la siguiente imagen:
+<img alt="Editor de texto" src="../images/unity-configurar-editor-texto.png"/></p>
+<h3 id="cambiar-color-al-estar-en-modo-ejecucion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> Cambiar color al estar en modo "ejecución"</h3>
+<p>Si ejecutamos un juego y mientras estamos jugándolo cambiamos parámetros del mismo, estos no se cambian. Para identificar cuando estamos en modo "ejecución" es mejor cambiar el color de la interfaz de Unity: </p>
+<p><em>Edit → Preferences → Colors → Playmode tint</em></p>
+<p><img alt="Color en modo juego" src="../images/unity-color-modo-juego.png"/></p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Configura tu IDE para programar a VSCode o VStudio.</li>
+<li>Configura un color diferente al ejecutar tu juego tal y como se indica en el apartado anterior.</li>
+</ol>
+</div>
+<h2 id="scripting-basico"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Scripting básico</h2>
+<p>Vamos a explicar esto usando el nuevo InputSystem de Unity (si consultais internet y veis otras formas de hacerlo, es posible que estén hechas con el antiguo InputSystem).</p>
+<p>Vamos a empezar viendo, con el nuevo InputSystem de Unity, como mover el personaje de la forma más sencilla posible.</p>
+<h3 id="creacion-de-un-script"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> Creación de un script</h3>
+<p>Hay dos maneras de crear un script en Unity:</p>
+<ul>
+<li>Forma I: botón derecho en la zona de <code>assets</code> y luego: <em>create -&gt; scripting -&gt; Monobehaviour Script</em>. Después de esto, se le pone el nombre al script y se "arrastra" al GameObject al que se quiere enlazar (los scripts van asociados a un GameObject).</li>
+<li>Forma II: en un GameObject cualquiera (p. ej: el personaje) añades un nuevo componente de tipo "<em>script</em>" y le das un nombre. De esta manera, ya queda tanto creado como asociado.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>En este ejercicio vamos a practicar la creación, enlazado, desenlazado y borrado de un script en Unity:</p>
+<ol>
+<li>Crea un nuevo script de la primera forma, luego enlázalo con el personaje.</li>
+<li>Elimínalo del personaje y luego borra el script.</li>
+<li>Crea un nuevo script de la segunda forma (directamente añadiendolo como componente al personaje).</li>
+<li>Elimina el script.</li>
+<li>Crea una carpeta Scripts en tus assets.</li>
+<li>Crea un script de nombre PersonajeController y luego enlázalo al personaje.</li>
+<li>Abre el script.</li>
+</ol>
+</div>
+<h3 id="metodos-basicos-en-un-script"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.2</span> Métodos básicos en un script</h3>
+<p>Si has abierto el script tal como se indica en el ejercicio, verás que este hereda de una clase llamada "MonoBehaviour". Además, verás que estamos sobreescribiendo dos métodos: <code>Start()</code> y <code>Update()</code>:</p>
+<ul>
+<li>Start(): este método se ejecuta en el momento en que el GameObject al que está asociado el script entra en la escena (en este caso, el GamneObject al que hemos asociado el script es el personaje). Esto es, en el momento en que ejecutamos el juego el método Start() se ejecutará.</li>
+<li>Update(): este método se ejecutará una vez por frame. Por ejemplo, si este juego se está ejecutando a 60 frames o imágenes por segundo, entonces el método Update() se ejecutará 60 veces cada segundo. </li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PersonajeController</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">{</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="c1">// Se llama justo antes de ejecutarse el primer frame</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="c1">// Update se llama una vez por frame</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">()</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>No vas a necesitar hacer apenas bucles en Unity, ya que el propio Update() ya se está ejecutando en bucle. Si quieres ejecutar algo de forma constante en el tiempo solo tienes que ponerlo ahí dentro.</p>
+</div>
+<h4 id="mostrando-mensajes-por-pantalla"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.2.1</span> Mostrando mensajes por pantalla</h4>
+<p>Para mostrar un mensaje en la consola de Unity podemos usar <code>Debug.Log(mensaje)</code>.</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Muestra un mensaje "Hola mundo" al ejecutar el juego. Comprueba que aparece en la consola de Unity.</li>
+<li>Muestra un mensaje "Me ejecuto una vez por frame." de manera que aparezca una vez por cada frame o imagen.</li>
+<li>Elimina los mensajes anteriores y crea un contador de frames, de manera que con cada frame vaya sumándose el contador y mostrando el número por pantalla.</li>
+</ol>
+</div>
+<h2 id="inputsystem-de-unity-basico"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> InputSystem de Unity (básico)</h2>
+<p>Para mover el personaje puedes utilizar la clase <code>Keyboard</code> de Unity.InputSystem:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">current</span><span class="p">.</span><span class="n">aKey</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">{</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Me muevo a la izquierda</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(...)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="c1">// Me muevo a la derecha</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>La variable <code>isPressed</code> tiene un <em>true</em>o un <em>false</em> dependiendo de si está pulsada la tecla "A" o no lo está. Hay una referencia en <code>Keyboard.current</code> a cada tecla posible del teclado, por lo que puedes comprobar si está presionada cualquiera de ellas.</p>
+<p>Esto es interesante, ya que si estoy pulsando la tecla "a" o la flecha izquierda, puede que quiera moverme a la izquierda. Por su parte, si pulso "d" o la flecha derecha, me quiero mover a la derecha, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>¿En qué método crees que deberías poner el código anterior para comprobar de forma continuada durante todo el juego si se está puslando una tecla?</li>
+<li>En ese método que has pensado, coloca el código necesario (basandote en lo que te he puesto yuo) para comprobar si nos estamos moviendo a la izquierda (a) o a la derecha (d). En ese caso pon mensajes de "Me muevo a la izquierda" y "Me muevo a la derecha". Comprueba que funcionan ejecutando el juego y pulsando esas teclas.</li>
+<li>Si has hecho ya lo anterior, haz también que funcione para la "flecha arriba" y "flecha abajo". Esto es más cuestión de saber programar (puedes usar un OR || para que te funcione el juego para ambas teclas).</li>
+</ol>
+</div>
+<p>Si has resuelto correctamente el ejercicio, podrás moverte a izquierda y derecha con las flechas y con A-D.</p>
+<h2 id="movimiento"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> Movimiento</h2>
+<h3 id="cambiando-la-posicion-de-un-personaje"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.1</span> Cambiando la posición de un personaje</h3>
+<p>A estas alturas supongo que estais pensando... "todo esto está muy bien, pero cuando podré hacer el próximo League of Legends"?</p>
+<p>Pues tranquilos amigos/as, vamos paso a paso. Ahora toca a mover el personaje al pulsar esas teclas (que ya es un gran avance en tan poco tiempo que llevamos de tutorial!):</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>¿Recuerdas como mover el personaje desde Unity (no desde el script)? Lo hemos hecho hace un rato. Muévelo de nuevo poniéndolo <strong>más a la izquierda o más a la derecha desde el inspector de Unity, no con la interfaz gráfica</strong>.</li>
+<li>¿Cómo se llama el componente del GameObject que has tocado para cambiar esa posición?</li>
+</ol>
+</div>
+<p>Bien, si has hecho el ejercicio anterior has debido responderte a la segunda pregunta. El componente que has tenido que tocar ha sido el <em>transform</em> (concretamente el position del transform). Pues esto mismo que modificamos en el ejercicio es lo que modificaremos en el script, pero: ¿cómo accedemos a su transform? Pues con <code>transform.position</code>:</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Muestra un mensaje al iniciar el juego que indique la posición del jugador: "La posición del personaje al empezar el juego es: ..."</li>
+</ol>
+</div>
+<p>Si has hecho el ejercicio, verás que la posición se ve como una coordenada de tres dimensiones (posición en el eje horizontal, posición en el eje vertical, profundidad). Esto es, (x, y, z).</p>
+<p>Existen <strong>dos tipos de datos principales</strong> para colocar objetos en la escena de Unity:</p>
+<ul>
+<li><strong>Vector2</strong>: coordenadas x e y.</li>
+<li><strong>Vector3</strong>: coordenadas x, y, z.</li>
+</ul>
+<p>El valor que has podido ver en consola (de transform.position) es un Vector3. Esa posición del personaje puede ser modificada.</p>
+<p>Para crear un Vector3 puedes usar lo siguiente
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">Vector3</span><span class="w"> </span><span class="n">miPosicion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Intenta modificar la posición del personaje desde código al iniciarse el juego (para que esté arriba a la derecha por ejemplo). Para ello tienes que modificar el transform.position para que tenga otro valor (recuerda, un valor de tipo Vector3 y con la "z" a 0, ya que estamos en 2 dimensiones).</li>
+</ol>
+</div>
+<h3 id="moviendo-el-personaje"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.2</span> Moviendo el personaje</h3>
+<p>Hemos posicionado el personaje en el punto que queríamos. Si lo vamos situando en posiciones muy cercanas en cada frame, podemos simular movimiento en él.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Ejercicio</label><label for="__tabbed_1_2">Posible solución</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="admonition note">
+<p class="admonition-title">Ejercicio: mover el personaje cambiando su posición lentamente</p>
+<p>Ahora vamos a hacer que el personaje se mueva izquierda y derecha. Cuando pulses las teclas a-d, tu personaje debe moverse "un poco a la izquierda" o "un poco a la derecha". </p>
+<ol>
+<li>Para hacerlo, deberás <strong>sumarle o restarle a la X de tu posición actual un valor</strong> (puedes empezar probando con 1). </li>
+<li>Si 1 es mucho, puedes probar con decimales (estos se ponen con "f" al final, por ejemplo: 0.1f, 0.55f, etc.).</li>
+</ol>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">void</span><span class="w"> </span><span class="nf">Update</span><span class="p">()</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="p">{</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1">// Compruebo si pulso "a" o "flecha izquierda" o en caso contrario "d" o "flecha derecha"</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="c1">// En caso de pulsar izquierda resto la X, si voy a la derecha sumo en la X</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">current</span><span class="p">.</span><span class="n">aKey</span><span class="p">.</span><span class="n">isPressed</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">Keyboard</span><span class="p">.</span><span class="n">current</span><span class="p">.</span><span class="n">leftArrowKey</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector3</span><span class="p">(</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">            </span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">0.1f</span><span class="p">,</span><span class="w">    </span><span class="c1">// (1)!</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">            </span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="p">,</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">            </span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="p">);</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">Keyboard</span><span class="p">.</span><span class="n">current</span><span class="p">.</span><span class="n">dKey</span><span class="p">.</span><span class="n">isPressed</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">Keyboard</span><span class="p">.</span><span class="n">current</span><span class="p">.</span><span class="n">rightArrowKey</span><span class="p">.</span><span class="n">isPressed</span><span class="p">)</span>
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">        </span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector3</span><span class="p">(</span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">            </span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.1f</span><span class="p">,</span><span class="w">    </span><span class="c1">// (2)!</span>
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">            </span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="w"> </span>
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">            </span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span>
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">        </span><span class="p">);</span>
+<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>
+<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">    </span><span class="c1">// Imprimo en consola la posición actual (para ver como va cambiando)</span>
+<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">"Posición actual: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">);</span>
+<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li><code>transform.position.x</code> es la X actual del GameObject al que está ligado el script (es decir, de mi jugador). Lo que hago aquí es sumarle o restarle 0.1f a la X actual para moverlo 0.1 a la derecha o a la izquierda (según si se pulsa la "a" o la "d").</li>
+<li><code>transform.position.x</code> es la X actual del GameObject al que está ligado el script (es decir, de mi jugador). Lo que hago aquí es sumarle o restarle 0.1f a la X actual para moverlo 0.1 a la derecha o a la izquierda (según si se pulsa la "a" o la "d").</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Ten en cuenta que no estamos realmente aplicando una velocidad al personaje y moviéndolo, sino que lo estamos posicionando "casi en el mismo sitio, pero un poquito más a la izquierda o derecha en cada frame". De esta manera, generamos sensación de movimiento en el juego.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Intenta conseguir también que se mueva arriba y abajo. ¿Notas algo raro al moverlo en diagonal?</li>
+</ol>
+</div></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+</body>
+</html>

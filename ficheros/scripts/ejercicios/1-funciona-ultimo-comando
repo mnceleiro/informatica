@@ -1,0 +1,21 @@
+#!/bin/bash
+
+ERROR=$?
+
+# 1. Pido al usuario el comando y lo guardo en la variable "comando"
+echo -n "Introduzca el comando que desea ejecutar: "
+read comando
+
+# Ejecuto el comando y redirecciono la salida de errores para que quede mejor
+$comando 2> /dev/null
+
+# Muestro una línea en blanco
+echo ""
+
+# Mostramos un mensaje al usuario indicando si el comando ha funcionado o no
+if [ $? -eq 0 ]
+then
+	echo "El comando $comando se ha ejecutado correctamente."
+else
+	echo "El comando $comando ha dado un error."
+fi

@@ -1,0 +1,1783 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../componentes-de-ordenador/" rel="prev"/>
+<link href="../procesador/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
+<title>Torres y placas base - Informática y sistemas operativos</title>
+<link href="../../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#la-placa-base">1. 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Torres y placas base
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+          
+  
+  
+  Introducción a la informática
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../intro/">
+          
+  
+  
+  Hardware
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../virtualizacion-devops/intro/">
+          
+  
+  
+  Virtualización y DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../gnu-linux/linux-desktop/">
+          
+  
+  
+  Sistemas operativos
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../java/intro/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../web/intro/">
+          
+  
+  
+  Web
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../gamedev/intro/">
+          
+  
+  
+  Gamedev
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../apuntes-variados/intro/">
+          
+  
+  
+  Otros
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introducción a la informática
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducción a la informática
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Esta página
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/mecanografia/">
+<span class="md-ellipsis">
+    
+  
+    Mecanografía
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/intro-informatica/">
+<span class="md-ellipsis">
+    
+  
+    Moverse en Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/ofimatica/">
+<span class="md-ellipsis">
+    
+  
+    Ofimática
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/multimedia/">
+<span class="md-ellipsis">
+    
+  
+    Multimedia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/seguridad-internet/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad en internet
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/intro-sos/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a los sistemas operativos
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../intro/">
+<span class="md-ellipsis">
+    
+  
+    Historia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../arquitecturas-fisicas/">
+<span class="md-ellipsis">
+    
+  
+    Arquitecturas físicas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../componentes-de-ordenador/">
+<span class="md-ellipsis">
+    
+  
+    Componentes de un ordenador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#zocalo-del-procesador-socket-de-la-cpu">1.1 
+<span class="md-ellipsis">
+      
+        Zócalo del procesador (socket de la CPU)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots-de-expansion">1.2 
+<span class="md-ellipsis">
+      
+        Slots de expansión
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots-de-memoria-ram">1.3 
+<span class="md-ellipsis">
+      
+        Slots de memoria RAM
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conectores-sata">1.4 
+<span class="md-ellipsis">
+      
+        Conectores SATA
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interfaces-de-entradasalida">1.5 
+<span class="md-ellipsis">
+      
+        Interfaces de entrada/salida
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../procesador/">
+<span class="md-ellipsis">
+    
+  
+    Microprocesador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cpu-cooling/">
+<span class="md-ellipsis">
+    
+  
+    Refrigeración CPU
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../memorias/">
+<span class="md-ellipsis">
+    
+  
+    Memorias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../storage/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../power-supply/">
+<span class="md-ellipsis">
+    
+  
+    Fuente de alimentación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/hardware/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento, tarjetas gráficas y monitores
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Virtualización y DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Virtualización y DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/virtualbox/">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/vagrant/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/vagrant2/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/ansible/">
+<span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker/">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker-2/">
+<span class="md-ellipsis">
+    
+  
+    Docker II: Dockerfiles
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker-3/">
+<span class="md-ellipsis">
+    
+  
+    Docker III: Docker Compose
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Sistemas operativos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemas operativos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux - básico
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux - básico
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/linux-desktop/">
+<span class="md-ellipsis">
+    
+  
+    Distribuciones y entornos de escritorio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/installation/">
+<span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/commands-basics/">
+<span class="md-ellipsis">
+    
+  
+    Comandos básicos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/files/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/users-groups-local/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de usuarios y grupos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/exercise-terminal-basics/">
+<span class="md-ellipsis">
+    
+  
+    1. Manejo del terminal
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux: scripting
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux: scripting
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/scripting-linux/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/scripting-linux-2/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/ejercicios-variados/">
+<span class="md-ellipsis">
+    
+  
+    2. Ejercicios variados
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/examen/">
+<span class="md-ellipsis">
+    
+  
+    3. Examen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Servidores
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Servidores
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/networks/">
+<span class="md-ellipsis">
+    
+  
+    Redes en Linux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/web-servers/">
+<span class="md-ellipsis">
+    
+  
+    Servidores web
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/apache/">
+<span class="md-ellipsis">
+    
+  
+    Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/0-formato-entrega/">
+<span class="md-ellipsis">
+    
+  
+    4.0. Formato y entrega
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/1-web-servers-xampp/">
+<span class="md-ellipsis">
+    
+  
+    4.1. Windows y XAMPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/2-web-servers-apache/">
+<span class="md-ellipsis">
+    
+  
+    4.2. Instalación de Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/3-web-servers-aws/">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/4-web-servers-wordpress/">
+<span class="md-ellipsis">
+    
+  
+    4.4. Instalando Wordpress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/https/">
+<span class="md-ellipsis">
+    
+  
+    4.5. Opcional: dominios y HTTPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/file-basics/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros I: básico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/files/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/intro/">
+<span class="md-ellipsis">
+    
+  
+    Frontend Roadmap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/js-basics/">
+<span class="md-ellipsis">
+    
+  
+    Iniciación a JavaScript
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Gamedev
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción al desarrollo de videojuegos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Primer juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Primer juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-1/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-ejercicio1/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-2/">
+<span class="md-ellipsis">
+    
+  
+    Mejorando el movimiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-ejercicio1-2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I (continuación)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-3/">
+<span class="md-ellipsis">
+    
+  
+    Físicas y colisiones (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-ejercicio2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio: minijuego de coches
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Segundo juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Segundo juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-4-animaciones/">
+<span class="md-ellipsis">
+    
+  
+    1. Movimiento y animaciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-5-colisiones/">
+<span class="md-ellipsis">
+    
+  
+    2. Recolección de objetos y detección de colisiones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-6-tilemap/">
+<span class="md-ellipsis">
+    
+  
+    3. Modelado del mundo
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/intro/">
+<span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/programming/">
+<span class="md-ellipsis">
+    
+  
+    Programación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/firewalling/">
+<span class="md-ellipsis">
+    
+  
+    Firewalling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/gamedev/">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/android/">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/control-versiones/">
+<span class="md-ellipsis">
+    
+  
+    Control versiones
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#zocalo-del-procesador-socket-de-la-cpu">1.1 
+<span class="md-ellipsis">
+      
+        Zócalo del procesador (socket de la CPU)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots-de-expansion">1.2 
+<span class="md-ellipsis">
+      
+        Slots de expansión
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#slots-de-memoria-ram">1.3 
+<span class="md-ellipsis">
+      
+        Slots de memoria RAM
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conectores-sata">1.4 
+<span class="md-ellipsis">
+      
+        Conectores SATA
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interfaces-de-entradasalida">1.5 
+<span class="md-ellipsis">
+      
+        Interfaces de entrada/salida
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div><h1 id="la-placa-base"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> La placa base</h1>
+<p>La placa base (<em>motherboard</em>) es el componente principal del ordenador. Es una tarjeta de circuito impreso a la que se conectan todos los componentes (de forma lógica, estos componentes envían mensajes que circulan a través de los circuitos de la placa base y así se comunican entre ellos).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Placa base" src="../../../ficheros/hardware/motherboards/motherboard-north-south.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Placa base con el chipset antiguo (northbridge y southbridge)</em></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Placa base" src="../../../ficheros/hardware/torres/motherboard-draw-newchipset.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Dibujo de una Placa base con chipset actual. Obtenido de: <a href="https://www.youtube.com/watch?v=b2pd3Y6aBag&amp;ab_channel=PowerCertAnimatedVideos">PowerCert Animated Videos</a></em></td>
+</tr>
+</tbody>
+</table>
+<p>En una placa base existen una serie de ranuras (slots) donde se pueden introducir componentes:</p>
+<h2 id="zocalo-del-procesador-socket-de-la-cpu"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Zócalo del procesador (socket de la CPU)</h2>
+<p>Es donde se introduce el procesador. Se corresponde en la placa con el recuadro grande de color negro en la parte superior.</p>
+<h2 id="slots-de-expansion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Slots de expansión</h2>
+<p>En la <strong>parte inferior izquierda</strong> se disponen una serie de ranuras negras y rojas donde introducir tarjetas de expansión (tarjetas de red, tarjetas gráficas, tarjetas de sonido, etc.).</p>
+<p>Actualmente, estas ranuras suelen ser siempre PCI-Express (PCI-E). Las más grandes se utilizan para la tarjeta gráfica, mientras que las pequeñas se usan para cualquier otro tipo (p. ej: una tarjeta de red o una tarjeta de sonido).</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Las placas base suelen tener ya integrada una tarjeta de red por cable (para poder conectarse a internet) y/o inalámbrica (Wifi). También suelen incluir la tarjeta de sonido sin necesidad de añadirla nosotros a un slot de expansión.</p>
+<p><img alt="❓" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2753.svg" title=":question:"/>: <em>Entonces, ¿por qué hablamos de añadir esas tarjetas ahí?</em></p>
+<p><img alt="👌" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f44c.svg" title=":ok_hand:"/>: <em>Pues es útil si queremos tener un sonido o conexión "más especializado", mejor que el que nos da la placa base de serie.</em></p>
+</div>
+<h2 id="slots-de-memoria-ram"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Slots de memoria RAM</h2>
+<p>Son las cuatro ranuras que se pueden ver en la parte superior derecha de la placa del ejemplo.</p>
+<h2 id="conectores-sata"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Conectores SATA</h2>
+<p>Son los conectores hembra rojos que se ven en la parte inferior derecha de la placa. Sirven para conectar habitualmente discos duros rígidos o SSD y unidades de CD/DVD (estas últimas empiezan ya a estar en desuso).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Conectores SATA" src="../../../ficheros/hardware/motherboards/sata-macho-y-hembra.jpg"/></th>
+<th style="text-align: center;"><img alt="Cables SATA e IDE" src="../../../ficheros/hardware/motherboards/cables-sata-ide.jpg"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Imagen obtenida de: <a href="https://es.wikipedia.org/wiki/Serial_ATA">Wikipedia</a></em></td>
+<td style="text-align: center;">Imagen obtenida de artículo en <a href="https://www.amazon.es/QiCheng-LYS-Cable-extensi%C3%B3n-Datos/dp/B075B32D9Z?th=1">Amazon</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Placa base con indicadores" src="../../../ficheros/hardware/motherboards/placa-con-indicadores-powercert.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Imagen obtenida de <a href="https://www.youtube.com/watch?v=b2pd3Y6aBag">un magnífico vídeo de PowerCert en Youtube</a></em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="interfaces-de-entradasalida"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Interfaces de entrada/salida</h2>
+<p>Algunos de los principales son los siguientes:</p>
+<ul>
+<li><strong>Puertos USB (tipo A):</strong> es la interfaz de E/S más común (Universal Serial Bus). Se utiliza para gran cantidad de periféricos y además suministra una cierta cantidad de energía eléctrica a los mismos.</li>
+<li><strong>Puertos USB (tipo C):</strong> es el conector USB más moderno. No tiene posición errónea (no importa si lo inviertes, siempre conecta correctamente) y además es más delgado que el conector USB que conocemos (tipo A). Permite conectar casi cualquier tipo de dispositivo (incluyendo pantallas). En sus estándares 3.2 y 4.0 es posible cargar móviles y portátiles.</li>
+<li><strong>Adaptador de vídeo:</strong> las placas base que tienen tarjeta gráfica integrada suministran un adaptador para pantalla. Las tarjetas gráficas integradas son buenas para aplicaciones ligeras, en caso de ejecutar aplicaciones que necesitan fuerte procesamiento gráfico (como en el caso de videojuegos) es necesario disponer de una tarjeta gráfica dedicada que conectaríamos en el puerto PCI-Express de la placa base. En la imagen del miniPC podemos ver un puerto de vídeo (que saldría de la tarjeta gráfica o la placa base) de tipo <strong>DisplayPort</strong>.</li>
+<li><strong>Tarjeta de red:</strong> actualmente suelen venir integradas en la placa (pero se puede comprar una más potente y ponerla en uno de los slots de expansión PCI-E). La interfaz de salida será el conector de red RJ-45 (se puede ver cuál en la imagen).</li>
+<li><strong>Tarjeta de sonido:</strong> actualmente suelen venir integradas en placa (se pueden también comprar y poner mejores tarjetas de sonido en uno de los slots de expansión). La salida son unos conectores circulares (jack 3.5mm).</li>
+</ul>
+<!-- | ![Cable USB-C](../../ficheros/hardware/cables/cable-usb-c.jpg) |
+| :-: |
+| *Imagen obtenida de artículo en venta en [PCComponentes](https://www.pccomponentes.com/startech-cable-usb-20-a-usb-c-2m-blanco)* | -->
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Puertos de entrada salida MiniPC" src="../../../ficheros/hardware/torres/minisforum-b550-ports.jpg"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Imagen de los puertos de un miniPC </em><em>Minisforum b550 pro</em><em>. Obtenida de: artículo en <a href="https://liliputing.com/minisforum-b550-pro-modular-mini-pc-supports-up-to-ryzen-7-5800x-and-discrete-graphics/">liliputing</a></em></td>
+</tr>
+</tbody>
+</table>
+<h1 id="factores-de-forma"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.</span> Factores de forma</h1>
+<p>Existen diferentes tamaños de torres disponibles para ordenadores de sobremesa. El tamaño de la torre tiene mucho que ver con la placa base que se desee instalar en ella. A continuación se muestran los tipos de torres existentes y los factores de forma (form factor) de las placas base compatibles con ella. A continuación se muestran los distintos tipos de torre y placas base compatibles de más pequeña a más grande:</p>
+<h2 id="factores-de-forma-y-placas-base-mas-comunes"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.1</span> Factores de forma y placas base más comunes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Factores de forma de las placas base" src="../../../ficheros/hardware/motherboards/form-factor-comparison.jpg"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em>Imagen obtenida de: <a href="https://en.wikipedia.org/wiki/Form_factor_(design)">Wikipedia</a></em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="minitorre-placas-mini-itx-y-micro-atx"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.1.1</span> Minitorre (placas mini ITX y micro ATX)</h3>
+<p>Las torres en formato “minitorre” tienen el espacio adaptado para placas base desarrolladas para el estándar como micro ATX (244x244 mm) y mini ITX (170x170 mm).</p>
+<p>Las placas micro ATX son compatibles con casi todas las cajas del mercado de tipo semitorre (es decir, ATX). Si se dispone de una semitorre habrá espacio de sobra para todos los componentes.</p>
+<p>En el caso de las mini ITX (o simplemente ITX) son las más pequeñas para PCs de escritorio y suelen también ser compatibles con otras cajas más grandes.
+Hoy en día se puede montar un ordenador con placas ITX o micro ATX que sea tope de gama.</p>
+<h3 id="semitorre-placas-atx"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.1.2</span> Semitorre (placas ATX)</h3>
+<p>Son de tamaño estándar y la placa base que más se adapta a ellas es la de tipo ATX (305x244mm). Son las más habituales (prácticamente el 90% de las cajas son compatibles con ellas). Estas placas base suelen tener 4 ranuras DIMM y espacio para dos tarjetas gráficas.</p>
+<p>En una semitorre también puede ser habitual incluir placas micro ATX.</p>
+<h3 id="supertorre-o-torre-placas-e-atx"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.1.3</span> Supertorre o torre (placas E-ATX)</h3>
+<p>Estas torres tienen más espacio que las anteriores y están pensadas para las placas base de tipo E-ATX. Estas placas son bastante grandes (sin llegar al nivel de las placas base de servidores). Las medidas son de 300x330mm. Se suelen utilizar para los chipsets x299 y x399 y disponen de espacio para 8 ranuras DIMM y muchas tarjetas de expansión.</p>
+<table>
+<thead>
+<tr>
+<th><img alt="Factores de forma en torres y placas base" src="../../../ficheros/hardware/torres/cajas-pc-tamanhos.webp"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Imagen obtenida de: <a href="https://hardzone.es/tutoriales/componentes/tipos-cajas-pc/">artículo en Hardzone</a></em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="otros-factores-de-forma"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.2</span> Otros factores de forma</h2>
+<p><img alt="los tipos de torre" src="../../../ficheros/hardware/torres/case-types.png"/></p>
+<h3 id="desktop-y-small-form-factor-sff"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.2.1</span> Desktop y Small Form Factor (SFF)</h3>
+<p>Diseñados para encajar en un monitor. Se usan con placas micro ATX e ITX (igual que las minitorres) pero no dejan espacio para gráfica dedicada. Se colocan debajo del monitor.</p>
+<h3 id="ultra-small-form-factor-usff"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.2.2</span> Ultra Small Form Factor (USFF)</h3>
+<p>Suelen usar discos duros y memorias de portátiles (más pequeños). Solo tienen dos slots PCI, dejan poco flujo de aire (hay poco espacio) y por tanto suelen calentarse más y es más difícil cambiar componentes.</p>
+<h2 id="micromini-pcs"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.3</span> Micro/Mini PCs</h2>
+<p>Son ordenadores que usan alguno de los factores de forma anteriores y se integran en pantallas o televisores.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img alt="Desktop" src="../../../ficheros/hardware/torres/desktop.png"/></th>
+<th style="text-align: center;"><img alt="Small form factor (SFF)" src="../../../ficheros/hardware/torres/sff.png"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Ultra Small Form Factor (USFF)" src="../../../ficheros/hardware/torres/usff.png"/></td>
+<td style="text-align: center;"><img alt="Mini/Micro PC" src="../../../ficheros/hardware/torres/micro-pc.png"/></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>Imágenes obtenidas de: <a href="https://www.stonerefurb.co.uk/form-factors-explained">Stonerefurb</a></em>.</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<center>
+![Mini PC](../../ficheros/hardware/torres/micro-pc-in-monitor.png)
+</center>
+<h2 id="tipos-de-placa-base-antiguos"><span class="enumerate-headings-plugin enumerate-heading-plugin">2.4</span> Tipos de placa base antiguos</h2>
+<p>Aunque en este punto se están relacionando los tipos de torre con formatos actuales de placas base (según el tamaño de la placa), en este punto se podrían nombrar tipos de placa base que se han ido quedando obsoletos:</p>
+<ul>
+<li><strong>Tecnología extendida (Extended Technology) o TX</strong>: creado por IBM en 1983 para el primer ordenador personal. Las dimensiones eran de 216x279 mm.</li>
+<li><strong>Tecnología avanzada (Advanced Technology) o AT</strong>: formato introducido en IBM en 1984 de 350x305 mm.</li>
+<li><strong>Baby-AT</strong>: ha sido estándar durante muchos años, el tamaño es de 216x330mm y fueron habituales desde los ordenadores 286 hasta los primeros pentium.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Factor de forma TX</th>
+<th style="text-align: center;">Factor de forma Baby AT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="TX" src="../../../ficheros/hardware/motherboards/form-factor-tx.png"/></td>
+<td style="text-align: center;"><img alt="BabyAT" src="../../../ficheros/hardware/torres/form-factor-baby-at.png"/></td>
+</tr>
+</tbody>
+</table>
+<h1 id="eleccion-de-torre-y-placa-base"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.</span> Elección de torre y placa base</h1>
+<p>Para elegir uno u otro tamaño de torre y placa base debemos considerar diversos aspectos, entre los que se encuentran, de forma básica, el espacio disponible que tenemos para poner el ordenador (o si necesitamos transportarlo habitualmente, con lo que quizás nos interesaría un factor de forma más pequeño) donde queramos ponerlo así como la refrigeración que se necesita (cuánto más pequeños y potentes más difíciles son de refrigerar).</p>
+<p>Además de esto debemos considerar lo siguiente:</p>
+<h2 id="procesador-que-queremos-comprar"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.1</span> Procesador que queremos comprar</h2>
+<p>Las placas base tiene un "socket" o ranura donde colocar el procesador. Este socket solo es compatible con algunas series de procesadores. Debemos consultar si el socket de la placa base es compatible con el procesador.</p>
+<table>
+<thead>
+<tr>
+<th><img alt="Procesador y socket" src="../../../ficheros/hardware/motherboards/socket-and-cpu.avif"/></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Imagen obtenida de: <a href="https://www.makeuseof.com/tag/cpu-socket-types-explained-from-socket-5-to-bga-makeuseof-explains/">artículo en Makeuseof</a></em></td>
+</tr>
+</tbody>
+</table>
+<p>Incluso aunque los sockets sean compatibles, hay casos en que el procesador y el chipset de la placa base no lo son.</p>
+<h2 id="el-soporte-para-memoria-ram"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2</span> El soporte para memoria RAM</h2>
+<ul>
+<li><strong>Tipo de RAM:</strong> las últimas versiones de las memorias van desde DDR (1) hasta DDR5. Si decides comprar una RAM de tipo DDR5 (sería lo óptimo si estás comprando nuevo todo el ordenador) tendrás que asegurarte de que la placa base la soporta.</li>
+<li><strong>Número de slots:</strong> las placas mini-ITX van a tener siempre solamente dos ranuras, mientras que las ATX tienen 4 y las E-ATX suelen tener 8.</li>
+<li><strong>Máxima capacidad de RAM soportada</strong>: especialmente si se desea ampliar la RAM en un futuro.</li>
+<li><strong>Máxima velocidad (en MHz) soportada</strong>: las RAMs tienen distintas velocidades de reloj y capacidades. Si compras una RAM con 3200 Mhz de velocidad de reloj, pero las especificaciones de la placa base indican que soporta solo 2666 Mhz, estarás comprando una RAM más cara de lo que necesitas para ese equipo.</li>
+</ul>
+<p>Hay más cosas a considerar de la RAM que veremos en el apartado de memorias. Respecto a la compatibilidad de la RAM con la placa base, estas serían las más importantes.</p>
+<h2 id="ranuras-pci-express-sata-y-otras"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.3</span> Ranuras PCI-Express, SATA y otras</h2>
+<ul>
+<li>Comprobar que la placa dispone de las ranuras PCI-Express necesarias y qué versión de PCI-Express (4.0 o 5.0).</li>
+<li>Comprobar si dispone de ranura M.2 y, en caso de existir, si se conecta por SATA o por PCI-Express (NVMe). Esto último sería lo más rápido.</li>
+<li>En una placa ITX no hay espacio para más de una tarjeta gráfica, pero a partir de micro-ATX ya es posible hacer SLI y Crossfire con dos tarjetas gráficas (si se desea mucha potencia, no es habitual).</li>
+</ul>
+<h2 id="chipset"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4</span> Chipset</h2>
+<p>Existen chipsets específicos de Intel y AMD para gamas baja, media y alta en distintas generaciones de procesadores. Si quieres un ordenador <em>gaming</em> de última generación, quizá te compense una placa base con un chipset de gama alta. Si solo quieres el ordenador, en cambio, para tareas de ofimática y ver el correo, es suficiente con una placa base con un chipset de gama baja.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Puedes identificar (a grandes rasgos) si un chipset es de gama baja, media o alta según su número y letra (cuánto más altos sean ambos más alta es la gama del chipset).</p>
+<p>Por ejemplo, en AM4 de 3ª, 4ª y 5ª generación:</p>
+<ul>
+<li>Chipset A520 -&gt; gama baja.</li>
+<li>Chipset B550 -&gt; gama media.</li>
+<li>Chipset X570 -&gt; gama alta.</li>
+</ul>
+<p>En séptima generación AM5:</p>
+<ul>
+<li>B650 -&gt; gama media.</li>
+<li>X670 -&gt; gama alta.</li>
+</ul>
+<p>Etc.</p>
+</div>
+<h1 id="referencias"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.</span> Referencias</h1>
+<ul>
+<li>Placa base. Wikipedia. Obtenido de: <a href="https://es.wikipedia.org/wiki/Placa_base">Wikipedia</a> . Última visita: el 3 de octubre de 2020.</li>
+<li>PowerCert Animated Videos. Vídeo “Motherboard”. Visualizado en <a href="https://www.youtube.com/watch?v=b2pd3Y6aBag">Youtube</a></li>
+<li>Castillo, José Antonio. Placas base ITX y ATX. Obtenido de: <a href="https://www.profesionalreview.com/2019/05/14/placa-base-micro-atx/#Tamanos_de_placa_base_disponibles">Profesional Review</a></li>
+<li>Miguel Ángel Navas. Componentes de una placa base. Obtenido de: <a href="https://www.profesionalreview.com/2018/11/04/componentes-de-una-placa-base">Profesional Review</a></li>
+<li>Computer Cases and The Different Types of Form Factors. stonerrefurb. Obtenido de: <a href="https://www.stonerefurb.co.uk/form-factors-explained">Stonerrefurb</a></li>
+</ul></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+</body>
+</html>

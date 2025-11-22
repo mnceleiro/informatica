@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Script que indica si sus parámetros son pares o impares
+
+for numero in $*
+do
+	resto=$(expr $numero % 2)
+	if [ $resto -eq 0 ]
+	then
+		echo "El número $numero es PAR."
+	else
+		echo "El número $numero es IMPAR."
+	fi
+done

@@ -1,0 +1,2627 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../ansible/" rel="prev"/>
+<link href="../docker-2/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
+<title>Docker I: iniciación - Informática y sistemas operativos</title>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#docker">1. 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Docker I: iniciación
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+          
+  
+  
+  Introducción a la informática
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../hardware/intro/">
+          
+  
+  
+  Hardware
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../intro/">
+          
+  
+  
+  Virtualización y DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gnu-linux/linux-desktop/">
+          
+  
+  
+  Sistemas operativos
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../java/intro/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../web/intro/">
+          
+  
+  
+  Web
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gamedev/intro/">
+          
+  
+  
+  Gamedev
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../apuntes-variados/intro/">
+          
+  
+  
+  Otros
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introducción a la informática
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducción a la informática
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Esta página
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/mecanografia/">
+<span class="md-ellipsis">
+    
+  
+    Mecanografía
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-informatica/">
+<span class="md-ellipsis">
+    
+  
+    Moverse en Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/ofimatica/">
+<span class="md-ellipsis">
+    
+  
+    Ofimática
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/multimedia/">
+<span class="md-ellipsis">
+    
+  
+    Multimedia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/seguridad-internet/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad en internet
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-sos/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a los sistemas operativos
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/intro/">
+<span class="md-ellipsis">
+    
+  
+    Historia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/arquitecturas-fisicas/">
+<span class="md-ellipsis">
+    
+  
+    Arquitecturas físicas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes-de-ordenador/">
+<span class="md-ellipsis">
+    
+  
+    Componentes de un ordenador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/torre/">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/procesador/">
+<span class="md-ellipsis">
+    
+  
+    Microprocesador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/cpu-cooling/">
+<span class="md-ellipsis">
+    
+  
+    Refrigeración CPU
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/memorias/">
+<span class="md-ellipsis">
+    
+  
+    Memorias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/storage/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/power-supply/">
+<span class="md-ellipsis">
+    
+  
+    Fuente de alimentación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/hardware/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento, tarjetas gráficas y monitores
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Virtualización y DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Virtualización y DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../virtualbox/">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vagrant/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vagrant2/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ansible/">
+<span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion">1.1 
+<span class="md-ellipsis">
+      
+        Instalación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#imagenes">1.2 
+<span class="md-ellipsis">
+      
+        Imágenes
+      
+    </span>
+</a>
+<nav aria-label="Imágenes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descargar-una-imagen-del-repositorio-oficial-dockerhub">1.2.1 
+<span class="md-ellipsis">
+      
+        Descargar una imagen del repositorio oficial (DockerHub)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descargar-una-imagen-del-repositorio-oficial-dockerhub-indicando-version-concreta">1.2.2 
+<span class="md-ellipsis">
+      
+        Descargar una imagen del repositorio oficial (DockerHub) indicando versión concreta
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#listar-imagenes">1.2.3 
+<span class="md-ellipsis">
+      
+        Listar imágenes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eliminar-imagenes">1.2.4 
+<span class="md-ellipsis">
+      
+        Eliminar imágenes
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contenedores">1.3 
+<span class="md-ellipsis">
+      
+        Contenedores
+      
+    </span>
+</a>
+<nav aria-label="Contenedores" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-la-lista-de-contenedores">1.3.1 
+<span class="md-ellipsis">
+      
+        Ver la lista de contenedores
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-contenedor">1.3.2 
+<span class="md-ellipsis">
+      
+        Crear un contenedor
+      
+    </span>
+</a>
+<nav aria-label="Crear un contenedor" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-contenedor-en-segundo-plano">
+<span class="md-ellipsis">
+      
+        Crear un contenedor en segundo plano
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-contenedor-en-segundo-plano-y-acceder">
+<span class="md-ellipsis">
+      
+        Crear un contenedor en segundo plano y acceder
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parar-contenedores">1.3.3 
+<span class="md-ellipsis">
+      
+        Parar contenedores
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eliminar-contenedores">1.3.4 
+<span class="md-ellipsis">
+      
+        Eliminar contenedores
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#repositorios-de-imagenes">1.4 
+<span class="md-ellipsis">
+      
+        Repositorios de imágenes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logs-en-docker">1.5 
+<span class="md-ellipsis">
+      
+        Logs en Docker
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#repaso-y-ampliacion-de-lo-visto-hasta-ahora">1.6 
+<span class="md-ellipsis">
+      
+        Repaso y ampliación de lo visto hasta ahora
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interactuar-con-los-contenedores">1.7 
+<span class="md-ellipsis">
+      
+        Interactuar con los contenedores
+      
+    </span>
+</a>
+<nav aria-label="Interactuar con los contenedores" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conectarse-a-un-contenedor-en-ejecucion">1.7.1 
+<span class="md-ellipsis">
+      
+        Conectarse a un contenedor en ejecución
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-ejecutar-y-conectarse-a-un-contenedor">1.7.2 
+<span class="md-ellipsis">
+      
+        Crear, ejecutar y conectarse a un contenedor
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-volumenes">1.8 
+<span class="md-ellipsis">
+      
+        Creación de volúmenes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-puntos-de-montaje-bind-mounts">1.9 
+<span class="md-ellipsis">
+      
+        Creación de puntos de montaje (bind mounts)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inspeccionar-objetos">1.10 
+<span class="md-ellipsis">
+      
+        Inspeccionar objetos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#redes-en-docker">1.11 
+<span class="md-ellipsis">
+      
+        Redes en Docker
+      
+    </span>
+</a>
+<nav aria-label="Redes en Docker" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#red-bridge">1.11.1 
+<span class="md-ellipsis">
+      
+        Red bridge
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#red-host">1.11.2 
+<span class="md-ellipsis">
+      
+        Red host
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#red-none">1.11.3 
+<span class="md-ellipsis">
+      
+        Red none
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nuevas-redes">1.11.4 
+<span class="md-ellipsis">
+      
+        Nuevas redes
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios">1.12 
+<span class="md-ellipsis">
+      
+        Ejercicios
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-2/">
+<span class="md-ellipsis">
+    
+  
+    Docker II: Dockerfiles
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-3/">
+<span class="md-ellipsis">
+    
+  
+    Docker III: Docker Compose
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Sistemas operativos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemas operativos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux - básico
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux - básico
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/linux-desktop/">
+<span class="md-ellipsis">
+    
+  
+    Distribuciones y entornos de escritorio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/installation/">
+<span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/commands-basics/">
+<span class="md-ellipsis">
+    
+  
+    Comandos básicos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/files/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/users-groups-local/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de usuarios y grupos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/exercise-terminal-basics/">
+<span class="md-ellipsis">
+    
+  
+    1. Manejo del terminal
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux: scripting
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux: scripting
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux-2/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/ejercicios-variados/">
+<span class="md-ellipsis">
+    
+  
+    2. Ejercicios variados
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/examen/">
+<span class="md-ellipsis">
+    
+  
+    3. Examen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Servidores
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Servidores
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/networks/">
+<span class="md-ellipsis">
+    
+  
+    Redes en Linux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/web-servers/">
+<span class="md-ellipsis">
+    
+  
+    Servidores web
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/apache/">
+<span class="md-ellipsis">
+    
+  
+    Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/0-formato-entrega/">
+<span class="md-ellipsis">
+    
+  
+    4.0. Formato y entrega
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/1-web-servers-xampp/">
+<span class="md-ellipsis">
+    
+  
+    4.1. Windows y XAMPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/2-web-servers-apache/">
+<span class="md-ellipsis">
+    
+  
+    4.2. Instalación de Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/3-web-servers-aws/">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/4-web-servers-wordpress/">
+<span class="md-ellipsis">
+    
+  
+    4.4. Instalando Wordpress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/https/">
+<span class="md-ellipsis">
+    
+  
+    4.5. Opcional: dominios y HTTPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/file-basics/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros I: básico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/files/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/intro/">
+<span class="md-ellipsis">
+    
+  
+    Frontend Roadmap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/js-basics/">
+<span class="md-ellipsis">
+    
+  
+    Iniciación a JavaScript
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Gamedev
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción al desarrollo de videojuegos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Primer juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Primer juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-1/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-2/">
+<span class="md-ellipsis">
+    
+  
+    Mejorando el movimiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1-2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I (continuación)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-3/">
+<span class="md-ellipsis">
+    
+  
+    Físicas y colisiones (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio: minijuego de coches
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Segundo juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Segundo juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-4-animaciones/">
+<span class="md-ellipsis">
+    
+  
+    1. Movimiento y animaciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-5-colisiones/">
+<span class="md-ellipsis">
+    
+  
+    2. Recolección de objetos y detección de colisiones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-6-tilemap/">
+<span class="md-ellipsis">
+    
+  
+    3. Modelado del mundo
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/intro/">
+<span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/programming/">
+<span class="md-ellipsis">
+    
+  
+    Programación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/firewalling/">
+<span class="md-ellipsis">
+    
+  
+    Firewalling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/gamedev/">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/android/">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/control-versiones/">
+<span class="md-ellipsis">
+    
+  
+    Control versiones
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instalacion">1.1 
+<span class="md-ellipsis">
+      
+        Instalación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#imagenes">1.2 
+<span class="md-ellipsis">
+      
+        Imágenes
+      
+    </span>
+</a>
+<nav aria-label="Imágenes" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descargar-una-imagen-del-repositorio-oficial-dockerhub">1.2.1 
+<span class="md-ellipsis">
+      
+        Descargar una imagen del repositorio oficial (DockerHub)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#descargar-una-imagen-del-repositorio-oficial-dockerhub-indicando-version-concreta">1.2.2 
+<span class="md-ellipsis">
+      
+        Descargar una imagen del repositorio oficial (DockerHub) indicando versión concreta
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#listar-imagenes">1.2.3 
+<span class="md-ellipsis">
+      
+        Listar imágenes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eliminar-imagenes">1.2.4 
+<span class="md-ellipsis">
+      
+        Eliminar imágenes
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contenedores">1.3 
+<span class="md-ellipsis">
+      
+        Contenedores
+      
+    </span>
+</a>
+<nav aria-label="Contenedores" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-la-lista-de-contenedores">1.3.1 
+<span class="md-ellipsis">
+      
+        Ver la lista de contenedores
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-contenedor">1.3.2 
+<span class="md-ellipsis">
+      
+        Crear un contenedor
+      
+    </span>
+</a>
+<nav aria-label="Crear un contenedor" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-contenedor-en-segundo-plano">
+<span class="md-ellipsis">
+      
+        Crear un contenedor en segundo plano
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-contenedor-en-segundo-plano-y-acceder">
+<span class="md-ellipsis">
+      
+        Crear un contenedor en segundo plano y acceder
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parar-contenedores">1.3.3 
+<span class="md-ellipsis">
+      
+        Parar contenedores
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eliminar-contenedores">1.3.4 
+<span class="md-ellipsis">
+      
+        Eliminar contenedores
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#repositorios-de-imagenes">1.4 
+<span class="md-ellipsis">
+      
+        Repositorios de imágenes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logs-en-docker">1.5 
+<span class="md-ellipsis">
+      
+        Logs en Docker
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#repaso-y-ampliacion-de-lo-visto-hasta-ahora">1.6 
+<span class="md-ellipsis">
+      
+        Repaso y ampliación de lo visto hasta ahora
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interactuar-con-los-contenedores">1.7 
+<span class="md-ellipsis">
+      
+        Interactuar con los contenedores
+      
+    </span>
+</a>
+<nav aria-label="Interactuar con los contenedores" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conectarse-a-un-contenedor-en-ejecucion">1.7.1 
+<span class="md-ellipsis">
+      
+        Conectarse a un contenedor en ejecución
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-ejecutar-y-conectarse-a-un-contenedor">1.7.2 
+<span class="md-ellipsis">
+      
+        Crear, ejecutar y conectarse a un contenedor
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-volumenes">1.8 
+<span class="md-ellipsis">
+      
+        Creación de volúmenes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-puntos-de-montaje-bind-mounts">1.9 
+<span class="md-ellipsis">
+      
+        Creación de puntos de montaje (bind mounts)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inspeccionar-objetos">1.10 
+<span class="md-ellipsis">
+      
+        Inspeccionar objetos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#redes-en-docker">1.11 
+<span class="md-ellipsis">
+      
+        Redes en Docker
+      
+    </span>
+</a>
+<nav aria-label="Redes en Docker" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#red-bridge">1.11.1 
+<span class="md-ellipsis">
+      
+        Red bridge
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#red-host">1.11.2 
+<span class="md-ellipsis">
+      
+        Red host
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#red-none">1.11.3 
+<span class="md-ellipsis">
+      
+        Red none
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nuevas-redes">1.11.4 
+<span class="md-ellipsis">
+      
+        Nuevas redes
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios">1.12 
+<span class="md-ellipsis">
+      
+        Ejercicios
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div><h1 id="docker"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Docker</h1>
+<p>Docker es una herramienta de código abierto para desarrollar, distribuir y desplegar aplicaciones en entornos aislados denominados <strong>contenedores</strong>. Los <strong>contenedores</strong> son livianos, ya que, al contrario que las máquinas virtuales, se ejecutan dentro del núcleo de la máquina host.</p>
+<h2 id="instalacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Instalación</h2>
+<p>Seguimos los pasos indicados en la <a href="https://docs.docker.com/engine/install/ubuntu/">documentación oficial para Ubuntu</a> que detallamos a continuación:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ca-certificates<span class="w"> </span>curl
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>-d<span class="w"> </span>/etc/apt/keyrings
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>sudo<span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/docker.asc
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>a+r<span class="w"> </span>/etc/apt/keyrings/docker.asc
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># Añadimos el repositorio al sources.list de apt</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="nb">echo</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">  </span><span class="s2">"deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="s2">  </span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">UBUNTU_CODENAME</span><span class="k">:-</span><span class="nv">$VERSION_CODENAME</span><span class="si">}</span><span class="s2">"</span><span class="k">)</span><span class="s2"> stable"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">  </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/docker.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="c1"># Instalamos Docker</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="c1"># Probamos Docker</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="c1"># Comprobamos que nuestro usuario esté en el grupo de Docker</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>groups<span class="w"> </span><span class="nv">$USER</span>
+</code></pre></div>
+<p>En caso de que el usuario no estuviese en el grupo de docker (en muchas otras distribuciones no se insertará en el grupo automáticamente) habría que añadirlo con:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>newgrp<span class="w"> </span>docker
+</code></pre></div>
+<p>Las dos líneas anteriores nos permiten ejecutar Docker sin permisos de administrador.</p>
+<p>Finalmente, comprobamos que el comando funciona correctamente:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>docker<span class="w"> </span>version
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>docker<span class="w"> </span>info
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Verificamos que todo funciona instanciando un contenedor con la imagen "hello-world"</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</code></pre></div>
+<h2 id="imagenes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Imágenes</h2>
+<p>En Docker existen conceptos de: imágenes, contenedores, redes, volúmenes... Cada uno de estos conceptos se puede manejar con el comando correspondiente de <code>docker image|container|network|volume</code>.</p>
+<p>Podemos gestionar las imágenes con el comando: <strong>docker image ÓRDENES.</strong></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>docker<span class="w"> </span>image<span class="w"> </span>--help
+</code></pre></div>
+<h3 id="descargar-una-imagen-del-repositorio-oficial-dockerhub"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Descargar una imagen del repositorio oficial (DockerHub)</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>docker<span class="w"> </span>image<span class="w"> </span>pull<span class="w"> </span>nginx
+</code></pre></div>
+<p>Aunque recomiendo usar la anterior forma por ser mas clara y mejor para aprender, podrías abreviarlo también con:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>nginx
+</code></pre></div>
+<p>Observa como se descarga la imagen (si te fijas, va completando pasos). Estos pasos que va completando son capas de la imagen que va descargando. En Docker estas capas se pueden reutilizar y de esta manera se ocupa menos espacio y todo funciona mucho más rápidamente.</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Escribir <strong>docker pull nginx</strong> es equivalente a poner <strong>docker pull nginx:latest</strong> (esto es, si no ponemos nada después de los dos puntos siempre pondrá "latest" que es la versión que se descargará por defecto. Aunque el texto dice "latest", esta no tiene por qué ser la última (es más bien como la versión por defecto que descarga).</p>
+</div>
+<h3 id="descargar-una-imagen-del-repositorio-oficial-dockerhub-indicando-version-concreta"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Descargar una imagen del repositorio oficial (DockerHub) indicando versión concreta</h3>
+<p>Vamos a descargar una versión concreta. Se puede hacer con:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>docker<span class="w"> </span>image<span class="w"> </span>pull<span class="w"> </span>nginx:1.27.5
+</code></pre></div>
+<p>Muchos proveedores suelen proporcionar imágenes pequeñas y muy ligeras denominadas <strong>alpine</strong>.</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<p>Descarga las versiones 1.25 y “alpine” de nginx.</p>
+</div>
+<h3 id="listar-imagenes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3</span> Listar imágenes</h3>
+<p>Para listar imágenes seguimos el mismo patrón anterior, pero ahora añadimos <strong>ls</strong>:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>docker<span class="w"> </span>image<span class="w"> </span>ls<span class="w"> </span><span class="c1"># Recomendado</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>docker<span class="w"> </span>images<span class="w"> </span><span class="c1"># más corto</span>
+</code></pre></div>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<p>Observa las imágenes que aparecen y di si crees que son todas diferentes o hay alguna igual que otra.</p>
+</div>
+<h3 id="eliminar-imagenes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.4</span> Eliminar imágenes</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>docker<span class="w"> </span>image<span class="w"> </span>rm<span class="w"> </span>&lt;id_imagen&gt;<span class="w">  </span><span class="c1"># recomendado</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>docker<span class="w"> </span>rmi<span class="w"> </span>&lt;id_imagen&gt;<span class="w">       </span><span class="c1"># más corto</span>
+</code></pre></div>
+<p>Para los ids, no es necesario que los escribas completos (basta con los primeros dígitos). Para ver la id de la imagen que quieres borrar puedes usar <code>docker image ls</code></p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ul>
+<li>Elimina la versión 1.25 de nginx.</li>
+<li>Intenta eliminar la imagen de hello-world y observa que ocurre. Si no te deja no te preocupes, es porque hay un contenedor en ejecución. Lo eliminaremos más adelante (primero entendamos como funcionan los contenedores).</li>
+</ul>
+</div>
+<h2 id="contenedores"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Contenedores</h2>
+<p>Un contenedor es una instancia de una imagen. Al igual que en programación orientada a objetos un objeto es una instancia de una clase o similar a AWS, donde para crear una máquina virtual en EC2 seleccionamos una AMI (<strong>A</strong>mazon <strong>M</strong>achine <strong>Image</strong> de Ubuntu, Debian, Amazon Linux…) y se instancia una máquina virtual en base a esa imagen AMI.</p>
+<p>Revisamos las opciones relacionadas con contenedores en Docker:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>docker<span class="w"> </span>container<span class="w"> </span>--help
+</code></pre></div>
+<p>Las opciones más interesantes aquí son: <strong>run</strong>, <strong>ls</strong>, <strong>stop</strong> y <strong>rm</strong>. Empezaremos viendo como listarlos.</p>
+<h3 id="ver-la-lista-de-contenedores"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Ver la lista de contenedores</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a># Muestra los contenedores en ejecución
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>docker container ls
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a># Muestra TODOS los contenedores
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>docker ls -a
+</code></pre></div>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<p>Usa los comandos anteriores para ver la lista de contenedores en ejecución y totales.</p>
+</div>
+<h3 id="crear-un-contenedor"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Crear un contenedor</h3>
+<p>Como decíamos, los contenedores son <strong>instancias de las imágenes</strong>. Para crear un contenedor podemos usar la palabra clave <strong>create</strong> (solo lo crea) o <strong>run</strong> (lo crea y lo ejecuta). Usar <strong>run</strong> es lo más habitual, empezamos!</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1"># Descargamos primero la imagen de nginx (o nginx:latest), es lo mismo</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>docker<span class="w"> </span>image<span class="w"> </span>pull<span class="w"> </span>nginx
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="c1"># Ahora, creamos un contenedor a partir de la imagen</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>nginx
+</code></pre></div>
+<p>El <strong>contenedor se ejecuta, pero tenemos un par de problemas</strong>:</p>
+<ol>
+<li>El terminal se nos queda permanentemente en espera mostrando los logs de nginx. No podemos escribir nada.</li>
+<li>¿Cómo accedemos a la web por defecto del nginx (al index.html)? No tenemos la ip de la máquina.</li>
+</ol>
+<p>Bien, vamos a ir mejorando el comando para solucionar estos problemas uno por uno. Pulsamos <strong>control + C</strong> para parar la ejecución.</p>
+<h4 id="crear-un-contenedor-en-segundo-plano"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2.1</span> Crear un contenedor en segundo plano</h4>
+<p>Para que el contenedor se cree en segundo plano podemos usar la opción <strong>-d (dettach)</strong>.
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>nginx
+</code></pre></div>
+<p>Hemos ejecutado el contenedor, pero seguimos teniendo el problema de que <strong>no sabemos cómo acceder a él</strong>. No tenemos la IP del contenedor para ponerla en el navegador web y ver la página web por defecto de nginx. </p>
+<h4 id="crear-un-contenedor-en-segundo-plano-y-acceder"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2.2</span> Crear un contenedor en segundo plano y acceder</h4>
+<p>Bien, le vamos a añadir a la opción <strong>-d</strong> una redirección de puertos. De esta manera, redirigiremos el puerto por defecto de nginx (80) al 8080 de nuestra máquina host.
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>nginx
+</code></pre></div>
+<p>Esto debería ejecutar un nginx (versión latest), en modo dettached (-d) y redirigiendo el puerto 80 del contenedor al 8080 de nuestra máquina.</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ul>
+<li>Accede a tu navegador web y, en la barra de direcciones, accede al nginx. Piensa como hacerlo según lo que te acabo de explicar. Deberías ver la página por defecto de nginx.</li>
+</ul>
+</div>
+<h3 id="parar-contenedores"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> Parar contenedores</h3>
+<p>Hemos ejecutado ya múltiples contenedores con <code>docker container run</code>. Recuerda lo que hacía este comando: <strong>crea el contenedor y lo ejecuta</strong>. Esto significa que tenemos creados (y <strong>en ejecución</strong> varios contenedores).</p>
+<p>Para parar los contenedores que tenemos en ejecución:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>&lt;id_contenedor&gt;
+</code></pre></div>
+<p>Antes de eso, tendrás que listar los contenedores en ejecución para ver su id.</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Lista los contenedores en ejecución.</li>
+<li>Para todos los contenedores en ejecución excepto el nginx que tenemos funcionando bien (ese déjalo ejecutando).</li>
+</ol>
+</div>
+<h3 id="eliminar-contenedores"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.4</span> Eliminar contenedores</h3>
+<p>Puedes eliminar un contenedor de la siguiente manera:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>docker<span class="w"> </span>container<span class="w"> </span>rm<span class="w"> </span>&lt;id_contenedor&gt;<span class="w"> </span><span class="c1"># Te recomiendo esta forma para aprender</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1"># Otra opción</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a>docker<span class="w"> </span>rmi<span class="w"> </span>&lt;id_contenedor&gt;
+</code></pre></div>
+<p>No es necesario escribir toda la id del contenedor, basta con escribir solo los primeros dígitos. Por ejemplo: para el contenedor "bd84f91df8be" podemos hacer solo <code>docker container rm bd8</code>.</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Lista los contenedores que tienes creados (todos).</li>
+<li>Eliminalos uno por uno (un comando por contenedor). Puede que alguno falle, no te preocupes por eso pero <strong>lee el mensaje de error y piensa en por qué falla</strong>.</li>
+<li>¿Sabes por qué alguno ha fallado? Bien, es porque si está en ejecución debes pararlo antes (stop). Para todos los contenedores en ejecución y elimína todos los contenedores (que no quede ninguno).</li>
+</ol>
+</div>
+<h2 id="repositorios-de-imagenes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Repositorios de imágenes</h2>
+<p>El principal repositorio de imágenes de Docker es <a href="https://hub.docker.com/"><strong>Dockerhub</strong></a>.</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Entra en Dockerhub y busca <strong>nginx</strong>. Mira qué versiones hay y la documentación de la imagen.</li>
+</ol>
+</div>
+<p>Si te fijas, al buscar algo en el repositorio vemos dos formatos de imágenes:</p>
+<ul>
+<li>En el primero solo aparece <strong>nginx</strong>. Esto es un repositorio oficial de la gente de Docker.</li>
+<li>En los siguientes aparece el formato <strong>usuario / imagen</strong>. En este caso, es el usuario <strong>NGINX INc.</strong> (el oficial de Nginx) el que ha creado las imágenes.</li>
+</ul>
+<p>Las imágenes de Dockerhub, salvo un puñado que son mantenidas por la gente de DockerHub, siempre siguen el patrón usuario / imagen. Cualquier usuario puede subir sus imágenes a Dockerhub.</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Busca en Dockerhub "supermario" y ordena los resultados por número de descargas de la imagen.</li>
+<li>Desde línea de comandos, descarga la imagen y crea un contenedor tal y como hemos visto para abrir el juego desde el navegador web.</li>
+</ol>
+</div>
+<details class="success">
+<summary>Ver solución</summary>
+<p>Podríamos simplemente ejecutar el docker run y, si la imagen no se encuentra en nuestro equipo, el propio docker se encargará de buscar la imagen y descargarla por nosotros. En este caso, vamos a seguir los pasos que hemos aprendido y descargar nosotros la imagen manualmente con <code>docker pull</code> y después crear el contenedor con <code>docker container run</code>.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># Descargamos la imagen</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>docker<span class="w"> </span>pull<span class="w"> </span>bharathshetty4/supermario
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="c1"># Creamos el contenedor mapeando el puerto 8080 de la máquina a nuestro 8600</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="c1"># porque así lo indica la documentación de la imagen en Dockerhub</span>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8600</span>:8080<span class="w"> </span>bharathshetty4/supermario
+</code></pre></div>
+<p>Finalmente, entramos en <strong>http://localhost:8600</strong> para jugar. Destacar que, aunque nosotros hemos utilizado el puerto 8600 de nuestro equipo podríamos haberlo hecho a cualquier otro puerto libre (por ejemplo, nuestro 8080 también, el 8000 u otro que queramos).</p>
+</details>
+<h2 id="logs-en-docker"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Logs en Docker</h2>
+<p>Para revisar los logs relacionados con un contenedor puedes usar el siguiente comando:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>docker<span class="w"> </span>container<span class="w"> </span>logs<span class="w"> </span>&lt;id_contenedor<span class="p">|</span>nombre_contenedor&gt;
+</code></pre></div>
+<h2 id="repaso-y-ampliacion-de-lo-visto-hasta-ahora"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Repaso y ampliación de lo visto hasta ahora</h2>
+<p>Estos ejercicios se basan en lo visto hasta ahora, pero añaden pequeños matices que tendrás que investigar:</p>
+<div class="admonition ejercicios">
+<p class="admonition-title">Ejercicios</p>
+<ol>
+<li>Crea un contenedor que levante nginx y lo enlace al puerto 8081 de nuestro host. Esto ya hemos visto como se hace, <strong>pero esta vez el contenedor debe tener un nombre definido (debes darle un nombre al contenedor)</strong>. Para ver como hacer esto usa la ayuda: <code>docker container run --help</code> (ahí verás como poner nombre al contenedor). El resto es como hemos hecho hasta ahora.</li>
+<li>Crea y ejecuta un contenedor con la última imagen de <a href="https://hub.docker.com/_/mysql">MySQL</a> y con nombre "base_de_datos". Al crear el contenedor, es posible que este se pare solo (verifica que está en ejecución con <code>docker container ps</code>). Si se para solo, pista: revisa bien la documentación que se indica en DockerHub (pista: quizá tengas que crear alguna variable de entorno para establecerle una contraseña a MySQL) y comprueba los logs del contenedor (tal y como indicamos antes). Saca tus conclusiones e intenta arrreglar el problema.</li>
+</ol>
+</div>
+<p>Los ejercicios anteriores añaden complejidad a lo que llevamos hecho hasta ahora. Mientras que habíamos solo usado imágenes sencillas, existen otras que requieren un poco (o mucho) más de trabajo de configuración. Por ejemplo, si revisamos la <a href="https://hub.docker.com/_/mysql">documentación de MySQL</a> podemos ver múltiples variables de entorno disponibles para su configuración.</p>
+<p>Vamos a crear un contenedor sencillo de MySQL:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="c1"># En el ejercicio hemos creado un contenedor (en el que probablemente falló la ejecución)</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="c1"># Vamos a comprobar si sigue existiendo</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>docker<span class="w"> </span>container<span class="w"> </span>ls<span class="w"> </span>-a
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="c1"># En mi caso existe, pero no funciona porque no le había puesto variable de entorno. Borro el contenedor.</span>
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a>docker<span class="w"> </span>container<span class="w"> </span>rm<span class="w"> </span>base_de_datos<span class="w"> </span><span class="c1"># o docker container rm 25b (por id)</span>
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a>
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="c1"># Creamos (de nuevo) un contenedor con MySQL. Mapeamos con nuestro puerto 33060 y contraseña abc123</span>
+<a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">33060</span>:3306<span class="w"> </span>--name<span class="w"> </span>base_de_datos<span class="w"> </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>abc123<span class="w"> </span>mysql
+<a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a>
+<a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="c1"># Comprobamos que el contenedor se ha ejecutado correctamente</span>
+<a href="#__codelineno-18-12" id="__codelineno-18-12" name="__codelineno-18-12"></a>docker<span class="w"> </span>container<span class="w"> </span>ls
+<a href="#__codelineno-18-13" id="__codelineno-18-13" name="__codelineno-18-13"></a>
+<a href="#__codelineno-18-14" id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="c1"># Si hay cualquier problema siempre comprobamos logs</span>
+<a href="#__codelineno-18-15" id="__codelineno-18-15" name="__codelineno-18-15"></a>docker<span class="w"> </span>container<span class="w"> </span>logs<span class="w"> </span>base_de_datos
+</code></pre></div>
+<p>Si todo fue bien, probamos a conectarnos desde nuestro equipo con MySQL Workbench, DBeaver u otro cliente del que dispongamos. Debería funcionar correctamente.</p>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Crea un contenedor de MySQL que genere una contraseña aleatoria (y logueate en él).</li>
+<li>Crea un contenedor de MySQL que permita contraseña vacía para el usuario root (y logueate en él).</li>
+<li>Borra los dos contenedores anteriores.</li>
+</ol>
+</div>
+<h2 id="interactuar-con-los-contenedores"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Interactuar con los contenedores</h2>
+<p>Si revisamos la documentación de nuevo con <code>docker container exec --help</code> podemos ver una gran serie de opciones. Vamos a fijarnos proximamente en las siguientes:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>Usage:  docker container exec [OPTIONS] CONTAINER COMMAND [ARG...]
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a>Execute a command in a running container
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>Aliases:
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a>  docker container exec, docker exec
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a>
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a>Options:
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>  -d, --detach               Detached mode: run command in the background
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a>      --detach-keys string   Override the key sequence for detaching a container
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a>  -e, --env list             Set environment variables
+<a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a>      --env-file list        Read in a file of environment variables
+<a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a>  -i, --interactive          Keep STDIN open even if not attached
+<a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a>      --privileged           Give extended privileges to the command
+<a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a>  -t, --tty                  Allocate a pseudo-TTY
+<a href="#__codelineno-19-16" id="__codelineno-19-16" name="__codelineno-19-16"></a>  -u, --user string          Username or UID (format: "&lt;name|uid&gt;[:&lt;group|gid&gt;]")
+<a href="#__codelineno-19-17" id="__codelineno-19-17" name="__codelineno-19-17"></a>  -w, --workdir string       Working directory inside the container
+</code></pre></div>
+<p>Por otro lado, podemos conectarnos inmediatamente al crear un contenedor nuevo. Si probamos con <code>docker container run --help</code> vemos que se repiten el -i y el -t.
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>Options:
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>  -i, --interactive                      Keep STDIN open even if not attached
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>  -t, --tty                              Allocate a pseudo-TTY
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>  -v, --volume list                      Bind mount a volume
+</code></pre></div>
+<p>En principio, para interactuar con contenedores usaremos <strong>-i</strong> y <strong>-t</strong>. Cuando queramos conectarnos por terminal al contenedor podemos usar esas dos opciones, y lo podemos hacer directamente en el run. Con <code>docker container run -it</code> podemos crear un nuevo contenedor, ejecutarlo y directamente conetarnos a él (ejecutar bash). Al salir del contenedor también lo paramos (ya que no estamos en modo -d: dettach).</p>
+<h3 id="conectarse-a-un-contenedor-en-ejecucion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.1</span> Conectarse a un contenedor en ejecución</h3>
+<p>Empecemos por conectarnos a un contenedor existente:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="c1"># Ejecutamos un ls en el contenedor de mysql para ver que hay</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>docker<span class="w"> </span>container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>base_de_datos<span class="w"> </span>ls
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="c1"># Ejecutamos un cat para ver el fichero de configuracion de mysql</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a>docker<span class="w"> </span>container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>base_de_datos<span class="w"> </span>cat<span class="w"> </span>/etc/my.cnf
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="c1"># Creamos un fichero /hola.txt</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a>docker<span class="w"> </span>container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>base_de_datos<span class="w"> </span>touch<span class="w"> </span>hola.txt
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a>
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="c1"># Ahora lo mas interesante: ejecutamos un interprete de BASH</span>
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a>docker<span class="w"> </span>container<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>base_de_datos<span class="w"> </span>bash
+</code></pre></div>
+<p>Voilá! con este último comando hemos abierto un terminal de bash en el contenedor. Ahora podemos hacer lo que queramos ahí dentro. Puedes hacer un <code>ls</code> y un <code>pwd</code> y comprobar que se creó el fichero "hola.txt".</p>
+<p>Para salir solo tenemos que hacerlo como en cualquier terminal, con <code>exit</code>.</p>
+<h3 id="crear-ejecutar-y-conectarse-a-un-contenedor"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.2</span> Crear, ejecutar y conectarse a un contenedor</h3>
+<p>Vamos a hacer lo mismo, pero ahora nos conectamos directamente al contenedor al crearlo:</p>
+<p></p><div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="c1"># Creamos y ejecutamos un contenedor de ubuntu y el comando ls en él</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">33061</span>:3306<span class="w"> </span>-it<span class="w"> </span>ubuntu<span class="w"> </span>bash
+</code></pre></div>
+Esto debería abrirnos un terminal dentro de la máquina Ubuntu. Como no entramos en modo -d (dettach), el contenedor se va a parar cuando salgamos.
+<div class="admonition ejercicios">
+<p class="admonition-title">Ejercicios</p>
+<ol>
+<li>Ejecuta el comando anterior. Desde dentro de la máquina, mira los archivos que hay en el directorio actual (<code>ls</code>).</li>
+<li>Comprueba tu ip.</li>
+<li>¿Puedes hacerte un ping, por ejemplo, a ti mismo?.</li>
+</ol>
+<div class="admonition abstract">
+<p class="admonition-title">Nota</p>
+<p>Supongo que has tenido dificultades con estos tres ejercicios. Esto es porque los contenedores son muy livianos y apenas traen utilidades. No existe ni ifconfig, ni ip address ni ping. La única manera de mirar la ip es viéndolo en el fichero de configuración correspondiente.</p>
+<p>Vamos a continuar practicando.</p>
+</div>
+<ol start="4">
+<li>Crea y ejecuta un contenedor de nginx:latest y abre un shell en él, todo en el mismo comando.</li>
+<li>Prueba el comando curl a localhost, si no está instalado instalalo. Finalmente, sal (exit).</li>
+<li>Después de salir, ¿el contenedor sigue en ejecucióno? ¿Sigue existiendo? Si aún existe, elimina el contenedor.</li>
+<li>Después de eliminarlo, vuelve a ejecutar el comando del punto 4 pero esta vez añádele la opción <strong>-rm</strong>. Sal del contenedor e intenta adivinar que hizo el --rm (pista: mira la lista de contenedores de nuevo).</li>
+<li>Ahora, busca en DockerHub "alpine", esta es una distribución muy minimalista,.</li>
+<li>Descarga la imagen de alpine. Revisa la lista de imágenes para verificar que está descargada. ¿Cuánto ocupa?</li>
+<li>Ahora, intenta crear un contenedor de alpine abriendo un bash en él, ¿qué ocurre?</li>
+<li>Como ves, la imagen es muy pequeña y ni siquiera tiene disponible bash. Inténtalo de nuevo con un shell mucho más antiguo (sh).</li>
+<li>Debería funcionarte. Ahora, sal de la máquina (dejará de estar en ejecución cuando salgas). Luego, arráncala de nuevo (ojo, no es con <code>docker run</code>).</li>
+<li>Abre un shell en el contenedor.</li>
+<li>Juega un poco con este gestor de paquetes (hasta ahora probablemente conozcas <strong>apt</strong> y quizás <strong>yum</strong> y <strong>dnf</strong>). Utiliza el comando <code>apk --help</code> para intentar actualizar los paquetes e instalar bash. Después sal del contenedor.</li>
+<li>Sal del contenedor y páralo.</li>
+<li>Arranca el contenedor de nuevo abriendo un terminal en él. Todo en el mismo comando (es decir, sin usar docker exec). Pista: al usar <code>docker start</code> no es con -it, usa <code>docker start --help</code> para la ayuda (tampoco necesitarás poner explicitamente el intérprete de comandos, bash o sh, a usar).</li>
+</ol>
+</div>
+<details class="success">
+<summary>Ver solución</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="c1"># 1. Miramos los archivos de la máquina y hacemos un ls</span>
+<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">33061</span>:3306<span class="w"> </span>-it<span class="w"> </span>ubuntu<span class="w"> </span>bash
+<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>ls
+<a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a>
+<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="c1"># 2. Comprobamos nuestra ip</span>
+<a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>ip<span class="w"> </span>address<span class="w"> </span><span class="c1"># no está instalado</span>
+<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a>ifconfig<span class="w"> </span><span class="c1"># no funcionará, net-tools no está instalado</span>
+<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a>
+<a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="c1"># Ya que parece que no tenemos software instalado, la información persistente suele estar en ficheros</span>
+<a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="c1"># Vamos a ver qué ficheros hay en /etc que pueden tener nuestra información de conexión</span>
+<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a>ls<span class="w"> </span>/etc/<span class="w">  </span><span class="c1"># Pueden ser interesantes host.conf, networks, hosts, hostname.</span>
+<a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a>
+<a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a><span class="c1"># Comprobamos el fichero hosts y ahí está nuestra ip</span>
+<a href="#__codelineno-23-14" id="__codelineno-23-14" name="__codelineno-23-14"></a>cat<span class="w"> </span>/etc/hosts
+<a href="#__codelineno-23-15" id="__codelineno-23-15" name="__codelineno-23-15"></a>
+<a href="#__codelineno-23-16" id="__codelineno-23-16" name="__codelineno-23-16"></a><span class="c1"># Otra manera: instalando iproute2 (comandos ip)</span>
+<a href="#__codelineno-23-17" id="__codelineno-23-17" name="__codelineno-23-17"></a>apt<span class="w"> </span>update
+<a href="#__codelineno-23-18" id="__codelineno-23-18" name="__codelineno-23-18"></a>apt<span class="w"> </span>install<span class="w"> </span>iproute2
+<a href="#__codelineno-23-19" id="__codelineno-23-19" name="__codelineno-23-19"></a>
+<a href="#__codelineno-23-20" id="__codelineno-23-20" name="__codelineno-23-20"></a><span class="c1"># 3. No se puede, ping no está instalado, si queremos hacerlo funcionar:</span>
+<a href="#__codelineno-23-21" id="__codelineno-23-21" name="__codelineno-23-21"></a>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>iputils-ping
+<a href="#__codelineno-23-22" id="__codelineno-23-22" name="__codelineno-23-22"></a>ping<span class="w"> </span>localhost<span class="w">              </span><span class="c1"># ya funciona</span>
+<a href="#__codelineno-23-23" id="__codelineno-23-23" name="__codelineno-23-23"></a>
+<a href="#__codelineno-23-24" id="__codelineno-23-24" name="__codelineno-23-24"></a><span class="c1"># 4. Crear un contenedor nginx y abrir un shell en 1 solo comando    </span>
+<a href="#__codelineno-23-25" id="__codelineno-23-25" name="__codelineno-23-25"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>nginx<span class="w"> </span>bash
+<a href="#__codelineno-23-26" id="__codelineno-23-26" name="__codelineno-23-26"></a>
+<a href="#__codelineno-23-27" id="__codelineno-23-27" name="__codelineno-23-27"></a><span class="c1"># Podriamos mapear puertos con -p si queremos acceder por web al nginx (no se pide ni indica)</span>
+<a href="#__codelineno-23-28" id="__codelineno-23-28" name="__codelineno-23-28"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>nginx<span class="w"> </span>bash
+<a href="#__codelineno-23-29" id="__codelineno-23-29" name="__codelineno-23-29"></a>
+<a href="#__codelineno-23-30" id="__codelineno-23-30" name="__codelineno-23-30"></a><span class="c1"># 5. Probamos "curl localhost". Si curl no está instalado, lo instalamos</span>
+<a href="#__codelineno-23-31" id="__codelineno-23-31" name="__codelineno-23-31"></a>apt<span class="w"> </span>update
+<a href="#__codelineno-23-32" id="__codelineno-23-32" name="__codelineno-23-32"></a>apt<span class="w"> </span>install<span class="w"> </span>curl
+<a href="#__codelineno-23-33" id="__codelineno-23-33" name="__codelineno-23-33"></a>curl<span class="w"> </span>localhost
+<a href="#__codelineno-23-34" id="__codelineno-23-34" name="__codelineno-23-34"></a><span class="nb">exit</span>
+<a href="#__codelineno-23-35" id="__codelineno-23-35" name="__codelineno-23-35"></a>
+<a href="#__codelineno-23-36" id="__codelineno-23-36" name="__codelineno-23-36"></a><span class="c1"># 6. Miramos si el contenedor está creado y en ejecución y si existe lo eliminamos</span>
+<a href="#__codelineno-23-37" id="__codelineno-23-37" name="__codelineno-23-37"></a>docker<span class="w"> </span>container<span class="w"> </span>ls<span class="w">     </span><span class="c1"># No está en ejecución</span>
+<a href="#__codelineno-23-38" id="__codelineno-23-38" name="__codelineno-23-38"></a>docker<span class="w"> </span>container<span class="w"> </span>ls<span class="w"> </span>-a<span class="w">  </span><span class="c1"># Sigue creado</span>
+<a href="#__codelineno-23-39" id="__codelineno-23-39" name="__codelineno-23-39"></a>
+<a href="#__codelineno-23-40" id="__codelineno-23-40" name="__codelineno-23-40"></a>docker<span class="w"> </span>container<span class="w"> </span>rm<span class="w"> </span>7aa<span class="w"> </span><span class="c1"># o tu id de contenedor o nombre, si estuviese en ejecución habría que hacer antes docker stop</span>
+<a href="#__codelineno-23-41" id="__codelineno-23-41" name="__codelineno-23-41"></a>
+<a href="#__codelineno-23-42" id="__codelineno-23-42" name="__codelineno-23-42"></a><span class="c1"># 7. Ejecutamos lo mismo pero con opción --rm</span>
+<a href="#__codelineno-23-43" id="__codelineno-23-43" name="__codelineno-23-43"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>nginx<span class="w"> </span>bash
+<a href="#__codelineno-23-44" id="__codelineno-23-44" name="__codelineno-23-44"></a>
+<a href="#__codelineno-23-45" id="__codelineno-23-45" name="__codelineno-23-45"></a><span class="c1"># Salimos del shell</span>
+<a href="#__codelineno-23-46" id="__codelineno-23-46" name="__codelineno-23-46"></a><span class="nb">exit</span>
+<a href="#__codelineno-23-47" id="__codelineno-23-47" name="__codelineno-23-47"></a>
+<a href="#__codelineno-23-48" id="__codelineno-23-48" name="__codelineno-23-48"></a><span class="c1"># Comprobamos si está el contenedor</span>
+<a href="#__codelineno-23-49" id="__codelineno-23-49" name="__codelineno-23-49"></a>docker<span class="w"> </span>container<span class="w"> </span>ls<span class="w"> </span>-a<span class="w">  </span><span class="c1"># El contenedor no está, la opción --rm lo borra al salir</span>
+<a href="#__codelineno-23-50" id="__codelineno-23-50" name="__codelineno-23-50"></a>
+<a href="#__codelineno-23-51" id="__codelineno-23-51" name="__codelineno-23-51"></a><span class="c1"># 8. Buscar alpine en Dockerhub y descargarla. Ver las imágenes</span>
+<a href="#__codelineno-23-52" id="__codelineno-23-52" name="__codelineno-23-52"></a>docker<span class="w"> </span>pull<span class="w"> </span>alpine
+<a href="#__codelineno-23-53" id="__codelineno-23-53" name="__codelineno-23-53"></a>
+<a href="#__codelineno-23-54" id="__codelineno-23-54" name="__codelineno-23-54"></a><span class="c1"># 9. Miramos que está descargada y ocupa entre 7 y 8mbs</span>
+<a href="#__codelineno-23-55" id="__codelineno-23-55" name="__codelineno-23-55"></a>docker<span class="w"> </span>image<span class="w"> </span>ls
+<a href="#__codelineno-23-56" id="__codelineno-23-56" name="__codelineno-23-56"></a>
+<a href="#__codelineno-23-57" id="__codelineno-23-57" name="__codelineno-23-57"></a><span class="c1"># 10. Creamos un contenedor de alpine y abrimos un intérprete de bash</span>
+<a href="#__codelineno-23-58" id="__codelineno-23-58" name="__codelineno-23-58"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>bash<span class="w">    </span><span class="c1"># ERROR, bash no se encuentra en la variable PATH</span>
+<a href="#__codelineno-23-59" id="__codelineno-23-59" name="__codelineno-23-59"></a>
+<a href="#__codelineno-23-60" id="__codelineno-23-60" name="__codelineno-23-60"></a><span class="c1"># 11. Intentamos crearlo y conectarnos con un intérprete sh</span>
+<a href="#__codelineno-23-61" id="__codelineno-23-61" name="__codelineno-23-61"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>alpine<span class="w"> </span>sh<span class="w">    </span><span class="c1"># Funciona!</span>
+<a href="#__codelineno-23-62" id="__codelineno-23-62" name="__codelineno-23-62"></a>
+<a href="#__codelineno-23-63" id="__codelineno-23-63" name="__codelineno-23-63"></a><span class="c1"># 12. Salimos y arrancamos de nuevo el contenedor</span>
+<a href="#__codelineno-23-64" id="__codelineno-23-64" name="__codelineno-23-64"></a><span class="nb">exit</span>
+<a href="#__codelineno-23-65" id="__codelineno-23-65" name="__codelineno-23-65"></a>docker<span class="w"> </span>container<span class="w"> </span>ls<span class="w"> </span>-a<span class="w">  </span><span class="c1"># Miramos la id del contenedor para arrancarlo nuevamente (en mi caso es 5488588662e6)</span>
+<a href="#__codelineno-23-66" id="__codelineno-23-66" name="__codelineno-23-66"></a>docker<span class="w"> </span>container<span class="w"> </span>start<span class="w"> </span>5488588662e6
+<a href="#__codelineno-23-67" id="__codelineno-23-67" name="__codelineno-23-67"></a>
+<a href="#__codelineno-23-68" id="__codelineno-23-68" name="__codelineno-23-68"></a><span class="c1"># 13. Abrimos sh en el contenedor</span>
+<a href="#__codelineno-23-69" id="__codelineno-23-69" name="__codelineno-23-69"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>5488588662e6<span class="w"> </span>sh
+<a href="#__codelineno-23-70" id="__codelineno-23-70" name="__codelineno-23-70"></a>
+<a href="#__codelineno-23-71" id="__codelineno-23-71" name="__codelineno-23-71"></a><span class="c1"># 14. Exploramos las opciones del gestor de paquetes de alpine, apk</span>
+<a href="#__codelineno-23-72" id="__codelineno-23-72" name="__codelineno-23-72"></a>apk<span class="w"> </span>--help
+<a href="#__codelineno-23-73" id="__codelineno-23-73" name="__codelineno-23-73"></a>apk<span class="w"> </span>update<span class="w">              </span><span class="c1"># Actualizamos la lista de paquetes</span>
+<a href="#__codelineno-23-74" id="__codelineno-23-74" name="__codelineno-23-74"></a>apk<span class="w"> </span>add<span class="w"> </span>bash<span class="w">            </span><span class="c1"># Instalamos bash</span>
+<a href="#__codelineno-23-75" id="__codelineno-23-75" name="__codelineno-23-75"></a>
+<a href="#__codelineno-23-76" id="__codelineno-23-76" name="__codelineno-23-76"></a><span class="c1"># 15. Salir del contenedor y pararlo</span>
+<a href="#__codelineno-23-77" id="__codelineno-23-77" name="__codelineno-23-77"></a><span class="nb">exit</span>
+<a href="#__codelineno-23-78" id="__codelineno-23-78" name="__codelineno-23-78"></a>docker<span class="w"> </span>stop<span class="w"> </span><span class="m">548</span>
+<a href="#__codelineno-23-79" id="__codelineno-23-79" name="__codelineno-23-79"></a>docker<span class="w"> </span>start<span class="w"> </span>--help<span class="w">     </span><span class="c1"># Esta vez no es con -it, sino con -ai (y no ponemos el intérprete al final)</span>
+<a href="#__codelineno-23-80" id="__codelineno-23-80" name="__codelineno-23-80"></a>docker<span class="w"> </span>start<span class="w"> </span>-ai<span class="w"> </span><span class="m">548</span>
+</code></pre></div>
+</details>
+<h2 id="creacion-de-volumenes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> Creación de volúmenes</h2>
+<p>Hace un rato creamos contenedores para MySQL. El problema es que, <strong>si eliminamos el contenedor y lo volvemos a crear, los datos de las bases de datos almacenadas se pierden</strong>. Los <strong>volúmenes</strong> nos permiten <strong>almacenar datos de forma persistente</strong> e incluso compartirlos entre distintos contenedores.</p>
+<p>Primero, para crear y listar volúmenes:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="c1"># Crea un volumen (aunque no es necesario ya que cuando lo asignes, si no existe, se creará igualmente)</span>
+<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>datos-mysql
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a>
+<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="c1"># Lista los volúmenes</span>
+<a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a>docker<span class="w"> </span>volume<span class="w"> </span>ls
+<a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a>
+<a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="c1"># Ver la información del volumen</span>
+<a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a>docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>datos-mysql
+</code></pre></div>
+<p>Aunque se pueden crear volúmenes con <code>docker volume create</code>, no es necesario hacerlo antes de asignarlo (ya que al intentar asignarlo, si no existe, se crea). <strong>Vamos a ver como es la sintaxis para asignar el volumen a contenedores</strong>. Hay varias sintaxis posibles:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>volume,src<span class="o">=</span>nombre_volumen,dst<span class="o">=</span>ruta_contenedor
+<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a>o
+<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a>docker<span class="w"> </span>run<span class="w"> </span>--volume<span class="w"> </span>nombre_volumen:ruta_contenedor
+<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a>o
+<a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>nombre_volumen:ruta_contenedor
+</code></pre></div>
+<p>Vamos a probar a crear un <a href="https://hub.docker.com/_/mysql">contenedor de MySQL con un volumen asignado</a>:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>volume,src<span class="o">=</span>datos-mysql,dst<span class="o">=</span>/var/lib/mysql<span class="w"> </span><span class="c1"># (1)!</span>
+</code></pre></div>
+<ol>
+<li>La ruta <code>/var/lib/mysql</code> es donde MySQL guarda los datos.</li>
+</ol>
+<p>Recomiendo consultar más información sobre esto en la <a href="https://docs.docker.com/engine/storage/volumes/">documentación oficial de volúmenes de Docker</a>.</p>
+<p>También, si quieres ver información sobre un volumen puedes usar <code>docker inspect &lt;id_volumen|nombre_volumen&gt;</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio (reto)</p>
+<p>Como en los anteriores, intenta hacer el ejercicio antes de mirar la solución:</p>
+<ol>
+<li>Intenta, con la información anterior, crear un contenedor nuevo de MySQL de nombre "mysql-with-volume" con un volumen datos-mysql en /var/lib/mysql y conéctala con un puerto de tu máquina host. Verifica desde tu cliente de MySQL que puedes conectarte al contenedor.</li>
+<li>Abre un shell de bash en el contenedor.</li>
+<li>Ejecuta MySQL y crea una base de datos "pruebas" con una tabla usuarios con un id y un nombre. Inserta un usuario.</li>
+<li>Verifica desde tu cliente de MySQL del host que se ha insertado el usuario. Después, sal del contenedor, páralo y elimínalo.</li>
+<li>Usa <code>docker volume --help</code>. Luego, guiándote por la ayuda, lista los volúmenes existentes (verás que el que has usado todavía está).</li>
+<li>Crea de nuevo un contenedor de MySQL de la misma manera, que use el mismo volumen. Comprueba que aún están los datos dentro usando SOLO UN COMANDO DE DOCKER EXEC: solo que ahora, <strong>en lugar de ejecutar bash, ejecutarás <code>mysql -u root -p...</code></strong></li>
+<li>Elimina completamente el contenedor sin pararlo antes (sin usar docker stop). Para ello solo tienes que añadir -f para forzar y así no tendrás que pararlo para eliminarlo.</li>
+<li>Mira si el volumen aún existe y, si existe, mira su información (el comando está un poco más arriba puesto). Verás que aún existe a pesar de que hemos eliminado el contenedor. Mira donde se guarda esa información en tu máquina host y haz un ls de la ubicación (puede que tengas que usar sudo).</li>
+</ol>
+</div>
+<details class="success">
+<summary>Ver solución</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="c1"># 1. Creamos el contenedor</span>
+<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">3336</span>:3306<span class="w"> </span>--name<span class="w"> </span>mysql-with-volume<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>volume,src<span class="o">=</span>datos-mysql,dst<span class="o">=</span>/var/lib/mysql<span class="w"> </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>abc123<span class="w"> </span>mysql
+<a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a>
+<a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="c1"># Verificamos que está en ejecución (si está en ejecución todo va bien)</span>
+<a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a>docker<span class="w"> </span>ls
+<a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a>
+<a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="c1"># 2. Ejecutamos bash</span>
+<a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysql-with-volume<span class="w"> </span>bash
+<a href="#__codelineno-27-9" id="__codelineno-27-9" name="__codelineno-27-9"></a>
+<a href="#__codelineno-27-10" id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="c1"># 3. Ejecutamos las consultas (lo hago en una línea, pero podrías hacerlo de forma interactiva)</span>
+<a href="#__codelineno-27-11" id="__codelineno-27-11" name="__codelineno-27-11"></a>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-pabc123<span class="w"> </span>-e<span class="w"> </span><span class="s2">"CREATE DATABASE IF NOT EXISTS pruebas;CREATE TABLE IF NOT EXISTS pruebas.usuarios (id int not null primary key auto_increment, nombre varchar(255) not null);INSERT INTO pruebas.usuarios (nombre) VALUES ('Linus Torvalds')"</span><span class="p">;</span>
+<a href="#__codelineno-27-12" id="__codelineno-27-12" name="__codelineno-27-12"></a>
+<a href="#__codelineno-27-13" id="__codelineno-27-13" name="__codelineno-27-13"></a><span class="c1"># 4. Salimos, paramos y eliminamos el contenedor</span>
+<a href="#__codelineno-27-14" id="__codelineno-27-14" name="__codelineno-27-14"></a>docker<span class="w"> </span>container<span class="w"> </span>stop<span class="w"> </span>mysql-with-volume
+<a href="#__codelineno-27-15" id="__codelineno-27-15" name="__codelineno-27-15"></a>docker<span class="w"> </span>container<span class="w"> </span>rm<span class="w"> </span>mysql-with-volume
+<a href="#__codelineno-27-16" id="__codelineno-27-16" name="__codelineno-27-16"></a>
+<a href="#__codelineno-27-17" id="__codelineno-27-17" name="__codelineno-27-17"></a><span class="c1"># 5. Usamos la ayuda de docker volume y listamos los volúmenes</span>
+<a href="#__codelineno-27-18" id="__codelineno-27-18" name="__codelineno-27-18"></a>docker<span class="w"> </span>volume<span class="w"> </span>--help
+<a href="#__codelineno-27-19" id="__codelineno-27-19" name="__codelineno-27-19"></a>docker<span class="w"> </span>volume<span class="w"> </span>ls
+<a href="#__codelineno-27-20" id="__codelineno-27-20" name="__codelineno-27-20"></a>
+<a href="#__codelineno-27-21" id="__codelineno-27-21" name="__codelineno-27-21"></a><span class="c1"># 6. Creamos de nuevo el contenedor. Comprobamos que aún están los datos con un comando de docker exec</span>
+<a href="#__codelineno-27-22" id="__codelineno-27-22" name="__codelineno-27-22"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">3336</span>:3306<span class="w"> </span>--name<span class="w"> </span>mysql-with-volume<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>volume,src<span class="o">=</span>datos-mysql,dst<span class="o">=</span>/var/lib/mysql<span class="w"> </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>abc123<span class="w"> </span>mysql
+<a href="#__codelineno-27-23" id="__codelineno-27-23" name="__codelineno-27-23"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysql-with-volume<span class="w"> </span>mysql<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-pabc123<span class="w"> </span>-e<span class="w"> </span><span class="s2">"SELECT * FROM pruebas.usuarios;"</span>
+<a href="#__codelineno-27-24" id="__codelineno-27-24" name="__codelineno-27-24"></a>
+<a href="#__codelineno-27-25" id="__codelineno-27-25" name="__codelineno-27-25"></a><span class="c1"># 7. Eliminamos el contenedor sin pararlo antes</span>
+<a href="#__codelineno-27-26" id="__codelineno-27-26" name="__codelineno-27-26"></a>docker<span class="w"> </span>container<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>mysql-with-volume
+<a href="#__codelineno-27-27" id="__codelineno-27-27" name="__codelineno-27-27"></a>
+<a href="#__codelineno-27-28" id="__codelineno-27-28" name="__codelineno-27-28"></a><span class="c1"># 8. Comprobamos si aún existe el volumen y vemos su información con docker inspect. Intentamos hacer ls de la ubicación.</span>
+<a href="#__codelineno-27-29" id="__codelineno-27-29" name="__codelineno-27-29"></a>docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>datos-mysql
+<a href="#__codelineno-27-30" id="__codelineno-27-30" name="__codelineno-27-30"></a>sudo<span class="w"> </span>ls<span class="w"> </span>/var/lib/docker/volumes/datos-mysql/_data
+<a href="#__codelineno-27-31" id="__codelineno-27-31" name="__codelineno-27-31"></a>
+<a href="#__codelineno-27-32" id="__codelineno-27-32" name="__codelineno-27-32"></a><span class="c1"># 9. Elimina el volumen</span>
+<a href="#__codelineno-27-33" id="__codelineno-27-33" name="__codelineno-27-33"></a>docker<span class="w"> </span>volume<span class="w"> </span>rm<span class="w"> </span>datos-mysql
+</code></pre></div>
+</details>
+<h2 id="creacion-de-puntos-de-montaje-bind-mounts"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9</span> Creación de puntos de montaje (bind mounts)</h2>
+<p>Los <strong>bind mounts</strong> o <strong>puntos de montaje</strong> son similares a lo anterior (incluso su sintaxis es muy parecida). La diferencia radica en que en el caso anterior asignamos el volumen con <strong>nombre del volumen</strong> y <strong>ruta en el contenedor</strong>. En el caso de los bind mounts enlazamos <strong>ruta en el host</strong> con <strong>ruta en el contenedor</strong>:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,src<span class="o">=</span>ruta_host,dst<span class="o">=</span>ruta_contenedor
+<a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a>o
+<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a>docker<span class="w"> </span>run<span class="w"> </span>--volume<span class="w"> </span>ruta_host:ruta_contenedor
+<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a>o
+<a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>ruta_host:ruta_contenedor<span class="sb">```</span>
+</code></pre></div>
+<p>La sintaxis es igual, pero ahora en lugar de <code>type=volume</code> usamos <code>type=bind</code>. En el caso de las 2 últimas sintaxis con --volume o -v, simplemente ponemos una ruta absoluta en lugar del nombre del volumen.</p>
+<p>A continuación se muestra la <strong>diferencia entre volúmenes</strong> (nombre:ruta_contenedor) <strong>y puntos de montaje</strong> (ruta_host:ruta_contenedor):</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">VOLUMEN</label><label for="__tabbed_1_2">PUNTO DE MONTAJE</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>volume,src<span class="o">=</span>nombre_volumen,dst<span class="o">=</span>ruta_contenedor
+<a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a>o
+<a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a>docker<span class="w"> </span>run<span class="w"> </span>--volume<span class="w"> </span>nombre_volumen:ruta_contenedor
+<a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a>o
+<a href="#__codelineno-29-5" id="__codelineno-29-5" name="__codelineno-29-5"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>nombre_volumen:ruta_contenedor
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-30-1" id="__codelineno-30-1" name="__codelineno-30-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--mount<span class="w"> </span><span class="nv">type</span><span class="o">=</span>bind,src<span class="o">=</span>ruta_host,dst<span class="o">=</span>ruta_contenedor
+<a href="#__codelineno-30-2" id="__codelineno-30-2" name="__codelineno-30-2"></a>o
+<a href="#__codelineno-30-3" id="__codelineno-30-3" name="__codelineno-30-3"></a>docker<span class="w"> </span>run<span class="w"> </span>--volume<span class="w"> </span>ruta_host:ruta_contenedor
+<a href="#__codelineno-30-4" id="__codelineno-30-4" name="__codelineno-30-4"></a>o
+<a href="#__codelineno-30-5" id="__codelineno-30-5" name="__codelineno-30-5"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>ruta_host:ruta_contenedor<span class="sb">```</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Información adicional</p>
+<ul>
+<li>Los volúmenes se usan para almacenar datos en los que no te importan donde estén en tu máquina host (de hecho, <strong>se almacenarán siempre, como ya has visto en <code>/var/lib/docker/volumes/</code></strong>). Por ejemplo: almacenar bases de datos.</li>
+<li>Los puntos de montaje, por su parte, se sincronizan con una carpeta que tengas en el host. Servirán, por ejemplo, para compartir código que estás editando y que aparezca directamente en una carpeta del contenedor. De esta manera podrás actualizarlo.</li>
+</ul>
+</div>
+<div class="admonition ejercicio">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Busca en Dockerhub una imagen que tenga un servidor web con PHP 8. Crea un fichero .php en él (puedes abrir un shell con <code>docker exec</code>) y entra en la página para ver que funciona.</li>
+<li>Crea una carpeta <code>mi-proyecto</code> con un fichero .php y abre la carpeta con Visual Studio Code. Luego, crea un contenedor con un punto de montaje (bind mount) de manera que cada vez que edites el código en local se actualice en el contenedor de docker (esto es, que se actualice la página en tu navegador).</li>
+</ol>
+</div>
+<h2 id="inspeccionar-objetos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10</span> Inspeccionar objetos</h2>
+<p>Puedes usar <code>docker image|container|volume|network inspect</code> para ver información completa de todos estos objetos. Pruébalo con alguno que tengas creado.</p>
+<h2 id="redes-en-docker"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11</span> Redes en Docker</h2>
+<p>Existen varias redes predeterminadas en docker y es posible crear redes adicionales y eliminarlas:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-31-1" id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="c1"># Miramos la ayuda de docker network</span>
+<a href="#__codelineno-31-2" id="__codelineno-31-2" name="__codelineno-31-2"></a>docker<span class="w"> </span>network<span class="w"> </span>--help
+<a href="#__codelineno-31-3" id="__codelineno-31-3" name="__codelineno-31-3"></a>
+<a href="#__codelineno-31-4" id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="c1"># Si queremos crear una red</span>
+<a href="#__codelineno-31-5" id="__codelineno-31-5" name="__codelineno-31-5"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>mi-red
+<a href="#__codelineno-31-6" id="__codelineno-31-6" name="__codelineno-31-6"></a>
+<a href="#__codelineno-31-7" id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="c1"># Vemos la lista de redes (por defecto los contenedores que creamos sin asignar red están en la bridge)</span>
+<a href="#__codelineno-31-8" id="__codelineno-31-8" name="__codelineno-31-8"></a>docker<span class="w"> </span>network<span class="w"> </span>ls
+<a href="#__codelineno-31-9" id="__codelineno-31-9" name="__codelineno-31-9"></a>
+<a href="#__codelineno-31-10" id="__codelineno-31-10" name="__codelineno-31-10"></a><span class="c1"># Vemos la información de la red mi-red y de la red bridge</span>
+<a href="#__codelineno-31-11" id="__codelineno-31-11" name="__codelineno-31-11"></a>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>mi-red
+<a href="#__codelineno-31-12" id="__codelineno-31-12" name="__codelineno-31-12"></a>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>bridge
+<a href="#__codelineno-31-13" id="__codelineno-31-13" name="__codelineno-31-13"></a>
+<a href="#__codelineno-31-14" id="__codelineno-31-14" name="__codelineno-31-14"></a><span class="c1"># Si quisiesemos crear un contenedor asignandolo a esa red</span>
+<a href="#__codelineno-31-15" id="__codelineno-31-15" name="__codelineno-31-15"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>mi-red<span class="w"> </span>...
+<a href="#__codelineno-31-16" id="__codelineno-31-16" name="__codelineno-31-16"></a>
+<a href="#__codelineno-31-17" id="__codelineno-31-17" name="__codelineno-31-17"></a><span class="c1"># Para eliminar la red que hemos creado</span>
+<a href="#__codelineno-31-18" id="__codelineno-31-18" name="__codelineno-31-18"></a>docker<span class="w"> </span>network<span class="w"> </span>rm<span class="w"> </span>mi-red
+</code></pre></div>
+<h3 id="red-bridge"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11.1</span> Red bridge</h3>
+<p><strong>Por defecto, todos los contenedores que creamos están en la red de tipo bridge</strong> que vemos al hacer <code>docker network ls</code>. Esta red bridge está en el rango 172.17.0.0/16. Para exponer puertos desde esta red tenemos que usar la opción <strong>-p</strong> que hemos visto anteriormente.</p>
+<p>Si inspeccionamos de un par de contenedores cualquiera que hayamos creado y a los que no hemos asignado ninguna red. Esto estarán en la red por defecto de tipo <strong>bridge</strong>:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a>docker<span class="w"> </span>container<span class="w"> </span>inspect<span class="w"> </span>base_de_datos
+<a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a>docker<span class="w"> </span>container<span class="w"> </span>inspect<span class="w"> </span><span class="m">54885</span>
+</code></pre></div>
+<p>El resultado es el siguiente (quito parte de los pares clave-valor que no nos interesan):</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">CONTENEDOR 1</label><label for="__tabbed_2_2">CONTENEDOR 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a>...
+<a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a>"IPAddress": "172.17.0.2",
+<a href="#__codelineno-33-3" id="__codelineno-33-3" name="__codelineno-33-3"></a>"MacAddress": "b2:b2:4d:a6:fa:78",
+<a href="#__codelineno-33-4" id="__codelineno-33-4" name="__codelineno-33-4"></a>"Networks": {
+<a href="#__codelineno-33-5" id="__codelineno-33-5" name="__codelineno-33-5"></a>    "bridge": {
+<a href="#__codelineno-33-6" id="__codelineno-33-6" name="__codelineno-33-6"></a>        "NetworkID": "1962135f806ac8414eb317c30acb875d348ccf800f8c11b8e39c6707f366845f",
+<a href="#__codelineno-33-7" id="__codelineno-33-7" name="__codelineno-33-7"></a>        "EndpointID": "d6ddd2aed3c982b1959d9c28bc89f760b6584a877b97d599dee85ab156995dd1",
+<a href="#__codelineno-33-8" id="__codelineno-33-8" name="__codelineno-33-8"></a>        "Gateway": "172.17.0.1",
+<a href="#__codelineno-33-9" id="__codelineno-33-9" name="__codelineno-33-9"></a>        "IPAddress": "172.17.0.2",
+<a href="#__codelineno-33-10" id="__codelineno-33-10" name="__codelineno-33-10"></a>    }
+<a href="#__codelineno-33-11" id="__codelineno-33-11" name="__codelineno-33-11"></a>}
+<a href="#__codelineno-33-12" id="__codelineno-33-12" name="__codelineno-33-12"></a>...
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-34-1" id="__codelineno-34-1" name="__codelineno-34-1"></a>...
+<a href="#__codelineno-34-2" id="__codelineno-34-2" name="__codelineno-34-2"></a>"IPAddress": "172.17.0.3",
+<a href="#__codelineno-34-3" id="__codelineno-34-3" name="__codelineno-34-3"></a>"MacAddress": "e6:b0:a0:b5:ab:50",
+<a href="#__codelineno-34-4" id="__codelineno-34-4" name="__codelineno-34-4"></a>"Networks": {
+<a href="#__codelineno-34-5" id="__codelineno-34-5" name="__codelineno-34-5"></a>    "bridge": {
+<a href="#__codelineno-34-6" id="__codelineno-34-6" name="__codelineno-34-6"></a>        "NetworkID": "1962135f806ac8414eb317c30acb875d348ccf800f8c11b8e39c6707f366845f",
+<a href="#__codelineno-34-7" id="__codelineno-34-7" name="__codelineno-34-7"></a>        "EndpointID": "9b3caef753d319a7bfb2ee6cd31d94e90aa4ac1ffb9dc8b351eeeb7d7bb7a3e8",
+<a href="#__codelineno-34-8" id="__codelineno-34-8" name="__codelineno-34-8"></a>        "Gateway": "172.17.0.1",
+<a href="#__codelineno-34-9" id="__codelineno-34-9" name="__codelineno-34-9"></a>        "IPAddress": "172.17.0.3",
+<a href="#__codelineno-34-10" id="__codelineno-34-10" name="__codelineno-34-10"></a>    }
+<a href="#__codelineno-34-11" id="__codelineno-34-11" name="__codelineno-34-11"></a>}
+<a href="#__codelineno-34-12" id="__codelineno-34-12" name="__codelineno-34-12"></a>...
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Podemos ver que la red de ambos es de tipo <strong>bridge</strong> y las IPs son <strong>172.17.0.2</strong> y <strong>172.17.0.3</strong>, por lo que <strong>están en la misma red local</strong>.</p>
+<h3 id="red-host"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11.2</span> Red host</h3>
+<p>Al hacer <code>docker network ls</code> vemos que hay tres redes que ya vienen creadas con docker: <strong>bridge</strong> (la hemos visto antes, es la default), <strong>host</strong> y <strong>none</strong>.</p>
+<p>Si creamos un contenedor en la red host, podremos acceder a la web directamente desde localhost. Esto es, no tendrá ip propia y compartirá completamente la red de nuestra máquina.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<p>Crea un contenedor con Apache que use la red host (no tienes que usar -p, crea el contenedor más básico posible). Deberías poder acceder desde tu propia ip de host y el puerto predeterminado sin necesidad de redirigir puertos.</p>
+</div>
+<h3 id="red-none"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11.3</span> Red none</h3>
+<p>La red none elimina eth0 y nos deja solo con localhost en el contenedor.</p>
+<h3 id="nuevas-redes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11.4</span> Nuevas redes</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-35-1" id="__codelineno-35-1" name="__codelineno-35-1"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>mi-red
+<a href="#__codelineno-35-2" id="__codelineno-35-2" name="__codelineno-35-2"></a>docker<span class="w"> </span>network<span class="w"> </span>ls
+<a href="#__codelineno-35-3" id="__codelineno-35-3" name="__codelineno-35-3"></a>
+<a href="#__codelineno-35-4" id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="c1"># Vemos la información de la red</span>
+<a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>mi-red
+<a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a>
+<a href="#__codelineno-35-7" id="__codelineno-35-7" name="__codelineno-35-7"></a><span class="c1"># Para la ayuda</span>
+<a href="#__codelineno-35-8" id="__codelineno-35-8" name="__codelineno-35-8"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>--help
+</code></pre></div>
+<p>El comando <code>docker network create mi-red</code> nos ha creado una nueva red sencilla de tipo bridge en el rango 172.19.0.0/16 (puedes verlo en el <code>docker network inspect</code>).</p>
+<p>Si queremos usar la red en un nuevo contenedor:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-36-1" id="__codelineno-36-1" name="__codelineno-36-1"></a>docker<span class="w"> </span>container<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>mi-nginx1<span class="w"> </span>--network<span class="w"> </span>mi-red<span class="w"> </span>nginx
+</code></pre></div>
+<p>Si, en cambio, queremos conectar un contenedor ya existente a esta nueva red:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-37-1" id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="c1"># Para conectar</span>
+<a href="#__codelineno-37-2" id="__codelineno-37-2" name="__codelineno-37-2"></a>docker<span class="w"> </span>network<span class="w"> </span>connect<span class="w"> </span>&lt;id_red&gt;<span class="w"> </span>&lt;id_contenedor&gt;
+<a href="#__codelineno-37-3" id="__codelineno-37-3" name="__codelineno-37-3"></a>
+<a href="#__codelineno-37-4" id="__codelineno-37-4" name="__codelineno-37-4"></a><span class="c1"># Para desconectar</span>
+<a href="#__codelineno-37-5" id="__codelineno-37-5" name="__codelineno-37-5"></a>docker<span class="w"> </span>network<span class="w"> </span>disconnect<span class="w"> </span>&lt;id_red&gt;<span class="w"> </span>&lt;id_contenedor&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Conecta un contenedor cualquiera a la misma red que el que hemos creado. Verifícalo con <code>docker network inspect</code> y <code>docker container inspect</code>.</li>
+<li>Desconectalo con de la misma manera que lo has conectado y verifica que ya no aparece en la red al hacer el inspect.</li>
+</ol>
+</div>
+<p>Para producción no usaremos nunca la red por defecto. Siempre crearemos nuestras propias redes para las máquinas.</p>
+<h2 id="ejercicios"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.12</span> Ejercicios</h2>
+<p>Prepara un fichero .md (markdown) para documentar estos ejercicios en formato tutorial (puedes usar VSCode con el plugin <em>Markdown all-in-one</em>). Usa siempre sentencias de código en lugar de imágenes.</p>
+<ol>
+<li>Monta con Docker un Wordpress totalmente funcional (y configúralo entrando en localhost e introduciendo los datos que se pidan).</li>
+<li>Cuando consigas completar el Wordpress, haz que los datos no se pierdan cuando eliminas los contenedores (usando un volumen).</li>
+<li>Haz lo mismo pero ahora con un Drupal y MariaDB.</li>
+</ol></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+</body>
+</html>

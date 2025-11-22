@@ -1,0 +1,2296 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../commands-basics/" rel="prev"/>
+<link href="../users-groups-local/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
+<title>Gestión de ficheros - Informática y sistemas operativos</title>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#manejo-de-ficheros-y-carpetas">1. 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Gestión de ficheros
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+          
+  
+  
+  Introducción a la informática
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../hardware/intro/">
+          
+  
+  
+  Hardware
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../virtualizacion-devops/intro/">
+          
+  
+  
+  Virtualización y DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../linux-desktop/">
+          
+  
+  
+  Sistemas operativos
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../java/intro/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../web/intro/">
+          
+  
+  
+  Web
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gamedev/intro/">
+          
+  
+  
+  Gamedev
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../apuntes-variados/intro/">
+          
+  
+  
+  Otros
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introducción a la informática
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducción a la informática
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Esta página
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/mecanografia/">
+<span class="md-ellipsis">
+    
+  
+    Mecanografía
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-informatica/">
+<span class="md-ellipsis">
+    
+  
+    Moverse en Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/ofimatica/">
+<span class="md-ellipsis">
+    
+  
+    Ofimática
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/multimedia/">
+<span class="md-ellipsis">
+    
+  
+    Multimedia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/seguridad-internet/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad en internet
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-sos/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a los sistemas operativos
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/intro/">
+<span class="md-ellipsis">
+    
+  
+    Historia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/arquitecturas-fisicas/">
+<span class="md-ellipsis">
+    
+  
+    Arquitecturas físicas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes-de-ordenador/">
+<span class="md-ellipsis">
+    
+  
+    Componentes de un ordenador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/torre/">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/procesador/">
+<span class="md-ellipsis">
+    
+  
+    Microprocesador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/cpu-cooling/">
+<span class="md-ellipsis">
+    
+  
+    Refrigeración CPU
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/memorias/">
+<span class="md-ellipsis">
+    
+  
+    Memorias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/storage/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/power-supply/">
+<span class="md-ellipsis">
+    
+  
+    Fuente de alimentación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/hardware/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento, tarjetas gráficas y monitores
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Virtualización y DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Virtualización y DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/virtualbox/">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/vagrant/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/vagrant2/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/ansible/">
+<span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/docker/">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/docker-2/">
+<span class="md-ellipsis">
+    
+  
+    Docker II: Dockerfiles
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/docker-3/">
+<span class="md-ellipsis">
+    
+  
+    Docker III: Docker Compose
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Sistemas operativos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemas operativos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux - básico
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux - básico
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../linux-desktop/">
+<span class="md-ellipsis">
+    
+  
+    Distribuciones y entornos de escritorio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../installation/">
+<span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../commands-basics/">
+<span class="md-ellipsis">
+    
+  
+    Comandos básicos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-carpetas">1.1 
+<span class="md-ellipsis">
+      
+        Creación de carpetas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eliminacion-de-carpetas">1.2 
+<span class="md-ellipsis">
+      
+        Eliminación de carpetas
+      
+    </span>
+</a>
+<nav aria-label="Eliminación de carpetas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio">1.2.1 
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-fichero-de-texto">1.3 
+<span class="md-ellipsis">
+      
+        Crear un fichero de texto
+      
+    </span>
+</a>
+<nav aria-label="Crear un fichero de texto" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-fichero-con-un-editor-de-texto">1.3.1 
+<span class="md-ellipsis">
+      
+        Crear fichero con un editor de texto
+      
+    </span>
+</a>
+<nav aria-label="Crear fichero con un editor de texto" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios">
+<span class="md-ellipsis">
+      
+        Ejercicios
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-fichero-con-el-comando-touch">1.3.2 
+<span class="md-ellipsis">
+      
+        Crear fichero con el comando touch
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-fichero-con-el-comando-echo">1.3.3 
+<span class="md-ellipsis">
+      
+        Crear fichero con el comando echo
+      
+    </span>
+</a>
+<nav aria-label="Crear fichero con el comando echo" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios_1">
+<span class="md-ellipsis">
+      
+        Ejercicios
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-contenido-de-los-ficheros">1.4 
+<span class="md-ellipsis">
+      
+        Ver contenido de los ficheros
+      
+    </span>
+</a>
+<nav aria-label="Ver contenido de los ficheros" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-todo-el-contenido-con-cat">1.4.1 
+<span class="md-ellipsis">
+      
+        Ver todo el contenido con cat
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-contenidos-iniciales-de-un-fichero-con-head">1.4.2 
+<span class="md-ellipsis">
+      
+        Ver contenidos iniciales de un fichero con head)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-contenidos-finales-de-un-fichero-con-tail">1.4.3 
+<span class="md-ellipsis">
+      
+        Ver contenidos finales de un fichero con tail
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-contenido-de-fichero-con-more">1.4.4 
+<span class="md-ellipsis">
+      
+        Ver contenido de fichero con more
+      
+    </span>
+</a>
+<nav aria-label="Ver contenido de fichero con more" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio_1">
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-contenido-de-fichero-con-less">1.4.5 
+<span class="md-ellipsis">
+      
+        Ver contenido de fichero con less
+      
+    </span>
+</a>
+<nav aria-label="Ver contenido de fichero con less" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio_2">
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#otros-ficheros-de-log-interesantes">1.4.6 
+<span class="md-ellipsis">
+      
+        Otros ficheros de log interesantes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-diferencias-entre-dos-ficheros-con-diff">1.4.7 
+<span class="md-ellipsis">
+      
+        Ver diferencias entre dos ficheros con diff
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#copiado-movimiento-y-renombrado-de-ficheros">1.5 
+<span class="md-ellipsis">
+      
+        Copiado, movimiento y renombrado de ficheros
+      
+    </span>
+</a>
+<nav aria-label="Copiado, movimiento y renombrado de ficheros" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#copiar-y-renombrar-al-mismo-tiempo">1.5.1 
+<span class="md-ellipsis">
+      
+        Copiar y renombrar al mismo tiempo
+      
+    </span>
+</a>
+<nav aria-label="Copiar y renombrar al mismo tiempo" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#copia-y-renombrado">
+<span class="md-ellipsis">
+      
+        Copia y renombrado
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#movimiento-y-renombrado">
+<span class="md-ellipsis">
+      
+        Movimiento y renombrado
+      
+    </span>
+</a>
+<nav aria-label="Movimiento y renombrado" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio_3">
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mover-copiar-y-eliminar-carpetas-enteras">
+<span class="md-ellipsis">
+      
+        Mover, copiar y eliminar carpetas enteras
+      
+    </span>
+</a>
+<nav aria-label="Mover, copiar y eliminar carpetas enteras" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio_4">
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aliases-y-variables-de-entorno">1.6 
+<span class="md-ellipsis">
+      
+        Aliases y variables de entorno
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referencias">1.7 
+<span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../users-groups-local/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de usuarios y grupos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../exercise-terminal-basics/">
+<span class="md-ellipsis">
+    
+  
+    1. Manejo del terminal
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux: scripting
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux: scripting
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../scripting-linux/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../scripting-linux-2/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ejercicios-variados/">
+<span class="md-ellipsis">
+    
+  
+    2. Ejercicios variados
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../examen/">
+<span class="md-ellipsis">
+    
+  
+    3. Examen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Servidores
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Servidores
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../networks/">
+<span class="md-ellipsis">
+    
+  
+    Redes en Linux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../servers/web-servers/">
+<span class="md-ellipsis">
+    
+  
+    Servidores web
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../servers/apache/">
+<span class="md-ellipsis">
+    
+  
+    Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../servers/0-formato-entrega/">
+<span class="md-ellipsis">
+    
+  
+    4.0. Formato y entrega
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../servers/1-web-servers-xampp/">
+<span class="md-ellipsis">
+    
+  
+    4.1. Windows y XAMPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../servers/2-web-servers-apache/">
+<span class="md-ellipsis">
+    
+  
+    4.2. Instalación de Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../servers/3-web-servers-aws/">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../servers/4-web-servers-wordpress/">
+<span class="md-ellipsis">
+    
+  
+    4.4. Instalando Wordpress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../servers/https/">
+<span class="md-ellipsis">
+    
+  
+    4.5. Opcional: dominios y HTTPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/file-basics/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros I: básico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/files/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/intro/">
+<span class="md-ellipsis">
+    
+  
+    Frontend Roadmap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/js-basics/">
+<span class="md-ellipsis">
+    
+  
+    Iniciación a JavaScript
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Gamedev
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción al desarrollo de videojuegos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Primer juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Primer juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-1/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-2/">
+<span class="md-ellipsis">
+    
+  
+    Mejorando el movimiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1-2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I (continuación)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-3/">
+<span class="md-ellipsis">
+    
+  
+    Físicas y colisiones (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio: minijuego de coches
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Segundo juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Segundo juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-4-animaciones/">
+<span class="md-ellipsis">
+    
+  
+    1. Movimiento y animaciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-5-colisiones/">
+<span class="md-ellipsis">
+    
+  
+    2. Recolección de objetos y detección de colisiones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-6-tilemap/">
+<span class="md-ellipsis">
+    
+  
+    3. Modelado del mundo
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/intro/">
+<span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/programming/">
+<span class="md-ellipsis">
+    
+  
+    Programación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/firewalling/">
+<span class="md-ellipsis">
+    
+  
+    Firewalling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/gamedev/">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/android/">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/control-versiones/">
+<span class="md-ellipsis">
+    
+  
+    Control versiones
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creacion-de-carpetas">1.1 
+<span class="md-ellipsis">
+      
+        Creación de carpetas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#eliminacion-de-carpetas">1.2 
+<span class="md-ellipsis">
+      
+        Eliminación de carpetas
+      
+    </span>
+</a>
+<nav aria-label="Eliminación de carpetas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio">1.2.1 
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-fichero-de-texto">1.3 
+<span class="md-ellipsis">
+      
+        Crear un fichero de texto
+      
+    </span>
+</a>
+<nav aria-label="Crear un fichero de texto" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-fichero-con-un-editor-de-texto">1.3.1 
+<span class="md-ellipsis">
+      
+        Crear fichero con un editor de texto
+      
+    </span>
+</a>
+<nav aria-label="Crear fichero con un editor de texto" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios">
+<span class="md-ellipsis">
+      
+        Ejercicios
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-fichero-con-el-comando-touch">1.3.2 
+<span class="md-ellipsis">
+      
+        Crear fichero con el comando touch
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-fichero-con-el-comando-echo">1.3.3 
+<span class="md-ellipsis">
+      
+        Crear fichero con el comando echo
+      
+    </span>
+</a>
+<nav aria-label="Crear fichero con el comando echo" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios_1">
+<span class="md-ellipsis">
+      
+        Ejercicios
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-contenido-de-los-ficheros">1.4 
+<span class="md-ellipsis">
+      
+        Ver contenido de los ficheros
+      
+    </span>
+</a>
+<nav aria-label="Ver contenido de los ficheros" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-todo-el-contenido-con-cat">1.4.1 
+<span class="md-ellipsis">
+      
+        Ver todo el contenido con cat
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-contenidos-iniciales-de-un-fichero-con-head">1.4.2 
+<span class="md-ellipsis">
+      
+        Ver contenidos iniciales de un fichero con head)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-contenidos-finales-de-un-fichero-con-tail">1.4.3 
+<span class="md-ellipsis">
+      
+        Ver contenidos finales de un fichero con tail
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-contenido-de-fichero-con-more">1.4.4 
+<span class="md-ellipsis">
+      
+        Ver contenido de fichero con more
+      
+    </span>
+</a>
+<nav aria-label="Ver contenido de fichero con more" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio_1">
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-contenido-de-fichero-con-less">1.4.5 
+<span class="md-ellipsis">
+      
+        Ver contenido de fichero con less
+      
+    </span>
+</a>
+<nav aria-label="Ver contenido de fichero con less" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio_2">
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#otros-ficheros-de-log-interesantes">1.4.6 
+<span class="md-ellipsis">
+      
+        Otros ficheros de log interesantes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ver-diferencias-entre-dos-ficheros-con-diff">1.4.7 
+<span class="md-ellipsis">
+      
+        Ver diferencias entre dos ficheros con diff
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#copiado-movimiento-y-renombrado-de-ficheros">1.5 
+<span class="md-ellipsis">
+      
+        Copiado, movimiento y renombrado de ficheros
+      
+    </span>
+</a>
+<nav aria-label="Copiado, movimiento y renombrado de ficheros" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#copiar-y-renombrar-al-mismo-tiempo">1.5.1 
+<span class="md-ellipsis">
+      
+        Copiar y renombrar al mismo tiempo
+      
+    </span>
+</a>
+<nav aria-label="Copiar y renombrar al mismo tiempo" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#copia-y-renombrado">
+<span class="md-ellipsis">
+      
+        Copia y renombrado
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#movimiento-y-renombrado">
+<span class="md-ellipsis">
+      
+        Movimiento y renombrado
+      
+    </span>
+</a>
+<nav aria-label="Movimiento y renombrado" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio_3">
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mover-copiar-y-eliminar-carpetas-enteras">
+<span class="md-ellipsis">
+      
+        Mover, copiar y eliminar carpetas enteras
+      
+    </span>
+</a>
+<nav aria-label="Mover, copiar y eliminar carpetas enteras" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio_4">
+<span class="md-ellipsis">
+      
+        Ejercicio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aliases-y-variables-de-entorno">1.6 
+<span class="md-ellipsis">
+      
+        Aliases y variables de entorno
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referencias">1.7 
+<span class="md-ellipsis">
+      
+        Referencias
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div><h1 id="manejo-de-ficheros-y-carpetas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Manejo de ficheros y carpetas</h1>
+<h2 id="creacion-de-carpetas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Creación de carpetas</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Creamos una carpeta nueva en el directorio donde nos encontramos</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>mkdir<span class="w"> </span>miNuevaCarpeta
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># Creación de carpeta con nombre "nueva" con ruta absoluta</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>mkdir<span class="w"> </span>/home/mnceleiro/Documentos/nueva
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># Creación de múltiples carpetas consecutivas con un solo comando (añadimos -p)</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># Este comando crearía todas las carpetas de la ruta que no existan</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>Documentos/nueva/nueva2/nueva3/nueva4/nueva5/datos_empleados
+</code></pre></div>
+<h2 id="eliminacion-de-carpetas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Eliminación de carpetas</h2>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Elimina una carpeta vacía</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>rmdir<span class="w"> </span>nombreCarpeta
+</code></pre></div>
+<h3 id="ejercicio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Ejercicio</h3>
+<p>Intenta ejecutar el comando con una carpeta que tenga algo dentro. ¿Funciona?</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Más adelante veremos como eliminar carpetas con todo lo de su interior con un solo comando.</p>
+</div>
+<h2 id="crear-un-fichero-de-texto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Crear un fichero de texto</h2>
+<p>Existen muchas maneras. Vamos a ver las siguientes:</p>
+<ul>
+<li>Con un editor de texto (Vim, Nano).</li>
+<li>Con el comando touch.</li>
+<li>Con el comando echo usando "redirecciones".</li>
+</ul>
+<h3 id="crear-fichero-con-un-editor-de-texto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Crear fichero con un editor de texto</h3>
+<p>Los dos editores de texto más conocidos en GNU/Linux son:
+- Vim
+- Nano</p>
+<p>Teniendo el segundo una curva de aprendizaje más sencilla que el primero, pero siendo el primero probablemente más potente en general.</p>
+<h4 id="ejercicios"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1.1</span> Ejercicios</h4>
+<ul>
+<li>Crea en tu home el fichero miPrimerFichero.txt con el editor de texto <strong>Nano</strong> y usando una ruta absoluta desde tu home.</li>
+<li>Crea en tu home un fichero miSegundoFichero.txt con el editor de texto <strong>Nano</strong>, situándote antes en / y usando una ruta relativa.</li>
+<li>Crea en tu home un fichero miTercerFichero.txt con el editor de texto <strong>Vim</strong> (apt install -y vim) situándote en /home y usando una ruta relativa.</li>
+</ul>
+<h3 id="crear-fichero-con-el-comando-touch"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Crear fichero con el comando touch</h3>
+<p>El comando touch sirve para cambiar la información relacionada con los timestamps de un fichero (p. ej: el último acceso, la última modificación o la creación del fichero). Además de esto se usa mucho para crearlos (ya que si uso el comando en un fichero que no exista, este se crea).</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Creando un fichero con touch</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>touch<span class="w"> </span>miPrimerFicheroConTouch.txt
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>ls<span class="w"> </span>-l<span class="w"> </span>miPrimerFicheroConTouch.txt
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1"># Usando touch para cambiar los tiempos del fichero</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>touch<span class="w"> </span>-t<span class="w"> </span><span class="m">201812201000</span><span class="w"> </span>miPrimerFicheroConTouch.txt
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="c1"># Pero... ¿qué timestamp he cambiado? Comando stat nos ayuda</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>stat<span class="w"> </span>miPrimerFicheroConTouch.txt
+</code></pre></div>
+<h3 id="crear-fichero-con-el-comando-echo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> Crear fichero con el comando echo</h3>
+<p>El comando echo devuelve lo que le escribas a la pantalla. Es similar al comando de Java <code>System.out.println("Texto")</code>. Por defecto, ese texto se muestra en pantalla, pero <strong>podemos redirigir el texto de la salida estándar (pantalla) a otro sitio que nosotros queramos</strong>. En este caso lo redirigiremos a un fichero.</p>
+<p>Prueba los siguientes comandos:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Mostramos el texto "Hola mundo" por la salida estandar (pantalla)</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Hola mundo"</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Mostramos el texto "Hola mundo" pero... redirigimos SU SALIDA ESTÁNDAR a un fichero,</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="c1"># por lo que se almacenará en él y no se mostrará por pantalla.</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># Esto es muy práctico para crear ficheros</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Hola mundo"</span><span class="w"> </span>&gt;<span class="w"> </span>miNuevoFichero.txt
+</code></pre></div>
+<p><em>TODO: Explicar redirecciones "&gt;" "&lt;" "&gt;&gt;" o enlazar algún artículo externo.</em></p>
+<h4 id="ejercicios_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3.1</span> Ejercicios</h4>
+<ul>
+<li>Prueba a ejecutar varias veces el comando anterior que redirige el "Hola mundo" a un fichero. ¿Cambia algo de ejecutarlo 1 a varias veces?</li>
+<li>Prueba ahora el mismo comando, pero en lugar de "&gt;" utiliza "&gt;&gt;". ¿Qué ocurre? ¿Para qué sirve usar dos símbolos en lugar de 1?</li>
+</ul>
+<p>Más información en <a href="https://ioflood.com/blog/touch-linux-command/">este enlace</a>.</p>
+<h2 id="ver-contenido-de-los-ficheros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Ver contenido de los ficheros</h2>
+<h3 id="ver-todo-el-contenido-con-cat"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Ver todo el contenido con cat</h3>
+<p>Muestra el contenido de un fichero. La sintaxis es:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Sintaxis básica</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>cat<span class="w"> </span>&lt;fichero&gt;
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Mostramos la informacion de los usuarios del sistema</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>cat<span class="w"> </span>/etc/passwd
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># Ver contenido de fichero de grupos</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>cat<span class="w"> </span>/etc/group
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="c1"># Ver contenido de contrasenhas (encriptadas) con los numeros de linea marcados (-n o --number)</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>cat<span class="w"> </span>-n<span class="w"> </span>/etc/shadow
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>
+<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="c1"># Ver contenido de un fichero mostrando un $ en los cambios de linea  (--show-ends o -E)</span>
+<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>cat<span class="w"> </span>--show-ends<span class="w"> </span>fichero.txt
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>
+<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="c1"># Ver contenido de fichero incluyendo caracteres no imprimibles (--show-nonprinting o -v)</span>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>cat<span class="w"> </span>-v<span class="w"> </span>fichero.txt
+</code></pre></div>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Los ficheros de configuración en GNU/Linux se encuentran en la carpeta /etc. Algunos interesantes son los que verás con los comandos anteriores.</p>
+</div>
+<h3 id="ver-contenidos-iniciales-de-un-fichero-con-head"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> Ver contenidos iniciales de un fichero con head)</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a># Ver informacion del procesador (10 primeras líneas)
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>head /proc/cpuinfo
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a># Listamos las 23 primeras lineas del fichero que tiene informacion de la memoria ([-n numero_lineas])
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>head -n 23 /proc/meminfo
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a># Mostramos la primera línea del fichero que tiene informacion de tiempo de encendido
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>head -n 1 /proc/uptime
+</code></pre></div>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>En la carpeta /proc podemos encontrar información útil relacionada con el hardware y los procesos del sistema.</p>
+</div>
+<h3 id="ver-contenidos-finales-de-un-fichero-con-tail"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.3</span> Ver contenidos finales de un fichero con tail</h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a># Ver últimas líneas de un fichero (en este caso el .bash_history situado en tu home)
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>tail /home/&lt;usuario&gt;/.bashrc
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a># Solo las 7 últimas líneas
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>tail -n 7 /home/&lt;usuario&gt;/.bashrc
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a># Mira las últimas 5 líneas del fichero syslog y lo recarga cada segundo (nos sirve por si cambia y queremos monitorizarlo)
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>tail -f -n 5 /var/log/syslog
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a># Ver las 12 ultimas lineas del fichero
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>## No podemos mostrar los numeros de linea con tail/head, asi que pasamos la salida del comando cat a la entrada de tail
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a>cat -n .bashrc | tail -n 12
+</code></pre></div>
+<h3 id="ver-contenido-de-fichero-con-more"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.4</span> Ver contenido de fichero con more</h3>
+<p>Muestra información de fichero de forma interactiva, página a página.
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a># Ver contenido fichero de logs generico: /var/log/messages o /var/log/syslog (sistemas debian y derivados)
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>more /var/log/syslog
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a># Se puede pasar la pagina con la barra espaciadora y salir con letra "q". Para mostrar esa ayuda con more -d:
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>more -d /var/log/syslog
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a># Eliminamos lineas en blanco dejando solo una (si hay 3 saltos de linea lo deja en 1)
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>more -s texto.txt
+</code></pre></div>
+<h4 id="ejercicio_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.4.1</span> Ejercicio</h4>
+<div class="highlight"><pre><span></span><code>Prueba las opciones: -u, -p y +número (¿para qué sirven?)
+</code></pre></div>
+<h3 id="ver-contenido-de-fichero-con-less"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.5</span> Ver contenido de fichero con less</h3>
+<p>Con el comando more la información de ficheros queda en el terminal y, en ficheros largos puede resultar bastante molesto. Con less vemos el fichero y el texto no se muestra en terminal.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># Mostramos el fichero de autenticación/autorización de GNU/Linux usando less</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="c1"># (auth.log en Debian y derivados, /var/log/secure en RedHat y CentOS)</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>less<span class="w"> </span>/var/log/auth.log
+</code></pre></div>
+<p>Dentro del comando less puedes:
+- Buscar cadenas (igual que hacemos en el manual, con el caracter "/" y un texto).
+- Avanzar línea a línea (flechas abajo y arriba).
+- Avanzar página a página (barra espaciadora).</p>
+<h4 id="ejercicio_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.5.1</span> Ejercicio</h4>
+<ul>
+<li>Crea un fichero de 25 párrafos (un lorem ipsum) y busca alguna palabra con less.</li>
+<li>Avanza en el fichero línea a línea abajo y arriba.</li>
+<li>Avanza página a página (barra espaciadora).</li>
+<li>Busca en los logs de Linux los eventos de autenticación que ocurrieron el día de hoy.</li>
+<li>Consulta el fichero con "less" y ve directamente al final (shift + g).</li>
+<li>Usa el comando "su <tu-usuario>" para logearte en un terminal (esto abrirá una nueva sesión de terminal con tu usuario). Escribe MAL la contraseña. Después, busca ese evento en los logs del sistema (auth.log y faillog).</tu-usuario></li>
+</ul>
+<h3 id="otros-ficheros-de-log-interesantes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.6</span> Otros ficheros de log interesantes</h3>
+<p>Algunos interesantes diferentes a los ya vistos son los siguientes:
+- <strong>/var/log/mysqld.log</strong> (RedHat, CentOS y Fedora) o <strong>/var/log/mysql.log</strong> (Debian): mensajes relacionados con MySQL.
+- <strong>/var/log/httpd/</strong>: Logs relacionados con Apache. Existen dos ficheros: <strong>access.log</strong> y <strong>error.log</strong>.</p>
+<h3 id="ver-diferencias-entre-dos-ficheros-con-diff"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.7</span> Ver diferencias entre dos ficheros con diff</h3>
+<p>Sintaxis:
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="w">  </span>diff<span class="w"> </span>&lt;fichero1&gt;<span class="w"> </span>&lt;fichero2&gt;
+</code></pre></div>
+<h2 id="copiado-movimiento-y-renombrado-de-ficheros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Copiado, movimiento y renombrado de ficheros</h2>
+<p>Para copiar un fichero a otro lugar <strong>se usa el comando cp</strong> (<strong>c</strong>o<strong>p</strong>y):</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="w">  </span><span class="c1"># Copiamos el fichero miFichero.txt a la carpeta Documentos (con ruta relativa):</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">  </span>cp<span class="w"> </span>miFichero.txt<span class="w"> </span>Documentos
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">  </span><span class="c1"># Creamos varios ficheros vacíos con touch (mezclamos comillas y escapados para practicar)</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">  </span><span class="c1">## ESTE COMANDO TIENE UN ERROR (si haces un ls lo verás, corrígelo!)</span>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">  </span>touch<span class="w"> </span><span class="s2">"fich 1.txt"</span><span class="w"> </span><span class="s2">"fich 2.txt"</span><span class="w"> </span>fich<span class="w"> </span><span class="se">\3</span>.txt<span class="w"> </span>hola.dat
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">  </span><span class="c1"># Copiamos los ficheros fich 1.txt, fich 2.txt y hola.dat a la carpeta Documentos</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">  </span>cp<span class="w"> </span><span class="s2">"fich 1.txt"</span><span class="w"> </span><span class="s2">"fich 2.txt"</span><span class="w"> </span><span class="s2">"fich 3.txt"</span><span class="w"> </span>hola.dat<span class="w"> </span>Documentos
+</code></pre></div>
+<p>Podemos pasar tantos ficheros de origen como queramos. El <strong>último parámetro</strong> siempre es el <strong>DESTINO</strong>.</p>
+<h3 id="copiar-y-renombrar-al-mismo-tiempo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> Copiar y renombrar al mismo tiempo</h3>
+<h4 id="copia-y-renombrado"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1.1</span> Copia y renombrado</h4>
+<p>En el siguiente ejemplo vamos a mezclar rutas absolutas y relativas para practicar. Creamos un fichero y lo copiamos con otro nombre.
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="w">  </span><span class="c1"># Creamos un fichero saludo.txt con el texto "Hola"</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Hola"</span><span class="w"> </span>&gt;<span class="w"> </span>/home/&lt;usuario&gt;/saludo.txt
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">  </span><span class="c1"># Lo copiamos a la carpeta Documentos cambiándole el nombre a saludar.txt (primera con ruta absoluta, segunda relativa)</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">  </span>cp<span class="w"> </span>/home/&lt;usuario&gt;/saludo.txt<span class="w"> </span>./Documentos/saludar.txt
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">  </span><span class="c1"># Hacemos otra copia en la misma ruta (usamos ruta relativa)</span>
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">  </span>cp<span class="w"> </span>./saludar.txt<span class="w"> </span><span class="s2">"nuevo saludo.txt"</span>
+</code></pre></div>
+<p>Después de esto tendremos:
+- Fichero saludo.txt en nuestro home (creado con echo).
+- Fichero saludar.txt en $HOME/Documentos (creado con el primer cp).
+- Fichero nuevo saludo.txt en nuestro home (creado con el segundo cp).</p>
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>Recuerda que el caracter "." representa el directorio actual y el ".." el anterior. Por tanto el "./" de estos ejemplos podría omitirse y funcionaría igualmente, pero tenemos que entenderlo porque es necesario usarlo en ocasiones más adelante.</p>
+</div>
+<h4 id="movimiento-y-renombrado"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1.2</span> Movimiento y renombrado</h4>
+<p>Para <strong>mover ficheros</strong> se usa <strong>el comando mv</strong> (<strong>m</strong>o<strong>v</strong>e o mover).
+</p><div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="w">  </span><span class="c1"># Movemos el fichero fich 1.txt a una nueva carpeta en /home/&lt;usuario&gt;/Documentos/misArchivos/textos</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">  </span><span class="c1">## 1. Nos situamos en nuestro home (podemos usar cd /home/&lt;usuario&gt;, cd ~ o cd $HOME)</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span><span class="nb">cd</span><span class="w"> </span>~
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">  </span><span class="c1">## 2. Creamos la jerarquía de carpetas necesaria, uso ruta absoluta (si usamos -p podemos hacerlo con un solo comando)</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">  </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$HOME</span>/Documentos/misArchivos/textos
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">  </span><span class="c1">## 3. TODO: instala el programa tree usando la herramienta APT y úsalo pasándole la carpeta de "Documentos".</span>
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">  </span><span class="c1">## El comando tree nos permitirá ver la estructura en forma de árbol.</span>
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">  </span>...
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">  </span><span class="c1">## 4. Muevo (usando ahora ruta relativa) el fichero fich 1.txt a la nueva carpeta</span>
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">  </span>mv<span class="w"> </span>~/fich<span class="w"> </span><span class="se">\1</span>.txt<span class="w"> </span>Documentos<span class="se">\m</span>isArchivos<span class="se">\t</span>extos
+<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a>
+<a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">  </span><span class="c1">## 5. TODO: mueve ahora fich 2.txt a la misma carpeta pero llamándole: fich 2 copia.txt.</span>
+<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">  </span><span class="c1">## Usa solo rutas relativas y REFERENCIANDO LA CARPETA ACTUAL</span>
+<a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="w">  </span>...
+</code></pre></div>
+<h5 id="ejercicio_3"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1.2.1</span> Ejercicio</h5>
+<ul>
+<li>Crea una carpeta nueva en tu home llamada "nueva" e intenta mover "misArchivos" ahí con los comandos que hemos visto, ¿funciona?</li>
+<li>Intenta copiarla con cp, ¿funciona?</li>
+<li>Intenta eliminarla con rm y rmdir, ¿funciona?</li>
+</ul>
+<h4 id="mover-copiar-y-eliminar-carpetas-enteras"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1.3</span> Mover, copiar y eliminar carpetas enteras</h4>
+<p>Pues no funciona. Si queremos copiar, eliminar o mover carpetas con contenido tenemos que indicarle que queremos que lo haga de forma <strong>recursiva</strong>.</p>
+<h5 id="ejercicio_4"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1.3.1</span> Ejercicio</h5>
+<ul>
+<li>Busca en el manual como hacer de forma recursiva un copiado de la carpeta misArchivos a una carpeta "copias-seguridad" en tu home. Inténtalo.</li>
+<li>Vamos a mover la carpeta original y quedarnos con la copia. Mueve la carpeta situada en $HOME/Documentos/misArchivos a tu home.</li>
+<li>Finalmente, vamos a borrarla. Borra la carpeta misArchivos de tu home (nos quedamos solo con la copia de seguridad).</li>
+</ul>
+<p>TODO: Más comandos:</p>
+<ul>
+<li>wc</li>
+<li>nl</li>
+<li>tac</li>
+<li>hashes (definición y creación)</li>
+<li>Navegación historial de comandos</li>
+<li>
+<h2 id="aliases-y-variables-de-entorno"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Aliases y variables de entorno</h2>
+</li>
+</ul>
+<h2 id="referencias"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Referencias</h2>
+<ul>
+<li>Cat Command in Linux/Unix with Examples. Obtenido de: <a href="https://www.javatpoint.com/linux-cat">javatpoint</a> el 15/01/2024.</li>
+<li>12 Critical Linux Log Files You Must be Monitoring. Obtenido de <a href="https://www.eurovps.com/blog/important-linux-log-files-you-must-be-monitoring/">Eurovps blog</a> el 15/01/2024.</li>
+</ul></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+</body>
+</html>
