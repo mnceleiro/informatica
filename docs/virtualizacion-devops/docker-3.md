@@ -210,15 +210,25 @@ docker compose config
 docker compose logs
 ```
 
-## Ejercicios finales
-### Completando nuestro entorno con PHPMyAdmin y volúmenes
-Este ejercicio consistirá en modificar lo que ya tienes para que se conecte a una base de datos MariaDB. Si eliminas el contenedor la base de datos debe mantenerse intacta. A continuación se dan algunas indicaciones de cómo hacerlo:
+## Ejercicios
+### Añadido de PHPMyAdmin y volúmenes
+Este ejercicio consistirá en modificar lo que acabamos de hacer para que se conecte a una base de datos MariaDB. Si eliminas el contenedor la base de datos debe mantenerse intacta. A continuación se dan algunas indicaciones de cómo hacerlo:
 
 1. Pídele a ChatGPT u otra IA que te de un script de base de datos con una tabla y un index.php asociado. Añádelo al index y trata de conectarte a base de datos.
 2. Asegúrate de que al levantar el contenedor se crea la base de datos automáticamente. Esto lo puedes hacer tal como se indica en estos apuntes de teoría, copiando el fichero .sql en `/docker-entrypoint-initdb.d/`. Para realizar esta copia puedes crear **otro volumen que comparta esa carpeta con una carpeta tuya donde tengas el script de base de datos**.
 3. Añade otro contenedor de nombre mi-phpmyadmin que cree un contenedor con PHPMyAdmin y te permita gestionar la base de datos. Tienes una imagen de PHPMyAdmin con toda su documentación en [este enlace](https://hub.docker.com/_/phpmyadmin).
 
-### Creando un nuevo contorno
-Crea una nueva carpeta y un compose.yml dentro para tu proyecto fin de ciclo (que tenga al menos dos contenedores, uno con tu aplicación y otro la base de datos). 
+### Monta un CMS con compose
+En los ejercicios anteriores has montado un Wordpress con docker. Ahora vamos a simplificarlo usando compose.
 
-Si lo consigues y quieres ampliar más, puedes añadir otros contenedores adicionales como: PHPMyAdmin, separar frontend y backend, etc.
+Busca en Dockerhub una imagen de Wordpress y crea un compose.yml que monte un Wordpress completo.
+
+### Monta un Nextcloud
+Usa Docker para crear un entorno Nextcloud. Una vez montado el entorno:
+
+- Configura el perfil de administrador.
+- Crea cuatro usuarios y dos grupos. Haz que cada grupo tenga dos usuarios.
+- Cambia el tema por defecto.
+- Instala un cliente de escritorio para Nextcloud y conéctate al sevidor desde él.
+
+Configura los volúmenes que consideres necesarios en el compose.yml (debe haber alguno al menos que consideres útil).

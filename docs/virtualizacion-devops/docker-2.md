@@ -74,16 +74,5 @@ EXPOSE <puerto>
 Consulta la documentación oficial en [Writing a Dockerfile](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/).
 
 ## Ejercicios
-Prepara un fichero .md (markdown) para documentar estos ejercicios en formato tutorial (puedes usar VSCode con el plugin *Markdown all-in-one*). Usa siempre sentencias de código en lugar de imágenes.
-
-1. Monta con Docker un Wordpress totalmente funcional (y configúralo entrando en localhost e introduciendo los datos que se pidan).
-2. Cuando consigas completar el Wordpress, haz que los datos no se pierdan cuando eliminas los contenedores (usando un volumen).
-3. Exporta el script de base de datos de la máquina y guárdalo.
-4. Finalmente, crea un Dockerfile y haz que ese script se ejecute en el arranque de Wordpress (RUN). De esta manera tendremos un Wordpress completo y totalmente configurado.
-5. Haz lo mismo con Drupal versión 9.
-6. Sube ambas imágenes a tu repositorio en Dockerhub y añade un README en Dockerhub con los comandos que has utilizado.
-7. Finalmente, edita el repositorio en Dockerhub y en "overview" pega tu documentación.
-8. Sube el link de dockerhub de las imágenes al aula virtual.
-9. Crea un docker compose que levante Wordpress.
-10. Crea un docker compose que levante una aplicación Java con Spring y base de datos.
-11. Crea un docker compose que levante tu proyecto Laravel.
+1. Exporta el script de base de datos de la máquina Wordpress que has creado en el apartado anterior y guárdalo.
+2. Finalmente, crea un Dockerfile y haz que ese script se ejecute en el arranque de Wordpress (RUN). De esta manera tendremos un Wordpress completo y totalmente configurado.
