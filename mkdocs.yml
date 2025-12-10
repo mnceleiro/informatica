@@ -80,6 +80,7 @@ nav:
       - 'Físicas y colisiones (I)': 'gamedev/unity/unity2d-3.md'
       #- 'Físicas y colisiones (II)': 'todo'
       - 'Ejercicio: minijuego de coches': 'gamedev/unity/unity2d-ejercicio2.md'
+      - 'Ejercicio de repaso': gamedev/unity/unity2d-ejercicio-3-repaso-transform.md
     - 'Unity - Segundo juego':
       - '1. Movimiento y animaciones': 'gamedev/unity/unity2d-4-animaciones.md'
       - '2. Recolección de objetos y detección de colisiones': 'gamedev/unity/unity2d-5-colisiones.md'
