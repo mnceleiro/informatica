@@ -1,5 +1,7 @@
 # Ejercicios de repaso de Unity
 ## Ejercicio 1: programación básica y transform
+Crea un proyecto de nombre: tuapellido1_tunombre_ejercicio_repaso.
+
 ## GameObjects y componente transform de los GameObjects
 1. Crea un jugador (un cuadrado) y ponle de nombre "Player".
 2. Posiciona desde código el player en el punto (-1, -2).
