@@ -691,4 +691,5 @@ Prepara un fichero .md (markdown) para documentar estos ejercicios en formato tu
 
 1. Monta con Docker un Wordpress totalmente funcional (y configúralo entrando en localhost e introduciendo los datos que se pidan).
 2. Cuando consigas completar el Wordpress, haz que los datos no se pierdan cuando eliminas los contenedores (usando un volumen).
-3. Haz lo mismo pero ahora con un Drupal y MariaDB.
+
+Luego continuaremos este ejercicio creando un Dockerfile.
