@@ -1,37 +1,41 @@
 
 Para desarrollar páginas o aplicaciones web a veces es común utilizar Windows y XAMPP o WAMP, pero en producción (aplicaciones reales) necesitamos tener un servidor dedicado con un servidor web instalado y configurado. En este ejercicio vamos a instalar Apache en GNU/Linux.
 
+Aún así, **deja la máquina Windows 11 anterior encendida**. Como la máquina está en **bridge**, podremos conectarla con la que crearemos en este punto.
+
 ## Instalación de servidor web Apache en Ubuntu
-1. Crea una máquina virtual con Virtualbox y la última versión estable de Ubuntu. Se recomienda un Virtualbox con entorno de escritorio, aunque si no te importa hacerlo sin entorno de escritorio usar este [script de vagrant que automáticamente descarga e instala un Ubuntu 24.04](/ficheros/vagrant/vagrantfiles/bridge-ubuntu-24).
-   1. En caso de usar Virtualbox, instala los *guest additions* y activa la compartición del portapapeles entre ambas máquinas.
+1. Crea una máquina virtual con Virtualbox y la última versión estable de Ubuntu. Podéis usar este [script de vagrant que automáticamente descarga e instala un Ubuntu 24.04](/ficheros/vagrant/vagrantfiles/bridge-ubuntu-24).
+   1. Si preferís usar un Ubuntu con interfaz de escritorio en lugar de una máquina con Vagrant podéis hacerlo. Si hacéis esto, instalad los *guest additions* y activad la compartición del portapapeles entre ambas máquinas.
 2. [Crea un usuario](https://mnceleiro.github.io/informatica/gnu-linux/users-groups-local/#informacion-sobre-usuarios-y-grupos) de nombre <tunombre_tuprimerapellido> con el comando *useradd*. Haz que este usuario tenga un home con el mismo nombre, como shell /bin/bash y que pertenezca al grupo *sudo* (de esta manera podrá ejecutar comandos como administrador).
 3. **Logueate en el terminal con ese usuario** y haz el resto de la práctica con él (de esta manera se identificará que eres tu en el prompt). *(captura: de ejecución del comando **groups** con ese usuario. Debería aparecer sudo en la lista de grupos.*
 4. Mira si existe la carpeta /var/www en tu sistema, ¿existe?
-5. Comprueba si puedes acceder desde tu navegador web en la máquina virtual y en la host a la URL: `localhost`, ¿puedes?. En caso de que no tengas navegador web (por no tener entorno de escritorio) puedes probar si te funciona con los comandos `curl` o `wget` (estos comandos hacen peticiones remotas)
-6. Instala apache (`sudo apt install apache2`).
+5. Comprueba si puedes acceder a la página web desde tu máquina virtual usando la la URL: `localhost`, ¿puedes?. En caso de que no tengas navegador web (por no tener entorno de escritorio) puedes probar si te funciona con los comandos [`curl`](https://www.keycdn.com/support/popular-curl-examples) o `wget` (estos comandos hacen peticiones remotas).
+   1. ¿Por qué crees que te ha dado un error? La razón, es que un servidor es algo que escucha en un puerto (por defecto, un servidor web escucha en el 80 y localhost es tu propia máquina). No tenemos ningún servidor instalado que escuche en el 80, así que vamos a instalar uno para poder así montar nuestro propio entorno web en él.
+6. Instala el servidor web Apache (`sudo apt install apache2`).
 7. Verifica que Apache está en ejecución. Para arrancar, parar, reiniciar o comprobar el estado de un servicio en la mayoría de linux modernos usamos el comando `systemctl`. Si está en ejecución todo está bien, en caso de que no lo esté arráncalo.
-8.  Comprueba ahora los pasos anteriores de nuevo (si funciona la URL `localhost` en el navegador web), **explica por qué ahora sí funciona la URL en la máquina virtual y no en la host (en un par de líneas)**.
-9.  Ahora que Apache está instalado tu servidor web responde en la propia máquina. Aún así, el index.html que está mostrando es el que viene por defecto y queremos cambiarlo. Localiza donde está ese index.html (pista: es en una ruta en que te he preguntado antes!).
+8.  Comprueba ahora los pasos anteriores de nuevo (si funciona la URL `localhost` en el navegador web de tu máquina virtual (o con `curl` o `wget`). Debería funcionarte.
+9.  Accede ahora a `localhost` desde tu máquina principal. Si lo haces, el servidor web no te va a devolver la página, ¿por qué?
+    1.  La ip `localhost` es 127.0.0.1 y referencia **a la propia máquina**. Por tanto, si desde tu máquina principal pones esa ip a donde estás entrando es a esa máquina (no a la virtual donde está el servidor instalado). Recuerda que son dos máquinas diferentes.
+10. Intenta ahora acceder a la máquina (tendrás que usar su dirección ip). Debería aparecerte la página web al poner la IP en el navegador.
+11. El servidor web está mostrando una página de prueba que viene con la instalación del servidor Apache. El fichero index.html es el que contiene esta página. Localiza donde está ese index.html (pista: es en una ruta en que te he preguntado antes!) y modifícalo con tu nombre y apellidos.
+12. Si estás en una clase con otros compañeros, diles que entren a tu ip de máquina virtual (y tu puedes entrar en la suya). Puedes también probar las ips subsiguientes/anteriores y ver que ocurre (verás que todos estáis en red!)
 
 ## Apache: permisos y acceso a la web
-11. Lee la teoría explicada en la sección de [document root de Apache](../apache#carpeta-de-apache-document-root)
-12. Consulta los permisos de la carpeta *document root* de Apache.
-13. Modifica el index.html para que solo aparezca una línea con tu nombre y apellidos en un <h1\>. *(captura con el terminal y la página con tu nombre y apellidos)*.
-14. Antes has consultado los permisos de la carpeta de Apache, ¿has podido editar el index.html sin sudo? ¿Por qué (si o no) puedes? Explícalo teniendo en cuenta el usuario y grupo al que pertenece el fichero.
-15. Mira la ip de tu máquna principal y tu ip de máquina virtual desde cada terminal. *(indica si están ambas máquinas en la misma red y captura de ambos terminales donde se vea la ip)*.
-16. Intenta acceder al Apache de tu máquina virtual desde tu máquina host. Se hace igual que antes, poniendo la ip en el navegador (ahora en lugar de poner 127.0.0.1 o *localhost* pones la ip de la máquina virtual). Es probable que no te funcione y no se espera que lo haga (así que no te preocupes). ¿Por qué no funciona?
-17. A no ser que hayas hecho algo antes, por defecto en Virtualbox las 2 máquinas no estarán en la misma red (ya que el adaptador de red está configurado como NAT) y por esto no podemos acceder a la máquina virtual desde la máquina host. Para ponerlo en la misma red que la máquina host, tenemos que ponerlo como adaptador puente o *bridge*. Apaga la máquina virtual y hazlo. Luego, arráncala de nuevo.
-18. Entra desde el navegador de tu máquina host al servidor de tu máquina virtual. Ahora, al estar en adaptador puente, debería funcionar *(captura)*.
-19. Comprueba la IP de tu máquina host y de tu máquina virtual usando la línea de comandos después de ponerla en *bridge (captura de las ips y el comando)*.
-
-En adaptador puente o *bridge* tu host y tu máquina virtual están en la misma red. Esto es, tu máquina virtual pilla una ip de la misma red de la máquina host (por lo que las máquinas pueden verse). Esta es la razón por la que ahora, si desde tu máquina host haces un ping a la ip de tu máquina virtual debería funcionar (y también deberías poder entrar a la web).
-
-15. Dile a una IA de tu elección que te genere un curriculum en HTML y CSS con todo integrado en un solo fichero index.html. Indícale tu nombre y apellidos y lo demás (si no quieres poner tus datos reales puedes inventarlos). Al menos debería tener:
+11. Vamos a jugar un poco más. Estamos accediendo a la web por ip, pero sería más interesante hacerlo por nombre. Un servidor DNS se ocupa de resolver los nombres de dominio y asociarlos con IPs, pero es un poco complejo y se sale del límite de esta práctica. Por esta razón, lo que vas a hacer es cambiar el `fichero hosts`de la máquina Windows de la práctica anterior y añadir la IP de tu servidor Linux referenciada a `miservidorweb.local`.
+    1.  Busca en internet donde encontrar el "fichero hosts" en Windows (es el mismo tanto en Windows 10 como en Windows 11.
+    2.  Abre el fichero hosts en tu máquina Windows (la de la práctica anterior).
+    3.  Mapea la IP de tu servidor web al dominio `miservidorweb.local`
+    4.  Si lo has hecho bien deberías poder acceder desde esa máquina a la máquina Linux a través de "miservidorweb.local" como URL.
+12. Lee la teoría explicada en la sección de [document root de Apache](../apache#carpeta-de-apache-document-root)
+13. Consulta los permisos de la carpeta *document root* de Apache.
+14. Modifica el index.html para que solo aparezca una línea con tu nombre y apellidos en un <h1\>. *(captura con el terminal y la página con tu nombre y apellidos)*.
+15. Antes has consultado los permisos de la carpeta de Apache, ¿has podido editar el index.html sin sudo? ¿Por qué (si o no) puedes? Explícalo teniendo en cuenta el usuario y grupo al que pertenece el fichero.
+16. Dile a una IA de tu elección que te genere un curriculum en HTML y CSS con todo integrado en un solo fichero index.html. Indícale tu nombre y apellidos y lo demás (si no quieres poner tus datos reales puedes inventarlos). Al menos debería tener:
     1.  Nombre y apellidos
     2.  Edad
     3.  Estudios (p. ej: ESO, Bachillerato, ciclo medio de ..., etc.).
     4.  Trabajos en los que has estado.
-16. Copia el texto que te genera en el index.html de tu servidor web. Ya tienes un curriculum en formato web que, si tienes suerte, se verá bastante bien. Intenta que quede bien, a ver que tal se os da pedir cosas a las IAs :-)
+17. Copia el texto que te genera en el index.html de tu servidor web. Ya tienes un curriculum en formato web que, si tienes suerte, se verá bastante bien. Intenta que quede bien, a ver que tal se os da pedir cosas a las IAs :-)
 
 Ya lo tenemos! Hemos conseguido instalar un servidor web Apache en GNU/LInux con tu curriculum en una página web.
 
