@@ -2,17 +2,16 @@
 Para desarrollar páginas o aplicaciones web a veces es común utilizar Windows y XAMPP o WAMP, pero en producción (aplicaciones reales) necesitamos tener un servidor dedicado con un servidor web instalado y configurado. En este ejercicio vamos a instalar Apache en GNU/Linux.
 
 ## Instalación de servidor web Apache en Ubuntu
-1. Crea una máquina virtual con Virtualbox y la última versión estable de Ubuntu con entorno de escritorio. Si quieres puedes usar este [script de vagrant que automáticamente descarga e instala un Ubuntu 24.04](/ficheros/vagrant/vagrantfiles/ubuntu-with-gui).
-      1. Es importante que si usas el script de vagrant, una vez la arranques por primera vez con `vagrant up` **no vuelvas a usarla con Vagrant y trabaja solo con VirtualBox**. Por cosas que tocaremos en esta práctica te dará problemas con Vagrant más adelante.
-2. Instala los *guest additions* y activa la compartición del portapapeles entre ambas máquinas.
-3. [Crea un usuario](https://mnceleiro.github.io/informatica/gnu-linux/users-groups-local/#informacion-sobre-usuarios-y-grupos) de nombre <tunombre_tuprimerapellido> con el comando *useradd*. Haz que este usuario tenga un home con el mismo nombre, como shell /bin/bash y que pertenezca al grupo *sudo* (de esta manera podrá ejecutar comandos como administrador).
-4. **Logueate en el terminal con ese usuario** y haz el resto de la práctica con él (de esta manera se identificará que eres tu en el prompt). *(captura: de ejecución del comando **groups** con ese usuario. Debería aparecer sudo en la lista de grupos.*
-5. Mira si existe la carpeta /var/www en tu sistema, ¿existe?
-6. Comprueba si puedes acceder desde tu navegador web en la máquina virtual y en la host a la URL: `localhost`, ¿puedes?
-7. Instala apache (`sudo apt install apache2`).
-8. Verifica que Apache está en ejecución. Para arrancar, parar, reiniciar o comprobar el estado de un servicio en la mayoría de linux modernos usamos el comando `systemctl`. Si está en ejecución todo está bien, en caso de que no lo esté arráncalo.
-9.  Comprueba ahora los pasos anteriores de nuevo (si funciona la URL `localhost` en el navegador web), **explica por qué ahora sí funciona la URL en la máquina virtual y no en la host (en un par de líneas)**.
-10. Ahora que Apache está instalado tu servidor web responde en la propia máquina. Aún así, el index.html que está mostrando es el que viene por defecto y queremos cambiarlo. Localiza donde está ese index.html (pista: es en una ruta en que te he preguntado antes!).
+1. Crea una máquina virtual con Virtualbox y la última versión estable de Ubuntu. Se recomienda un Virtualbox con entorno de escritorio, aunque si no te importa hacerlo sin entorno de escritorio usar este [script de vagrant que automáticamente descarga e instala un Ubuntu 24.04](/ficheros/vagrant/vagrantfiles/bridge-ubuntu-24).
+   1. En caso de usar Virtualbox, instala los *guest additions* y activa la compartición del portapapeles entre ambas máquinas.
+2. [Crea un usuario](https://mnceleiro.github.io/informatica/gnu-linux/users-groups-local/#informacion-sobre-usuarios-y-grupos) de nombre <tunombre_tuprimerapellido> con el comando *useradd*. Haz que este usuario tenga un home con el mismo nombre, como shell /bin/bash y que pertenezca al grupo *sudo* (de esta manera podrá ejecutar comandos como administrador).
+3. **Logueate en el terminal con ese usuario** y haz el resto de la práctica con él (de esta manera se identificará que eres tu en el prompt). *(captura: de ejecución del comando **groups** con ese usuario. Debería aparecer sudo en la lista de grupos.*
+4. Mira si existe la carpeta /var/www en tu sistema, ¿existe?
+5. Comprueba si puedes acceder desde tu navegador web en la máquina virtual y en la host a la URL: `localhost`, ¿puedes?. En caso de que no tengas navegador web (por no tener entorno de escritorio) puedes probar si te funciona con los comandos `curl` o `wget` (estos comandos hacen peticiones remotas)
+6. Instala apache (`sudo apt install apache2`).
+7. Verifica que Apache está en ejecución. Para arrancar, parar, reiniciar o comprobar el estado de un servicio en la mayoría de linux modernos usamos el comando `systemctl`. Si está en ejecución todo está bien, en caso de que no lo esté arráncalo.
+8.  Comprueba ahora los pasos anteriores de nuevo (si funciona la URL `localhost` en el navegador web), **explica por qué ahora sí funciona la URL en la máquina virtual y no en la host (en un par de líneas)**.
+9.  Ahora que Apache está instalado tu servidor web responde en la propia máquina. Aún así, el index.html que está mostrando es el que viene por defecto y queremos cambiarlo. Localiza donde está ese index.html (pista: es en una ruta en que te he preguntado antes!).
 
 ## Apache: permisos y acceso a la web
 11. Lee la teoría explicada en la sección de [document root de Apache](../apache#carpeta-de-apache-document-root)
