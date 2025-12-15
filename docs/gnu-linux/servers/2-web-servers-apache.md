@@ -4,7 +4,7 @@ Para desarrollar páginas o aplicaciones web a veces es común utilizar Windows 
 Aún así, **deja la máquina Windows 11 anterior encendida**. Como la máquina está en **bridge**, podremos conectarla con la que crearemos en este punto.
 
 ## Instalación de servidor web Apache en Ubuntu
-1. Crea una máquina virtual con Virtualbox y la última versión estable de Ubuntu. Podéis usar este [script de vagrant que automáticamente descarga e instala un Ubuntu 24.04](/ficheros/vagrant/vagrantfiles/bridge-ubuntu-24).
+1. Crea una máquina virtual con Virtualbox y la última versión estable de Ubuntu. Podéis usar este [script de vagrant que automáticamente descarga e instala un Ubuntu 24.04](../../ficheros/ficheros/vagrant/vagrantfiles/bridge-ubuntu-24).
    1. Si preferís usar un Ubuntu con interfaz de escritorio en lugar de una máquina con Vagrant podéis hacerlo. Si hacéis esto, instalad los *guest additions* y activad la compartición del portapapeles entre ambas máquinas.
 2. [Crea un usuario](https://mnceleiro.github.io/informatica/gnu-linux/users-groups-local/#informacion-sobre-usuarios-y-grupos) de nombre <tunombre_tuprimerapellido> con el comando *useradd*. Haz que este usuario tenga un home con el mismo nombre, como shell /bin/bash y que pertenezca al grupo *sudo* (de esta manera podrá ejecutar comandos como administrador).
 3. **Logueate en el terminal con ese usuario** y haz el resto de la práctica con él (de esta manera se identificará que eres tu en el prompt). *(captura: de ejecución del comando **groups** con ese usuario. Debería aparecer sudo en la lista de grupos.*
