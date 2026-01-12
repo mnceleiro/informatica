@@ -5,11 +5,11 @@ Aún así, **deja la máquina Windows 11 anterior encendida**. Como la máquina 
 
 ## Instalación de servidor web Apache en Ubuntu
 ```rb title="contar-hasta-5" linenums="1"
---8<-- "docs/ficheros/vagrant/vagrantfiles/bridge-ubuntu-24"
+--8<-- "docs/ficheros/vagrant/vagrantfiles/Vagrantfile-2-vms-ubuntu-bridge-with-gui"
 ```
 
-1. Crea una máquina virtual con Virtualbox y la última versión estable de Ubuntu. Podéis usar este [script de vagrant que automáticamente descarga e instala un Ubuntu 24.04](../../ficheros/vagrant/vagrantfiles/bridge-ubuntu-24).
-   1. Si preferís usar un Ubuntu con interfaz de escritorio en lugar de una máquina con Vagrant podéis hacerlo. Si hacéis esto, instalad los *guest additions* y activad la compartición del portapapeles entre ambas máquinas.
+1. Crea una máquina virtual con Virtualbox y la última versión estable de Ubuntu. Podéis usar este [script de vagrant que automáticamente descarga e instala un Ubuntu 24.04](../../ficheros/vagrant/vagrantfiles/Vagrantfile-2-vms-ubuntu-bridge-with-gui). Este script incluye 2 máquinas (vm1 y vm2).
+      1. Si preferís usar un Ubuntu con Virtualbox podéis hacerlo. Si hacéis esto, instalad los *guest additions* y activad la compartición del portapapeles entre ambas máquinas.
 2. [Crea un usuario](https://mnceleiro.github.io/informatica/gnu-linux/users-groups-local/#informacion-sobre-usuarios-y-grupos) de nombre <tunombre_tuprimerapellido> con el comando *useradd*. Haz que este usuario tenga un home con el mismo nombre, como shell /bin/bash y que pertenezca al grupo *sudo* (de esta manera podrá ejecutar comandos como administrador).
 3. **Logueate en el terminal con ese usuario** y haz el resto de la práctica con él (de esta manera se identificará que eres tu en el prompt). *(captura: de ejecución del comando **groups** con ese usuario. Debería aparecer sudo en la lista de grupos.*
 4. Mira si existe la carpeta /var/www en tu sistema, ¿existe?
@@ -25,10 +25,10 @@ Aún así, **deja la máquina Windows 11 anterior encendida**. Como la máquina 
 12. Si estás en una clase con otros compañeros, diles que entren a tu ip de máquina virtual (y tu puedes entrar en la suya). Puedes también probar las ips subsiguientes/anteriores y ver que ocurre (verás que todos estáis en red!)
 
 ## Apache: permisos y acceso a la web
-11. Vamos a jugar un poco más. Estamos accediendo a la web por ip, pero sería más interesante hacerlo por nombre. Un servidor DNS se ocupa de resolver los nombres de dominio y asociarlos con IPs, pero es un poco complejo y se sale del límite de esta práctica. Por esta razón, lo que vas a hacer es cambiar el `fichero hosts`de la máquina Windows de la práctica anterior y añadir la IP de tu servidor Linux referenciada a `miservidorweb.local`.
+11. Vamos a jugar un poco más. Estamos accediendo a la web por ip, pero sería más interesante hacerlo por nombre. Un servidor DNS se ocupa de resolver los nombres de dominio y asociarlos con IPs, pero es un poco complejo y se sale del límite de esta práctica. Por esta razón, lo que vas a hacer es cambiar el `fichero hosts`de la máquina Windows de la práctica anterior y añadir la IP de tu servidor Linux referenciada a `curriculum.tunombre.local`.
     1.  Busca en internet donde encontrar el "fichero hosts" en Windows (es el mismo tanto en Windows 10 como en Windows 11.
     2.  Abre el fichero hosts en tu máquina Windows (la de la práctica anterior).
-    3.  Mapea la IP de tu servidor web al dominio `miservidorweb.local`
+    3.  Mapea la IP de tu servidor web al dominio `curriculum.tunombre.local`
     4.  Si lo has hecho bien deberías poder acceder desde esa máquina a la máquina Linux a través de "miservidorweb.local" como URL.
 12. Lee la teoría explicada en la sección de [document root de Apache](../apache#carpeta-de-apache-document-root)
 13. Consulta los permisos de la carpeta *document root* de Apache.
@@ -41,7 +41,40 @@ Aún así, **deja la máquina Windows 11 anterior encendida**. Como la máquina 
     4.  Trabajos en los que has estado.
 17. Copia el texto que te genera en el index.html de tu servidor web. Ya tienes un curriculum en formato web que, si tienes suerte, se verá bastante bien. Intenta que quede bien, a ver que tal se os da pedir cosas a las IAs :-)
 
-Ya lo tenemos! Hemos conseguido instalar un servidor web Apache en GNU/LInux con tu curriculum en una página web.
+## Apache: configuración de Virtualhosts
+Los virtualhosts nos permiten crear múltiples webs en la misma máquina y mismo puerto (usando nombres de dominio diferentes gracias a la cabecera "Host" de HTTP). Vamos a ver como hacerlo:
+
+1. Crea un fichero de nombre curriculum en /etc/apache2/sites-available.
+2. Prueba la configuación con `apache2ctl configtest`.
+3. Aunque tenemos el sitio definido, necesitamos habilitarlo. Para ello tenemos que tener el fichero .conf en `/etc/apache2/sites-enabled`. Hay un comando que ya nos crea un enlace débil del fichero que hemos creado antes: `sudo a2ensite curriculum` (a2ensite es de "Apache 2 enable site").
+
+```
+<VirtualHost *:80>
+    ServerName curriculum.tunombre.local
+    ServerAlias curriculum.tunombre.local curriculum
+
+    ServerAdmin webadmin@ejemplo.local
+
+    DocumentRoot /var/www/curriculum
+
+    ErrorLog ${APACHE_LOG_DIR}/sitio1_error.log
+    CustomLog ${APACHE_LOG_DIR}/sitio1_access.log combined
+
+    <Directory /var/www/sitio1/public_html>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+
+</VirtualHost>
+```
+
+4. Ahora, crea otros dos hosts virtuals (virtual hosts) con el siguiente document root:
+    1.  Para el curriculum arréglalo para que esté en: /var/www/curriculum
+    2.  Para un restaurante arréglalo para que esté en: /var/www/restaurante
+    3.  Para una tienda de comics arréglalo para que esté en: /var/www/tiendacomics
+
+Ya lo tenemos! Hemos conseguido instalar un servidor web Apache en GNU/Linux con varios virtualhosts y varias páginas web en el mismo servidor. Si tuviésemos además un servidor DNS, no tendríamos que modificar el `/etc/hosts` de las máquinas cliente para que se pueda entrar en las páginas.
 
 ## Parte OPCIONAL (PARA NOTA!): Redirección de puertos
 1. En la misma máquina virtual anterior, comprueba los adaptadores de red y asegúrate de que quede solo puesto adaptador puente (*bridge*).
