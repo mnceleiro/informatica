@@ -35,7 +35,14 @@ Para crear el **GameObject más básico posible** en la escena hacemos lo siguie
 Si pulsas sobre el GameObject (recuerda, el que hemos creado es **el más básico posible**) podrás ver que solo tiene un componente llamado **transform**. Este componente **representa la posición del objeto en la escena y su tamaño**. 
 
 !!! info
-    Todos los GameObjects tienen, al menos, este componente transform.
+    Todos los GameObjects tienen, al menos, este componente transform:
+
+    - Puedes ver los componentes de un GameObject al pulsar sobre él (pruébalo).
+    - Este componente transform tiene la posición del personaje, el tamaño (escala) y la rotación (en grados).
+    - Te recomiendo que pruebes a jugar con los parámetros:
+      - Cámbiale la posición X e Y al personaje y observa como cambia de posición en pantalla.
+      - Prueba a aumentar el tamaño un poco (1.5 por ejemplo). Luego volver a dejarlo a 1.
+      - Intenta rotar el personaje también (al final de todo dejalo todo de nuevo como al principio).
 
 ### GameObjects: imágenes con el componente Sprite Renderer
 ![Sprite conejo](images/bunny2_ready.png){ align=right }
@@ -52,7 +59,6 @@ Si en ese "Add Component" añadimos un componente de tipo "Sprite Renderer" podr
 
     - El **transform** posee la posición, rotación y tamaño del GameObject.
     - El **Sprite Renderer** nos permite añadir una imagen al GameObject.
-
 
 !!! Note "Ejercicio"
     1. Cambia el nombre al Game Object para que se llame "Personaje" (será el personaje que luego moveremos).
