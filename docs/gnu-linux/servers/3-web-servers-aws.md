@@ -74,7 +74,8 @@ Ya sabemos instalar y configurar de forma básica un servidor web: sabemos en qu
       1. Introducir la contraseña de administrador de MySQL/MariaDB.
       2. Cambiar a tipo de autenticación "unix_socket". Responderemos a esto que **NO**. Si respondemos que "sí", el usuario *root* puede identificarse sin contraseña (esto es, el administrador de MySQL está ligado al usuario *root*). Si respondes "no" la contraseña de root de MySQL será independiente.
       3. Deshabilitar el login como *root* remotamente: sí (es más seguro).
-      4. Recargar las tablas de privilegios: respondemos sí.
+      4. Sobre usuarios anónimos y tablas de test puedes responder lo que quieras (si o no).
+      5. Recargar las tablas de privilegios: respondemos sí.
 
 ### Usando MySQL desde un cliente de terminal
 En esta parte vamos a ver como usar por consola MySQL/MariaDB de forma básica:
