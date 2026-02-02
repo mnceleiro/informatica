@@ -116,14 +116,14 @@ Escribe un código Kotlin que tenga:
 Crea una función que genere la tabla de multiplicar de un número pasado como parámetro (del 1 al 10). Usa un [bucle for](https://www.programiz.com/kotlin-programming/for-loop) y muestra el resultado en formato: "5 x 3 = 15"
 
 ## Funciones (parámetros nombrados y por defecto)
-# Mostrar mensaje y veces a mostrarlo
+### Mostrar mensaje y veces a mostrarlo
 1. Escribe una única función `mostrarMensaje` que reciba dos parámetros: el mensaje y el número de veces que debe aparecer (por defecto será 1 vez). 
 2. Debes llamar a la función de tres formas diferentes:
    - Solo pasando el mensaje.
    - Pasando el mensaje y el número de veces.
    - Usando parámetros nombrados (named parameters).
 
-# Función que muestra datos de un producto
+### Función que muestra datos de un producto
 Crea una función `verDatosProducto` que reciba: nombre (string), precio (double), stock (entero) y categoría (string). Stock y precio tendrán 0 a valor por defecto y la categoría será "global" por defecto. Haz las siguientes llamadas:
 
 - Solo nombre.
@@ -132,7 +132,7 @@ Crea una función `verDatosProducto` que reciba: nombre (string), precio (double
 - Nombre y categoría (saltando precio y stock).
 - Todos los parámetros, algunos por posición y otros nombrados.
 
-# Crear un botón
+### Crear un botón
 Crea una función `crearBoton` que reciba:
 
 - Un texto.
@@ -151,7 +151,7 @@ Llámala de estas formas:
 ## Funciones lambda
 En estos ejercicios tendrás que guardar las funciones en variables y luego usarlas.
 
-### Sumar dos números
+### Función que sume dos números
 Crea una función lambda que sume reciba dos parámetros y sume dos números. Guarda la función en una constante `sumarDosNumeros`.
 
 `val sumarDosNumeros = ...`
@@ -166,6 +166,8 @@ Crea una función lambda que sume reciba dos parámetros y sume dos números. Gu
     }
     ```
 
+Todos los siguientes ejercicios de esta parte debes intentar hacerlos de esta manera.
+
 ### Multiplicar
 1. Haz lo mismo pero ahora con una función que sea `multiplicarPorDos`.
 2. Ahora que se llame `multiplicarPor` y sean dos números que se multiplicarán uno por el otro.
@@ -178,6 +180,42 @@ Siguiendo el mismo formato, guarda en una val una función que compruebe la long
 
 ### Devolver el mayor
 Recibir como parámetro dos números y devolver el mayor. 
+
+### Restar dos números
+Crea una constante (`val`) y asígnale una función que se ocupe de retar dos números.
+
+## Funciones de orden superior
+En las listas de kotlin, existen funciones de orden superior que reciben, como parámetro, otras funciones: filter, map, reduce, forEach, count...
+
+Realiza los siguientes ejercicios haciendo uso de estas funciones.
+
+Dado lo siguiente:
+```kotlin
+val numeros = listOf(1, -2, 5, 16, 12, -5, -7, 9, 5, 21)
+```
+
+Realiza los siguientes ejercicios.
+
+### Filtra números mayores que 5
+Dada la lista anterior, filtra en otra lista de nombre `mayoresQue5` solo los números mayores que 5 (*filter*). Luego muéstralos por pantalla (*forEach*).
+
+### Cuadrado de los números
+Dada la misma lista, almacena en otra lista de nombre `duplicados` todos los números duplicados. Luego muéstralos por pantalla.
+
+### Filtra los números positivos duplícalos
+Ahora, hagamos lo anterior todo junto. Filtra los mayors que 5, duplicalos y finalmente muéstralos por pantalla. **Todo en la misma sentencia.** (`filter + map + forEach`).
+
+### Mapeo de strings
+Dada la siguiente lista:
+```kotlin
+val lenguajes = listOf("Kotlin", "Java", "JavaScript", "Scala", "Python", "Rust")
+```
+
+Haz lo siguiente:
+
+1. Obtén una nueva lista con la longitud de cada palabra de la misma y muestra el resultado por pantalla.
+2. Obtén una nueva lista con los elementos convertidos a mayúscula y muestra el resultado por pantalla.
+3. Filtra las que empiezan por "J", conviértelas a mayúsculas y muéstralas por pantalla.
 
 ## Clases y objetos
 ### Clase alumno
@@ -192,6 +230,11 @@ Crea una clase `Producto` con sus *getters*, *setters*, *toString()*, *hashCode(
 - Precio.
 
 ## Colecciones
+
+### Listas inmutables y mutables
+1. Crea una lista inmutable de tres strings ("uno", "dos" y "tres") utilizando `listOf`. Intenta añadir un elemento y borrar otro, verás que no puedes.
+2. Crea ahora una lista mutable con `mutableListOf`. Intenta de nuevo añadir un elemento y eliminar otro.
+
 ### Listas mutables
 Crea una `MutableList<String>` de productos:
 
@@ -203,18 +246,18 @@ Crea una `MutableList<String>` de productos:
 ### Lista de objetos Alumno
 Tienes la clase Alumno en los ejercicios de clases y objetos:
 
-- Crea una lista de 5 alumnos
-- Filtra los que tengan nota > 7
-- Imprime solo sus nombres
-- Saca la media de las notas
-- Ordena la lista por nota descendente
+- Crea una lista de 5 alumnos.
+- Filtra los que tengan nota > 7.
+- Imprime solo sus nombres.
+- Saca la media de las notas.
+- Ordena la lista por nota descendente.
 
 ### Lista de objetos producto
 Crea una `MutableList<Producto>` y:
 
 1. Añade 4 productos    
-2. Crea una función que calcule el **valor total del inventario**   `cantidad * precio` de cada uno
-3. Crea otra función que busque un producto por nombre (si no existe, null)
+2. Crea una función que calcule el **valor total del inventario** `cantidad * precio` de cada uno.
+3. Crea otra función que busque un producto por nombre (si no existe, null).
 4. Crea una función que aumente la cantidad de un producto.
 5. Imprime un resumen formateado del inventario.
 
@@ -226,7 +269,7 @@ Crea una nueva clase `Alumno` con:
 - Nombre
 - Apellidos
 - Edad (no puede ser < 0 ni > 120)
-- Lista de notas (lista mutable)
+- Lista de notas (lista mutable de enteros)
 - Método para añadir nota validando rango 0–10
 - Método para calcular media
 - Método que devuelva si está aprobado
@@ -234,44 +277,44 @@ Crea una nueva clase `Alumno` con:
 ### Pedidos de productos
 Crea 3 clases:
 
-#### Clase `Producto`
-- nombre
-- precio
-- categoría (enum: ELECTRONICA, ROPA, HOGAR)
+#### Clase Producto
+- Nombre
+- Precio
+- Categoría (enum: ELECTRONICA, ROPA, HOGAR)
 
 Con validación en `init`.
 
-#### Clase `LineaPedido`
+#### Clase LineaPedido
 
-- producto
-- cantidad (mínimo 1)
-- método para obtener precio total (producto.precio * cantidad)
+- Producto
+- Cantidad (mínimo 1)
+- Método para obtener precio total (producto.precio * cantidad)
 
-#### Clase `Pedido`
-- código
-- lista de líneas
-- método para añadir línea
-- método para obtener importe total
-- método para aplicar descuento en %
-- método para mostrar un resumen
+#### Clase Pedido
+- Código
+- Lista de líneas
+- Método para añadir línea
+- Método para obtener importe total
+- Método para aplicar descuento en %
+- Método para mostrar un resumen
 
 ### Ejercicio banco
 Crea:
 
 #### Clase CuentaBancaria
-- número de cuenta
-- titular
-- saldo
-- métodos: ingresar(), retirar() (con validación), transferir()
+- Número de cuenta
+- Titular
+- Saldo
+- Métodos: ingresar(), retirar() (con validación), transferir()
 
 #### Clase Cliente
-- nombre
-- email
-- lista de cuentas
+- Nombre
+- Email
+- Lista de cuentas
 
 #### Clase Banco
-- nombre
-- lista de clientes
-- método para buscar cliente por email
-- método para crear cuenta nueva
-- método para transferencias entre cuentas
+- Nombre
+- Lista de clientes
+- Método para buscar cliente por email
+- Método para crear cuenta nueva
+- Método para transferencias entre cuentas
