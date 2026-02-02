@@ -88,7 +88,8 @@ nav:
       - '4. Exportación del juego al móvil': 'gamedev/unity/exportacion-movil.md'
     - 'Unity 3D':
       - 'Minijuego de plataformas 3D': 'gamedev/unity/unity3d-ejercicio-1'
-
+  - Android:
+    - 'Ejercicios': 'androiddev/kotlin/kotlin-exercises.md'
   - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
     - 'Programación': 'apuntes-variados/programming.md'
