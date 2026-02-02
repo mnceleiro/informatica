@@ -110,7 +110,7 @@ use prueba;
 Ahora, creamos una tabla dentro de la base de datos:
 
 ```
-create table Usuario (nombre varchar(100), apellidos varchar(100));
+create table usuario (nombre varchar(100), apellidos varchar(100));
 ```
 
 Comprobamos que se ha creado correctamente:
