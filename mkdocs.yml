@@ -89,7 +89,7 @@ nav:
     - 'Unity 3D':
       - 'Minijuego de plataformas 3D': 'gamedev/unity/unity3d-ejercicio-1'
   - Android:
-    - 'Ejercicios': 'androiddev/kotlin/kotlin-exercises.md'
+    - 'Intro (Kotlin)': 'androiddev/kotlin/kotlin-exercises.md'
   - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
     - 'Programación': 'apuntes-variados/programming.md'
