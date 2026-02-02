@@ -89,7 +89,7 @@ nav:
     - 'Unity 3D':
       - 'Minijuego de plataformas 3D': 'gamedev/unity/unity3d-ejercicio-1'
   - Android:
-    - 'Intro (Kotlin)': 'androiddev/kotlin/kotlin-exercises.md'
+    - 'Ejercicios de Kotlin': 'androiddev/kotlin/kotlin-exercises.md'
   - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
     - 'Programación': 'apuntes-variados/programming.md'
@@ -114,6 +114,8 @@ markdown_extensions:
   - sane_lists
   - pymdownx.highlight:
       anchor_linenums: true
+      use_pygments: true
+      pygments_lang_class: true
   - admonition
   - pymdownx.details
   - pymdownx.inlinehilite
@@ -122,6 +124,9 @@ markdown_extensions:
       custom_fences:
       - name: mermaid
         class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
+      - name: kotlin
+        class: language-kotlin
         format: !!python/name:pymdownx.superfences.fence_code_format
   - attr_list
   - pymdownx.emoji:
@@ -137,3 +142,10 @@ plugins:
   - enumerate-headings:
       increment_across_pages: false
       toc_depth: 3
+
+extra_javascript:
+  - javascripts/kotlin.js
+  - https://unpkg.com/kotlin-playground@1
+  
+extra_css:
+    - stylesheets/kotlin.css
