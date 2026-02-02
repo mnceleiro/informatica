@@ -107,6 +107,12 @@ use prueba;
 
 ![crear base de datos con comandos](../../images/gnu-linux/create-database-if-not-exists.png)
 
+Ahora, creamos una tabla dentro de la base de datos:
+
+```
+create table Usuario (nombre varchar(100), apellidos varchar(100));
+```
+
 Comprobamos que se ha creado correctamente:
 ```
 show tables;
