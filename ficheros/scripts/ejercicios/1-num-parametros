@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+	echo "El script debe tener algún parámetro."
+	exit
+fi
+
+echo "Se han pasado al script $# parámetros."
+
+triple=$(expr $# \* 3)
+echo "El triple de $# es $triple."

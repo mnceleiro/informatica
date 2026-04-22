@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Asignamos el parámetro 1 a la variable NOMBRE.
+NOMBRE=$1
+echo "Tu nombre es: $NOMBRE."
+
+sleep 2
+
+# Ahora, asignamos el parámetro 2 a la variable NOMBRE.
+NOMBRE=$2
+echo "Han pasado un tiempo y ahora mi nombre es: $NOMBRE."

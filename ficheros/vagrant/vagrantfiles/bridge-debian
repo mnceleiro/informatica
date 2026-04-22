@@ -1,0 +1,19 @@
+$script = <<-SCRIPT
+	apt update && apt install -y lsb-core tree vim
+SCRIPT
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "boxomatic/debian-13" 
+  
+  config.vm.provider :virtualbox do |vb|
+    vb.name = "Debian-13-con-GUI"
+
+    vb.customize ["modifyvm", :id, "--groups", "/vagrant-vms"]
+  end
+  
+  config.vm.network "public_network"
+  
+  config.vm.boot_timeout = 1000
+  config.vm.provision "shell", inline: $script
+end

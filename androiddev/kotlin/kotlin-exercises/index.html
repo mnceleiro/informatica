@@ -1,0 +1,2959 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../kotlin-intro/" rel="prev"/>
+<link href="../../compose-01/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Ejercicios de Kotlin - Informática y sistemas operativos</title>
+<link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../stylesheets/kotlin.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ejercicios-de-kotlin">1. 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Ejercicios de Kotlin
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+          
+  
+  
+  Introducción a la informática
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../hardware/intro/">
+          
+  
+  
+  Hardware
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../virtualizacion-devops/intro/">
+          
+  
+  
+  Virtualización y DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../gnu-linux/linux-desktop/">
+          
+  
+  
+  Sistemas operativos
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../java/intro/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../web/intro/">
+          
+  
+  
+  Web
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../gamedev/intro/">
+          
+  
+  
+  Gamedev
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../kotlin-intro/">
+          
+  
+  
+  Android
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../apuntes-variados/intro/">
+          
+  
+  
+  Otros
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introducción a la informática
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducción a la informática
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    
+  
+    Esta página
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/mecanografia/">
+<span class="md-ellipsis">
+    
+  
+    Mecanografía
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/intro-informatica/">
+<span class="md-ellipsis">
+    
+  
+    Moverse en Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/ofimatica/">
+<span class="md-ellipsis">
+    
+  
+    Ofimática
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/multimedia/">
+<span class="md-ellipsis">
+    
+  
+    Multimedia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/seguridad-internet/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad en internet
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../1-intro/intro-sos/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a los sistemas operativos
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/intro/">
+<span class="md-ellipsis">
+    
+  
+    Historia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/arquitecturas-fisicas/">
+<span class="md-ellipsis">
+    
+  
+    Arquitecturas físicas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes-de-ordenador/">
+<span class="md-ellipsis">
+    
+  
+    Componentes de un ordenador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/torre/">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/procesador/">
+<span class="md-ellipsis">
+    
+  
+    Microprocesador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/cpu-cooling/">
+<span class="md-ellipsis">
+    
+  
+    Refrigeración CPU
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/memorias/">
+<span class="md-ellipsis">
+    
+  
+    Memorias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/storage/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../hardware/componentes/power-supply/">
+<span class="md-ellipsis">
+    
+  
+    Fuente de alimentación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/hardware/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento, tarjetas gráficas y monitores
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Virtualización y DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Virtualización y DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/virtualbox/">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/vagrant/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/vagrant2/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/ansible/">
+<span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker/">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker-2/">
+<span class="md-ellipsis">
+    
+  
+    Docker II: Dockerfiles
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../virtualizacion-devops/docker-3/">
+<span class="md-ellipsis">
+    
+  
+    Docker III: Docker Compose
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Sistemas operativos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemas operativos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux - básico
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux - básico
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/linux-desktop/">
+<span class="md-ellipsis">
+    
+  
+    Distribuciones y entornos de escritorio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/installation/">
+<span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/commands-basics/">
+<span class="md-ellipsis">
+    
+  
+    Comandos básicos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/files/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/users-groups-local/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de usuarios y grupos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/exercise-terminal-basics/">
+<span class="md-ellipsis">
+    
+  
+    1. Manejo del terminal
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux: scripting
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux: scripting
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/scripting-linux/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/scripting-linux-2/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/ejercicios-variados/">
+<span class="md-ellipsis">
+    
+  
+    2. Ejercicios variados
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/examen/">
+<span class="md-ellipsis">
+    
+  
+    3. Examen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Servidores
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Servidores
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/networks/">
+<span class="md-ellipsis">
+    
+  
+    Redes en Linux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/web-servers/">
+<span class="md-ellipsis">
+    
+  
+    Servidores web
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/apache/">
+<span class="md-ellipsis">
+    
+  
+    Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/0-formato-entrega/">
+<span class="md-ellipsis">
+    
+  
+    4.0. Formato y entrega
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/1-web-servers-xampp/">
+<span class="md-ellipsis">
+    
+  
+    4.1. Windows y XAMPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/2-web-servers-apache/">
+<span class="md-ellipsis">
+    
+  
+    4.2. Instalación de Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/3-web-servers-aws/">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/4-web-servers-wordpress/">
+<span class="md-ellipsis">
+    
+  
+    4.4. Instalando Wordpress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gnu-linux/servers/https/">
+<span class="md-ellipsis">
+    
+  
+    4.5. Opcional: dominios y HTTPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/file-basics/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros I: básico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../java/files/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/intro/">
+<span class="md-ellipsis">
+    
+  
+    Frontend Roadmap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../web/js-basics/">
+<span class="md-ellipsis">
+    
+  
+    Iniciación a JavaScript
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Gamedev
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción al desarrollo de videojuegos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Primer juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Primer juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-1/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-ejercicio1/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-2/">
+<span class="md-ellipsis">
+    
+  
+    Mejorando el movimiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-ejercicio1-2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I (continuación)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-3/">
+<span class="md-ellipsis">
+    
+  
+    Físicas y colisiones (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-ejercicio2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio: minijuego de coches
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-ejercicio-3-repaso-transform/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio de repaso
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Segundo juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Segundo juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-4-animaciones/">
+<span class="md-ellipsis">
+    
+  
+    1. Movimiento y animaciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-5-colisiones/">
+<span class="md-ellipsis">
+    
+  
+    2. Recolección de objetos y detección de colisiones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity2d-6-tilemap/">
+<span class="md-ellipsis">
+    
+  
+    3. Modelado del mundo
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/exportacion-movil/">
+<span class="md-ellipsis">
+    
+  
+    4. Exportación del juego al móvil
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity 3D
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity 3D
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../gamedev/unity/unity3d-ejercicio-1">
+<span class="md-ellipsis">
+    
+  
+    Minijuego de plataformas 3D
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Android
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Kotlin
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Kotlin
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kotlin-intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a Kotlin
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Ejercicios de Kotlin
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Ejercicios de Kotlin
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basicos-tipos-operadores-y-funciones">1.1 
+<span class="md-ellipsis">
+      
+        Básicos (tipos, operadores y funciones)
+      
+    </span>
+</a>
+<nav aria-label="Básicos (tipos, operadores y funciones)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#suma-dos-numeros">1.1.1 
+<span class="md-ellipsis">
+      
+        Suma dos números
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pedir-numeros-al-usuario">1.1.2 
+<span class="md-ellipsis">
+      
+        Pedir números al usuario
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#variables-que-pueden-ser-nulas">1.1.3 
+<span class="md-ellipsis">
+      
+        Variables que pueden ser nulas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#englobar-los-ejercicios-anteriores-en-funciones">1.1.4 
+<span class="md-ellipsis">
+      
+        Englobar los ejercicios anteriores en funciones
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#obtener-longitud-de-un-string-nullable-operador-elvis">1.1.5 
+<span class="md-ellipsis">
+      
+        Obtener longitud de un string nullable (operador elvis)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mostrar-un-titulo-nullable-operador-elvis">1.1.6 
+<span class="md-ellipsis">
+      
+        Mostrar un título nullable (operador elvis)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcion-mostrarnombre">1.1.7 
+<span class="md-ellipsis">
+      
+        Función mostrarNombre()
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sumar-dos-numeros-y-devolver-el-resultado">1.1.8 
+<span class="md-ellipsis">
+      
+        Sumar dos números y devolver el resultado
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#presentarse-con-nombre-y-edad">1.1.9 
+<span class="md-ellipsis">
+      
+        Presentarse con nombre y edad
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#condicionales-y-bucles">1.2 
+<span class="md-ellipsis">
+      
+        Condicionales y bucles
+      
+    </span>
+</a>
+<nav aria-label="Condicionales y bucles" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clasificar-numeros">1.2.1 
+<span class="md-ellipsis">
+      
+        Clasificar números
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tabla-de-multiplicar">1.2.2 
+<span class="md-ellipsis">
+      
+        Tabla de multiplicar
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funciones-parametros-nombrados-y-por-defecto">1.3 
+<span class="md-ellipsis">
+      
+        Funciones (parámetros nombrados y por defecto)
+      
+    </span>
+</a>
+<nav aria-label="Funciones (parámetros nombrados y por defecto)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mostrar-mensaje-y-veces-a-mostrarlo">1.3.1 
+<span class="md-ellipsis">
+      
+        Mostrar mensaje y veces a mostrarlo
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcion-que-muestra-datos-de-un-producto">1.3.2 
+<span class="md-ellipsis">
+      
+        Función que muestra datos de un producto
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-boton">1.3.3 
+<span class="md-ellipsis">
+      
+        Crear un botón
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funciones-lambda">1.4 
+<span class="md-ellipsis">
+      
+        Funciones lambda
+      
+    </span>
+</a>
+<nav aria-label="Funciones lambda" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcion-que-sume-dos-numeros">1.4.1 
+<span class="md-ellipsis">
+      
+        Función que sume dos números
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multiplicar">1.4.2 
+<span class="md-ellipsis">
+      
+        Multiplicar
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobar-si-es-par">1.4.3 
+<span class="md-ellipsis">
+      
+        Comprobar si es par
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#longitud-de-un-string">1.4.4 
+<span class="md-ellipsis">
+      
+        Longitud de un string
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#devolver-el-mayor">1.4.5 
+<span class="md-ellipsis">
+      
+        Devolver el mayor
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#restar-dos-numeros">1.4.6 
+<span class="md-ellipsis">
+      
+        Restar dos números
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funciones-de-orden-superior">1.5 
+<span class="md-ellipsis">
+      
+        Funciones de orden superior
+      
+    </span>
+</a>
+<nav aria-label="Funciones de orden superior" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#filtra-numeros-mayores-que-5">1.5.1 
+<span class="md-ellipsis">
+      
+        Filtra números mayores que 5
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuadrado-de-los-numeros">1.5.2 
+<span class="md-ellipsis">
+      
+        Cuadrado de los números
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#filtra-los-numeros-positivos-duplicalos">1.5.3 
+<span class="md-ellipsis">
+      
+        Filtra los números positivos duplícalos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mapeo-de-strings">1.5.4 
+<span class="md-ellipsis">
+      
+        Mapeo de strings
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clases-y-objetos">1.6 
+<span class="md-ellipsis">
+      
+        Clases y objetos
+      
+    </span>
+</a>
+<nav aria-label="Clases y objetos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-alumno">1.6.1 
+<span class="md-ellipsis">
+      
+        Clase alumno
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#producto">1.6.2 
+<span class="md-ellipsis">
+      
+        Producto
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#colecciones">1.7 
+<span class="md-ellipsis">
+      
+        Colecciones
+      
+    </span>
+</a>
+<nav aria-label="Colecciones" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#listas-inmutables-y-mutables">1.7.1 
+<span class="md-ellipsis">
+      
+        Listas inmutables y mutables
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#listas-mutables">1.7.2 
+<span class="md-ellipsis">
+      
+        Listas mutables
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lista-de-objetos-alumno">1.7.3 
+<span class="md-ellipsis">
+      
+        Lista de objetos Alumno
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lista-de-objetos-producto">1.7.4 
+<span class="md-ellipsis">
+      
+        Lista de objetos producto
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios-complejos">1.8 
+<span class="md-ellipsis">
+      
+        Ejercicios complejos
+      
+    </span>
+</a>
+<nav aria-label="Ejercicios complejos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-alumno-con-validaciones">1.8.1 
+<span class="md-ellipsis">
+      
+        Clase alumno con validaciones
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pedidos-de-productos">1.8.2 
+<span class="md-ellipsis">
+      
+        Pedidos de productos
+      
+    </span>
+</a>
+<nav aria-label="Pedidos de productos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-producto">
+<span class="md-ellipsis">
+      
+        Clase Producto
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-lineapedido">
+<span class="md-ellipsis">
+      
+        Clase LineaPedido
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-pedido">
+<span class="md-ellipsis">
+      
+        Clase Pedido
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio-banco">1.8.3 
+<span class="md-ellipsis">
+      
+        Ejercicio banco
+      
+    </span>
+</a>
+<nav aria-label="Ejercicio banco" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-cuentabancaria">
+<span class="md-ellipsis">
+      
+        Clase CuentaBancaria
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-cliente">
+<span class="md-ellipsis">
+      
+        Clase Cliente
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-banco">
+<span class="md-ellipsis">
+      
+        Clase Banco
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Jetpack Compose
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Jetpack Compose
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../compose-01/">
+<span class="md-ellipsis">
+    
+  
+    Desarrollo de interfaces (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../compose-02/">
+<span class="md-ellipsis">
+    
+  
+    Desarrollo de interfaces (II)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Prácticas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Prácticas
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../compose-02-practica/">
+<span class="md-ellipsis">
+    
+  
+    Práctica: pantalla de login
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Temas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Temas
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../compose-03-styles/">
+<span class="md-ellipsis">
+    
+  
+    Temas (themes)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/intro/">
+<span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/programming/">
+<span class="md-ellipsis">
+    
+  
+    Programación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/firewalling/">
+<span class="md-ellipsis">
+    
+  
+    Firewalling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/gamedev/">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/android/">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../apuntes-variados/control-versiones/">
+<span class="md-ellipsis">
+    
+  
+    Control versiones
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basicos-tipos-operadores-y-funciones">1.1 
+<span class="md-ellipsis">
+      
+        Básicos (tipos, operadores y funciones)
+      
+    </span>
+</a>
+<nav aria-label="Básicos (tipos, operadores y funciones)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#suma-dos-numeros">1.1.1 
+<span class="md-ellipsis">
+      
+        Suma dos números
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pedir-numeros-al-usuario">1.1.2 
+<span class="md-ellipsis">
+      
+        Pedir números al usuario
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#variables-que-pueden-ser-nulas">1.1.3 
+<span class="md-ellipsis">
+      
+        Variables que pueden ser nulas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#englobar-los-ejercicios-anteriores-en-funciones">1.1.4 
+<span class="md-ellipsis">
+      
+        Englobar los ejercicios anteriores en funciones
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#obtener-longitud-de-un-string-nullable-operador-elvis">1.1.5 
+<span class="md-ellipsis">
+      
+        Obtener longitud de un string nullable (operador elvis)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mostrar-un-titulo-nullable-operador-elvis">1.1.6 
+<span class="md-ellipsis">
+      
+        Mostrar un título nullable (operador elvis)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcion-mostrarnombre">1.1.7 
+<span class="md-ellipsis">
+      
+        Función mostrarNombre()
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sumar-dos-numeros-y-devolver-el-resultado">1.1.8 
+<span class="md-ellipsis">
+      
+        Sumar dos números y devolver el resultado
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#presentarse-con-nombre-y-edad">1.1.9 
+<span class="md-ellipsis">
+      
+        Presentarse con nombre y edad
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#condicionales-y-bucles">1.2 
+<span class="md-ellipsis">
+      
+        Condicionales y bucles
+      
+    </span>
+</a>
+<nav aria-label="Condicionales y bucles" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clasificar-numeros">1.2.1 
+<span class="md-ellipsis">
+      
+        Clasificar números
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tabla-de-multiplicar">1.2.2 
+<span class="md-ellipsis">
+      
+        Tabla de multiplicar
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funciones-parametros-nombrados-y-por-defecto">1.3 
+<span class="md-ellipsis">
+      
+        Funciones (parámetros nombrados y por defecto)
+      
+    </span>
+</a>
+<nav aria-label="Funciones (parámetros nombrados y por defecto)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mostrar-mensaje-y-veces-a-mostrarlo">1.3.1 
+<span class="md-ellipsis">
+      
+        Mostrar mensaje y veces a mostrarlo
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcion-que-muestra-datos-de-un-producto">1.3.2 
+<span class="md-ellipsis">
+      
+        Función que muestra datos de un producto
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#crear-un-boton">1.3.3 
+<span class="md-ellipsis">
+      
+        Crear un botón
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funciones-lambda">1.4 
+<span class="md-ellipsis">
+      
+        Funciones lambda
+      
+    </span>
+</a>
+<nav aria-label="Funciones lambda" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funcion-que-sume-dos-numeros">1.4.1 
+<span class="md-ellipsis">
+      
+        Función que sume dos números
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multiplicar">1.4.2 
+<span class="md-ellipsis">
+      
+        Multiplicar
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comprobar-si-es-par">1.4.3 
+<span class="md-ellipsis">
+      
+        Comprobar si es par
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#longitud-de-un-string">1.4.4 
+<span class="md-ellipsis">
+      
+        Longitud de un string
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#devolver-el-mayor">1.4.5 
+<span class="md-ellipsis">
+      
+        Devolver el mayor
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#restar-dos-numeros">1.4.6 
+<span class="md-ellipsis">
+      
+        Restar dos números
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funciones-de-orden-superior">1.5 
+<span class="md-ellipsis">
+      
+        Funciones de orden superior
+      
+    </span>
+</a>
+<nav aria-label="Funciones de orden superior" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#filtra-numeros-mayores-que-5">1.5.1 
+<span class="md-ellipsis">
+      
+        Filtra números mayores que 5
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cuadrado-de-los-numeros">1.5.2 
+<span class="md-ellipsis">
+      
+        Cuadrado de los números
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#filtra-los-numeros-positivos-duplicalos">1.5.3 
+<span class="md-ellipsis">
+      
+        Filtra los números positivos duplícalos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mapeo-de-strings">1.5.4 
+<span class="md-ellipsis">
+      
+        Mapeo de strings
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clases-y-objetos">1.6 
+<span class="md-ellipsis">
+      
+        Clases y objetos
+      
+    </span>
+</a>
+<nav aria-label="Clases y objetos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-alumno">1.6.1 
+<span class="md-ellipsis">
+      
+        Clase alumno
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#producto">1.6.2 
+<span class="md-ellipsis">
+      
+        Producto
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#colecciones">1.7 
+<span class="md-ellipsis">
+      
+        Colecciones
+      
+    </span>
+</a>
+<nav aria-label="Colecciones" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#listas-inmutables-y-mutables">1.7.1 
+<span class="md-ellipsis">
+      
+        Listas inmutables y mutables
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#listas-mutables">1.7.2 
+<span class="md-ellipsis">
+      
+        Listas mutables
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lista-de-objetos-alumno">1.7.3 
+<span class="md-ellipsis">
+      
+        Lista de objetos Alumno
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lista-de-objetos-producto">1.7.4 
+<span class="md-ellipsis">
+      
+        Lista de objetos producto
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios-complejos">1.8 
+<span class="md-ellipsis">
+      
+        Ejercicios complejos
+      
+    </span>
+</a>
+<nav aria-label="Ejercicios complejos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-alumno-con-validaciones">1.8.1 
+<span class="md-ellipsis">
+      
+        Clase alumno con validaciones
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pedidos-de-productos">1.8.2 
+<span class="md-ellipsis">
+      
+        Pedidos de productos
+      
+    </span>
+</a>
+<nav aria-label="Pedidos de productos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-producto">
+<span class="md-ellipsis">
+      
+        Clase Producto
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-lineapedido">
+<span class="md-ellipsis">
+      
+        Clase LineaPedido
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-pedido">
+<span class="md-ellipsis">
+      
+        Clase Pedido
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicio-banco">1.8.3 
+<span class="md-ellipsis">
+      
+        Ejercicio banco
+      
+    </span>
+</a>
+<nav aria-label="Ejercicio banco" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-cuentabancaria">
+<span class="md-ellipsis">
+      
+        Clase CuentaBancaria
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-cliente">
+<span class="md-ellipsis">
+      
+        Clase Cliente
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clase-banco">
+<span class="md-ellipsis">
+      
+        Clase Banco
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div><h1 id="ejercicios-de-kotlin"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Ejercicios de Kotlin</h1>
+<p>Crea un nuevo proyecto en IntelliJ IDEA con Kotlin y resuelve los siguientes ejercicios. En los ejercicios puedes ignorar las excepciones de momento (a no ser que se pida explícitamente).</p>
+<h2 id="basicos-tipos-operadores-y-funciones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Básicos (tipos, operadores y funciones)</h2>
+<h3 id="suma-dos-numeros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.1</span> Suma dos números</h3>
+<p>Crea un programa que:</p>
+<ul>
+<li>Cree una constante <code>n1</code> con el valor: 17.</li>
+<li>Cree una constante <code>n2</code> con el valor: 12. </li>
+<li>Crea una variable <code>suma</code> de tipo entero.</li>
+<li>Asigna (en otra línea diferente a la declaración de la creación de la variable) a la <code>suma</code> el valor de sumar <code>n1</code> y <code>n2</code>.</li>
+<li>Debe sacar un mensaje que ponga: "La suma de n1 y n2 es: suma". Usa el operador <code>+</code> para concatenar la frase y los valores de las variables. </li>
+</ul>
+<details class="success">
+<summary>Ver solución</summary>
+<div class="language-kotlin playground highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="c1">// NO es necesario poner el tipo, ya que ya estoy asignando un entero</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">n1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">17</span><span class="w"> </span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="c1">// No puedo poner la suma como "val", ya que implicaría que tengo que darle un valor constante.</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">suma</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="n">suma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n2</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"La suma de "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" y "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">" es "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">suma</span><span class="p">)</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<h3 id="pedir-numeros-al-usuario"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2</span> Pedir números al usuario</h3>
+<ol>
+<li>Repite el ejercicio anterior, pero ahora los números se pedirán al usuario. Puedes usar la función <code>readln()</code> y las <a href="https://codesignal.com/learn/courses/getting-started-with-kotlin/lessons/mastering-primitive-data-type-conversion-in-kotlin">funciones de conversión de tipos</a>: <code>toInt()</code>, <code>toString()</code>, etc.</li>
+<li>Además, el mensaje lo usarás sin concatenarlo con el operador <code>+</code>. Para concatenar strings puedes usar <code>$variable</code> dentro del mensaje. Por ejemplo: <code>println("Hola $nombre")</code></li>
+</ol>
+<h3 id="variables-que-pueden-ser-nulas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.3</span> Variables que pueden ser nulas</h3>
+<ol>
+<li>Crea una variable "mensaje" con valor null (no con valor "null" tipo string, sino nulo de verdad). Para ello usa el operador "?".</li>
+<li>Muestra el tamaño del array (length). Para que te compile tendrás que utilizar el operador de llamada segura <code>?.</code>.</li>
+<li>Prueba lo mismo pero ahora, en lugar de con el operador <code>?.</code>, usando el operador !!.</li>
+</ol>
+<h3 id="englobar-los-ejercicios-anteriores-en-funciones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.4</span> Englobar los ejercicios anteriores en funciones</h3>
+<p>Introduce los ejercicios anteriores de <strong>sumar números</strong> en funciones:</p>
+<ul>
+<li>La primera será <code>sumaNumeros(a, b)</code> que hará todo el ejercicio.</li>
+<li>La segunda (donde pides tu al usuario) será <code>sumaNumeros()</code> y englobará todo el ejercicio nuevamente. La petición de números al usuario se hará en otra función <code>pedirEntero(): Int</code>.</li>
+<li>Llama a las funciones desde el <code>main</code> y comprueba que siguen funcionando.</li>
+</ul>
+<details class="success">
+<summary>Ver varias posibles soluciones</summary>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">pedirNumeroYComprobarSiNegativoPositivoOCerov1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">"Introduce un número: "</span><span class="p">)</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readln</span><span class="p">().</span><span class="na">toInt</span><span class="p">()</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numero</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">"El número </span><span class="si">$</span><span class="n">numero</span><span class="s"> es positivo."</span><span class="p">)</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numero</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">"El número </span><span class="si">$</span><span class="n">numero</span><span class="s"> es negativo."</span><span class="p">)</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="n">println</span><span class="p">(</span><span class="s">"El número es cero"</span><span class="p">)</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="p">}</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">pedirNumeroYComprobarSiNegativoPositivoOCerov2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">"Introduce un número: "</span><span class="p">)</span>
+<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readln</span><span class="p">().</span><span class="na">toInt</span><span class="p">()</span>
+<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">descNumero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numero</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="s">"positivo"</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">numero</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="s">"negativo"</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s">"cero"</span>
+<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"El número </span><span class="si">$</span><span class="n">numero</span><span class="s"> es </span><span class="si">$</span><span class="n">descNumero</span><span class="s">."</span><span class="p">)</span>
+<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="p">}</span>
+<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>
+<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">pedirNumeroYComprobarSiNegativoPositivoOCeroConWhen</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="s">"Introduce un número: "</span><span class="p">)</span>
+<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">    </span><span class="kd">val</span><span class="w"> </span><span class="nv">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">readln</span><span class="p">().</span><span class="na">toInt</span><span class="p">()</span>
+<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>
+<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">    </span><span class="k">when</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">        </span><span class="n">numero</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">"El número </span><span class="si">$</span><span class="n">numero</span><span class="s"> es positivo."</span><span class="p">)</span>
+<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">        </span><span class="n">numero</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">"El número </span><span class="si">$</span><span class="n">numero</span><span class="s"> es negativo."</span><span class="p">)</span>
+<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">println</span><span class="p">(</span><span class="s">"El número es cero."</span><span class="p">)</span>
+<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="p">}</span>
+<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>
+<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">    </span><span class="c1">//pedirNumeroYComprobarSiNegativoPositivoOCerov1()</span>
+<a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">    </span><span class="c1">//pedirNumeroYComprobarSiNegativoPositivoOCerov2()</span>
+<a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">    </span><span class="n">pedirNumeroYComprobarSiNegativoPositivoOCeroConWhen</span><span class="p">()</span>
+<a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<h3 id="obtener-longitud-de-un-string-nullable-operador-elvis"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.5</span> Obtener longitud de un string nullable (operador elvis)</h3>
+<p>Crea una función <code>getLongitud</code> que devuelva la longitud de la cadena pasada como parámetro. La cadena será de tipo <code>String?</code>. Usa el operador elvis.</p>
+<h3 id="mostrar-un-titulo-nullable-operador-elvis"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.6</span> Mostrar un título nullable (operador elvis)</h3>
+<p>Dado: <code>var titulo: String? = null</code>, queremos mostrar un texto seguro: <code>Título: &lt;value&gt;</code>. Si es null aparecerá en pantalla: <code>Título: (sin título)</code>. Hazlo con <code>?:</code></p>
+<h3 id="funcion-mostrarnombre"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.7</span> Función mostrarNombre()</h3>
+<p>Crea una función mostrarNombre que muestre por pantalla el nombre pasado como parámetro (que será un string que puede ser nulo). No uses el operador <code>!!</code>. Pruébala.</p>
+<h3 id="sumar-dos-numeros-y-devolver-el-resultado"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.8</span> Sumar dos números y devolver el resultado</h3>
+<p>Define una función sumar que sume 2 números (y devuelva el resultado). Hazlo tanto <strong>de forma estándar</strong> (forma normal, con llaves) y <strong>como una expresión</strong> (sin llaves).</p>
+<h3 id="presentarse-con-nombre-y-edad"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.9</span> Presentarse con nombre y edad</h3>
+<p>Escribe un código Kotlin que tenga:
+- Una variable <code>val</code> con tu nombre.
+- Una variable <code>var</code> con tu edad. Haz que la edad pueda ser nula.
+- Una función <code>presentarse()</code> que devuelva un string del tipo: <code>Me llamo &lt;nombre&gt; y tengo &lt;edad&gt; años</code>.</p>
+<h2 id="condicionales-y-bucles"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Condicionales y bucles</h2>
+<h3 id="clasificar-numeros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Clasificar números</h3>
+<ol>
+<li>Escribe una función que pida un número al usuario y determine si es positivo, negativo o cero. Además, indica si es par o impar (en caso de no ser cero).</li>
+<li>Modifica el programa para que use <code>when</code> en lugar de <code>if-else</code>.</li>
+</ol>
+<h3 id="tabla-de-multiplicar"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Tabla de multiplicar</h3>
+<p>Crea una función que genere la tabla de multiplicar de un número pasado como parámetro (del 1 al 10). Usa un <a href="https://www.programiz.com/kotlin-programming/for-loop">bucle for</a> y muestra el resultado en formato: "5 x 3 = 15"</p>
+<h2 id="funciones-parametros-nombrados-y-por-defecto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Funciones (parámetros nombrados y por defecto)</h2>
+<h3 id="mostrar-mensaje-y-veces-a-mostrarlo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Mostrar mensaje y veces a mostrarlo</h3>
+<ol>
+<li>Escribe una única función <code>mostrarMensaje</code> que reciba dos parámetros: el mensaje y el número de veces que debe aparecer (por defecto será 1 vez). </li>
+<li>Debes llamar a la función de tres formas diferentes:
+   - Solo pasando el mensaje.
+   - Pasando el mensaje y el número de veces.
+   - Usando parámetros nombrados (named parameters).</li>
+</ol>
+<h3 id="funcion-que-muestra-datos-de-un-producto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Función que muestra datos de un producto</h3>
+<p>Crea una función <code>verDatosProducto</code> que reciba: nombre (string), precio (double), stock (entero) y categoría (string). Stock y precio tendrán 0 a valor por defecto y la categoría será "global" por defecto. Haz las siguientes llamadas:</p>
+<ul>
+<li>Solo nombre.</li>
+<li>Nombre y precio.</li>
+<li>Nombre y stock usando parámetros nombrados.</li>
+<li>Nombre y categoría (saltando precio y stock).</li>
+<li>Todos los parámetros, algunos por posición y otros nombrados.</li>
+</ul>
+<h3 id="crear-un-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> Crear un botón</h3>
+<p>Crea una función <code>crearBoton</code> que reciba:</p>
+<ul>
+<li>Un texto.</li>
+<li>Un color (por defecto "negro").</li>
+<li>Un borde (booleano).</li>
+<li>Un tamaño (por defecto 14).</li>
+</ul>
+<p>Llámala de estas formas:</p>
+<ul>
+<li>Solo el texto.</li>
+<li>Texto y tamaño.</li>
+<li>Texto, color y borde en el orden que quieras.</li>
+<li>Texto y borde (sin tocar el color y el tamaño).</li>
+<li>Texto, tamaño, color y borde en diferente orden.</li>
+</ul>
+<h2 id="funciones-lambda"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Funciones lambda</h2>
+<p>En estos ejercicios tendrás que guardar las funciones en variables y luego usarlas.</p>
+<h3 id="funcion-que-sume-dos-numeros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Función que sume dos números</h3>
+<p>Crea una función lambda que sume reciba dos parámetros y sume dos números. Guarda la función en una constante <code>sumarDosNumeros</code>.</p>
+<p><code>val sumarDosNumeros = ...</code></p>
+<details class="success">
+<summary>Ver solución</summary>
+<div class="language-kotlin playground highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">sumarDosNumeros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1">// Podemos poner entre ${} llamadas más complejas para no usar el operador '+'</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"La suma de 5 y 10 es: </span><span class="si">${</span><span class="n">sumarDosNumeros</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<p>Todos los siguientes ejercicios de esta parte debes intentar hacerlos de esta manera.</p>
+<h3 id="multiplicar"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> Multiplicar</h3>
+<ol>
+<li>Haz lo mismo pero ahora con una función que sea <code>multiplicarPorDos</code>.</li>
+<li>Ahora que se llame <code>multiplicarPor</code> y sean dos números que se multiplicarán uno por el otro.</li>
+</ol>
+<h3 id="comprobar-si-es-par"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.3</span> Comprobar si es par</h3>
+<p>Función que compruebe si un número es par.</p>
+<h3 id="longitud-de-un-string"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.4</span> Longitud de un string</h3>
+<p>Siguiendo el mismo formato, guarda en una val una función que compruebe la longitud de un string.</p>
+<h3 id="devolver-el-mayor"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.5</span> Devolver el mayor</h3>
+<p>Recibir como parámetro dos números y devolver el mayor. </p>
+<h3 id="restar-dos-numeros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.6</span> Restar dos números</h3>
+<p>Crea una constante (<code>val</code>) y asígnale una función que se ocupe de retar dos números.</p>
+<h2 id="funciones-de-orden-superior"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Funciones de orden superior</h2>
+<p>En las listas de kotlin, existen funciones de orden superior que reciben, como parámetro, otras funciones: filter, map, reduce, forEach, count...</p>
+<p>Realiza los siguientes ejercicios haciendo uso de estas funciones.</p>
+<p>Dado lo siguiente:
+</p><div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">numeros</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">21</span><span class="p">)</span>
+</code></pre></div>
+<p>Realiza los siguientes ejercicios.</p>
+<h3 id="filtra-numeros-mayores-que-5"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> Filtra números mayores que 5</h3>
+<p>Dada la lista anterior, filtra en otra lista de nombre <code>mayoresQue5</code> solo los números mayores que 5 (<em>filter</em>). Luego muéstralos por pantalla (<em>forEach</em>).</p>
+<h3 id="cuadrado-de-los-numeros"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> Cuadrado de los números</h3>
+<p>Dada la misma lista, almacena en otra lista de nombre <code>duplicados</code> todos los números duplicados. Luego muéstralos por pantalla.</p>
+<h3 id="filtra-los-numeros-positivos-duplicalos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.3</span> Filtra los números positivos duplícalos</h3>
+<p>Ahora, hagamos lo anterior todo junto. Filtra los mayors que 5, duplicalos y finalmente muéstralos por pantalla. <strong>Todo en la misma sentencia.</strong> (<code>filter + map + forEach</code>).</p>
+<h3 id="mapeo-de-strings"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.4</span> Mapeo de strings</h3>
+<p>Dada la siguiente lista:
+</p><div class="language-kotlin playground highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">val</span><span class="w"> </span><span class="nv">lenguajes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="s">"Kotlin"</span><span class="p">,</span><span class="w"> </span><span class="s">"Java"</span><span class="p">,</span><span class="w"> </span><span class="s">"JavaScript"</span><span class="p">,</span><span class="w"> </span><span class="s">"Scala"</span><span class="p">,</span><span class="w"> </span><span class="s">"Python"</span><span class="p">,</span><span class="w"> </span><span class="s">"Rust"</span><span class="p">)</span>
+</code></pre></div>
+<p>Haz lo siguiente:</p>
+<ol>
+<li>Obtén una nueva lista con la longitud de cada palabra de la misma y muestra el resultado por pantalla.</li>
+<li>Obtén una nueva lista con los elementos convertidos a mayúscula y muestra el resultado por pantalla.</li>
+<li>Filtra las que empiezan por "J", conviértelas a mayúsculas y muéstralas por pantalla.</li>
+</ol>
+<h2 id="clases-y-objetos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Clases y objetos</h2>
+<h3 id="clase-alumno"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> Clase alumno</h3>
+<ol>
+<li>Crea una clase <code>Alumno</code> con nombre (cadena), edad (entero) y nota (número decimal). Haz que si no se pone nota por defecto sea 0. </li>
+<li>Crea dos instancias de la clase Alumno, una usando parámetros ordenados y otra nombrados.</li>
+</ol>
+<h3 id="producto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.2</span> Producto</h3>
+<p>Crea una clase <code>Producto</code> con sus <em>getters</em>, <em>setters</em>, <em>toString()</em>, <em>hashCode()</em> y <em>copy()</em> de la manera más simple posible con Kotlin (es una sola línea). Sus atributos:</p>
+<ul>
+<li>Nombre.</li>
+<li>Cantidad.</li>
+<li>Precio.</li>
+</ul>
+<h2 id="colecciones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Colecciones</h2>
+<h3 id="listas-inmutables-y-mutables"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.1</span> Listas inmutables y mutables</h3>
+<ol>
+<li>Crea una lista inmutable de tres strings ("uno", "dos" y "tres") utilizando <code>listOf</code>. Intenta añadir un elemento y borrar otro, verás que no puedes.</li>
+<li>Crea ahora una lista mutable con <code>mutableListOf</code>. Intenta de nuevo añadir un elemento y eliminar otro.</li>
+</ol>
+<h3 id="listas-mutables"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.2</span> Listas mutables</h3>
+<p>Crea una <code>MutableList&lt;String&gt;</code> de productos:</p>
+<ul>
+<li>Añade 5 elementos</li>
+<li>Cambia el tercero</li>
+<li>Elimina el último</li>
+<li>Imprime los elementos con su índice</li>
+</ul>
+<h3 id="lista-de-objetos-alumno"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.3</span> Lista de objetos Alumno</h3>
+<p>Tienes la clase Alumno en los ejercicios de clases y objetos:</p>
+<ul>
+<li>Crea una lista de 5 alumnos.</li>
+<li>Filtra los que tengan nota &gt; 7.</li>
+<li>Imprime solo sus nombres.</li>
+<li>Saca la media de las notas.</li>
+<li>Ordena la lista por nota descendente.</li>
+</ul>
+<h3 id="lista-de-objetos-producto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.4</span> Lista de objetos producto</h3>
+<p>Crea una <code>MutableList&lt;Producto&gt;</code> y:</p>
+<ol>
+<li>Añade 4 productos    </li>
+<li>Crea una función que calcule el <strong>valor total del inventario</strong> <code>cantidad * precio</code> de cada uno.</li>
+<li>Crea otra función que busque un producto por nombre (si no existe, null).</li>
+<li>Crea una función que aumente la cantidad de un producto.</li>
+<li>Imprime un resumen formateado del inventario.</li>
+</ol>
+<h2 id="ejercicios-complejos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> Ejercicios complejos</h2>
+<h3 id="clase-alumno-con-validaciones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.1</span> Clase alumno con validaciones</h3>
+<p>Crea una nueva clase <code>Alumno</code> con:</p>
+<ul>
+<li>Nombre</li>
+<li>Apellidos</li>
+<li>Edad (no puede ser &lt; 0 ni &gt; 120)</li>
+<li>Lista de notas (lista mutable de enteros)</li>
+<li>Método para añadir nota validando rango 0–10</li>
+<li>Método para calcular media</li>
+<li>Método que devuelva si está aprobado</li>
+</ul>
+<h3 id="pedidos-de-productos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.2</span> Pedidos de productos</h3>
+<p>Crea 3 clases:</p>
+<h4 id="clase-producto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.2.1</span> Clase Producto</h4>
+<ul>
+<li>Nombre</li>
+<li>Precio</li>
+<li>Categoría (enum: ELECTRONICA, ROPA, HOGAR)</li>
+</ul>
+<p>Con validación en <code>init</code>.</p>
+<h4 id="clase-lineapedido"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.2.2</span> Clase LineaPedido</h4>
+<ul>
+<li>Producto</li>
+<li>Cantidad (mínimo 1)</li>
+<li>Método para obtener precio total (producto.precio * cantidad)</li>
+</ul>
+<h4 id="clase-pedido"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.2.3</span> Clase Pedido</h4>
+<ul>
+<li>Código</li>
+<li>Lista de líneas</li>
+<li>Método para añadir línea</li>
+<li>Método para obtener importe total</li>
+<li>Método para aplicar descuento en %</li>
+<li>Método para mostrar un resumen</li>
+</ul>
+<h3 id="ejercicio-banco"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.3</span> Ejercicio banco</h3>
+<p>Crea:</p>
+<h4 id="clase-cuentabancaria"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.3.1</span> Clase CuentaBancaria</h4>
+<ul>
+<li>Número de cuenta</li>
+<li>Titular</li>
+<li>Saldo</li>
+<li>Métodos: ingresar(), retirar() (con validación), transferir()</li>
+</ul>
+<h4 id="clase-cliente"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.3.2</span> Clase Cliente</h4>
+<ul>
+<li>Nombre</li>
+<li>Email</li>
+<li>Lista de cuentas</li>
+</ul>
+<h4 id="clase-banco"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.3.3</span> Clase Banco</h4>
+<ul>
+<li>Nombre</li>
+<li>Lista de clientes</li>
+<li>Método para buscar cliente por email</li>
+<li>Método para crear cuenta nueva</li>
+<li>Método para transferencias entre cuentas</li>
+</ul></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../../javascripts/kotlin.js"></script>
+<script src="https://unpkg.com/kotlin-playground@1"></script>
+</body>
+</html>

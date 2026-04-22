@@ -1,0 +1,12 @@
+#!/bin/bash
+
+total=0
+num=0
+
+while [ $num -ge 0 ]
+do
+	total=$(expr $total + $num)
+	read -p "Introduce número positivo: " num
+done
+
+echo "La suma total de los números es: $total."

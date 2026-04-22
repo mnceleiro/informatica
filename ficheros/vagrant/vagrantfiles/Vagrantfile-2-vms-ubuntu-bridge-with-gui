@@ -1,0 +1,52 @@
+Vagrant.configure("2") do |config|
+  
+  # Maquina 1
+  config.vm.define :vm1 do |vm1|
+    vm1.vm.box = "mnceleiro/ubuntu24"
+    vm1.vm.hostname = "vm1"
+	
+	# Si queremos la maquina en red interna (red privada entre las dos maquinas)
+    #vm1.vm.network "private_network", ip: "192.168.33.10"
+	
+	# Si queremos la maquina en la misma red que la maquina host
+	vm1.vm.network "public_network"	
+
+    vm1.vm.provider :virtualbox do |vb|
+      vb.gui = true
+      vb.name = "vm1"
+      vb.cpus = 1
+      vb.memory = 4096
+      vb.customize ["modifyvm", :id, "--groups", "/2vms-gui"]
+    end
+
+    vm1.vm.provision "shell", inline: <<-SHELL
+        export DEBIAN_FRONTEND=noninteractive
+		apt-get update -y
+      SHELL
+  end
+
+  # Máquina 2
+  config.vm.define :vm2 do |vm2|
+    vm2.vm.box = "mnceleiro/ubuntu24"
+    vm2.vm.hostname = "vm2"
+
+	# Si queremos la maquina en red interna (red privada entre las dos maquinas)
+    #vm2.vm.network "private_network", ip: "192.168.33.20"
+	
+	# Si queremos la maquina en la misma red que la maquina host
+	vm2.vm.network "public_network"	
+
+    vm2.vm.provider :virtualbox do |vb|
+      vb.gui = true
+      vb.name = "vm2"
+      vb.cpus = 1
+      vb.memory = 4096
+      vb.customize ["modifyvm", :id, "--groups", "/2vms-gui"]
+    end
+
+    vm2.vm.provision "shell", inline: <<-SHELL
+        export DEBIAN_FRONTEND=noninteractive
+		apt-get update -y
+      SHELL
+  end
+end

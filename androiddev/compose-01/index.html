@@ -1,0 +1,2452 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../kotlin/kotlin-exercises/" rel="prev"/>
+<link href="../compose-02/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Desarrollo de interfaces (I) - Informática y sistemas operativos</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../stylesheets/kotlin.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#desarrollo-de-interfaces-en-android-con-compose">1. 
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Informática y sistemas operativos" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Informática y sistemas operativos
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Desarrollo de interfaces (I)
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+          
+  
+  
+  Introducción a la informática
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../hardware/intro/">
+          
+  
+  
+  Hardware
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../virtualizacion-devops/intro/">
+          
+  
+  
+  Virtualización y DevOps
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gnu-linux/linux-desktop/">
+          
+  
+  
+  Sistemas operativos
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../java/intro/">
+          
+  
+  
+  Java
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../web/intro/">
+          
+  
+  
+  Web
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../gamedev/intro/">
+          
+  
+  
+  Gamedev
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../kotlin/kotlin-intro/">
+          
+  
+  
+  Android
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../apuntes-variados/intro/">
+          
+  
+  
+  Otros
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Informática y sistemas operativos" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Informática y sistemas operativos">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Informática y sistemas operativos
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/mnceleiro/informatica" title="Ir al repositorio">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introducción a la informática
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introducción a la informática
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Esta página
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/mecanografia/">
+<span class="md-ellipsis">
+    
+  
+    Mecanografía
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-informatica/">
+<span class="md-ellipsis">
+    
+  
+    Moverse en Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/ofimatica/">
+<span class="md-ellipsis">
+    
+  
+    Ofimática
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/multimedia/">
+<span class="md-ellipsis">
+    
+  
+    Multimedia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/seguridad-internet/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad en internet
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1-intro/intro-sos/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a los sistemas operativos
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/intro/">
+<span class="md-ellipsis">
+    
+  
+    Historia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/arquitecturas-fisicas/">
+<span class="md-ellipsis">
+    
+  
+    Arquitecturas físicas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes-de-ordenador/">
+<span class="md-ellipsis">
+    
+  
+    Componentes de un ordenador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/torre/">
+<span class="md-ellipsis">
+    
+  
+    Torres y placas base
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/procesador/">
+<span class="md-ellipsis">
+    
+  
+    Microprocesador
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/cpu-cooling/">
+<span class="md-ellipsis">
+    
+  
+    Refrigeración CPU
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/memorias/">
+<span class="md-ellipsis">
+    
+  
+    Memorias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/storage/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hardware/componentes/power-supply/">
+<span class="md-ellipsis">
+    
+  
+    Fuente de alimentación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/hardware/">
+<span class="md-ellipsis">
+    
+  
+    Almacenamiento, tarjetas gráficas y monitores
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Virtualización y DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Virtualización y DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/virtualbox/">
+<span class="md-ellipsis">
+    
+  
+    Virtualbox
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/vagrant/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/vagrant2/">
+<span class="md-ellipsis">
+    
+  
+    Vagrant (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/ansible/">
+<span class="md-ellipsis">
+    
+  
+    Ansible
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/docker/">
+<span class="md-ellipsis">
+    
+  
+    Docker I: iniciación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/docker-2/">
+<span class="md-ellipsis">
+    
+  
+    Docker II: Dockerfiles
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../virtualizacion-devops/docker-3/">
+<span class="md-ellipsis">
+    
+  
+    Docker III: Docker Compose
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Sistemas operativos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemas operativos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux - básico
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux - básico
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/linux-desktop/">
+<span class="md-ellipsis">
+    
+  
+    Distribuciones y entornos de escritorio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/installation/">
+<span class="md-ellipsis">
+    
+  
+    Instalación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/commands-basics/">
+<span class="md-ellipsis">
+    
+  
+    Comandos básicos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/files/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de ficheros
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/users-groups-local/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de usuarios y grupos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_1_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_6" id="__nav_4_1_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/exercise-terminal-basics/">
+<span class="md-ellipsis">
+    
+  
+    1. Manejo del terminal
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    GNU/Linux: scripting
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    GNU/Linux: scripting
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/scripting-linux-2/">
+<span class="md-ellipsis">
+    
+  
+    Programación de scripts (II)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Actividades
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Actividades
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/ejercicios-variados/">
+<span class="md-ellipsis">
+    
+  
+    2. Ejercicios variados
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/examen/">
+<span class="md-ellipsis">
+    
+  
+    3. Examen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Servidores
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Servidores
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/networks/">
+<span class="md-ellipsis">
+    
+  
+    Redes en Linux
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/web-servers/">
+<span class="md-ellipsis">
+    
+  
+    Servidores web
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/apache/">
+<span class="md-ellipsis">
+    
+  
+    Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Actividad: Instalación y configuración básica de servidores web y de base de datos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/0-formato-entrega/">
+<span class="md-ellipsis">
+    
+  
+    4.0. Formato y entrega
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/1-web-servers-xampp/">
+<span class="md-ellipsis">
+    
+  
+    4.1. Windows y XAMPP
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/2-web-servers-apache/">
+<span class="md-ellipsis">
+    
+  
+    4.2. Instalación de Apache
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/3-web-servers-aws/">
+<span class="md-ellipsis">
+    
+  
+    4.3. PHP y bases de datos en AWS
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/4-web-servers-wordpress/">
+<span class="md-ellipsis">
+    
+  
+    4.4. Instalando Wordpress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gnu-linux/servers/https/">
+<span class="md-ellipsis">
+    
+  
+    4.5. Opcional: dominios y HTTPS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Java
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Java
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/file-basics/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros I: básico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../java/files/">
+<span class="md-ellipsis">
+    
+  
+    Ficheros II: Java
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/intro/">
+<span class="md-ellipsis">
+    
+  
+    Frontend Roadmap
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../web/js-basics/">
+<span class="md-ellipsis">
+    
+  
+    Iniciación a JavaScript
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Gamedev
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción al desarrollo de videojuegos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Primer juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Primer juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-1/">
+<span class="md-ellipsis">
+    
+  
+    Introducción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-2/">
+<span class="md-ellipsis">
+    
+  
+    Mejorando el movimiento
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio1-2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio I (continuación)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-3/">
+<span class="md-ellipsis">
+    
+  
+    Físicas y colisiones (I)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio2/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio: minijuego de coches
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-ejercicio-3-repaso-transform/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicio de repaso
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity - Segundo juego
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity - Segundo juego
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-4-animaciones/">
+<span class="md-ellipsis">
+    
+  
+    1. Movimiento y animaciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-5-colisiones/">
+<span class="md-ellipsis">
+    
+  
+    2. Recolección de objetos y detección de colisiones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity2d-6-tilemap/">
+<span class="md-ellipsis">
+    
+  
+    3. Modelado del mundo
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/exportacion-movil/">
+<span class="md-ellipsis">
+    
+  
+    4. Exportación del juego al móvil
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Unity 3D
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unity 3D
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../gamedev/unity/unity3d-ejercicio-1">
+<span class="md-ellipsis">
+    
+  
+    Minijuego de plataformas 3D
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Android
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Kotlin
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Kotlin
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kotlin/kotlin-intro/">
+<span class="md-ellipsis">
+    
+  
+    Introducción a Kotlin
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kotlin/kotlin-exercises/">
+<span class="md-ellipsis">
+    
+  
+    Ejercicios de Kotlin
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Jetpack Compose
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Jetpack Compose
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Desarrollo de interfaces (I)
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Desarrollo de interfaces (I)
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#que-es-jetpack-compose">1.1 
+<span class="md-ellipsis">
+      
+        ¿Qué es Jetpack Compose?
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funciones-que-pintan-cosas">1.2 
+<span class="md-ellipsis">
+      
+        Funciones que pintan cosas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#primer-contacto-con-un-proyecto-compose">1.3 
+<span class="md-ellipsis">
+      
+        Primer contacto con un proyecto Compose
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creando-nuestra-primera-funcion-composable">1.4 
+<span class="md-ellipsis">
+      
+        Creando nuestra primera función composable
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#importaciones">1.5 
+<span class="md-ellipsis">
+      
+        Importaciones
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#previsualizar-componentes">1.6 
+<span class="md-ellipsis">
+      
+        Previsualizar componentes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opciones-de-preview">1.7 
+<span class="md-ellipsis">
+      
+        Opciones de Preview
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-componente-text">1.8 
+<span class="md-ellipsis">
+      
+        El componente Text
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mostrando-varios-componentes">1.9 
+<span class="md-ellipsis">
+      
+        Mostrando varios componentes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#colocando-elementos-en-horizontal">1.10 
+<span class="md-ellipsis">
+      
+        Colocando elementos en horizontal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#combinando-column-y-row">1.11 
+<span class="md-ellipsis">
+      
+        Combinando Column y Row
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#botones">1.12 
+<span class="md-ellipsis">
+      
+        Botones
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#botones-dentro-de-una-pantalla">1.13 
+<span class="md-ellipsis">
+      
+        Botones dentro de una pantalla
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-parametro-onclick">1.14 
+<span class="md-ellipsis">
+      
+        El parámetro onClick
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../compose-02/">
+<span class="md-ellipsis">
+    
+  
+    Desarrollo de interfaces (II)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Prácticas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Prácticas
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../compose-02-practica/">
+<span class="md-ellipsis">
+    
+  
+    Práctica: pantalla de login
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Temas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_8_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Temas
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../compose-03-styles/">
+<span class="md-ellipsis">
+    
+  
+    Temas (themes)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Otros
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Otros
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/intro/">
+<span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/programming/">
+<span class="md-ellipsis">
+    
+  
+    Programación
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/firewalling/">
+<span class="md-ellipsis">
+    
+  
+    Firewalling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/gamedev/">
+<span class="md-ellipsis">
+    
+  
+    Gamedev
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/android/">
+<span class="md-ellipsis">
+    
+  
+    Android
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../apuntes-variados/control-versiones/">
+<span class="md-ellipsis">
+    
+  
+    Control versiones
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#que-es-jetpack-compose">1.1 
+<span class="md-ellipsis">
+      
+        ¿Qué es Jetpack Compose?
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#funciones-que-pintan-cosas">1.2 
+<span class="md-ellipsis">
+      
+        Funciones que pintan cosas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#primer-contacto-con-un-proyecto-compose">1.3 
+<span class="md-ellipsis">
+      
+        Primer contacto con un proyecto Compose
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creando-nuestra-primera-funcion-composable">1.4 
+<span class="md-ellipsis">
+      
+        Creando nuestra primera función composable
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#importaciones">1.5 
+<span class="md-ellipsis">
+      
+        Importaciones
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#previsualizar-componentes">1.6 
+<span class="md-ellipsis">
+      
+        Previsualizar componentes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opciones-de-preview">1.7 
+<span class="md-ellipsis">
+      
+        Opciones de Preview
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-componente-text">1.8 
+<span class="md-ellipsis">
+      
+        El componente Text
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mostrando-varios-componentes">1.9 
+<span class="md-ellipsis">
+      
+        Mostrando varios componentes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#colocando-elementos-en-horizontal">1.10 
+<span class="md-ellipsis">
+      
+        Colocando elementos en horizontal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#combinando-column-y-row">1.11 
+<span class="md-ellipsis">
+      
+        Combinando Column y Row
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#botones">1.12 
+<span class="md-ellipsis">
+      
+        Botones
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#botones-dentro-de-una-pantalla">1.13 
+<span class="md-ellipsis">
+      
+        Botones dentro de una pantalla
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-parametro-onclick">1.14 
+<span class="md-ellipsis">
+      
+        El parámetro onClick
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div><h1 id="desarrollo-de-interfaces-en-android-con-compose"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Desarrollo de interfaces en Android con Compose</h1>
+<p>Hasta ahora hemos trabajado con Kotlin, pero todavía no hemos creado interfaces gráficas para Android.</p>
+<p>En Android, la interfaz es todo lo que ve y toca el usuario:</p>
+<ul>
+<li>Textos</li>
+<li>Botones</li>
+<li>Imágenes</li>
+<li>Cajas de texto</li>
+<li>Listas</li>
+<li>Pantallas completas</li>
+</ul>
+<p>Para crear esas interfaces vamos a usar <strong>Jetpack Compose</strong>.</p>
+<h2 id="que-es-jetpack-compose"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> ¿Qué es Jetpack Compose?</h2>
+<p>Jetpack Compose es la forma moderna de crear interfaces en Android usando Kotlin.</p>
+<p>Antes, en Android era muy habitual crear las pantallas con ficheros XML. Es decir, por un lado teníamos el código Kotlin y por otro lado teníamos ficheros XML donde se definía la interfaz.</p>
+<p>Con Compose la idea cambia bastante:</p>
+<ul>
+<li>La interfaz se escribe directamente con Kotlin.</li>
+<li>Las pantallas se construyen usando funciones.</li>
+<li>Cada parte de la interfaz se puede dividir en funciones pequeñas.</li>
+</ul>
+<p>Por ejemplo, en lugar de crear un botón en XML, en Compose escribiremos algo parecido a esto:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">Button</span><span class="p">(</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">"Púlsame"</span><span class="p">)</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>No te preocupes si todavía no entiendes todos los detalles. La idea importante por ahora es esta: <strong>en Compose vamos a construir interfaces escribiendo código Kotlin</strong>.</p>
+<h2 id="funciones-que-pintan-cosas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Funciones que pintan cosas</h2>
+<p>En Kotlin ya hemos visto funciones. Por ejemplo:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">saludar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="s">"Hola"</span><span class="p">)</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">}</span>
+</code></pre></div>
+<p>Esta función ejecuta código y escribe un mensaje por consola.</p>
+<p>En Compose también vamos a crear funciones, pero algunas de esas funciones no van a escribir por consola, sino que van a <strong>dibujar elementos en la pantalla</strong>.</p>
+<p>Por ejemplo:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">PantallaPrincipal</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">"Hola Android"</span><span class="p">)</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Esta función tiene algo nuevo: <code>@Composable</code>.</p>
+<p>La anotación <code>@Composable</code> le dice a Android que esa función forma parte de la interfaz. Es decir, no es una función normal cualquiera: es una función que puede pintar componentes en pantalla.</p>
+<p>De momento quédate con esta idea:</p>
+<ul>
+<li>Una función normal ejecuta instrucciones.</li>
+<li>Una función <code>@Composable</code> construye una parte de la interfaz.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Recuerda</p>
+<p>Si quieres que tu función pinte algo en pantalla, tiene que tener la anotación @composable.</p>
+</div>
+<h2 id="primer-contacto-con-un-proyecto-compose"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Primer contacto con un proyecto Compose</h2>
+<p>Cuando creamos un proyecto nuevo de Android con Compose, Android Studio nos genera bastante código automáticamente. Para crear un proyecto en Compose puedes hacer lo siguiente:</p>
+<ol>
+<li>Abrir Android Studio y seleccionar "Nuevo" -&gt; "Nuevo proyecto".</li>
+<li>Luego, seleccionar "Activity vacía" (o "Empty Activity").</li>
+<li>Después, poner un nombre al proyecto y pulsa "finalizar".</li>
+</ol>
+<p>Con esto, tendrás un proyecto creado que podrás ver en el emulador.</p>
+<p>Al principio esto puede abrumar un poco, porque aparecen muchos ficheros que todavía no conocemos. No pasa nada. En esta primera parte no vamos a entenderlo todo de golpe.</p>
+<p>Ahora, quiero que te fijes en el fichero <code>MainActivity.kt</code>, que suele ser el <strong>punto de entrada principal de la aplicación</strong>.</p>
+<p>Dentro de ese fichero verás algo parecido a esto:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">setContent</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">NombreDelProyectoTheme</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">        </span><span class="n">Greeting</span><span class="p">(</span><span class="s">"Android"</span><span class="p">)</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>La función <code>setContent</code> indica qué interfaz se va a mostrar en pantalla.</p>
+<p>Dicho de forma simple:</p>
+<ul>
+<li><code>MainActivity</code> arranca la aplicación.</li>
+<li><code>setContent</code> coloca la interfaz en pantalla.</li>
+<li>Las funciones <code>@Composable</code> definen las piezas de esa interfaz.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Crea un proyecto nuevo en Android Studio usando una plantilla básica con Jetpack Compose.</li>
+<li>Ejecuta el proyecto sin modificar nada y comprueba que la aplicación se abre correctamente.</li>
+<li>Abre el fichero <code>MainActivity.kt</code>.</li>
+<li>Busca la función <code>setContent</code>.</li>
+<li>Busca alguna función que tenga la anotación <code>@Composable</code>.</li>
+<li>Cambia el texto que aparece por defecto en pantalla por otro texto distinto, por ejemplo: "Hola Compose".</li>
+<li>Ejecuta de nuevo la aplicación y comprueba que el texto ha cambiado.</li>
+</ol>
+</div>
+<p>No te preocupes si todavía no entiendes todo el código que aparece en el proyecto. En este primer ejercicio lo importante es localizar las piezas principales y comprobar que somos capaces de modificar una parte pequeña de la interfaz.</p>
+<h2 id="creando-nuestra-primera-funcion-composable"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Creando nuestra primera función composable</h2>
+<p>En Compose, lo normal es dividir la interfaz en funciones pequeñas. Cada función se encarga de pintar una parte de la pantalla.</p>
+<p>Para empezar a ordenar un poco el proyecto, no vamos a meter todas las funciones dentro de <code>MainActivity.kt</code>. Vamos a crear un paquete llamado <code>components</code> y, dentro, un fichero Kotlin llamado <code>MiPrimeraPantalla.kt</code>.</p>
+<p>La estructura quedaría parecida a esta:</p>
+<div class="language-text highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>app
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>└── java
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>    └── tu.paquete
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>        ├── MainActivity.kt
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>        └── components
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>            └── MiPrimeraPantalla.kt
+</code></pre></div>
+<p>Dentro de <code>MiPrimeraPantalla.kt</code> vamos a crear una función muy sencilla:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">MiPrimeraPantalla</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="s">"Mi primera pantalla con Compose"</span><span class="p">)</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>Esta función no devuelve un <code>String</code>, ni un número, ni un objeto. Su trabajo es <strong>pintar algo en la pantalla</strong>.</p>
+<p>Para que Android muestre esta función, tenemos que llamarla dentro de <code>setContent</code>:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">setContent</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">NombreDelProyectoTheme</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">        </span><span class="n">MiPrimeraPantalla</span><span class="p">()</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Fíjate en la idea:</p>
+<ul>
+<li><code>setContent</code> indica qué se dibuja en la pantalla.</li>
+<li><code>MiPrimeraPantalla()</code> es la función que hemos creado nosotros.</li>
+<li><code>Text(...)</code> es el componente que muestra texto.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Crea un paquete llamado <code>components</code>.</li>
+<li>Dentro de ese paquete, crea un fichero Kotlin llamado <code>MiPrimeraPantalla.kt</code>.</li>
+<li>En ese fichero, crea una función llamada <code>MiPrimeraPantalla</code>.</li>
+<li>Dentro de esa función, muestra un texto usando <code>Text</code>.</li>
+<li>Vuelve a <code>MainActivity.kt</code> y llama a <code>MiPrimeraPantalla()</code> dentro de <code>setContent</code>.</li>
+<li>Ejecuta la aplicación y comprueba que aparece tu texto.</li>
+<li>Cambia el texto por otro distinto y vuelve a ejecutar la aplicación.</li>
+</ol>
+</div>
+<h2 id="importaciones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Importaciones</h2>
+<p>Al escribir <code>@Composable</code> o <code>Text</code>, es posible que Android Studio los marque en rojo al principio. Esto suele pasar porque faltan los <code>import</code>.</p>
+<p>En Kotlin ya hemos visto que, para usar ciertas clases o funciones, a veces hay que importarlas. En Compose pasa lo mismo.</p>
+<p>Por ejemplo, para poder usar <code>Text</code>, normalmente necesitaremos este import:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.material3.Text</span>
+</code></pre></div>
+<p>Y para poder usar <code>@Composable</code>, necesitaremos este otro:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">import</span><span class="w"> </span><span class="nn">androidx.compose.runtime.Composable</span>
+</code></pre></div>
+<p>No hace falta aprenderse todos los imports de memoria. Android Studio suele ayudarnos a importarlos automáticamente cuando pulsamos <code>Alt + Enter</code> sobre el elemento que aparece en rojo.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Borra el import de <code>Text</code> si lo tienes en tu fichero.</li>
+<li>Observa qué error aparece en Android Studio.</li>
+<li>Coloca el cursor encima de <code>Text</code>.</li>
+<li>Pulsa <code>Alt + Enter</code> y deja que Android Studio añada el import automáticamente.</li>
+<li>Repite el mismo proceso si te ocurre con <code>@Composable</code>.</li>
+</ol>
+</div>
+<h2 id="previsualizar-componentes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Previsualizar componentes</h2>
+<p>Una de las cosas cómodas de Compose es que podemos previsualizar algunos componentes sin tener que ejecutar toda la aplicación en el emulador.</p>
+<p>Para eso usamos la anotación <code>@Preview</code>.</p>
+<p>Por ejemplo:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="nd">@Preview</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">PreviewMiPrimeraPantalla</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="n">MiPrimeraPantalla</span><span class="p">()</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Esta función no la llamamos desde <code>setContent</code>. Su objetivo es que Android Studio pueda mostrar una vista previa de nuestra pantalla mientras estamos programando.</p>
+<p>Hay una diferencia importante:</p>
+<ul>
+<li><code>MiPrimeraPantalla</code> es el componente real que queremos usar.</li>
+<li><code>PreviewMiPrimeraPantalla</code> sirve solo para verlo en Android Studio.</li>
+</ul>
+<p>Normalmente, las funciones de preview llaman por dentro a otras funciones composable. Así evitamos duplicar el código de la interfaz.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>En el fichero <code>MiPrimeraPantalla.kt</code>, debajo de la función <code>MiPrimeraPantalla</code>, crea una función <code>PreviewMiPrimeraPantalla</code>.</li>
+<li>Añade las anotaciones <code>@Preview</code> y <code>@Composable</code>.</li>
+<li>Dentro, llama a <code>MiPrimeraPantalla()</code>.</li>
+<li>Abre la vista <code>Split</code> o <code>Design</code> de Android Studio.</li>
+<li>Comprueba si aparece la previsualización.</li>
+<li>Cambia el texto de <code>MiPrimeraPantalla</code> y observa si se actualiza también en la preview.</li>
+</ol>
+</div>
+<h2 id="opciones-de-preview"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Opciones de Preview</h2>
+<p>La anotación <code>@Preview</code> puede recibir algunas opciones para modificar cómo se muestra la previsualización.</p>
+<p>Una opción muy útil al principio es <code>showSystemUi</code>.</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="nd">@Preview</span><span class="p">(</span><span class="n">showSystemUi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">PreviewMiPrimeraPantalla</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="n">MiPrimeraPantalla</span><span class="p">()</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Con <code>showSystemUi = true</code>, Android Studio muestra la preview dentro de una pantalla de móvil más realista, incluyendo elementos del sistema.</p>
+<p>Esto no cambia la aplicación real. Solo cambia cómo se ve la previsualización dentro de Android Studio.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Cambia tu <code>@Preview</code> por <code>@Preview(showSystemUi = true)</code>.</li>
+<li>Observa qué diferencia aparece en la previsualización.</li>
+<li>Vuelve a dejarlo como <code>@Preview</code> y compara el resultado.</li>
+<li>Finalmente, déjalo como <code>@Preview(showSystemUi = true)</code>.</li>
+</ol>
+</div>
+<h2 id="el-componente-text"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> El componente Text</h2>
+<p>El primer componente que estamos usando es <code>Text</code>.</p>
+<p><code>Text</code> sirve para mostrar texto en pantalla. Es algo parecido a hacer un <code>println</code>, pero en lugar de escribir en la consola, escribe en la interfaz gráfica.</p>
+<p>El ejemplo más sencillo es este:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">Text</span><span class="p">(</span><span class="s">"Hola Compose"</span><span class="p">)</span>
+</code></pre></div>
+<p>También podemos escribirlo indicando el nombre del parámetro:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">Text</span><span class="p">(</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hola Compose"</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="p">)</span>
+</code></pre></div>
+<p>Las dos formas hacen lo mismo, pero la segunda es más clara cuando el componente empieza a tener más opciones.</p>
+<p>En Kotlin ya hemos visto que las funciones pueden recibir parámetros. En Compose ocurre igual: los componentes son funciones y reciben parámetros para configurar cómo se ven o cómo se comportan.</p>
+<p>De momento vamos a usar <code>Text</code> solo con su parámetro más básico: <code>text</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>En <code>MiPrimeraPantalla</code>, cambia el texto que estás mostrando por tu nombre.</li>
+<li>Escríbelo primero de esta forma: <code>Text("Tu nombre")</code>.</li>
+<li>Después, cámbialo para usar el parámetro con nombre: <code>Text(text = "Tu nombre")</code>.</li>
+<li>Comprueba en la preview que el resultado es el mismo.</li>
+</ol>
+</div>
+<h2 id="mostrando-varios-componentes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9</span> Mostrando varios componentes</h2>
+<p>Vamos a probar a escribir dos textos dentro de la misma función:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">MiPrimeraPantalla</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hola"</span><span class="p">)</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Estoy aprendiendo Compose"</span><span class="p">)</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Esto parece razonable, pero nos falta una idea importante: <strong>tenemos que indicar cómo se colocan esos elementos en la pantalla</strong>.</p>
+<p>En Compose existen componentes que sirven para organizar otros componentes. Uno de los más sencillos es <code>Column</code>.</p>
+<p><code>Column</code> coloca los elementos uno debajo de otro, en vertical.</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">MiPrimeraPantalla</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="n">Column</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hola"</span><span class="p">)</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Estoy aprendiendo Compose"</span><span class="p">)</span>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>Aquí <code>Column</code> no muestra texto por sí misma. Su trabajo es ordenar los componentes que tiene dentro.</p>
+<p>La idea es:</p>
+<ul>
+<li><code>Text</code> muestra texto.</li>
+<li><code>Column</code> coloca elementos en vertical.</li>
+<li>Dentro de <code>Column</code> podemos meter varios componentes.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Modifica <code>MiPrimeraPantalla</code> para que use una <code>Column</code>.</li>
+<li>Dentro de la <code>Column</code>, añade dos componentes <code>Text</code>.</li>
+<li>El primer texto debe mostrar tu nombre.</li>
+<li>El segundo texto debe mostrar el nombre del ciclo o asignatura.</li>
+<li>Comprueba el resultado en la preview.</li>
+</ol>
+</div>
+<h2 id="colocando-elementos-en-horizontal"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10</span> Colocando elementos en horizontal</h2>
+<p>Igual que <code>Column</code> coloca elementos en vertical, existe otro componente llamado <code>Row</code>.</p>
+<p><code>Row</code> coloca los elementos uno al lado de otro, en horizontal.</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">MiPrimeraPantalla</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="n">Row</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Ada"</span><span class="p">)</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Lovelace"</span><span class="p">)</span>
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>La idea es muy parecida:</p>
+<ul>
+<li><code>Column</code> coloca elementos de arriba a abajo.</li>
+<li><code>Row</code> coloca elementos de izquierda a derecha.</li>
+</ul>
+<p>Por ahora no vamos a preocuparnos por separaciones, márgenes ni tamaños. Primero nos interesa entender cómo se ordenan los componentes.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Cambia la <code>Column</code> anterior por una <code>Row</code>.</li>
+<li>Dentro de la <code>Row</code>, añade dos textos.</li>
+<li>El primer texto debe mostrar tu nombre.</li>
+<li>El segundo texto debe mostrar tus apellidos.</li>
+<li>Comprueba el resultado en la preview.</li>
+<li>Vuelve a cambiar <code>Row</code> por <code>Column</code> y observa la diferencia.</li>
+</ol>
+</div>
+<h2 id="combinando-column-y-row"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11</span> Combinando Column y Row</h2>
+<p>Las interfaces se construyen combinando componentes pequeños.</p>
+<p>Por ejemplo, podemos tener una <code>Column</code> que coloca varias filas en vertical, y dentro de una de esas filas usar una <code>Row</code>.</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">MiPrimeraPantalla</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="n">Column</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Ficha de la alumna"</span><span class="p">)</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">        </span><span class="n">Row</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Nombre: "</span><span class="p">)</span>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Grace Hopper"</span><span class="p">)</span>
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a>
+<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w">        </span><span class="n">Row</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Ciclo: "</span><span class="p">)</span>
+<a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"DAM"</span><span class="p">)</span>
+<a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="p">}</span>
+</code></pre></div>
+<p>En este ejemplo:</p>
+<ul>
+<li>La <code>Column</code> organiza toda la pantalla en vertical.</li>
+<li>Cada <code>Row</code> organiza una pequeña línea en horizontal.</li>
+<li>Los <code>Text</code> muestran la información.</li>
+</ul>
+<p>Esto es muy habitual en Compose: usar componentes que contienen otros componentes.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Modifica <code>MiPrimeraPantalla</code> para crear una pequeña ficha personal.</li>
+<li>Usa una <code>Column</code> principal.</li>
+<li>Añade un primer <code>Text</code> con el título "Ficha personal".</li>
+<li>Añade una <code>Row</code> para mostrar tu nombre.</li>
+<li>Añade otra <code>Row</code> para mostrar tu ciclo o curso.</li>
+<li>Añade otra <code>Row</code> para mostrar tu asignatura favorita.</li>
+<li>Comprueba el resultado en la preview.</li>
+</ol>
+</div>
+<h2 id="botones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.12</span> Botones</h2>
+<p>Hasta ahora solo hemos mostrado textos, pero una interfaz normalmente también tiene elementos con los que el usuario puede interactuar.</p>
+<p>Uno de los componentes interactivos más habituales es el botón.</p>
+<p>Para no mezclar estos ejemplos con <code>MiPrimeraPantalla</code>, vamos a crear un fichero nuevo dentro del paquete <code>components</code> llamado <code>PantallasBotones.kt</code>.</p>
+<p>En ese fichero iremos creando ejemplos pequeños:</p>
+<ul>
+<li><code>PantallaBotones1</code></li>
+<li><code>PantallaBotones2</code></li>
+<li><code>PantallaBotones3</code></li>
+</ul>
+<p>Empezamos con el primer ejemplo. En Compose podemos crear un botón con <code>Button</code>:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">PantallaBotones1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="n">Button</span><span class="p">(</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">        </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Guardar"</span><span class="p">)</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>Fíjate en que el botón tiene dos partes importantes:</p>
+<ul>
+<li><code>onClick = {}</code> indica qué debe ocurrir cuando se pulsa el botón.</li>
+<li>Dentro del bloque del botón hemos puesto un <code>Text</code>, que es el texto que se ve dentro del botón.</li>
+</ul>
+<p>De momento el botón no hará nada al pulsarlo. Hemos dejado <code>onClick</code> vacío para centrarnos primero en conseguir que el botón aparezca en pantalla.</p>
+<p>Para poder verlo en Android Studio, creamos también su preview:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="nd">@Preview</span><span class="p">(</span><span class="n">showSystemUi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">PreviewPantallaBotones1</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="n">PantallaBotones1</span><span class="p">()</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>Crea un fichero llamado <code>PantallasBotones.kt</code> dentro del paquete <code>components</code>.</li>
+<li>Crea una función llamada <code>PantallaBotones1</code>.</li>
+<li>Dentro, añade un <code>Button</code>.</li>
+<li>El botón debe mostrar el texto "Aceptar".</li>
+<li>Crea una preview llamada <code>PreviewPantallaBotones1</code>.</li>
+<li>Comprueba el resultado en la preview.</li>
+<li>Cambia el texto del botón por "Guardar cambios".</li>
+<li>Comprueba de nuevo el resultado en la preview.</li>
+</ol>
+</div>
+<h2 id="botones-dentro-de-una-pantalla"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.13</span> Botones dentro de una pantalla</h2>
+<p>Normalmente no tendremos un botón aislado, sino una pantalla con textos, filas, columnas y botones.</p>
+<p>Podemos combinar lo que ya sabemos:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">PantallaBotones2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="n">Column</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Ficha de la alumna"</span><span class="p">)</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="w">        </span><span class="n">Row</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Nombre: "</span><span class="p">)</span>
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Grace Hopper"</span><span class="p">)</span>
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a>
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="w">        </span><span class="n">Row</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Ciclo: "</span><span class="p">)</span>
+<a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"DAM"</span><span class="p">)</span>
+<a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a>
+<a href="#__codelineno-19-16" id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="w">        </span><span class="n">Button</span><span class="p">(</span>
+<a href="#__codelineno-19-17" id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="w">            </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{}</span>
+<a href="#__codelineno-19-18" id="__codelineno-19-18" name="__codelineno-19-18"></a><span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-19-19" id="__codelineno-19-19" name="__codelineno-19-19"></a><span class="w">            </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Guardar"</span><span class="p">)</span>
+<a href="#__codelineno-19-20" id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-19-21" id="__codelineno-19-21" name="__codelineno-19-21"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-19-22" id="__codelineno-19-22" name="__codelineno-19-22"></a><span class="p">}</span>
+</code></pre></div>
+<p>En este ejemplo, la <code>Column</code> coloca todos los elementos en vertical:</p>
+<ul>
+<li>Primero aparece el título.</li>
+<li>Después aparecen las filas con información.</li>
+<li>Finalmente aparece el botón.</li>
+</ul>
+<p>Podemos crear otra preview para este segundo ejemplo:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="nd">@Preview</span><span class="p">(</span><span class="n">showSystemUi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">PreviewPantallaBotones2</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">    </span><span class="n">PantallaBotones2</span><span class="p">()</span>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>En el mismo fichero <code>PantallasBotones.kt</code>, crea una función llamada <code>PantallaBotones2</code>.</li>
+<li>Dentro, crea una <code>Column</code>.</li>
+<li>Añade un título con <code>Text</code>.</li>
+<li>Añade dos <code>Row</code> con información.</li>
+<li>Añade un <code>Button</code> al final de la <code>Column</code>.</li>
+<li>Dentro del botón, añade un <code>Text</code> con el texto "Guardar".</li>
+<li>Crea una preview llamada <code>PreviewPantallaBotones2</code>.</li>
+<li>Comprueba el resultado en la preview.</li>
+<li>Cambia el texto del botón por "Enviar ficha".</li>
+</ol>
+</div>
+<h2 id="el-parametro-onclick"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.14</span> El parámetro onClick</h2>
+<p>El parámetro <code>onClick</code> es una función que se ejecuta cuando se pulsa el botón.</p>
+<p>Por ahora vamos a hacer algo muy sencillo: escribir un mensaje en la consola.</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">PantallaBotones3</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">    </span><span class="n">Button</span><span class="p">(</span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">        </span><span class="n">onClick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">            </span><span class="n">println</span><span class="p">(</span><span class="s">"Se ha pulsado el botón"</span><span class="p">)</span>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="w">        </span><span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Guardar"</span><span class="p">)</span>
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>Y, como en los ejemplos anteriores, podemos crear su preview:</p>
+<div class="language-kotlin highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="nd">@Preview</span><span class="p">(</span><span class="n">showSystemUi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="nd">@Composable</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="kd">fun</span><span class="w"> </span><span class="nf">PreviewPantallaBotones3</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="w">    </span><span class="n">PantallaBotones3</span><span class="p">()</span>
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Esto no cambia nada en la pantalla, pero nos sirve para entender que dentro de <code>onClick</code> podemos escribir código Kotlin.</p>
+<p>La idea es:</p>
+<ul>
+<li>El botón se muestra en pantalla.</li>
+<li>El usuario pulsa el botón.</li>
+<li>Se ejecuta el código que hay dentro de <code>onClick</code>.</li>
+</ul>
+<p>Más adelante haremos que al pulsar un botón cambien cosas de la interfaz, pero para eso primero necesitaremos entender los estados.</p>
+<div class="admonition note">
+<p class="admonition-title">Ejercicio</p>
+<ol>
+<li>En el mismo fichero <code>PantallasBotones.kt</code>, crea una función llamada <code>PantallaBotones3</code>.</li>
+<li>Añade un botón con el texto "Guardar".</li>
+<li>Dentro del <code>onClick</code>, añade un <code>println</code>.</li>
+<li>Escribe un mensaje como "Botón pulsado".</li>
+<li>Crea una preview llamada <code>PreviewPantallaBotones3</code>.</li>
+<li>Lee el código y asegúrate de entender cuándo se ejecutaría ese mensaje.</li>
+<li>Cambia el mensaje por otro distinto.</li>
+</ol>
+</div></div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "content.code.annotate", "navigation.expand"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../javascripts/kotlin.js"></script>
+<script src="https://unpkg.com/kotlin-playground@1"></script>
+</body>
+</html>

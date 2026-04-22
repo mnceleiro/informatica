@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# 2. Crea un script que cuente los números impares empezando en el 133 hasta 0 (bucle for). Los números deben estar en la misma línea separados por espacios.
+
+for i in {133..0..2}
+do	
+	echo -n "$i "
+done
+
+echo "" # Al final hago un salto de linea
