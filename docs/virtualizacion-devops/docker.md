@@ -387,9 +387,22 @@ Esto debería abrirnos un terminal dentro de la máquina Ubuntu. Como no entramo
     docker container run -it -p 8080:80 nginx bash
 
     # 5. Probamos "curl localhost". Si curl no está instalado, lo instalamos
+    ## Instalación
     apt update
     apt install curl
+    
+    ## Comprobamos si está en ejecución 
+    ## -> No lo estará por ejecutar bash en lugar de nginx al arrancar
+    /etc/init.d/nginx status
+
+    ## Si no está en ejecución lo arrancamos
+    /etc/init.d/nginx start
+
+    ## Volvemos a comprobar que se esté ejecutando y probamos funcionamiento
+    /etc/init.d/nginx status
     curl localhost
+
+    ## Finalmente, cerramos sesión de bash
     exit
 
     # 6. Miramos si el contenedor está creado y en ejecución y si existe lo eliminamos
@@ -677,10 +690,10 @@ docker network connect <id_red> <id_contenedor>
 
 # Para desconectar
 docker network disconnect <id_red> <id_contenedor>
-
 ```
 
 !!! Note "Ejercicio"
+
     1. Conecta un contenedor cualquiera a la misma red que el que hemos creado. Verifícalo con `docker network inspect` y `docker container inspect`.
     2. Desconectalo con de la misma manera que lo has conectado y verifica que ya no aparece en la red al hacer el inspect.
 

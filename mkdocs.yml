@@ -89,8 +89,16 @@ nav:
     - 'Unity 3D':
       - 'Minijuego de plataformas 3D': 'gamedev/unity/unity3d-ejercicio-1'
   - Android:
-    - 'Introducción a Kotlin': 'androiddev/kotlin/kotlin-intro.md'
-    - 'Ejercicios de Kotlin': 'androiddev/kotlin/kotlin-exercises.md'
+    - 'Kotlin':
+      - 'Introducción a Kotlin': 'androiddev/kotlin/kotlin-intro.md'
+      - 'Ejercicios de Kotlin': 'androiddev/kotlin/kotlin-exercises.md'
+    - 'Jetpack Compose':
+      - 'Desarrollo de interfaces (I)': 'androiddev/compose-01.md'
+      - 'Desarrollo de interfaces (II)': 'androiddev/compose-02.md'
+    - 'Prácticas':
+      - 'Práctica: pantalla de login': 'androiddev/compose-02-practica.md'
+    - 'Temas':
+      - 'Temas (themes)': 'androiddev/compose-03-styles.md'
   - Otros:
     - 'Intro': 'apuntes-variados/intro.md'
     - 'Programación': 'apuntes-variados/programming.md'
@@ -126,7 +134,10 @@ markdown_extensions:
       - name: mermaid
         class: mermaid
         format: !!python/name:pymdownx.superfences.fence_code_format
-      - name: kotlin
+      # - name: kotlin
+      #   class: language-kotlin
+      #   format: !!python/name:pymdownx.superfences.fence_code_format
+      - name: compose
         class: language-kotlin
         format: !!python/name:pymdownx.superfences.fence_code_format
   - attr_list

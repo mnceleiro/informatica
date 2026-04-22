@@ -5,7 +5,7 @@
 
 .CodeMirror, .CodeMirror pre, .CodeMirror .CodeMirror-code, .CodeMirror .CodeMirror-code pre {
     font-family: var(--md-code-font-family);
-    font-size: 13px;
+    font-size: 14px;
 }
 
 

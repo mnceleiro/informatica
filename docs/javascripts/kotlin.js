@@ -1,3 +1,3 @@
 document.addEventListener('DOMContentLoaded', function() {
-    KotlinPlayground('.language-kotlin');
+    KotlinPlayground('.language-kotlin.playground');
 });

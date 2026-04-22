@@ -10,6 +10,6 @@ services:
       #- ./mkdocs.yml:/mkdocs.yml
     stdin_open: true
     tty: true
-#    command: mkdocs serve -a 0.0.0.0:8000
+    #command: mkdocs serve --livereload
     environment:
       WATCHDOG_USE_POLLING: "true"

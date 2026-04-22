@@ -13,7 +13,7 @@ Crea un programa que:
 
 ??? success "Ver solución"
 
-    ```kotlin
+    ```kotlin {.playground}
     fun main() {
         // NO es necesario poner el tipo, ya que ya estoy asignando un entero
         val n1 = 17 
@@ -157,7 +157,7 @@ Crea una función lambda que sume reciba dos parámetros y sume dos números. Gu
 `val sumarDosNumeros = ...`
 
 ??? success "Ver solución"
-    ```kotlin
+    ```kotlin {.playground}
     val sumarDosNumeros = { a: Int, b: Int -> a + b }
 
     // Podemos poner entre ${} llamadas más complejas para no usar el operador '+'
@@ -207,7 +207,7 @@ Ahora, hagamos lo anterior todo junto. Filtra los mayors que 5, duplicalos y fin
 
 ### Mapeo de strings
 Dada la siguiente lista:
-```kotlin
+```kotlin {.playground}
 val lenguajes = listOf("Kotlin", "Java", "JavaScript", "Scala", "Python", "Rust")
 ```
 

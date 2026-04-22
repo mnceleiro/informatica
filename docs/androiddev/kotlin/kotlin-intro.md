@@ -8,7 +8,7 @@ Para definir una constante en kotlin se usa la palabra clave `val` (value o valo
 
 Todo lo siguiente es inmutable:
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     val nombre = "Marcos"
     val edad = 38
@@ -28,7 +28,7 @@ fun main() {
 - La función `print(mensaje)` nos permite mostrar por pantalla sin salto de línea.
 - La función `println(mensaje)` nos permite mostrar por pantalla (con salto de línea final).
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     println("Esto es un mensaje.")
 
@@ -48,7 +48,7 @@ fun main() {
 
 Podemos concatenar los mensajes con el operador "+" (igual que haciendo una suma de números):
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     val nombre: String = "Lucía"
     val edad: Int = 17
@@ -64,7 +64,7 @@ fun main() {
 
 Otra manera más sencilla (si eres nuevo en programación te recomiendo practicar antes la anterior) es usar el caracter `$`.
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     val nombre: String = "Lucía"
     val edad: Int = 17
@@ -96,7 +96,7 @@ var nombreVariable = Valor // No haría falta el tipo, ya que al asignarle el va
 
 Veámoslo con un ejemplo real:
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     // Si declaro algo pero no asigno un valor hay que ponerle el tipo de dato que voy a usar!
     var numero: Int
@@ -118,7 +118,7 @@ Para crear variables a las que no les asigno nada tengo que indicar su tipo (Int
 
 #### Ejercicio
 Intenta hacer el siguiente ejercicio (cíñete a lo que pide cada comentario y resuelve debajo del mismo):
-```kotlin
+```kotlin {.playground}
 fun main() {
     // 1. Declara una variable "ciudad" y asígnale tu ciudad de nacimiento
 
@@ -144,7 +144,7 @@ Bien, ya has interiorizado un poco la declaración y asignación de variables en
 ### Variables: seguridad ante nulos
 El lenguaje Kotlin es un lenguaje seguro ante nulos. **Por defecto, en sus variables, no permite valores nulos**. Esta es la razón por la que esto no funciona:
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     // Ninguna de estas líneas es válida, ya que las variables no pueden tener valores nulos
     var miCiudad: String
@@ -167,7 +167,7 @@ fun main() {
 
 Veamos para que sirven estos operadores. Empecemos por el operador "?":
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     // No funciona: "Property must be initialized."
     var ciudad: String
@@ -182,7 +182,7 @@ fun main() {
 
 ¿Cómo hacemos entonces que funcione? Pues **tenemos que decirle que la variable no solo es de tipo String, sino que es de tipo "String nullable"**. Esto se escribe como "String?":
 
-```kotlin
+```kotlin {.playground}
 // FUNCIONA! Le indico que es un String nullable
 fun main() {
     var ciudad: String? = null
@@ -202,7 +202,7 @@ fun main() {
 
 En el ejemplo anterior vemos que `ciudad` ya no es de tipo `String`, sino que es de tipo `String?`. Para hacer llamadas a métodos de un objeto nullable, tenemos que usar el operador de llamada segura: "?.". Por ejemplo:
 
-```kotlin
+```kotlin {.playground}
 // FUNCIONA! Le indico que es un String nullable
 fun main() {
     var ciudad: String? = "Lugo"
@@ -222,7 +222,7 @@ En Java, si ejecutas un método sobre cualquier objeto nulo. (por ejemplo: NULL.
 ### Operador !!
 **Este operador no está recomendado**, pero si quisieses ejecutar código como lo harías en Java (haciendo que Kotlin ignore la posible NullPointerException y te permita compilar el código), puedes usar el operador `!!`:
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     var ciudad: String? = "Lugo"
 
@@ -237,7 +237,7 @@ fun main() {
 ### Smart casting
 Si haces una comprobación de nulos antes de la llamada a las propiedades del objeto (en el caso anterior a `length`) ya no haría falta usar `?.`. Esto se denomina *smart casting*.
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     var ciudad: String? = null
 
@@ -252,7 +252,7 @@ fun main() {
 ### Operador Elvis `?:`
 Esto es lo último que mostramos de ejemplo relacionado con los nulos.
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     val nombre: String? = null
 
@@ -283,7 +283,7 @@ Las funciones es el concepto más importante que tienes que entender en programa
 
 ### Sintaxis básica
 Esta es la sintaxis básica de las funciones:
-```kotlin
+```kotlin {.playground}
 fun nombreFuncion(param1: Tipo1, param2: Tipo2, ...): TipoRetorno {
     // cuerpo de la función
     return valor
@@ -298,7 +298,7 @@ fun nombreFuncion(param1: Tipo1, param2: Tipo2, ...): TipoRetorno {
 - `return` → devuelve un valor (obligatorio si el tipo de retorno no es `Unit`)
 
 Veamos algunos ejemplos:
-```kotlin
+```kotlin {.playground}
 
 // Funcion que recibe 2 enteros como parámetro y devuelve otro entero
 fun sumar(a: Int, b: Int): Int {
@@ -316,7 +316,7 @@ fun main() {
 
 Otro ejemplo ahora de funciones que no devuelven nada (Unit):
 
-```kotlin
+```kotlin {.playground}
 // Funcion que no devuelve nada (Unit)
 fun imprimirSaludo(nombre: String): Unit {
     println("Hola $nombre")
@@ -336,7 +336,7 @@ fun main() {
 ### Funciones como expresiones
 Al crear funciones podemos no escribir las llaves "{}" ni el "return". Es una forma más compacta y simple de escribir funciones pequeñas:
 
-```kotlin
+```kotlin {.playground}
 // Forma normal
 fun saludarVersionNormal(nombre: String): String {
     return "Hola $nombre"
@@ -355,7 +355,7 @@ La última forma es más simple. En ella ignoramos el tipo devuelto (ya supone q
 ### Parámetros por defecto
 Se pueden pasar parámetros por defecto a las funciones. En Kotlin puedes darle un valor inicial a los parámetros.  Si el usuario **no pasa nada**, se usa ese valor.
 
-```kotlin
+```kotlin {.playground}
 fun saludar(nombre: String = "Invitado") = "Hola $nombre"
 
 fun main() {
@@ -366,7 +366,7 @@ fun main() {
 ```
 
 En caso de tener varios parámetros por defecto :
-```kotlin
+```kotlin {.playground}
 fun crearUsuario(
     nombre: String,
     edad: Int = 0,
@@ -389,7 +389,7 @@ fun main() {
 ### Parámetros nombrados
 Se pueden pasar parámetros por su nombre (en ese caso no importaría el orden que uses para pasarlos):
 
-```kotlin
+```kotlin {.playground}
 fun restar(a: Int, b: Int) = a - b
 
 fun main() {
@@ -405,7 +405,7 @@ fun main() {
 
 Puedo pasar los parámetros desordenados siempre y cuando sean nombrados:
 
-```kotlin
+```kotlin {.playground}
 fun crearUsuario(
     nombre: String,
     edad: Int = 0,
@@ -462,7 +462,7 @@ TODO
 ## Data classes
 Las data classes nos autogeneran los métodos toString() equals() hashCode() y copy(). Se crean de la siguiente forma:
 
-```kotlin
+```kotlin {.playground}
 // Este data class genera: toString() equals() hashCode() y copy(). En android es importante que los modelos sean inmutables (val)
 data class Usuario(
     val nombre: String,
@@ -486,7 +486,7 @@ Permite modificar los valores, pero **no puedes cambiar el tamaño del array**. 
 - Cuando el tamaño no va a cambiar.
 - Cuando buscas rendimiento un poco mayor que una lista.
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     // Creamos un array de números
     val numeros = arrayOf(1, 2, 3)
@@ -511,7 +511,7 @@ Existen **listas mutables** (el tipo es (MutableList<T\>)) y **listas inmutables
 - Ideal para modelos, configuraciones, constantes
 - En Kotlin y Android lo más habitual es usar listas inmutables.
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     val letras: List<String> = listOf("a", "b", "c")
     letras.add("d")  // error
@@ -527,7 +527,7 @@ fun main() {
 ### Listas mutables
 Se puede añadir, eliminar y modificar.
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     val letras = mutableListOf("a", "b", "c")
     letras.add("d")           // Funciona
@@ -539,7 +539,7 @@ fun main() {
 ### Métodos de listas
 A continuación de muestran varios ejemplos de métodos que puedes usar sobre una lista:
 
-```kotlin
+```kotlin {.playground}
 fun main() {
     // Declaración de arrays y listas
     val arr = arrayOf(10, 20, 30)
@@ -573,8 +573,8 @@ fun main() {
 }
 ```
 
-## Iteración sobre listas con bulces
-```kotlin
+## Iteración sobre listas con bucles
+```kotlin {.playground}
 fun main() {
     val numeros = mutableListOf(1, 2, 3)
 
@@ -597,10 +597,94 @@ fun main() {
 }
 ```
 
-## Iteración sobre listas usando programación funcional
-```kotlin
+## Programación funcional
+Kotlin es un lenguaje de programación funcional. Algunas características de la programación funcional son las siguientes:
+
+### Funciones puras
+Una función es pura si para los mismos argumentos (parámetros) siempre devuelve lo mismo, no tiene efectos secundarios (*side effects*).
+
+```kotlin {.playground}
+fun sumar(a: Int, b: Int): Int = a + b
+
 fun main() {
-    // Métodos de alto nivel
+    val suma = sumar(5, 7)
+
+    println(suma)
+}
+```
+
+!!! Tip "Funciones puras"
+    Si llamas a `sumar(2, 3)` siempre devuelve 5. No cambia ninguna variable global, no imprime nada, no modifica objetos. Para las mismas entradas (2 y 3 en este caso) siempre saca la misma salida (5).
+
+### Inmutabilidad
+Los datos **no se modifican**; en lugar de cambiar un objeto, creas uno nuevo.
+
+```kotlin {.playground}
+val lista = listOf(1,2,3)
+val nuevaLista = lista.map { it * 2 }  // [2,4,6] pero lista sigue siendo [1,2,3]
+```
+
+### Funciones lambda
+Es una función sin nombre. Puede asignarse a una variable o pasarse como parámetro.
+
+```kotlin {.playground}
+fun main() {
+    // Ejemplo de definición de una función lambda
+    val cuadrado = { x: Int -> x * x }   // recibe x y devuelve x*x
+
+    // Llamamos a la función lambda
+    println(cuadrado(4)) // 16
+
+    // Ejemplo de una función lambda con varios parámetros
+    val sumar = { a: Int, b: Int -> a + b }
+
+    println(sumar(3,4)) // 7
+}
+```
+
+Puedes verlo como otra forma (más corta y rápida) de definir funciones. ¿No es tan difícil no? Pero... ¿para qué sirve esto? Pues ahora lo veremos.
+
+!!! Tip "No se pone la palabra return"
+    Al ser funciones cortas, la última línea de código ya es considerada como el "return". Por esta razón, en el ejemplo, no ves ningún return (pero lo hay implícito!).
+
+!!! Tip "No hay valores por defecto en lambdas"
+    Este tipo de funciones (funciones lambda) no pueden recibir parámetros por defecto en Kotlin. Si quieres tener valores por defecto tienes que usar una función normal (fun).
+
+!!! Note "Ejercicio"
+    1. Crea en la sección de arriba funciones lambda para: restar, multiplicar y dividir y pruébalas.
+    2. Crea ahora una función mostrarNombre() que reciba tu nombre y lo muestre por pantalla (la propia función)
+
+¿Y si queremos declarar el tipo de la variable? Por ejemplo, tenemos dos formas de declarar variables:
+
+1. Sin decirles el tipo y dejar que lo coja implícitamente del valor que le asignamos. Por ejemplo: en `val num = 10` num implícitamente es de tipo entero.
+2. Indicándole el tipo. Por ejemplo: `val num: Int = 10`. Hemos indicado explícitamente que es un Int, pero no haría falta porque al asignarle el número 10 el compilador ya sabe que es un entero.
+
+Esto también aplica a funciones lambda (ya que se pueden almacenar en variables!). Veamos un ejemplo
+
+```kotlin {.playground}
+fun main() {
+    // La misma función cuadrado de antes, vamos a ponerle el tipo
+    // Decimos que "cuadrado" es una función que recibe un Int y devuelve otro Int, se escribe así:
+    val cuadrado: (Int) -> Int = { x: Int -> x * x }
+    println(cuadrado(4)) // 16
+
+    // sumar es una función que recibe 2 enteros y devuelve otro entero
+    val sumar: (Int, Int) -> Int = { a: Int, b: Int -> a + b }
+    println(sumar(3,4)) // 7
+
+    // saludar recibe un string (el nombre) y no devuelve nada (Unit)
+    val saludar: (String) -> Unit = { nombre: String -> println("Hola $nombre.") }
+    saludar("Pepe")
+}
+```
+
+### Iteración sobre listas usando programación funcional
+Existen muchas funciones de orden superior ya definidas que toman otras funciones como parámetro y nos pueden hacer la vida más fácil. Algunas de las más populares son: `filter` (filtra sobre una lista), `map` (convierte objetos de una lista en otro diferente), `forEach` o `reduce`. 
+
+Para indicar que pasamos un argumento a la función, por defecto en kotlin se usa la palabra clave `it` (aunque podemos definir nosotros la que queramos. Vamos a ver algunos ejemplos de estas funciones usando `it` directamente (ya que queda más sencillo).
+
+```kotlin {.playground}
+fun main() {
     val lista = listOf(1, 2, 3, 4, 5)
 
     val listaPor2 = lista.map { it * 2 }           // [2, 4, 6, 8, 10]
@@ -616,6 +700,32 @@ fun main() {
     println("Hay elementos mayores que 3 en la lista? $hayElementosMayoresQue3")
     
     val todosSonPositivos: Boolean = lista.all { it > 0 }           // true
+    println("Todos son positivos? $todosSonPositivos.")
+    
+    val sumaTotal = lista.sum()
+    println("Suma de todos los valores de la lista: $sumaTotal")
+}
+```
+
+Mismos ejemplos sin usar `it`:
+
+```kotlin {.playground}
+fun main() {
+    val lista = listOf(1, 2, 3, 4, 5)
+
+    val listaPor2 = lista.map { num -> num * 2 }           // [2, 4, 6, 8, 10]
+    println("Lista multiplicada por 2: $listaPor2")
+
+    val listaPares = lista.filter { num -> num % 2 == 0 }   // [2, 4]
+    println("Lista de pares: $listaPares")
+
+    val listaOrdenada = lista.sorted()                 // [1, 2, 3, 4, 5]
+    println("Lista ordenada: $listaOrdenada")
+
+    val hayElementosMayoresQue3: Boolean = lista.any { num -> num > 3 }  // true
+    println("Hay elementos mayores que 3 en la lista? $hayElementosMayoresQue3")
+    
+    val todosSonPositivos: Boolean = lista.all { num -> num > 0 }           // true
     println("Todos son positivos? $todosSonPositivos.")
     
     val sumaTotal = lista.sum()
